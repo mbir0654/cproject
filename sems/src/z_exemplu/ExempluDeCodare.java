@@ -10,6 +10,14 @@ import java.util.*;
  * 
  * Aici apare descrierea clasei
  * 
+ * A se avea in vedere:
+ * - acolada apare la sfarsitul randului
+ * - pe rand nou, tabul este de 4 spatii
+ * - cuvintele si simbolurile sunt despartite de spatii
+ * - linia are maxim 80 de caractere, indiferent ca e vorba de cod sau comment
+ * - numele metodelor incepe cu litera mica
+ * - al doilea cuvant din denumiri incepe cu litera mare
+ * 
  * taguri: 
  * 
  * @author nume_autor
@@ -18,15 +26,7 @@ import java.util.*;
  *  
  * @version 1.0
  * sau alta versiune, sau renuntam la versiune
- *
- *
- * A se avea in vedere:
- * - acolada apare la sfarsitul randului
- * - pe rand nou, tabul este de 4 spatii
- * - cuvintele si simbolurile sunt despartite de spatii
- * - linia are maxim 80 de caractere, indiferent ca e vorba de cod sau comment
- * - numele metodelor incepe cu litera mica
- * - al doilea cuvant din denumiri incepe cu litera mare
+ * 
  * 
  */
 
@@ -53,7 +53,8 @@ public class ExempluDeCodare {
 	 * Descrierea parametrului se termina la intalnirea utmatorului tag
 	 * 
 	 * @return Aici nu e cazul, dar tagul acesta explica ce returneaza metoda
-	 * in cauza
+	 * in cauza. da un warning la generare javadoc din cauza ca metoda 
+	 * returneaza void
 	 * 
 	 * @throws exceptions No exceptions thrown.
 	 * in cazul in care se arunca o exceptie, primul cuvant dupa tag-ul throws

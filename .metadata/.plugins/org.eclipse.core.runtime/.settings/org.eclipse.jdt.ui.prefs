@@ -1,19 +1,29 @@
-#Fri Mar 04 18:49:53 EET 2011
+#Sat Mar 05 13:52:05 EET 2011
 content_assist_proposals_foreground=58,57,53
+org.eclipse.jdt.ui.overrideannotation=true
 spelling_locale_initialized=true
+content_assist_disabled_computers=org.eclipse.jdt.ui.javaAllProposalCategory\u0000org.eclipse.jdt.ui.javaNoTypeProposalCategory\u0000org.eclipse.jdt.ui.textProposalCategory\u0000org.eclipse.jdt.ui.javaTypeProposalCategory\u0000
+command=/usr/lib/jvm/java-6-sun-1.6.0.24/bin/javadoc
+org.eclipse.jdt.ui.gettersetter.use.is=true
 org.eclipse.jdt.ui.text.templates_migrated=true
 useAnnotationsPrefPage=true
 eclipse.preferences.version=1
 org.eclipse.jface.textfont=1|Monospace|10.0|0|GTK|1|;
 tabWidthPropagated=true
 org.eclipse.jdt.ui.editor.tab.width=
+org.eclipse.jdt.ui.exception.name=e
 fontPropagated=true
 org.eclipse.jdt.ui.text.custom_code_templates=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?><templates/>
 org.eclipse.jdt.ui.javadoclocations.migrated=true
 proposalOrderMigrated=true
-org.eclipse.jdt.ui.formatterprofiles.version=11
+org.eclipse.jdt.ui.ondemandthreshold=99
 content_assist_proposals_background=255,255,255
+org.eclipse.jdt.ui.formatterprofiles.version=11
 content_assist_number_of_computers=16
+org.eclipse.jdt.ui.javadoc=true
 useQuickDiffPrefPage=true
 org.eclipse.jdt.ui.text.custom_templates=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?><templates/>
+org.eclipse.jdt.ui.staticondemandthreshold=99
+org.eclipse.jdt.ui.importorder=java;javax;org;com;
+org.eclipse.jdt.ui.ignorelowercasenames=true
 org.eclipse.jdt.ui.text.code_templates_migrated=true
