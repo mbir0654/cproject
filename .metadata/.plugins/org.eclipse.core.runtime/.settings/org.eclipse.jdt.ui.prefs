@@ -1,4 +1,4 @@
-#Sat Mar 05 13:52:05 EET 2011
+#Thu Mar 24 23:13:43 EET 2011
 content_assist_proposals_foreground=58,57,53
 org.eclipse.jdt.ui.overrideannotation=true
 spelling_locale_initialized=true
@@ -8,10 +8,10 @@ org.eclipse.jdt.ui.gettersetter.use.is=true
 org.eclipse.jdt.ui.text.templates_migrated=true
 useAnnotationsPrefPage=true
 eclipse.preferences.version=1
-org.eclipse.jface.textfont=1|Monospace|10.0|0|GTK|1|;
+org.eclipse.jface.textfont=1|Courier New|10.0|0|WINDOWS|1|0|0|0|0|0|0|0|0|1|0|0|0|0|Courier New;
 tabWidthPropagated=true
-org.eclipse.jdt.ui.editor.tab.width=
 org.eclipse.jdt.ui.exception.name=e
+org.eclipse.jdt.ui.editor.tab.width=
 fontPropagated=true
 org.eclipse.jdt.ui.text.custom_code_templates=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?><templates/>
 org.eclipse.jdt.ui.javadoclocations.migrated=true
