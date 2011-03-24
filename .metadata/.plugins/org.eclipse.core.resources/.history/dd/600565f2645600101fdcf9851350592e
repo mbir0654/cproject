@@ -1,0 +1,7 @@
+package business.model;
+
+public class Facultate {
+	private String universitate;
+	private String nume;
+	private String adresa;
+}

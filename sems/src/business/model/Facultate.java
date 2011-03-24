@@ -1,5 +1,10 @@
 package business.model;
 
-public class Facultate {
+import java.util.ArrayList;
 
+public class Facultate {
+	private String universitate;
+	private String nume;
+	private String adresa;
+	private ArrayList<Specializare> specializari;
 }

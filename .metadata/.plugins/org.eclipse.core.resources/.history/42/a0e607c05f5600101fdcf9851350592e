@@ -1,0 +1,31 @@
+package business.model;
+
+public class Examen {
+	private String data;
+	private Nota nota;
+	private String tip;
+	
+	public Examen(Examen e){
+		data=e.data;
+		nota=e.nota;
+		tip=e.tip;
+	}
+	public void setData(String d){
+		data=d;
+	}
+	public void setNota(Nota n){
+		nota=n;
+	}
+	public void setTip(String t){
+		tip=t;
+	}
+	public String getData(){
+		return data;
+	}
+	public Nota getNota(){
+		return nota;
+	}
+	public String getTip(){
+		return tip;
+	}
+}

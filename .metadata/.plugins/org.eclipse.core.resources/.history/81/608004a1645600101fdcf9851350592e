@@ -1,0 +1,12 @@
+package business.model;
+
+import java.util.Date;
+
+public class RezolvareTema {
+	private String rezolvare;
+	private Date data;
+	
+	public RezolvareTema(){
+		
+	}
+}

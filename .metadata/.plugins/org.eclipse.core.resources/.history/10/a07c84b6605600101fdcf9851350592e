@@ -1,0 +1,43 @@
+package business.model;
+
+import java.util.ArrayList;
+
+public class Examen {
+	private String data;
+	private String tip;
+	private ArrayList<Nota> nota;
+	
+	public Examen(Examen e){
+		data=e.data;
+		tip=e.tip;		
+		nota=e.nota;
+	}
+	public Examen(String d, String t, Nota n){
+		data=d;
+		tip=t;
+		nota.add(n);
+	}
+	public Examen(String d, String t){
+		data=d;
+		tip=t;
+		nota=null;
+	}
+	public void setData(String d){
+		data=d;
+	}
+	public void addNota(Nota n){
+		nota.add(n);
+	}
+	public void setTip(String t){
+		tip=t;
+	}
+	public String getData(){
+		return data;
+	}
+	public Nota getNota(){
+		return nota;
+	}
+	public String getTip(){
+		return tip;
+	}
+}
