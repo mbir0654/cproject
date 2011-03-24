@@ -19,7 +19,7 @@ final class StudentService {
 	private Student s;
 	public void viewCourses(Student s){
 		/**TODO
-		 * incarca intr-un jlist cursurile la care e inscris studentul 
+		 * incarca intr-un jlist disciplinele la care e inscris studentul 
 		 */
 	}
 	public void exitSystem(Student s){

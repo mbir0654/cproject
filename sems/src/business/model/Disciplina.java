@@ -7,6 +7,6 @@ package business.model;
  * @author myh
  *
  */
-public class Curs {
+public class Disciplina {
 
 }
