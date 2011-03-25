@@ -12,7 +12,7 @@ public class Disciplina {
 	private ArrayList<Tema> teme;
 	private String syllabus;
 	private String denumire;
-	private int nrCredite;
+	
 	
 	public Disciplina(){
 		examene = new ArrayList<Examen>();

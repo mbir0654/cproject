@@ -10,7 +10,6 @@ public class Disciplina {
 	private ArrayList<Examen> examene;
 	private ArrayList<Anunt> anunturi;
 	private ArrayList<Tema> teme;
-	private String syllabus;
 	private String denumire;
 	private int nrCredite;
 	

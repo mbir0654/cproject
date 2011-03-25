@@ -12,14 +12,13 @@ public class Disciplina {
 	private ArrayList<Tema> teme;
 	private String syllabus;
 	private String denumire;
-	private int nrCredite;
+	
 	
 	public Disciplina(){
 		examene = new ArrayList<Examen>();
 		anunturi = new ArrayList<Anunt>();
 		teme = new ArrayList<Tema>();
 		denumire = "";
-		nrCredite = 0;
 	}
 	public Disciplina(String d, int nC){
 		examene = new ArrayList<Examen>();

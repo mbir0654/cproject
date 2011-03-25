@@ -12,6 +12,6 @@ public class Facultate {
 		universitate = "";
 		nume = "";
 		adresa = "";
-		specializari = new ArrayList<Specializare>();
+		specializare = new ArrayList<Specializare>();
 	}
 }
