@@ -19,7 +19,7 @@ public class Grade {
 		date = null;
 	}
 	public void setGrade(int n){
-		grade=n;
+		grade = n;
 	}
 	public void setDate(Date d){
 		date = d;

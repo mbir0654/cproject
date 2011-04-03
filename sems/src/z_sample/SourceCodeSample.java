@@ -1,7 +1,10 @@
-package z_exemplu;
+package z_sample;
 import java.util.*;
 
 /**
+ * Let us implement all source code (identifiers, comments, maybe even
+ * documentation in English).
+ * 
  * Exemplu de indentare si de comentare a claselor si metodelor proiect.
  * 
  * Obligatoriu de folosit!!
@@ -30,7 +33,7 @@ import java.util.*;
  * 
  */
 
-public class ExempluDeCodare {
+public class SourceCodeSample {
 	/**
 	 * Comentariul acesa deserveste atributul i. Daca aveti ceva
 	 * de zis despre el, aici este locul

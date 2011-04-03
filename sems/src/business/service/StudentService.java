@@ -14,7 +14,7 @@ import business.model.*;
  */
 final class StudentService {
 	/**
-	 * Studentul pentru care efectuam serviciile
+	 * The student for which we offer the services.
 	 */
 	private Student s;
 	public void viewCourses(Student s){

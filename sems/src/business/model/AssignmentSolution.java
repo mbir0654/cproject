@@ -8,9 +8,9 @@ public class AssignmentSolution {
 	private Student author;
 	
 	public AssignmentSolution() {
-		//todo
+		// TODO: implement
 	}	
 	public AssignmentSolution(String r, Date d) {
-		//todo
+		// TODO: implement
 	}
 }

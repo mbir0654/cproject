@@ -1,18 +1,20 @@
 package business.model;
 
 public class Announcement {
-	private String announcement;
+	private String announcement = "";
 	
-	public Announcement(String a){
+	public Announcement(String a) {
 		announcement = a;
 	}
-	public Announcement(){
-		announcement = "";
+	
+	public Announcement() {
 	}
-	public void setAnunt(String a){
+	
+	public void setAnunt(String a) {
 		announcement = a;
 	}
-	public String getAnunt(){
+	
+	public String getAnunt() {
 		return announcement;
 	}
 }

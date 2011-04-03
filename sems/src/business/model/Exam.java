@@ -8,38 +8,43 @@ public class Exam {
 	private String type;
 	private ArrayList<Grade> grades;
 	
-	public Exam(Exam e){
+	public Exam(Exam e) {
 		date = e.date;
 		type = e.type;		
 		grades = e.grades;
 	}
-	public Exam(Date d, String t, Grade n){
+	public Exam(Date d, String t, Grade n) {
 		date = d;
-		type=t;
+		type = t;
 		grades.add(n);
 	}
-	public Exam(Date d, String t){
+	public Exam(Date d, String t) {
 		date = d;
 		type = t;
 		grades = null;
 	}
-	public void setData(Date d){
+	
+	public void setData(Date d) {
 		date = d;
 	}
 
-	public void setTip(String t){
+	public void setTip(String t) {
 		type = t;
 	}
-	public Date getData(){
+	
+	public Date getData() {
 		return date;
 	}
-	public String getType(){
+	
+	public String getType() {
 		return type;
 	}
-	public void addGrade(Grade n){
+	
+	public void addGrade(Grade n) {
 		grades.add(n);
 	}
-	public ArrayList<Grade> getGrade(){
+	
+	public ArrayList<Grade> getGrade() {
 		return grades;
 	}
 	

@@ -17,38 +17,48 @@ public class Course {
 	public Course(){
 	}
 	
-	public Course(String d, int nC){
+	public Course(String d, int nC) {
 		name = d;
 		numberOfCredits = nC;
 	}
-	public void setName(String d){
+	
+	public void setName(String d) {
 		name = d;
 	}
-	public void setNumberOfCredits(int nc){
+	
+	public void setNumberOfCredits(int nc) {
 		numberOfCredits = nc;
 	}
-	public String getName(){
+	
+	public String getName() {
 		return name;
 	}
-	public int getNumberOfCredits(){
+	
+	public int getNumberOfCredits() {
 		return numberOfCredits;
 	}
-	public void addExam(Exam e){
+	
+	public void addExam(Exam e) {
 		exams.add(e);
 	}
-	public void addAnnouncement(Announcement a){
+	
+	public void addAnnouncement(Announcement a) {
 		announcements.add(a);
 	}
-	public void addAssignment(Assignment t){
+	
+	public void addAssignment(Assignment t) {
 		assignments.add(t);
 	}
-	public void deleteExam(Exam e){
+	
+	public void deleteExam(Exam e) {
 		exams.remove(e);
 	}
-	public void deleteAnnouncement(Announcement a){
+	
+	public void deleteAnnouncement(Announcement a) {
 		announcements.remove(a);
 	}
-	public void deleteAssignment(Assignment t){
+	
+	public void deleteAssignment(Assignment t) {
 		assignments.remove(t);
 	}
 	
