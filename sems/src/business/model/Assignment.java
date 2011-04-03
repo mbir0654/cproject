@@ -6,15 +6,15 @@ import java.util.Calendar;
 public class Assignment {
 	private String name = "";
 	private Calendar deadline;
-	private ArrayList<RezolvareTema> rezolvari;
+	private ArrayList<AssignmentSolution> rezolvari;
 	
 	public Assignment(){
-		rezolvari = new ArrayList<RezolvareTema>();
+		rezolvari = new ArrayList<AssignmentSolution>();
 	}
-	public void addRezolvare(RezolvareTema r){
+	public void addRezolvare(AssignmentSolution r){
 		rezolvari.add(r);
 	}
-	public void deleteRezolvare(RezolvareTema r){
+	public void deleteRezolvare(AssignmentSolution r){
 		rezolvari.remove(r);
 	}
 }

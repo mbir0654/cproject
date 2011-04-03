@@ -1,5 +1,5 @@
 package business.model;
 
 public class Syllabus {
-	//aici ce trebe sa facem?
+	// TODO: what should we implement here?
 }
