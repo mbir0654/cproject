@@ -4,4 +4,4 @@
 .metadata/.plugins/org.eclipse.core.resources/.history/
 .metadata/.plugins/org.eclipse.epp.usagedata.recording/
 .metadata/.plugins/org.eclipse.jdt.core/*.index
-.metadata/.plugins/org.eclipse.core.resources/.projects/sems/.indexes/
+.metadata/.plugins/org.eclipse.core.resources/.projects/*/.indexes/

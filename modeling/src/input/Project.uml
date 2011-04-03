@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="2.1" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:uml="http://www.eclipse.org/uml2/3.0.0/UML" xmi:id="_oqTEcV4bEeClM87cBM7Tgw" name="business">
+  <packagedElement xmi:type="uml:Package" xmi:id="_XIRisF4cEeClM87cBM7Tgw" name="model">
+    <packagedElement xmi:type="uml:Class" xmi:id="_aRbsAF4cEeClM87cBM7Tgw" name="Administrator"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_dnQ_YF4cEeClM87cBM7Tgw" name="Professor"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_g_L9cF4cEeClM87cBM7Tgw" name="Student"/>
+  </packagedElement>
+</uml:Model>
