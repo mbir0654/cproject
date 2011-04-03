@@ -1,6 +1,0 @@
-package business.model;
-
-public class Syllabus {
-	private int nrCredite;
-	
-}

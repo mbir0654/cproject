@@ -1,5 +1,0 @@
-package business;
-
-public interface Repository {
-
-}
