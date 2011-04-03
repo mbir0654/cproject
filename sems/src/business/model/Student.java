@@ -45,7 +45,7 @@ public class Student {
 	 * @model required="true" ordered="false"
 	 * @generated
 	 */
-	String getFirstName() {
+	public String getFirstName() {
 		return firstName;
 	}
 
@@ -57,7 +57,7 @@ public class Student {
 	 * @see #getFirstName()
 	 * @generated
 	 */
-	void setFirstName(String value) {
+	public void setFirstName(String value) {
 		firstName = value;
 	}
 
@@ -75,7 +75,7 @@ public class Student {
 	 * @model required="true" ordered="false"
 	 * @generated
 	 */
-	String getLastName() {
+	public String getLastName() {
 		return lastName; 
 	}
 
@@ -87,7 +87,7 @@ public class Student {
 	 * @see #getLastName()
 	 * @generated
 	 */
-	void setLastName(String value) {
+	public void setLastName(String value) {
 		lastName = value;
 	}
 
@@ -105,7 +105,7 @@ public class Student {
 	 * @model required="true" ordered="false"
 	 * @generated
 	 */
-	String getUserName() {
+	public String getUserName() {
 		return userName;
 	}
 
@@ -117,7 +117,7 @@ public class Student {
 	 * @see #getUserName()
 	 * @generated
 	 */
-	void setUserName(String value) {
+	public void setUserName(String value) {
 		userName = value;
 	}
 
@@ -135,7 +135,7 @@ public class Student {
 	 * @model required="true" ordered="false"
 	 * @generated
 	 */
-	String getPassword() {
+	public String getPassword() {
 		return password;
 	}
 
@@ -147,7 +147,7 @@ public class Student {
 	 * @see #getPassword()
 	 * @generated
 	 */
-	void setPassword(String value) {
+	public void setPassword(String value) {
 		password = value;
 	}
 } // StudentInterface
