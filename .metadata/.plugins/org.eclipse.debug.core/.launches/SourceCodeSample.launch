@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <launchConfiguration type="org.eclipse.jdt.launching.localJavaApplication">
 <listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_PATHS">
-<listEntry value="/sems/src/z_exemplu/ExempluDeCodare.java"/>
+<listEntry value="/sems/src/z_sample/SourceCodeSample.java"/>
 </listAttribute>
 <listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_TYPES">
 <listEntry value="1"/>
 </listAttribute>
-<stringAttribute key="org.eclipse.jdt.launching.MAIN_TYPE" value="z_exemplu.ExempluDeCodare"/>
+<stringAttribute key="org.eclipse.jdt.launching.MAIN_TYPE" value="z_sample.SourceCodeSample"/>
 <stringAttribute key="org.eclipse.jdt.launching.PROJECT_ATTR" value="sems"/>
 </launchConfiguration>
