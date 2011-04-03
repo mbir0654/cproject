@@ -1,4 +1,4 @@
-#Thu Mar 24 23:13:43 EET 2011
+#Sun Apr 03 12:46:02 EEST 2011
 content_assist_proposals_foreground=58,57,53
 org.eclipse.jdt.ui.overrideannotation=true
 spelling_locale_initialized=true
@@ -19,7 +19,7 @@ proposalOrderMigrated=true
 org.eclipse.jdt.ui.ondemandthreshold=99
 content_assist_proposals_background=255,255,255
 org.eclipse.jdt.ui.formatterprofiles.version=11
-content_assist_number_of_computers=16
+content_assist_number_of_computers=17
 org.eclipse.jdt.ui.javadoc=true
 useQuickDiffPrefPage=true
 org.eclipse.jdt.ui.text.custom_templates=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?><templates/>

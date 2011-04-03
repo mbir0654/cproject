@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map>
+	<bundle bundleID="422" localization="plugin" name="%pluginName" project="modeling" provider="%providerName">
+		<library name="."/>
+	</bundle>
+</map>
