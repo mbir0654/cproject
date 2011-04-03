@@ -15,6 +15,7 @@ public interface Repository<T> {
 	public void add(T item);
 	// R Read.
 	public List<T> getAll();
+	public T find(String id);
 	// U Update
 	public void update(T item);
 	// D Delete.

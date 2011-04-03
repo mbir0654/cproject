@@ -36,9 +36,11 @@ public class AdministratorTextRep implements Repository<Administrator> {
 				String userName = br.readLine();
 				String password = br.readLine();
 				Administrator item = new Administrator();
-				item.
-				//firstName, lastName, userName, price
-				items.add(s);
+				item.setFirstName(firstName);
+				item.setLastName(lastName);
+				item.setUserName(userName);
+				item.setPassword(password);
+				items.add(item);
 			}
 			br.close();
 		} catch (FileNotFoundException e) {
@@ -53,8 +55,8 @@ public class AdministratorTextRep implements Repository<Administrator> {
 	 */
 	@Override
 	public void add(Administrator item) {
-		// TODO Auto-generated method stub
-		
+		items.add(item);
+		save();
 	}
 
 	/* (non-Javadoc)
@@ -62,8 +64,7 @@ public class AdministratorTextRep implements Repository<Administrator> {
 	 */
 	@Override
 	public List<Administrator> getAll() {
-		// TODO Auto-generated method stub
-		return null;
+		return items;
 	}
 
 	/* (non-Javadoc)
@@ -71,8 +72,16 @@ public class AdministratorTextRep implements Repository<Administrator> {
 	 */
 	@Override
 	public void update(Administrator item) {
-		// TODO Auto-generated method stub
-		
+		List<Administrator> materials = getAll();
+		for (Administrator material : materials) {
+			if (material.getUserName().equals(item.getUserName())) 
+			{
+				material.setFirstName(item.getFirstName());
+				material.setLastName(item.getLastName());
+				material.setPassword(item.getPassword());
+			}
+		}
+		save();
 	}
 
 	/* (non-Javadoc)
@@ -80,8 +89,49 @@ public class AdministratorTextRep implements Repository<Administrator> {
 	 */
 	@Override
 	public void delete(Administrator item) {
-		// TODO Auto-generated method stub
-		
+		Administrator materialToDelete = find(item.getUserName());
+		if (item != null)
+		{
+			materials.remove(materialToDelete);
+			save();
+		}
+	}
+
+	/* (non-Javadoc)
+	 * @see data.repositoryinterface.Repository#find(java.lang.String)
+	 */
+	@Override
+	public Administrator find(String id) {
+		Administrator result = null;
+		List<Administrator> materials = getAll();
+		for (Administrator material : materials) {
+			if (material.getName().equals(name)) {
+				result = material;
+			}
+		}
+		return result;
+	}
+	
+	// Saves all of the items to the storage.
+	private void save() {
+		try {
+			BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(
+					new FileOutputStream(IDS_AdministratorsTxt)));
+			List<Administrator> materials = getAll();
+			for (Administrator material : materials) 
+			{
+				bw.write(material.getCode() + "\n");
+				bw.write(material.getName() + "\n");
+				bw.write(String.valueOf(material.getQuantity()).toString() + "\n");
+				bw.write(String.valueOf(material.getPrice()).toString() + "\n");
+			}
+			;
+			bw.close();
+		} catch (FileNotFoundException e) {
+			// throw new RepositoryException("Students file does not exist..");
+		} catch (IOException e) {
+			// throw new RepositoryException("Corrupted students file...");
+		}
 	}
 
 }
