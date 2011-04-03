@@ -4,10 +4,13 @@
 package data.repositorytext;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,7 +22,7 @@ import data.repositoryinterface.Repository;
  *
  */
 public class AdministratorTextRep implements Repository<Administrator> {
-	private static final String IDS_AdministratorsTxt = "data/administrator.txt";
+	private static final String IDS_AdministratorsTxt = "src/test/Administrators.txt";
 	List<Administrator> items = new ArrayList<Administrator>();
 	
 	public AdministratorTextRep()
@@ -72,14 +75,12 @@ public class AdministratorTextRep implements Repository<Administrator> {
 	 */
 	@Override
 	public void update(Administrator item) {
-		List<Administrator> materials = getAll();
-		for (Administrator material : materials) {
-			if (material.getUserName().equals(item.getUserName())) 
-			{
-				material.setFirstName(item.getFirstName());
-				material.setLastName(item.getLastName());
-				material.setPassword(item.getPassword());
-			}
+		Administrator administrator = find(item.getUserName());
+		if (administrator != null)
+		{
+			administrator.setFirstName(item.getFirstName());
+			administrator.setLastName(item.getLastName());
+			administrator.setPassword(item.getPassword());
 		}
 		save();
 	}
@@ -89,10 +90,10 @@ public class AdministratorTextRep implements Repository<Administrator> {
 	 */
 	@Override
 	public void delete(Administrator item) {
-		Administrator materialToDelete = find(item.getUserName());
-		if (item != null)
+		Administrator administrator = find(item.getUserName());
+		if (administrator != null)
 		{
-			materials.remove(materialToDelete);
+			items.remove(administrator);
 			save();
 		}
 	}
@@ -103,10 +104,10 @@ public class AdministratorTextRep implements Repository<Administrator> {
 	@Override
 	public Administrator find(String id) {
 		Administrator result = null;
-		List<Administrator> materials = getAll();
-		for (Administrator material : materials) {
-			if (material.getName().equals(name)) {
-				result = material;
+		List<Administrator> administrators = getAll();
+		for (Administrator administrator : administrators) {
+			if (administrator.getUserName().equals(id)) {
+				result = administrator;
 			}
 		}
 		return result;
@@ -117,15 +118,14 @@ public class AdministratorTextRep implements Repository<Administrator> {
 		try {
 			BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(
 					new FileOutputStream(IDS_AdministratorsTxt)));
-			List<Administrator> materials = getAll();
-			for (Administrator material : materials) 
+			List<Administrator> administrators = getAll();
+			for (Administrator administrator : administrators) 
 			{
-				bw.write(material.getCode() + "\n");
-				bw.write(material.getName() + "\n");
-				bw.write(String.valueOf(material.getQuantity()).toString() + "\n");
-				bw.write(String.valueOf(material.getPrice()).toString() + "\n");
+				bw.write(administrator.getFirstName() + "\n");
+				bw.write(administrator.getLastName() + "\n");
+				bw.write(administrator.getUserName() + "\n");
+				bw.write(administrator.getPassword() + "\n");
 			}
-			;
 			bw.close();
 		} catch (FileNotFoundException e) {
 			// throw new RepositoryException("Students file does not exist..");
