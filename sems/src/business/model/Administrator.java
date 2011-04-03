@@ -58,7 +58,7 @@ public class Administrator {
 	 * @generated
 	 */
 	void setFirstName(String value) {
-		firstNmae = value;
+		firstName = value;
 	}
 
 	/**
@@ -105,7 +105,9 @@ public class Administrator {
 	 * @model required="true" ordered="false"
 	 * @generated
 	 */
-	String getUserName();
+	String getUserName() {
+		return userName;
+	}
 
 	/**
 	 * Sets the value of the '{@link business.model.AdministratorInterface#getUserName <em>User Name</em>}' attribute.
@@ -115,7 +117,9 @@ public class Administrator {
 	 * @see #getUserName()
 	 * @generated
 	 */
-	void setUserName(String value);
+	void setUserName(String value) {
+		userName = value;
+	}
 
 	/**
 	 * Returns the value of the '<em><b>Password</b></em>' attribute.
@@ -131,7 +135,9 @@ public class Administrator {
 	 * @model required="true" ordered="false"
 	 * @generated
 	 */
-	String getPassword();
+	String getPassword() {
+		return password;
+	}
 
 	/**
 	 * Sets the value of the '{@link business.model.AdministratorInterface#getPassword <em>Password</em>}' attribute.
@@ -141,5 +147,7 @@ public class Administrator {
 	 * @see #getPassword()
 	 * @generated
 	 */
-	void setPassword(String value);
+	void setPassword(String value) {
+		password = value;
+	}
 } // AdministratorInterface

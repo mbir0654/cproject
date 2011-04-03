@@ -8,24 +8,24 @@ package business.model;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Student Interface</b></em>'.
+ * A representation of the model object '<em><b>Professor Interface</b></em>'.
  * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link business.model.StudentInterface#getFirstName <em>First Name</em>}</li>
- *   <li>{@link business.model.StudentInterface#getLastName <em>Last Name</em>}</li>
- *   <li>{@link business.model.StudentInterface#getUserName <em>User Name</em>}</li>
- *   <li>{@link business.model.StudentInterface#getPassword <em>Password</em>}</li>
+ *   <li>{@link business.model.ProfessorInterface#getFirstName <em>First Name</em>}</li>
+ *   <li>{@link business.model.ProfessorInterface#getLastName <em>Last Name</em>}</li>
+ *   <li>{@link business.model.ProfessorInterface#getUserName <em>User Name</em>}</li>
+ *   <li>{@link business.model.ProfessorInterface#getPassword <em>Password</em>}</li>
  * </ul>
  * </p>
  *
- * @see business.model.ModelPackage#getStudentInterface()
+ * @see business.model.ModelPackage#getProfessorInterface()
  * @model
  * @generated
  */
-public class Student {
+public class Professor {
 	String firstName = "";
 	String lastName = "";
 	String userName = "";
@@ -41,7 +41,7 @@ public class Student {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>First Name</em>' attribute.
 	 * @see #setFirstName(String)
-	 * @see business.model.ModelPackage#getStudentInterface_FirstName()
+	 * @see business.model.ModelPackage#getProfessorInterface_FirstName()
 	 * @model required="true" ordered="false"
 	 * @generated
 	 */
@@ -50,7 +50,7 @@ public class Student {
 	}
 
 	/**
-	 * Sets the value of the '{@link business.model.StudentInterface#getFirstName <em>First Name</em>}' attribute.
+	 * Sets the value of the '{@link business.model.ProfessorInterface#getFirstName <em>First Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>First Name</em>' attribute.
@@ -71,7 +71,7 @@ public class Student {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Last Name</em>' attribute.
 	 * @see #setLastName(String)
-	 * @see business.model.ModelPackage#getStudentInterface_LastName()
+	 * @see business.model.ModelPackage#getProfessorInterface_LastName()
 	 * @model required="true" ordered="false"
 	 * @generated
 	 */
@@ -80,7 +80,7 @@ public class Student {
 	}
 
 	/**
-	 * Sets the value of the '{@link business.model.StudentInterface#getLastName <em>Last Name</em>}' attribute.
+	 * Sets the value of the '{@link business.model.ProfessorInterface#getLastName <em>Last Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Last Name</em>' attribute.
@@ -101,7 +101,7 @@ public class Student {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>User Name</em>' attribute.
 	 * @see #setUserName(String)
-	 * @see business.model.ModelPackage#getStudentInterface_UserName()
+	 * @see business.model.ModelPackage#getProfessorInterface_UserName()
 	 * @model required="true" ordered="false"
 	 * @generated
 	 */
@@ -110,7 +110,7 @@ public class Student {
 	}
 
 	/**
-	 * Sets the value of the '{@link business.model.StudentInterface#getUserName <em>User Name</em>}' attribute.
+	 * Sets the value of the '{@link business.model.ProfessorInterface#getUserName <em>User Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>User Name</em>' attribute.
@@ -131,7 +131,7 @@ public class Student {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Password</em>' attribute.
 	 * @see #setPassword(String)
-	 * @see business.model.ModelPackage#getStudentInterface_Password()
+	 * @see business.model.ModelPackage#getProfessorInterface_Password()
 	 * @model required="true" ordered="false"
 	 * @generated
 	 */
@@ -140,7 +140,7 @@ public class Student {
 	}
 
 	/**
-	 * Sets the value of the '{@link business.model.StudentInterface#getPassword <em>Password</em>}' attribute.
+	 * Sets the value of the '{@link business.model.ProfessorInterface#getPassword <em>Password</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Password</em>' attribute.
@@ -150,4 +150,4 @@ public class Student {
 	void setPassword(String value) {
 		password = value;
 	}
-} // StudentInterface
+} // ProfessorInterface

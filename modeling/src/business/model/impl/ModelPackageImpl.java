@@ -215,6 +215,42 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getStudentInterface_FirstName() {
+		return (EAttribute)studentInterfaceEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getStudentInterface_LastName() {
+		return (EAttribute)studentInterfaceEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getStudentInterface_UserName() {
+		return (EAttribute)studentInterfaceEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getStudentInterface_Password() {
+		return (EAttribute)studentInterfaceEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public ModelFactory getModelFactory() {
 		return (ModelFactory)getEFactoryInstance();
 	}
@@ -251,6 +287,10 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		createEAttribute(professorInterfaceEClass, PROFESSOR_INTERFACE__PASSWORD);
 
 		studentInterfaceEClass = createEClass(STUDENT_INTERFACE);
+		createEAttribute(studentInterfaceEClass, STUDENT_INTERFACE__FIRST_NAME);
+		createEAttribute(studentInterfaceEClass, STUDENT_INTERFACE__LAST_NAME);
+		createEAttribute(studentInterfaceEClass, STUDENT_INTERFACE__USER_NAME);
+		createEAttribute(studentInterfaceEClass, STUDENT_INTERFACE__PASSWORD);
 	}
 
 	/**
@@ -299,6 +339,10 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		initEAttribute(getProfessorInterface_Password(), theEcorePackage.getEString(), "password", null, 1, 1, ProfessorInterface.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(studentInterfaceEClass, StudentInterface.class, "StudentInterface", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getStudentInterface_FirstName(), theEcorePackage.getEString(), "firstName", null, 1, 1, StudentInterface.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getStudentInterface_LastName(), theEcorePackage.getEString(), "lastName", null, 1, 1, StudentInterface.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getStudentInterface_UserName(), theEcorePackage.getEString(), "userName", null, 1, 1, StudentInterface.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getStudentInterface_Password(), theEcorePackage.getEString(), "password", null, 1, 1, StudentInterface.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

@@ -179,13 +179,49 @@ public interface ModelPackage extends EPackage {
 	int STUDENT_INTERFACE = 2;
 
 	/**
+	 * The feature id for the '<em><b>First Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STUDENT_INTERFACE__FIRST_NAME = 0;
+
+	/**
+	 * The feature id for the '<em><b>Last Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STUDENT_INTERFACE__LAST_NAME = 1;
+
+	/**
+	 * The feature id for the '<em><b>User Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STUDENT_INTERFACE__USER_NAME = 2;
+
+	/**
+	 * The feature id for the '<em><b>Password</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STUDENT_INTERFACE__PASSWORD = 3;
+
+	/**
 	 * The number of structural features of the '<em>Student Interface</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int STUDENT_INTERFACE_FEATURE_COUNT = 0;
+	int STUDENT_INTERFACE_FEATURE_COUNT = 4;
 
 
 	/**
@@ -307,6 +343,50 @@ public interface ModelPackage extends EPackage {
 	EClass getStudentInterface();
 
 	/**
+	 * Returns the meta object for the attribute '{@link business.model.StudentInterface#getFirstName <em>First Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>First Name</em>'.
+	 * @see business.model.StudentInterface#getFirstName()
+	 * @see #getStudentInterface()
+	 * @generated
+	 */
+	EAttribute getStudentInterface_FirstName();
+
+	/**
+	 * Returns the meta object for the attribute '{@link business.model.StudentInterface#getLastName <em>Last Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Last Name</em>'.
+	 * @see business.model.StudentInterface#getLastName()
+	 * @see #getStudentInterface()
+	 * @generated
+	 */
+	EAttribute getStudentInterface_LastName();
+
+	/**
+	 * Returns the meta object for the attribute '{@link business.model.StudentInterface#getUserName <em>User Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>User Name</em>'.
+	 * @see business.model.StudentInterface#getUserName()
+	 * @see #getStudentInterface()
+	 * @generated
+	 */
+	EAttribute getStudentInterface_UserName();
+
+	/**
+	 * Returns the meta object for the attribute '{@link business.model.StudentInterface#getPassword <em>Password</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Password</em>'.
+	 * @see business.model.StudentInterface#getPassword()
+	 * @see #getStudentInterface()
+	 * @generated
+	 */
+	EAttribute getStudentInterface_Password();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -421,6 +501,38 @@ public interface ModelPackage extends EPackage {
 		 * @generated
 		 */
 		EClass STUDENT_INTERFACE = eINSTANCE.getStudentInterface();
+
+		/**
+		 * The meta object literal for the '<em><b>First Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute STUDENT_INTERFACE__FIRST_NAME = eINSTANCE.getStudentInterface_FirstName();
+
+		/**
+		 * The meta object literal for the '<em><b>Last Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute STUDENT_INTERFACE__LAST_NAME = eINSTANCE.getStudentInterface_LastName();
+
+		/**
+		 * The meta object literal for the '<em><b>User Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute STUDENT_INTERFACE__USER_NAME = eINSTANCE.getStudentInterface_UserName();
+
+		/**
+		 * The meta object literal for the '<em><b>Password</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute STUDENT_INTERFACE__PASSWORD = eINSTANCE.getStudentInterface_Password();
 
 	}
 
