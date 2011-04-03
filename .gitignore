@@ -1,1 +1,3 @@
 *.bak
+.metadata/.log
+.metadata/.plugins/org.eclipse.core.resources/.history/
