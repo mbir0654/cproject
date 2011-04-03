@@ -6,12 +6,12 @@ public class Facultate {
 	private String universitate;
 	private String nume;
 	private String adresa;
-	private ArrayList<Specializare> specializari;
+	private ArrayList<Specialty> specializari;
 	
 	public Facultate(){
 		universitate = "";
 		nume = "";
 		adresa = "";
-		specializari = new ArrayList<Specializare>();
+		specializari = new ArrayList<Specialty>();
 	}
 }

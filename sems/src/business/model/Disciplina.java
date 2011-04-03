@@ -8,23 +8,23 @@ import java.util.ArrayList;
  */
 public class Disciplina {
 	private ArrayList<Examen> examene;
-	private ArrayList<Anunt> anunturi;
-	private ArrayList<Tema> teme;
+	private ArrayList<Announcement> anunturi;
+	private ArrayList<Assignment> teme;
 	private String syllabus;
 	private String denumire;
 	private int nrCredite;
 	
 	public Disciplina(){
 		examene = new ArrayList<Examen>();
-		anunturi = new ArrayList<Anunt>();
-		teme = new ArrayList<Tema>();
+		anunturi = new ArrayList<Announcement>();
+		teme = new ArrayList<Assignment>();
 		denumire = "";
 		nrCredite = 0;
 	}
 	public Disciplina(String d, int nC){
 		examene = new ArrayList<Examen>();
-		anunturi = new ArrayList<Anunt>();
-		teme = new ArrayList<Tema>();
+		anunturi = new ArrayList<Announcement>();
+		teme = new ArrayList<Assignment>();
 		denumire = d;
 		nrCredite = nC;
 	}
@@ -43,19 +43,19 @@ public class Disciplina {
 	public void addExamen(Examen e){
 		examene.add(e);
 	}
-	public void addAnunt(Anunt a){
+	public void addAnunt(Announcement a){
 		anunturi.add(a);
 	}
-	public void addTema(Tema t){
+	public void addTema(Assignment t){
 		teme.add(t);
 	}
 	public void deleteExamen(Examen e){
 		examene.remove(e);
 	}
-	public void deleteAnunt(Anunt a){
+	public void deleteAnunt(Announcement a){
 		anunturi.remove(a);
 	}
-	public void deleteTema(Tema t){
+	public void deleteTema(Assignment t){
 		teme.remove(t);
 	}
 	

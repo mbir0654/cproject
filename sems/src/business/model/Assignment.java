@@ -3,13 +3,12 @@ package business.model;
 import java.util.ArrayList;
 import java.util.Calendar;
 
-public class Tema {
-	private String tema;
-	private Calendar termen;
+public class Assignment {
+	private String name = "";
+	private Calendar deadline;
 	private ArrayList<RezolvareTema> rezolvari;
 	
-	public Tema(){
-		tema="";
+	public Assignment(){
 		rezolvari = new ArrayList<RezolvareTema>();
 	}
 	public void addRezolvare(RezolvareTema r){
