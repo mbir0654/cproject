@@ -12,9 +12,11 @@ import business.model.ModelPackage;
 import business.model.ProfessorInterface;
 import business.model.StudentInterface;
 
+import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 
+import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 /**
@@ -91,6 +93,9 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 
 		isInited = true;
 
+		// Initialize simple dependencies
+		EcorePackage.eINSTANCE.eClass();
+
 		// Create package meta-data objects
 		theModelPackage.createPackageContents();
 
@@ -120,8 +125,80 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getAdministratorInterface_FirstName() {
+		return (EAttribute)administratorInterfaceEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getAdministratorInterface_LastName() {
+		return (EAttribute)administratorInterfaceEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getAdministratorInterface_UserName() {
+		return (EAttribute)administratorInterfaceEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getAdministratorInterface_Password() {
+		return (EAttribute)administratorInterfaceEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getProfessorInterface() {
 		return professorInterfaceEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getProfessorInterface_FirstName() {
+		return (EAttribute)professorInterfaceEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getProfessorInterface_LastName() {
+		return (EAttribute)professorInterfaceEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getProfessorInterface_UserName() {
+		return (EAttribute)professorInterfaceEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getProfessorInterface_Password() {
+		return (EAttribute)professorInterfaceEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -162,8 +239,16 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 
 		// Create classes and their features
 		administratorInterfaceEClass = createEClass(ADMINISTRATOR_INTERFACE);
+		createEAttribute(administratorInterfaceEClass, ADMINISTRATOR_INTERFACE__FIRST_NAME);
+		createEAttribute(administratorInterfaceEClass, ADMINISTRATOR_INTERFACE__LAST_NAME);
+		createEAttribute(administratorInterfaceEClass, ADMINISTRATOR_INTERFACE__USER_NAME);
+		createEAttribute(administratorInterfaceEClass, ADMINISTRATOR_INTERFACE__PASSWORD);
 
 		professorInterfaceEClass = createEClass(PROFESSOR_INTERFACE);
+		createEAttribute(professorInterfaceEClass, PROFESSOR_INTERFACE__FIRST_NAME);
+		createEAttribute(professorInterfaceEClass, PROFESSOR_INTERFACE__LAST_NAME);
+		createEAttribute(professorInterfaceEClass, PROFESSOR_INTERFACE__USER_NAME);
+		createEAttribute(professorInterfaceEClass, PROFESSOR_INTERFACE__PASSWORD);
 
 		studentInterfaceEClass = createEClass(STUDENT_INTERFACE);
 	}
@@ -191,6 +276,9 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		setNsPrefix(eNS_PREFIX);
 		setNsURI(eNS_URI);
 
+		// Obtain other dependent packages
+		EcorePackage theEcorePackage = (EcorePackage)EPackage.Registry.INSTANCE.getEPackage(EcorePackage.eNS_URI);
+
 		// Create type parameters
 
 		// Set bounds for type parameters
@@ -199,8 +287,16 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(administratorInterfaceEClass, AdministratorInterface.class, "AdministratorInterface", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getAdministratorInterface_FirstName(), theEcorePackage.getEString(), "firstName", null, 1, 1, AdministratorInterface.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getAdministratorInterface_LastName(), theEcorePackage.getEString(), "lastName", null, 1, 1, AdministratorInterface.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getAdministratorInterface_UserName(), theEcorePackage.getEString(), "userName", null, 1, 1, AdministratorInterface.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getAdministratorInterface_Password(), theEcorePackage.getEString(), "password", null, 1, 1, AdministratorInterface.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(professorInterfaceEClass, ProfessorInterface.class, "ProfessorInterface", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getProfessorInterface_FirstName(), theEcorePackage.getEString(), "firstName", null, 1, 1, ProfessorInterface.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getProfessorInterface_LastName(), theEcorePackage.getEString(), "lastName", null, 1, 1, ProfessorInterface.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getProfessorInterface_UserName(), theEcorePackage.getEString(), "userName", null, 1, 1, ProfessorInterface.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getProfessorInterface_Password(), theEcorePackage.getEString(), "password", null, 1, 1, ProfessorInterface.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(studentInterfaceEClass, StudentInterface.class, "StudentInterface", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
