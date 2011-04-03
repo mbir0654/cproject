@@ -1,3 +1,4 @@
 *.bak
 .metadata/.log
 .metadata/.plugins/org.eclipse.core.resources/.history/
+.metadata/.plugins/org.eclipse.epp.usagedata.recording/
