@@ -8,11 +8,30 @@ public class Faculty {
 	private String address = "";
 	private ArrayList<Specialty> specialties = new ArrayList<Specialty>();
 	
+	/**
+	 * Constructorul implicit
+	 */
 	public Faculty() {
+	}
+	
+	/**
+	 * verifica daca 2 facultati sunt identice
+	 * 
+	 * @param f este facultatea cu care comparam
+	 * 
+	 * @return true daca facultatea curenta este identica
+	 * 	 	   cu dea data ca parametru
+	 */
+	public boolean equals(Faculty f){
+		if(this.university == f.getUniversity() &&
+		   this.name == f.getName() &&
+		   this.address == f.getAddress())
+			return true;
+		return false;
 	}
 
 	/**
-	 * @param university este Univestiatea de care apartine facultatea
+	 * @param university va fi Univestiatea de care apartine facultatea
 	 */
 	public void setUniversity(String university) {
 		this.university = university;
@@ -26,7 +45,7 @@ public class Faculty {
 	}
 
 	/**
-	 * @param name este numele facultatii
+	 * @param name va fi numele facultatii
 	 */
 	public void setName(String name) {
 		this.name = name;
@@ -40,7 +59,7 @@ public class Faculty {
 	}
 
 	/**
-	 * @param address  este adresa facultatii
+	 * @param address va fi adresa facultatii
 	 */
 	public void setAddress(String address) {
 		this.address = address;
@@ -54,7 +73,7 @@ public class Faculty {
 	}
 
 	/**
-	 * @param specialties este lista cu specialitatile facultatii
+	 * @param specialties ca fi lista cu specialitatile facultatii
 	 */
 	public void setSpecialties(ArrayList<Specialty> specialties) {
 		this.specialties = specialties;

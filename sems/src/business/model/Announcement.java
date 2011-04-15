@@ -9,12 +9,25 @@ public class Announcement {
 	
 	public Announcement() {
 	}
+	
+	/**
+	 * 
+	 * @param a este anuntul cu care comparam
+	 * 
+	 * @return true daca anuntul curent este identic cu cel
+	 * 		   dat ca parametru
+	 */
+	public boolean equals(Announcement a){
+		if(announcement == a.getAnnouncement())
+			return true;
+		return false;
+	}
 
 	/**
-	 * @param anunt este textul anuntului
+	 * @param announcement va fi textul anuntului
 	 */
-	public void setAnnouncement(String anunt) {
-		this.announcement = anunt;
+	public void setAnnouncement(String announcement) {
+		this.announcement = announcement;
 	}
 
 	/**

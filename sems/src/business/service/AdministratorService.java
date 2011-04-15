@@ -1,14 +1,15 @@
-/**
- * 
- */
 package business.service;
-import business.model.*;
+
+import business.model.Administrator;
+
+
 /**
  * @author myh
  * 	
  */
 public final class AdministratorService {
-	Administrator a;
+	
+	private Administrator a;
 	
 	public void exitSystem() {
 		/**

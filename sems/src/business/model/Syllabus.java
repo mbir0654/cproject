@@ -1,8 +1,12 @@
 package business.model;
 
+/**
+ * 
+ * @author otniel
+ *
+ */
 public class Syllabus {
-	// TODO: what should we implement here?
-	/*
-	 * s-ar putea sa renuntam la aceasta clasa. mai vedem
+	/**
+	 * o clasa la care s-ar putea sa renuntam
 	 */
 }

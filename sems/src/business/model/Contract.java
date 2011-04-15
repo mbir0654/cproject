@@ -1,6 +1,7 @@
 package business.model;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * 
@@ -8,19 +9,27 @@ import java.util.ArrayList;
  *
  */
 public class Contract {
-	private ArrayList<Course> courses;
+	private List<Course> courses;
+	
+	/**
+	 * Constructorul implcit
+	 */
+	public Contract(){
+		courses = new ArrayList<Course>();
+	}
 
 	/**
-	 * @param courses este lista de cursuri contractate
+	 * @param courses va fi lista de cursuri contractate
 	 */
-	public void setCourses(ArrayList<Course> courses) {
-		this.courses = courses;
+	public void setCourses(List<Course> courses) {
+		this.courses.clear();
+		this.courses.addAll(courses);
 	}
 
 	/**
 	 * @return lista de cursuri contractate
 	 */
-	public ArrayList<Course> getCourses() {
+	public List<Course> getCourses() {
 		return courses;
 	}	
 }

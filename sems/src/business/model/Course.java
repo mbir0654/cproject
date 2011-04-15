@@ -28,17 +28,34 @@ public class Course {
 	}
 	
 	/**
-	 * @param d este...
+	 * Constructorul parametrizat
+	 * 
+	 * @param n este...
 	 * @param nC este...
 	 */
-	public Course(String d, int nC) {
-		name = d;
+	public Course(String n, int nC) {
+		name = n;
 		numberOfCredits = nC;
 	}
 	
 	/**
+	 * verifica daca 2 cursuri sunt identice
 	 * 
-	 * @param d este ...
+	 * @param c este cursul cu care comparam
+	 * 
+	 * @return true daca cele 2 cursuri sunt identice
+	 */
+	public boolean equals(Course c){
+		if(name.equalsIgnoreCase(c.getName()) &&
+		   numberOfCredits == c.getNumberOfCredits() &&
+		   syllabus.equalsIgnoreCase(c.getSyllabus()))
+			return true;
+		return false;
+	}
+	
+	/**
+	 * 
+	 * @param d va fi ...
 	 */
 	public void setName(String d) {
 		name = d;
@@ -46,7 +63,7 @@ public class Course {
 	
 	/**
 	 * 
-	 * @param nc este numarul de credite
+	 * @param nc va fi numarul de credite
 	 */
 	public void setNumberOfCredits(int nc) {
 		numberOfCredits = nc;
@@ -70,7 +87,7 @@ public class Course {
 	
 	/**
 	 * 
-	 * @param e este ...
+	 * @param e va fi ...
 	 */
 	public void addExam(Exam e) {
 		exams.add(e);
@@ -94,7 +111,7 @@ public class Course {
 	
 	/**
 	 * 
-	 * @param e este ... care tb sters
+	 * @param e este examenul care trebuie sters
 	 */
 	public void deleteExam(Exam e) {
 		exams.remove(e);
@@ -102,7 +119,7 @@ public class Course {
 	
 	/**
 	 * 
-	 * @param a este ... care trebuie sters
+	 * @param a este anuntul care trebuie sters
 	 */
 	public void deleteAnnouncement(Announcement a) {
 		announcements.remove(a);
@@ -110,14 +127,14 @@ public class Course {
 	
 	/**
 	 * 
-	 * @param t este ... care tb sters
+	 * @param t este tema care trebuie stearsa
 	 */
 	public void deleteAssignment(Assignment t) {
 		assignments.remove(t);
 	}
 
 	/**
-	 * @param syllabus este numele fisierului cu syllabusul
+	 * @param syllabus va fi numele fisierului cu syllabusul
 	 */
 	public void setSyllabus(String syllabus) {
 		this.syllabus = syllabus;

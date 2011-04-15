@@ -7,11 +7,39 @@ public class AssignmentSolution {
 	private Date date = null;
 	private Student author;
 	
+	/**
+	 * Constructorul implicit
+	 */
 	public AssignmentSolution() {
-		// TODO: implement
+		author = new Student();
 	}	
-	public AssignmentSolution(String r, Date d) {
-		// TODO: implement
+	
+	/**
+	 * Constructorul parametrizat
+	 * 
+	 * @param r este textul rezolvarii
+	 * 
+	 * @param d este data la care a fost adaugata rezolvarea
+	 * 
+	 * @param s este Studentul care a adaugat rezolvarea
+	 */
+	public AssignmentSolution(String r, Date d, Student s) {
+		solution = r;
+		date = d;
+		s = new Student(s);
+	}
+	
+	/**
+	 * verifica daca doua rezolvari sunt identice
+	 * 
+	 * @param as rezolvarea cu care comparam
+	 * 
+	 * @return true daca cele 2 rezolvari au acelasi text
+	 */
+	public boolean equals(AssignmentSolution as){
+		if(solution.equalsIgnoreCase(as.getSolution()))
+			return true;
+		return false;
 	}
 	/**
 	 * @param solution este rezolvarea temei

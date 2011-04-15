@@ -18,8 +18,24 @@ public abstract class User {
 	public User(){
 	}
 	
+	public User(User u){
+		firstName = u.getFirstName();
+		lastName = u.getLastName();
+		userName = u.getUserName();
+		password = u.getPassword();
+	}
+	
+	public boolean equals(User u){
+		if(firstName.equals(u.getFirstName()) && 
+		   lastName.equalsIgnoreCase(u.getLastName()) &&
+		   userName.equalsIgnoreCase(u.getUserName()) &&
+		   password.equalsIgnoreCase(u.getPassword()))
+			return true;
+		return false;
+	}
+	
 	/**
-	 * @param firstName este prenumele <b>USer</b>ului
+	 * @param firstName va fi prenumele <b>USer</b>ului
 	 */
 	public void setFirstName(String firstName) {
 		this.firstName = firstName;
@@ -31,7 +47,7 @@ public abstract class User {
 		return firstName;
 	}
 	/**
-	 * @param lastName este numele <b>USer</b>ului
+	 * @param lastName va fi numele <b>USer</b>ului
 	 */
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
@@ -43,7 +59,7 @@ public abstract class User {
 		return lastName;
 	}
 	/**
-	 * @param userName este identificatorul <b>USer</b>ului
+	 * @param userName va fi identificatorul <b>USer</b>ului
 	 */
 	public void setUserName(String userName) {
 		this.userName = userName;
@@ -55,7 +71,7 @@ public abstract class User {
 		return userName;
 	}
 	/**
-	 * @param password este parola <b>USer</b>ului
+	 * @param password va fi parola <b>USer</b>ului
 	 */
 	public void setPassword(String password) {
 		this.password = password;

@@ -3,7 +3,6 @@
  */
 package business.service;
 
-import business.model.Administrator;
 
 /**
  * @author myh
@@ -14,6 +13,10 @@ public class AppService {
 	private AdministratorService as;
 	private ProfessorService ps;
 	private StudentService ss;
+	/**
+	 * atribut privat pentru singleton
+	 */
+	private static AppService apps = new AppService();
 	
 	/**
 	 *  cvonstuctor privat pentru singleton
@@ -21,11 +24,6 @@ public class AppService {
 	private AppService(){
 		
 	}
-	
-	/**
-	 * atribut privat pentru singleton
-	 */
-	private static AppService apps = new AppService();
 	
 	/**
 	 * 

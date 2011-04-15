@@ -19,7 +19,8 @@ public class Exam {
 	}
 	
 	/**
-	 * .
+	 * Constructorul parametrizat
+	 * 
 	 * @param d este ...
 	 * @param t este ...
 	 * @param n este ...

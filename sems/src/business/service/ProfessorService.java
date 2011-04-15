@@ -1,14 +1,12 @@
-/**
- * 
- */
 package business.service;
-import business.model.*;
+
+import business.model.Professor;
 /**
  * @author myh
  *
  */
 final class ProfessorService {
-	Professor p;
+	private Professor p;
 	public void exitSystem() {
 		/**
 		 * TODO

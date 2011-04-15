@@ -8,20 +8,31 @@ public class Assignment {
 	private Date deadline;
 	private ArrayList<AssignmentSolution> solutions;
 	
+	/**
+	 * Constructorul implicit
+	 */
 	public Assignment() {
 		solutions = new ArrayList<AssignmentSolution>();
 	}
 	
+	/**
+	 * 
+	 * @param r este rezolvarea care se adauga
+	 */
 	public void addSolution(AssignmentSolution r) {
 		solutions.add(r);
 	}
 	
+	/**
+	 * 
+	 * @param r este rezolvarea care trebuie stearsa
+	 */
 	public void deleteSolution(AssignmentSolution r) {
 		solutions.remove(r);
 	}
 
 	/**
-	 * @param deadline este c
+	 * @param deadline va fi data limita la care se poate preda tema
 	 */
 	public void setDeadline(Date deadline) {
 		this.deadline = deadline;
@@ -35,7 +46,7 @@ public class Assignment {
 	}
 
 	/**
-	 * @param name este denumirea temei
+	 * @param name va fi denumirea temei
 	 */
 	public void setName(String name) {
 		this.name = name;

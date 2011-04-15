@@ -17,8 +17,10 @@ public class Grade {
 	}
 	
 	/**
+	 * Constructor parametrizat
 	 * 
 	 * @param n este nota propriu-zisa
+	 * 
 	 * @param d este data la care s-a acordat nota respectiva
 	 */
 	public Grade(int n, Date d){
@@ -27,19 +29,20 @@ public class Grade {
 	}
 	
 	/**
+	 * Constructor parametrizat
+	 * 
+	 * data este setata la null
 	 * 
 	 * @param n este nota care se acorda
 	 */
 	public Grade(int n){
 		grade = n;
-		/*
-		 * date este deja initializata la null by default
-		 */
+		
 	}
 	
 	/**
 	 * 
-	 * @param n este nota care trebuie modificata
+	 * @param n va fi noua nota
 	 */
 	public void setGrade(int n){
 		grade = n;
@@ -47,7 +50,7 @@ public class Grade {
 	
 	/**
 	 * 
-	 * @param d este data care trebuie modificata
+	 * @param d va fi noua data
 	 */
 	public void setDate(Date d){
 		date = d;

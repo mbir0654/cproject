@@ -3,9 +3,6 @@
  */
 package business.service;
 
-import java.awt.List;
-import java.util.ArrayList;
-
 import business.model.*;
 
 /**
@@ -13,20 +10,18 @@ import business.model.*;
  *
  */
 final class StudentService {
+	
 	/**
 	 * The student for which we offer the services.
 	 */
 	private Student s;
+	
 	public void viewCourses(){
 		/**TODO
 		 * incarca intr-un jlist cursurile la care e inscris studentul 
 		 */
 	}
-	public void exitSystem(){
-		/**TODO
-		 * logout user salveaza ce trebuie salvat in baza de date
-		 */
-	}
+	
 	public void viewAnnouncements(){
 		/**TODO
 		 * vizualizare anunturi pentru student s 
