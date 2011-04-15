@@ -9,6 +9,7 @@ import business.model.*;
  */
 public final class AdministratorService {
 	Administrator a;
+	
 	public void exitSystem() {
 		/**
 		 * TODO
@@ -24,7 +25,7 @@ public final class AdministratorService {
 	public void manageResources() {
 		/**
 		 * TODO
-		 * administreaza resurse (facultati, profesori, cursuri, specializari ...)
+		 * administreaza resurse (facultati, profesori, cursuri, specializari)
 		 */
 	}
 	public void manageFaculties() {

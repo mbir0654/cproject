@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="java.util.Date"/>
 <fullyQualifiedTypeName name="data.repositorytext.AdministratorTextRep"/>
-<fullyQualifiedTypeName name="business.model.Administrator"/>
 <fullyQualifiedTypeName name="junit.framework.Assert"/>
 <fullyQualifiedTypeName name="org.junit.Test"/>
-<fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="java.io.BufferedReader"/>
 <fullyQualifiedTypeName name="java.io.InputStreamReader"/>
 <fullyQualifiedTypeName name="java.io.FileNotFoundException"/>
@@ -14,4 +11,14 @@
 <fullyQualifiedTypeName name="java.io.FileOutputStream"/>
 <fullyQualifiedTypeName name="java.io.OutputStreamWriter"/>
 <fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="business.model.Student"/>
+<fullyQualifiedTypeName name="java.util.Date"/>
+<fullyQualifiedTypeName name="business.service.AppService"/>
+<fullyQualifiedTypeName name="business.model.Professor"/>
+<fullyQualifiedTypeName name="business.model.Administrator"/>
+<fullyQualifiedTypeName name="business.model.Course"/>
+<fullyQualifiedTypeName name="business.model.Faculty"/>
+<fullyQualifiedTypeName name="data.repositoryinterface.Repository"/>
+<fullyQualifiedTypeName name="business.model.Specialty"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
 </qualifiedTypeNameHistroy>

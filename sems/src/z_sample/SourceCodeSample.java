@@ -2,8 +2,7 @@ package z_sample;
 import java.util.*;
 
 /**
- * Let us implement all source code (identifiers, comments, maybe even
- * documentation in English).
+ * Let us implement all source code in English.
  * 
  * Exemplu de indentare si de comentare a claselor si metodelor proiect.
  * 

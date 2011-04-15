@@ -10,7 +10,7 @@ import java.util.List;
  *
  */
 
-public interface Repository<T> {
+public interface Repository<T>{
 	// C Append.
 	public void add(T item);
 	// R Read.

@@ -4,17 +4,23 @@ public class Announcement {
 	private String announcement = "";
 	
 	public Announcement(String a) {
-		announcement = a;
+		setAnnouncement(a);
 	}
 	
 	public Announcement() {
 	}
-	
-	public void setAnunt(String a) {
-		announcement = a;
+
+	/**
+	 * @param anunt este textul anuntului
+	 */
+	public void setAnnouncement(String anunt) {
+		this.announcement = anunt;
 	}
-	
-	public String getAnunt() {
+
+	/**
+	 * @return the textul anuntului
+	 */
+	public String getAnnouncement() {
 		return announcement;
 	}
 }
