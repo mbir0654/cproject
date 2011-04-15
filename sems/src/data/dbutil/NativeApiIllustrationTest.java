@@ -5,9 +5,6 @@ package data.dbutil;
 
 import java.util.Date;
 import java.util.List;
-
-import junit.framework.TestCase;
-
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
@@ -35,6 +32,7 @@ public class NativeApiIllustrationTest {
 		}
 	}
 
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public void testBasicUsage() {
 		// create a couple of events...
 		Session session = sessionFactory.openSession();

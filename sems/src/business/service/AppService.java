@@ -10,8 +10,11 @@ package business.service;
  */
 public class AppService {
 	
+	@SuppressWarnings("unused")
 	private AdministratorService as;
+	@SuppressWarnings("unused")
 	private ProfessorService ps;
+	@SuppressWarnings("unused")
 	private StudentService ss;
 	/**
 	 * atribut privat pentru singleton
@@ -30,7 +33,7 @@ public class AppService {
 	 * @return atributul privat <b>apps</b>, pentru a asigura unicitatea 
 	 * 		   serviciului in toata aplicatia 
 	 */
-	public static AppService singletonAppS(){
+	public static AppService getInstance(){
 		return apps;
 	}
 

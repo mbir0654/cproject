@@ -2,6 +2,7 @@ package business.model;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 public class Assignment {
 	private String name = "";
@@ -13,6 +14,18 @@ public class Assignment {
 	 */
 	public Assignment() {
 		solutions = new ArrayList<AssignmentSolution>();
+	}
+	
+	/**
+	 * Constructorul de copiere
+	 * 
+	 * @param a este tema care trebuie duplicata
+	 */
+	public Assignment(Assignment a){
+		solutions = new ArrayList<AssignmentSolution>();
+		solutions.addAll(a.getSolutions());
+		name = a.getName();
+		deadline = a.getDeadline();
 	}
 	
 	/**
@@ -29,6 +42,10 @@ public class Assignment {
 	 */
 	public void deleteSolution(AssignmentSolution r) {
 		solutions.remove(r);
+	}
+	
+	public List<AssignmentSolution> getSolutions(){
+		return solutions;
 	}
 
 	/**

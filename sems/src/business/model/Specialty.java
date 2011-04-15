@@ -7,7 +7,7 @@ public class Specialty {
 	private List<Course> courses;
 	private String name;
 	private int numberOfYears;
-	private Faculty faculta;
+	private Faculty faculty;
 	
 	/**
 	 * Constructorul implicit
@@ -69,5 +69,19 @@ public class Specialty {
 	 */
 	public int getNumberOfYears() {
 		return numberOfYears;
+	}
+
+	/**
+	 * @param faculty vai fi noua facultate in care exista specializarea
+	 */
+	public void setFaculty(Faculty faculty) {
+		this.faculty = faculty;
+	}
+
+	/**
+	 * @return facultatea in cafrul careia exista specializarea
+	 */
+	public Faculty getFaculty() {
+		return faculty;
 	}
 }

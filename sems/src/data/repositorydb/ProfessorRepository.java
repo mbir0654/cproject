@@ -17,49 +17,52 @@ public class ProfessorRepository implements Repository<Professor> {
 		l = new ArrayList<Professor>();
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see data.repositoryinterface.Repository#add(java.lang.Object)
 	 */
 	@Override
 	public void add(Professor item) {
-		// TODO Auto-generated method stub
+		l.add(item);
 		
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see data.repositoryinterface.Repository#getAll()
 	 */
 	@Override
 	public List<Professor> getAll() {
-		// TODO Auto-generated method stub
-		return null;
+		List<Professor> r = new ArrayList<Professor>();
+		r.addAll(l);
+		return r;
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see data.repositoryinterface.Repository#find(java.lang.String)
 	 */
 	@Override
-	public Professor find(String id) {
-		// TODO Auto-generated method stub
+	public Professor findByName(String name) {
+		for(Professor p : l){
+			if(p.getUserName().equalsIgnoreCase(name))
+				return p;
+		}
 		return null;
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see data.repositoryinterface.Repository#update(java.lang.Object)
 	 */
 	@Override
-	public void update(Professor item) {
+	public void update() {
 		// TODO Auto-generated method stub
 		
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see data.repositoryinterface.Repository#delete(java.lang.Object)
 	 */
 	@Override
 	public void delete(Professor item) {
-		// TODO Auto-generated method stub
-		
+		l.remove(item);		
 	}
 
 }

@@ -16,10 +16,10 @@ final class StudentService {
 	 * The student for which we offer the services.
 	 */
 	
+	@SuppressWarnings("unused")
 	private StudentRepository sr = StudentRepository.getInstance();
 	
-	public StudentService(){
-		
+	public StudentService(){		
 	}
 	
 	public void viewCourses(){

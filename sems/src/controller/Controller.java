@@ -13,10 +13,11 @@ import business.service.AppService;
  */
 public class Controller {
 	
+	@SuppressWarnings("unused")
 	private AppService apps;
 	
 	public Controller(){
-		apps = AppService.singletonAppS();
+		apps = AppService.getInstance();
 	}
 	
 }

@@ -20,49 +20,52 @@ public class FacultyRepository implements Repository<Faculty>{
 		l = new ArrayList<Faculty>();
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see data.repositoryinterface.Repository#add(java.lang.Object)
 	 */
 	@Override
 	public void add(Faculty item) {
-		// TODO Auto-generated method stub
-		
+		l.add(item);
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see data.repositoryinterface.Repository#getAll()
 	 */
 	@Override
 	public List<Faculty> getAll() {
-		// TODO Auto-generated method stub
-		return null;
+		List<Faculty> r = new ArrayList<Faculty>();
+		r.addAll(l);
+		return r;
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see data.repositoryinterface.Repository#find(java.lang.String)
 	 */
 	@Override
-	public Faculty find(String id) {
-		// TODO Auto-generated method stub
+	public Faculty findByName(String name) {
+		for(Faculty f:l){
+			if(f.getName().equalsIgnoreCase(name))
+				return f;
+		}
 		return null;
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see data.repositoryinterface.Repository#update(java.lang.Object)
 	 */
 	@Override
-	public void update(Faculty item) {
+	public void update() {
 		// TODO Auto-generated method stub
 		
 	}
 
-	/* (non-Javadoc)
+	/**
+	 * 
 	 * @see data.repositoryinterface.Repository#delete(java.lang.Object)
 	 */
 	@Override
 	public void delete(Faculty item) {
-		// TODO Auto-generated method stub
-		
+		l.remove(item);		
 	}
 
 }

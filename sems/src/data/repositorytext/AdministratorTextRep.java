@@ -72,7 +72,7 @@ public class AdministratorTextRep implements Repository<Administrator> {
 
 	/* (non-Javadoc)
 	 * @see data.repositoryinterface.Repository#update(java.lang.Object)
-	 */
+	 *
 	@Override
 	public void update(Administrator item) {
 		Administrator administrator = find(item.getUserName());
@@ -90,7 +90,7 @@ public class AdministratorTextRep implements Repository<Administrator> {
 	 */
 	@Override
 	public void delete(Administrator item) {
-		Administrator administrator = find(item.getUserName());
+		Administrator administrator = findByName(item.getUserName());
 		if (administrator != null)
 		{
 			items.remove(administrator);
@@ -102,7 +102,7 @@ public class AdministratorTextRep implements Repository<Administrator> {
 	 * @see data.repositoryinterface.Repository#find(java.lang.String)
 	 */
 	@Override
-	public Administrator find(String id) {
+	public Administrator findByName(String id) {
 		Administrator result = null;
 		List<Administrator> administrators = getAll();
 		for (Administrator administrator : administrators) {
@@ -132,6 +132,15 @@ public class AdministratorTextRep implements Repository<Administrator> {
 		} catch (IOException e) {
 			// throw new RepositoryException("Corrupted students file...");
 		}
+	}
+
+	/* (non-Javadoc)
+	 * @see data.repositoryinterface.Repository#update()
+	 */
+	@Override
+	public void update() {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

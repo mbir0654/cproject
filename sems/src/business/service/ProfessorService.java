@@ -6,7 +6,9 @@ import business.model.Professor;
  *
  */
 final class ProfessorService {
+	@SuppressWarnings("unused")
 	private Professor p;
+	
 	public void exitSystem() {
 		/**
 		 * TODO

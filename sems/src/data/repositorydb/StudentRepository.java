@@ -26,49 +26,51 @@ public class StudentRepository implements Repository<Student>{
 		return sr;
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see data.repositoryinterface.Repository#add(java.lang.Object)
 	 */
 	@Override
 	public void add(Student item) {
-		// TODO Auto-generated method stub
-		
+		l.add(item);		
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see data.repositoryinterface.Repository#getAll()
 	 */
 	@Override
 	public List<Student> getAll() {
-		// TODO Auto-generated method stub
-		return null;
+		List<Student> r = new ArrayList<Student>();
+		r.addAll(l);
+		return r;
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see data.repositoryinterface.Repository#find(java.lang.String)
 	 */
 	@Override
-	public Student find(String id) {
-		// TODO Auto-generated method stub
+	public Student findByName(String id) {
+		for(Student s : l){
+			if(s.getUserName().equalsIgnoreCase(id))
+				return s;
+		}
 		return null;
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see data.repositoryinterface.Repository#update(java.lang.Object)
 	 */
 	@Override
-	public void update(Student item) {
+	public void update() {
 		// TODO Auto-generated method stub
 		
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see data.repositoryinterface.Repository#delete(java.lang.Object)
 	 */
 	@Override
 	public void delete(Student item) {
-		// TODO Auto-generated method stub
-		
+		l.remove(item);
 	}
 
 }

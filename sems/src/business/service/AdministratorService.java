@@ -9,6 +9,7 @@ import business.model.Administrator;
  */
 public final class AdministratorService {
 	
+	@SuppressWarnings("unused")
 	private Administrator a;
 	
 	public void exitSystem() {

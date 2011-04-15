@@ -17,10 +17,10 @@
 <fullyQualifiedTypeName name="business.model.Faculty"/>
 <fullyQualifiedTypeName name="data.repositoryinterface.Repository"/>
 <fullyQualifiedTypeName name="business.model.Specialty"/>
-<fullyQualifiedTypeName name="java.util.ArrayList"/>
-<fullyQualifiedTypeName name="java.util.List"/>
 <fullyQualifiedTypeName name="data.repositorydb.AdministratorRepository"/>
 <fullyQualifiedTypeName name="data.repositorydb.ProfessorRepository"/>
 <fullyQualifiedTypeName name="business.model.Professor"/>
 <fullyQualifiedTypeName name="business.model.Administrator"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="java.util.List"/>
 </qualifiedTypeNameHistroy>

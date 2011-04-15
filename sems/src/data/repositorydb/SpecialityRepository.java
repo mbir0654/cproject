@@ -5,7 +5,6 @@ package data.repositorydb;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import business.model.Specialty;
 
 import data.repositoryinterface.Repository;
@@ -22,49 +21,52 @@ public class SpecialityRepository implements Repository<Specialty>{
 		l = new ArrayList<Specialty>();
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see data.repositoryinterface.Repository#add(java.lang.Object)
 	 */
 	@Override
 	public void add(Specialty item) {
-		// TODO Auto-generated method stub
+		l.add(item);
 		
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see data.repositoryinterface.Repository#getAll()
 	 */
 	@Override
 	public List<Specialty> getAll() {
-		// TODO Auto-generated method stub
-		return null;
+		List<Specialty> r = new ArrayList<Specialty>();
+		r.addAll(l);
+		return r;
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see data.repositoryinterface.Repository#find(java.lang.String)
 	 */
 	@Override
-	public Specialty find(String id) {
-		// TODO Auto-generated method stub
+	public Specialty findByName(String id) {
+		for(Specialty s : l){
+			if(s.getName().equalsIgnoreCase(id))
+				return s;
+		}
 		return null;
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see data.repositoryinterface.Repository#update(java.lang.Object)
 	 */
 	@Override
-	public void update(Specialty item) {
+	public void update() {
 		// TODO Auto-generated method stub
 		
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see data.repositoryinterface.Repository#delete(java.lang.Object)
 	 */
 	@Override
 	public void delete(Specialty item) {
-		// TODO Auto-generated method stub
-		
+		l.remove(item);		
 	}
 	
 }

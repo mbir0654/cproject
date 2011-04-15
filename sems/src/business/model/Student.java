@@ -1,5 +1,6 @@
 package business.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -14,27 +15,35 @@ public class Student extends User {
 	private Contract contract;
 	private List<AssignmentSolution> solutions;
 	private List<Assignment> assignments;
-	private Specialty spec;
+	private Specialty specialty;
 	
 	/**
 	 * Constructorul implicit
 	 */
 	public Student(){
 		nrMat = "";
+		contract = new Contract();
+		solutions = new ArrayList<AssignmentSolution>();
+		assignments = new ArrayList<Assignment>();
+		specialty = new Specialty();
 	}
 	
 	/**
 	 * Constructor de copiere
 	 * 
-	 * @param s studentul pe care il duplicam
+	 * @param s este studentul pe care il duplicam
 	 */
 	public Student(Student s){
 		super(s);
 		nrMat = s.getNrMat();
+		contract = s.getContract();
+		solutions = s.getSolutions();
+		assignments = s.getAssignments();
+		specialty = s.getSpecialty();
 	}
 	
 	/**
-	 * vreifica daca 2 studenti sunt identici
+	 * verifica daca 2 studenti sunt identici
 	 * 
 	 * @param s Studentul cu care comparam
 	 * 
@@ -48,7 +57,8 @@ public class Student extends User {
 	}
 	
 	/**
-	 * @param nrMat va fi numarul matricol al studentului
+	 * seteaza Numarul matricol al Studentului
+	 * @param nrMat va fi noul numar matricol al studentului
 	 */
 	public void setNrMat(String nrMat) {
 		this.nrMat = nrMat;
@@ -90,31 +100,31 @@ public class Student extends User {
 	}
 
 	/**
-	 * @param assignments the assignments to set
+	 * @param assignment este noua tema atribuita studentului
 	 */
-	public void setAssignments(List<Assignment> assignments) {
-		this.assignments = assignments;
+	public void addAssignment(Assignment assignment) {
+		this.assignments.add(assignment);
 	}
 
 	/**
-	 * @return the assignments
+	 * @return lista cu teme pentru studentul curent
 	 */
 	public List<Assignment> getAssignments() {
 		return assignments;
 	}
 
 	/**
-	 * @param spec the spec to set
+	 * @param specialty va fi noua specialitate a studentului
 	 */
-	public void setSpec(Specialty spec) {
-		this.spec = spec;
+	public void setSpecialty(Specialty specialty) {
+		this.specialty = specialty;
 	}
 
 	/**
-	 * @return the spec
+	 * @return specialitatea studentului
 	 */
-	public Specialty getSpec() {
-		return spec;
+	public Specialty getSpecialty() {
+		return specialty;
 	}
 
 } 

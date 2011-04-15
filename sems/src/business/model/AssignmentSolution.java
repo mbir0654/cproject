@@ -3,6 +3,7 @@ package business.model;
 import java.util.Date;
 
 public class AssignmentSolution {
+	private Assignment assignment;
 	private String solution = "";
 	private Date date = null;
 	private Student author;
@@ -15,18 +16,15 @@ public class AssignmentSolution {
 	}	
 	
 	/**
-	 * Constructorul parametrizat
-	 * 
-	 * @param r este textul rezolvarii
-	 * 
-	 * @param d este data la care a fost adaugata rezolvarea
+	 * * Constructorul parametrizat
 	 * 
 	 * @param s este Studentul care a adaugat rezolvarea
+	 * 
+	 * @param a este tema pentru care se creeaza rezolvarea
 	 */
-	public AssignmentSolution(String r, Date d, Student s) {
-		solution = r;
-		date = d;
+	public AssignmentSolution(Student s, Assignment a) {
 		s = new Student(s);
+		assignment = new Assignment(a);
 	}
 	
 	/**
@@ -76,5 +74,19 @@ public class AssignmentSolution {
 	 */
 	public Student getAuthor() {
 		return author;
+	}
+
+	/**
+	 * @param assignment va fi tema pentru care exista aceasta rezolvare
+	 */
+	public void setAssignment(Assignment assignment) {
+		this.assignment = assignment;
+	}
+
+	/**
+	 * @return tema care are ca raspuns rezolvarea curenta
+	 */
+	public Assignment getAssignment() {
+		return assignment;
 	}
 }

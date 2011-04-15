@@ -17,49 +17,52 @@ public class CourseRepository implements Repository<Course>{
 		l = new ArrayList<Course>();
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see data.repositoryinterface.Repository#add(java.lang.Object)
 	 */
 	@Override
 	public void add(Course item) {
-		// TODO Auto-generated method stub
+		l.add(item);
 		
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see data.repositoryinterface.Repository#getAll()
 	 */
 	@Override
 	public List<Course> getAll() {
-		// TODO Auto-generated method stub
-		return null;
+		List<Course> r = new ArrayList<Course>();
+		r.addAll(l);
+		return r;
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see data.repositoryinterface.Repository#find(java.lang.String)
 	 */
 	@Override
-	public Course find(String id) {
-		// TODO Auto-generated method stub
+	public Course findByName(String name) {
+		for(Course c:l){
+			if(c.getName().equalsIgnoreCase(name))
+				return c;
+		}
 		return null;
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see data.repositoryinterface.Repository#update(java.lang.Object)
 	 */
 	@Override
-	public void update(Course item) {
+	public void update() {
 		// TODO Auto-generated method stub
 		
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see data.repositoryinterface.Repository#delete(java.lang.Object)
 	 */
 	@Override
 	public void delete(Course item) {
-		// TODO Auto-generated method stub
-		
+		l.remove(item);
 	}
 
 }
