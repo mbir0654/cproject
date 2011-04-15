@@ -7,6 +7,7 @@ public class Specialty {
 	private List<Course> courses;
 	private String name;
 	private int numberOfYears;
+	private Faculty faculta;
 	
 	/**
 	 * Constructorul implicit

@@ -10,6 +10,7 @@ import java.util.List;
  */
 public class Contract {
 	private List<Course> courses;
+	private Student student;
 	
 	/**
 	 * Constructorul implcit
@@ -31,5 +32,19 @@ public class Contract {
 	 */
 	public List<Course> getCourses() {
 		return courses;
+	}
+
+	/**
+	 * @param student the student to set
+	 */
+	public void setStudent(Student student) {
+		this.student = student;
+	}
+
+	/**
+	 * @return the student
+	 */
+	public Student getStudent() {
+		return student;
 	}	
 }

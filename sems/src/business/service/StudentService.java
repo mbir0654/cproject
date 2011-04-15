@@ -3,7 +3,8 @@
  */
 package business.service;
 
-import business.model.*;
+import data.repositorydb.StudentRepository;
+
 
 /**
  * @author myh
@@ -14,12 +15,15 @@ final class StudentService {
 	/**
 	 * The student for which we offer the services.
 	 */
-	private Student s;
+	
+	private StudentRepository sr = StudentRepository.getInstance();
+	
+	public StudentService(){
+		
+	}
 	
 	public void viewCourses(){
-		/**TODO
-		 * incarca intr-un jlist cursurile la care e inscris studentul 
-		 */
+		
 	}
 	
 	public void viewAnnouncements(){

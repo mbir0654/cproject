@@ -1,5 +1,7 @@
 package business.model;
 
+import java.util.List;
+
 /**
  * 
  * @author otniel
@@ -9,6 +11,11 @@ package business.model;
 public class Student extends User {
 	
 	private String nrMat;
+	private Contract contract;
+	private List<AssignmentSolution> solutions;
+	private List<Assignment> assignments;
+	private Specialty spec;
+	
 	/**
 	 * Constructorul implicit
 	 */
@@ -53,7 +60,61 @@ public class Student extends User {
 	public String getNrMat() {
 		return nrMat;
 	}
-	
-	
+
+	/**
+	 * @param contract va fi contractul studentului
+	 */
+	public void setContract(Contract contract) {
+		this.contract = contract;
+	}
+
+	/**
+	 * @return contractul studentului
+	 */
+	public Contract getContract() {
+		return contract;
+	}
+
+	/**
+	 * @param solutions the solutions to set
+	 */
+	public void setSolutions(List<AssignmentSolution> solutions) {
+		this.solutions = solutions;
+	}
+
+	/**
+	 * @return the solutions
+	 */
+	public List<AssignmentSolution> getSolutions() {
+		return solutions;
+	}
+
+	/**
+	 * @param assignments the assignments to set
+	 */
+	public void setAssignments(List<Assignment> assignments) {
+		this.assignments = assignments;
+	}
+
+	/**
+	 * @return the assignments
+	 */
+	public List<Assignment> getAssignments() {
+		return assignments;
+	}
+
+	/**
+	 * @param spec the spec to set
+	 */
+	public void setSpec(Specialty spec) {
+		this.spec = spec;
+	}
+
+	/**
+	 * @return the spec
+	 */
+	public Specialty getSpec() {
+		return spec;
+	}
 
 } 

@@ -16,8 +16,14 @@ public class StudentRepository implements Repository<Student>{
 	
 	private List<Student> l;
 	
-	public StudentRepository (){
+	private static StudentRepository sr;
+	
+	private StudentRepository (){
 		l = new ArrayList<Student>();
+	}
+	
+	public static StudentRepository getInstance(){
+		return sr;
 	}
 
 	/* (non-Javadoc)
