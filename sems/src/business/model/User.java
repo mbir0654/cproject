@@ -15,9 +15,19 @@ public abstract class User {
 	private String userName = "";
 	private String password = "";
 	
+	/**
+	 * Constructorul implicit
+	 * 
+	 * <p>Initializeaza <b>firstName, lastName, userName</b> si <b>password</b></p>
+	 */
 	public User(){
 	}
 	
+	/**
+	 * Constructorul de copiere
+	 * 
+	 * @param u este userul care va fi duplicat
+	 */
 	public User(User u){
 		firstName = u.getFirstName();
 		lastName = u.getLastName();
@@ -25,6 +35,13 @@ public abstract class User {
 		password = u.getPassword();
 	}
 	
+	/**
+	 * Verifica daca doi useri sunt identici
+	 * 
+	 * @param u
+	 * 
+	 * @return
+	 */
 	public boolean equals(User u){
 		if(firstName.equals(u.getFirstName()) && 
 		   lastName.equalsIgnoreCase(u.getLastName()) &&
