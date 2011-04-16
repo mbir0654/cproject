@@ -2,15 +2,27 @@ package business.model;
 
 public class Announcement {
 	private String announcement = "";
+	private Professor prof;
+	private Course course;
 	
-	public Announcement(String a) {
+	
+	/**
+	 * Constructor parametrizat
+	 * 
+	 * @param a este textul anuntului
+	 * 
+	 * @param p este profesorul care a facut anuntul
+	 */
+	public Announcement(String a, Professor p) {
 		setAnnouncement(a);
+		setProf(p);
 	}
 	
 	public Announcement() {
 	}
 	
 	/**
+	 * Verifica daca 2 anunturi sunt identice
 	 * 
 	 * @param a este anuntul cu care comparam
 	 * 
@@ -35,5 +47,33 @@ public class Announcement {
 	 */
 	public String getAnnouncement() {
 		return announcement;
+	}
+
+	/**
+	 * @param prof va fi profesorul care a facut anuntul
+	 */
+	public void setProf(Professor prof) {
+		this.prof = prof;
+	}
+
+	/**
+	 * @return numele profesorului care a facut anuntul
+	 */
+	public String getProf() {
+		return prof.getFirstName()+" "+prof.getLastName();
+	}
+
+	/**
+	 * @param course va fi cursul pentru care se face acnuntul
+	 */
+	public void setCourse(Course course) {
+		this.course = course;
+	}
+
+	/**
+	 * @return cursul pentru care se face acnuntul curent
+	 */
+	public Course getCourse() {
+		return course;
 	}
 }

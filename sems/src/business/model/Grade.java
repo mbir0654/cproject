@@ -5,6 +5,8 @@ import java.util.Date;
 public class Grade {
 	private int grade = 0;
 	private Date date = null;
+	private Exam exam;
+	private String type;
 	
 	/**
 	 * Constructor de copiere
@@ -70,5 +72,33 @@ public class Grade {
 	 */
 	public Date getDate(){
 		return date;
+	}
+
+	/**
+	 * @param exam the exam to set
+	 */
+	public void setExam(Exam exam) {
+		this.exam = exam;
+	}
+
+	/**
+	 * @return the exam
+	 */
+	public Exam getExam() {
+		return exam;
+	}
+
+	/**
+	 * @param type the type to set
+	 */
+	public void setType(String type) {
+		this.type = type;
+	}
+
+	/**
+	 * @return the type
+	 */
+	public String getType() {
+		return type;
 	}
 }

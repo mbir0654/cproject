@@ -1,7 +1,11 @@
 
 package business.model;
 
-
+/**
+ * 
+ * @author otniel
+ *
+ */
 public class Administrator extends User {
 	
 	/**

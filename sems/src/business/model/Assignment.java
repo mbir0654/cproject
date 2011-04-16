@@ -8,12 +8,14 @@ public class Assignment {
 	private String name = "";
 	private Date deadline;
 	private ArrayList<AssignmentSolution> solutions;
+	private Course course;
+	//private List<Student> studentList;
 	
 	/**
 	 * Constructorul implicit
 	 */
 	public Assignment() {
-		solutions = new ArrayList<AssignmentSolution>();
+		solutions = new ArrayList<AssignmentSolution>();	
 	}
 	
 	/**
@@ -74,5 +76,19 @@ public class Assignment {
 	 */
 	public String getName() {
 		return name;
+	}
+
+	/**
+	 * @param course va fi cursul de care apartine tema curenta
+	 */
+	public void setCourse(Course course) {
+		this.course = course;
+	}
+
+	/**
+	 * @return cursul de care apartine tema
+	 */
+	public Course getCourse() {
+		return course;
 	}
 }
