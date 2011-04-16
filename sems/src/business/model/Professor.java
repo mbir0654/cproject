@@ -1,8 +1,10 @@
 package business.model;
 
+import java.util.List;
+
 
 public class Professor extends User{
-	
+	private List<Group> groups;
 	/**
 	 * Constructorul implicit
 	 * 
@@ -38,6 +40,20 @@ public class Professor extends User{
 		if(super.equals(p))
 			return true;
 		return false;
+	}
+
+	/**
+	 * @param groups the groups to set
+	 */
+	public void setGroups(List<Group> groups) {
+		this.groups = groups;
+	}
+
+	/**
+	 * @return the groups
+	 */
+	public List<Group> getGroups() {
+		return groups;
 	}
 } 
 

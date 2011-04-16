@@ -7,6 +7,7 @@ public class Exam {
 	private Date date;
 	private String type;
 	private ArrayList<Grade> grades;
+	private Course course;
 	
 	/**
 	 * 
@@ -88,6 +89,20 @@ public class Exam {
 	 */
 	public ArrayList<Grade> getGrade() {
 		return grades;
+	}
+
+	/**
+	 * @param course the course to set
+	 */
+	public void setCourse(Course course) {
+		this.course = course;
+	}
+
+	/**
+	 * @return the course
+	 */
+	public Course getCourse() {
+		return course;
 	}
 	
 }

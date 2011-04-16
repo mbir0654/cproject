@@ -16,7 +16,7 @@ public class Student extends User {
 	private List<AssignmentSolution> solutions;
 	private List<Assignment> assignments;
 	private Specialty specialty;
-	
+	private Group group;
 	/**
 	 * Constructorul implicit
 	 */
@@ -125,6 +125,20 @@ public class Student extends User {
 	 */
 	public Specialty getSpecialty() {
 		return specialty;
+	}
+
+	/**
+	 * @param group the group to set
+	 */
+	public void setGroup(Group group) {
+		this.group = group;
+	}
+
+	/**
+	 * @return the group
+	 */
+	public Group getGroup() {
+		return group;
 	}
 
 } 
