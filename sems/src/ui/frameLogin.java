@@ -12,12 +12,16 @@
 package ui;
 import javax.swing.*;
 
+import controller.Controller;
+
 /**
  *
  * @author Snoopy
+ * <p>updated by othniel to controller</p>
  */
 
 public class frameLogin extends javax.swing.JFrame {
+	private Controller c = new Controller();
 
     /** Creates new form frameLogin */
     public frameLogin() {
@@ -32,7 +36,7 @@ public class frameLogin extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
-
+    	
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -141,35 +145,16 @@ public class frameLogin extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void loginProfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginProfActionPerformed
-        JFrame prof = new frameProfMain();
-        prof.setVisible(true);
-        prof.setTitle("SEMS :: Profesor");
-        prof.setResizable(false);
-
-        // TODO add your handling code here:
+        c.loginProf(this);
     }//GEN-LAST:event_loginProfActionPerformed
 
     private void loginAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginAdminActionPerformed
-        JFrame admin = new frameAdminMain();
-        admin.setVisible(true);
-        admin.setTitle("SEMS :: Administrator");
-        admin.setResizable(false);
-
-        // TODO add your handling code here:
+        c.loginAdmin(this);
     }//GEN-LAST:event_loginAdminActionPerformed
 
     private void loginStudActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginStudActionPerformed
-        JFrame student = new frameStudMain();
-        student.setVisible(true);
-        student.setTitle("SEMS :: Student");
-        student.setResizable(false);
-
-        // TODO add your handling code here:
+       c.loginStudent(this);
     }//GEN-LAST:event_loginStudActionPerformed
-
-    /**
-    * @param args the command line arguments
-    */
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

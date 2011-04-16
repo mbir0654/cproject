@@ -11,17 +11,19 @@
 
 package ui;
 
+import controller.Controller;
+
 /**
  *
- * @author snoopy
+ * @author snoopy 
+ * <p>updated by othniel to controller</p>
  */
 public class frameStudTeme extends javax.swing.JFrame {
-
+	private Controller c = new Controller();
+	
     /** Creates new form frameStudTeme */
     public frameStudTeme() {
         initComponents();
-        labelInfoTeme.setVisible(false);
-        temaDetalii.setEditable(false);
     }
 
     /** This method is called from within the constructor to
@@ -39,11 +41,11 @@ public class frameStudTeme extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         listTeme = new javax.swing.JList();
         labelCursSelectat = new javax.swing.JLabel();
-        labelInfoTeme = new javax.swing.JPanel();
+        setLabelInfoTeme(new javax.swing.JPanel());
         temaNume = new javax.swing.JLabel();
         temaPentru = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        temaDetalii = new javax.swing.JTextArea();
+        setTemaDetalii(new javax.swing.JTextArea());
         jLabel4 = new javax.swing.JLabel();
         temaTermen = new javax.swing.JLabel();
         temaButIncarca = new javax.swing.JButton();
@@ -98,7 +100,7 @@ public class frameStudTeme extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        labelInfoTeme.setBorder(javax.swing.BorderFactory.createTitledBorder("Informatii despre tema"));
+        getLabelInfoTeme().setBorder(javax.swing.BorderFactory.createTitledBorder("Informatii despre tema"));
 
         temaNume.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         temaNume.setText("Tema 1");
@@ -106,11 +108,11 @@ public class frameStudTeme extends javax.swing.JFrame {
         temaPentru.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         temaPentru.setText("Analiza matematica");
 
-        temaDetalii.setColumns(20);
-        temaDetalii.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
-        temaDetalii.setRows(5);
-        temaDetalii.setText("Aici vin informatiile despre o tema\ndetalii, termen de predare....etc");
-        jScrollPane2.setViewportView(temaDetalii);
+        getTemaDetalii().setColumns(20);
+        getTemaDetalii().setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
+        getTemaDetalii().setRows(5);
+        getTemaDetalii().setText("Aici vin informatiile despre o tema\ndetalii, termen de predare....etc");
+        jScrollPane2.setViewportView(getTemaDetalii());
 
         jLabel4.setText("Termen de predare:");
 
@@ -129,8 +131,8 @@ public class frameStudTeme extends javax.swing.JFrame {
         temaNota.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         temaNota.setText("9");
 
-        javax.swing.GroupLayout labelInfoTemeLayout = new javax.swing.GroupLayout(labelInfoTeme);
-        labelInfoTeme.setLayout(labelInfoTemeLayout);
+        javax.swing.GroupLayout labelInfoTemeLayout = new javax.swing.GroupLayout(getLabelInfoTeme());
+        getLabelInfoTeme().setLayout(labelInfoTemeLayout);
         labelInfoTemeLayout.setHorizontalGroup(
             labelInfoTemeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(labelInfoTemeLayout.createSequentialGroup()
@@ -189,7 +191,7 @@ public class frameStudTeme extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(labelTeme, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(labelInfoTeme, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(getLabelInfoTeme(), javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -197,7 +199,7 @@ public class frameStudTeme extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(labelInfoTeme, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(getLabelInfoTeme(), javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(labelTeme, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -223,11 +225,38 @@ public class frameStudTeme extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void listTemeValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_listTemeValueChanged
-        labelInfoTeme.setVisible(true);
-        // TODO add your handling code here:
+    	c.enableAssignmentActions(this);
     }//GEN-LAST:event_listTemeValueChanged
 
     /**
+	 * @param labelInfoTeme the labelInfoTeme to set
+	 */
+	public void setLabelInfoTeme(javax.swing.JPanel labelInfoTeme) {
+		this.labelInfoTeme = labelInfoTeme;
+	}
+
+	/**
+	 * @return the labelInfoTeme
+	 */
+	public javax.swing.JPanel getLabelInfoTeme() {
+		return labelInfoTeme;
+	}
+
+	/**
+	 * @param temaDetalii the temaDetalii to set
+	 */
+	public void setTemaDetalii(javax.swing.JTextArea temaDetalii) {
+		this.temaDetalii = temaDetalii;
+	}
+
+	/**
+	 * @return the temaDetalii
+	 */
+	public javax.swing.JTextArea getTemaDetalii() {
+		return temaDetalii;
+	}
+
+	/**
     * @param args the command line arguments
     */
 

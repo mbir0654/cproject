@@ -102,7 +102,7 @@ public class frameProfMain extends javax.swing.JFrame {
                 .addContainerGap(51, Short.MAX_VALUE))
         );
 
-        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder("Cursuri alcate"));
+        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder("Cursuri alocate"));
 
         listCursuri.setModel(new javax.swing.AbstractListModel() {
             String[] strings = { "Analiza", "Algebra", "Arhitectura Calculatoarelor" };

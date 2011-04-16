@@ -11,16 +11,19 @@
 
 package ui;
 
+import controller.Controller;
+
 /**
  *
  * @author snoopy
+ * <p>updated by othniel to controller</p>
  */
 public class frameStudContracte extends javax.swing.JFrame {
+	private Controller c = new Controller();
 
     /** Creates new form frameStudContracte */
     public frameStudContracte() {
         initComponents();
-        panouInfoCurs.setVisible(false);
     }
 
     /** This method is called from within the constructor to
@@ -31,12 +34,12 @@ public class frameStudContracte extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
-
+    	
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         listCursuri = new javax.swing.JList();
-        panouInfoCurs = new javax.swing.JPanel();
+        setPanouInfoCurs(new javax.swing.JPanel());
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -50,7 +53,7 @@ public class frameStudContracte extends javax.swing.JFrame {
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
-        butContracteaza = new javax.swing.JButton();
+        setButContracteaza(new javax.swing.JButton());
         butActualizare = new javax.swing.JButton();
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "SEMS :: Contracte", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 12), new java.awt.Color(51, 51, 255))); // NOI18N
@@ -86,7 +89,7 @@ public class frameStudContracte extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        panouInfoCurs.setBorder(javax.swing.BorderFactory.createTitledBorder("Informatii curs"));
+        getPanouInfoCurs().setBorder(javax.swing.BorderFactory.createTitledBorder("Informatii curs"));
 
         jLabel1.setText("Denumire:");
 
@@ -118,8 +121,8 @@ public class frameStudContracte extends javax.swing.JFrame {
         jLabel12.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel12.setText("2");
 
-        javax.swing.GroupLayout panouInfoCursLayout = new javax.swing.GroupLayout(panouInfoCurs);
-        panouInfoCurs.setLayout(panouInfoCursLayout);
+        javax.swing.GroupLayout panouInfoCursLayout = new javax.swing.GroupLayout(getPanouInfoCurs());
+        getPanouInfoCurs().setLayout(panouInfoCursLayout);
         panouInfoCursLayout.setHorizontalGroup(
             panouInfoCursLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panouInfoCursLayout.createSequentialGroup()
@@ -172,7 +175,7 @@ public class frameStudContracte extends javax.swing.JFrame {
 
         jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder("Optiuni curs"));
 
-        butContracteaza.setText("Contracteaza");
+        getButContracteaza().setText("Contracteaza");
 
         butActualizare.setText("Actualizare contract");
 
@@ -183,7 +186,7 @@ public class frameStudContracte extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(21, 21, 21)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(butContracteaza, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(getButContracteaza(), javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(butActualizare, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -191,7 +194,7 @@ public class frameStudContracte extends javax.swing.JFrame {
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(butContracteaza)
+                .addComponent(getButContracteaza())
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(butActualizare)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -204,7 +207,7 @@ public class frameStudContracte extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(panouInfoCurs, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(getPanouInfoCurs(), javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -219,7 +222,7 @@ public class frameStudContracte extends javax.swing.JFrame {
                     .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(panouInfoCurs, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(getPanouInfoCurs(), javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -244,18 +247,38 @@ public class frameStudContracte extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void listCursuriValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_listCursuriValueChanged
-
-        butContracteaza.setEnabled(true);
-        panouInfoCurs.setVisible(true);
-        // TODO add your handling code here:
+    	c.enableContractButtons(this);
     }//GEN-LAST:event_listCursuriValueChanged
 
     /**
-    * @param args the command line arguments
-    */
+	 * @param butContracteaza the butContracteaza to set
+	 */
+	public void setButContracteaza(javax.swing.JButton butContracteaza) {
+		this.butContracteaza = butContracteaza;
+	}
 
+	/**
+	 * @return the butContracteaza
+	 */
+	public javax.swing.JButton getButContracteaza() {
+		return butContracteaza;
+	}
 
-    // Variables declaration - do not modify//GEN-BEGIN:variables
+	/**
+	 * @param panouInfoCurs the panouInfoCurs to set
+	 */
+	public void setPanouInfoCurs(javax.swing.JPanel panouInfoCurs) {
+		this.panouInfoCurs = panouInfoCurs;
+	}
+
+	/**
+	 * @return the panouInfoCurs
+	 */
+	public javax.swing.JPanel getPanouInfoCurs() {
+		return panouInfoCurs;
+	}
+
+	// Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton butActualizare;
     private javax.swing.JButton butContracteaza;
     private javax.swing.JLabel jLabel1;

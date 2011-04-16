@@ -23,4 +23,7 @@
 <fullyQualifiedTypeName name="business.model.Administrator"/>
 <fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="ui.frameStudMain"/>
+<fullyQualifiedTypeName name="javax.swing.JTextField"/>
+<fullyQualifiedTypeName name="controller.Controller"/>
 </qualifiedTypeNameHistroy>

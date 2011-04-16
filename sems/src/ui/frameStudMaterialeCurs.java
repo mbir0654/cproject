@@ -11,17 +11,19 @@
 
 package ui;
 
+import controller.Controller;
+
 /**
  *
  * @author snoopy
+ * <p>updated by othniel to controller</p>
  */
 public class frameStudMaterialeCurs extends javax.swing.JFrame {
+	private Controller c = new Controller();
 
     /** Creates new form frameStudMaterialeCurs */
     public frameStudMaterialeCurs() {
         initComponents();
-        materialText.setEditable(false);
-        materialInfo.setVisible(false);
     }
 
     /** This method is called from within the constructor to
@@ -32,18 +34,18 @@ public class frameStudMaterialeCurs extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
-
+    	
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         materialSelect = new javax.swing.JComboBox();
-        materialInfo = new javax.swing.JPanel();
+        setMaterialInfo(new javax.swing.JPanel());
         materialTitlu = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         materialAdaugatDe = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        materialText = new javax.swing.JTextArea();
+        setMaterialText(new javax.swing.JTextArea());
         butDescarca = new javax.swing.JButton();
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "SEMS :: Materiale curs", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 12), new java.awt.Color(51, 51, 255))); // NOI18N
@@ -63,7 +65,7 @@ public class frameStudMaterialeCurs extends javax.swing.JFrame {
             }
         });
 
-        materialInfo.setBorder(javax.swing.BorderFactory.createTitledBorder("Detalii material"));
+        getMaterialInfo().setBorder(javax.swing.BorderFactory.createTitledBorder("Detalii material"));
 
         materialTitlu.setFont(new java.awt.Font("Tahoma", 1, 12));
         materialTitlu.setText("Titlu material");
@@ -73,16 +75,16 @@ public class frameStudMaterialeCurs extends javax.swing.JFrame {
         materialAdaugatDe.setFont(new java.awt.Font("Tahoma", 1, 11));
         materialAdaugatDe.setText("Prof. Bufnea Darius");
 
-        materialText.setColumns(20);
-        materialText.setFont(new java.awt.Font("Arial", 0, 11));
-        materialText.setRows(5);
-        materialText.setText(" aici vine text text tex\nttex\ntte\ntq\nrq e\nqwe q\nweqw\n ewq\n");
-        jScrollPane1.setViewportView(materialText);
+        getMaterialText().setColumns(20);
+        getMaterialText().setFont(new java.awt.Font("Arial", 0, 11));
+        getMaterialText().setRows(5);
+        getMaterialText().setText(" aici vine text text tex\nttex\ntte\ntq\nrq e\nqwe q\nweqw\n ewq\n");
+        jScrollPane1.setViewportView(getMaterialText());
 
         butDescarca.setText("Descarca material");
 
-        javax.swing.GroupLayout materialInfoLayout = new javax.swing.GroupLayout(materialInfo);
-        materialInfo.setLayout(materialInfoLayout);
+        javax.swing.GroupLayout materialInfoLayout = new javax.swing.GroupLayout(getMaterialInfo());
+        getMaterialInfo().setLayout(materialInfoLayout);
         materialInfoLayout.setHorizontalGroup(
             materialInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(materialInfoLayout.createSequentialGroup()
@@ -131,7 +133,7 @@ public class frameStudMaterialeCurs extends javax.swing.JFrame {
                         .addComponent(jLabel3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(materialSelect, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(materialInfo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(getMaterialInfo(), javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -146,7 +148,7 @@ public class frameStudMaterialeCurs extends javax.swing.JFrame {
                     .addComponent(jLabel3)
                     .addComponent(materialSelect, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(materialInfo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(getMaterialInfo(), javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -171,12 +173,38 @@ public class frameStudMaterialeCurs extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void materialSelectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_materialSelectActionPerformed
-
-        materialInfo.setVisible(true);
-        // TODO add your handling code here:
+    	c.showComponentInfo(this);
     }//GEN-LAST:event_materialSelectActionPerformed
 
     /**
+	 * @param materialText the materialText to set
+	 */
+	public void setMaterialText(javax.swing.JTextArea materialText) {
+		this.materialText = materialText;
+	}
+
+	/**
+	 * @return the materialText
+	 */
+	public javax.swing.JTextArea getMaterialText() {
+		return materialText;
+	}
+
+	/**
+	 * @param materialInfo the materialInfo to set
+	 */
+	public void setMaterialInfo(javax.swing.JPanel materialInfo) {
+		this.materialInfo = materialInfo;
+	}
+
+	/**
+	 * @return the materialInfo
+	 */
+	public javax.swing.JPanel getMaterialInfo() {
+		return materialInfo;
+	}
+
+	/**
     * @param args the command line arguments
     */
 

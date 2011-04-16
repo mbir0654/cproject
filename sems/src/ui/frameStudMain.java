@@ -12,24 +12,24 @@
 package ui;
 import java.awt.Color;
 import javax.swing.*;
+import controller.Controller;
+
+
 /**
  *
  * @author snoopy
+ * <p>updated by othniel to controller</p>
  */
 public class frameStudMain extends javax.swing.JFrame {
+	private Controller c = new Controller();
 
     /** Creates new form frameStudMain */
     public frameStudMain() {
         initComponents();
-        setButtons(false);
+        c.setStudMainButtons(false, this);
         }
 
-    private void setButtons(boolean var) {
-        butTrimiteTeme.setEnabled(var);
-        butMaterialeCurs.setEnabled(var);
-        butNote.setEnabled(var);
-
-    }
+    
     /** This method is called from within the constructor to
      * initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is
@@ -38,8 +38,13 @@ public class frameStudMain extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
-
-        welcome = new javax.swing.JPanel();
+    	
+    	
+        c = new Controller();
+        /*
+    	 * componente generate de form editor din netbeans
+    	 */
+    	welcome = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         listCursuri = new javax.swing.JList();
@@ -55,9 +60,9 @@ public class frameStudMain extends javax.swing.JFrame {
         labelAnuntCurs = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
-        butMaterialeCurs = new javax.swing.JButton();
-        butNote = new javax.swing.JButton();
-        butTrimiteTeme = new javax.swing.JButton();
+        setButMaterialeCurs(new javax.swing.JButton());
+        setButNote(new javax.swing.JButton());
+        setButTrimiteTeme(new javax.swing.JButton());
         butLogout = new javax.swing.JButton();
 
         welcome.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Welcome to SEMS", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 12), new java.awt.Color(51, 51, 255))); // NOI18N
@@ -173,22 +178,22 @@ public class frameStudMain extends javax.swing.JFrame {
             }
         });
 
-        butMaterialeCurs.setText("Materiale de curs");
-        butMaterialeCurs.addActionListener(new java.awt.event.ActionListener() {
+        getButMaterialeCurs().setText("Materiale de curs");
+        getButMaterialeCurs().addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 butMaterialeCursActionPerformed(evt);
             }
         });
 
-        butNote.setText("Note");
-        butNote.addActionListener(new java.awt.event.ActionListener() {
+        getButNote().setText("Note");
+        getButNote().addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 butNoteActionPerformed(evt);
             }
         });
 
-        butTrimiteTeme.setText("Trimite teme");
-        butTrimiteTeme.addActionListener(new java.awt.event.ActionListener() {
+        getButTrimiteTeme().setText("Trimite teme");
+        getButTrimiteTeme().addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 butTrimiteTemeActionPerformed(evt);
             }
@@ -209,9 +214,9 @@ public class frameStudMain extends javax.swing.JFrame {
                 .addGap(25, 25, 25)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(butLogout, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 137, Short.MAX_VALUE)
-                    .addComponent(butNote, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 137, Short.MAX_VALUE)
-                    .addComponent(butMaterialeCurs, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 137, Short.MAX_VALUE)
-                    .addComponent(butTrimiteTeme, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 137, Short.MAX_VALUE)
+                    .addComponent(getButNote(), javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 137, Short.MAX_VALUE)
+                    .addComponent(getButMaterialeCurs(), javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 137, Short.MAX_VALUE)
+                    .addComponent(getButTrimiteTeme(), javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 137, Short.MAX_VALUE)
                     .addComponent(jButton1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(19, 19, 19))
         );
@@ -220,11 +225,11 @@ public class frameStudMain extends javax.swing.JFrame {
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addComponent(jButton1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(butTrimiteTeme)
+                .addComponent(getButTrimiteTeme())
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(butMaterialeCurs)
+                .addComponent(getButMaterialeCurs())
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(butNote)
+                .addComponent(getButNote())
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(butLogout)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -276,59 +281,79 @@ public class frameStudMain extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void listCursuriValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_listCursuriValueChanged
-
-        setButtons(true);
-        // TODO add your handling code here:
+        c.setStudMainButtons(true, this);
     }//GEN-LAST:event_listCursuriValueChanged
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-
-        JFrame contract = new frameStudContracte();
-        contract.setVisible(true);
-        contract.setTitle("SEMS :: Contracte");
-        contract.setResizable(false);
-        // TODO add your handling code here:
+    	c.openContracts();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void butTrimiteTemeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butTrimiteTemeActionPerformed
-
-        JFrame teme = new frameStudTeme();
-        teme.setVisible(true);
-        teme.setTitle("SEMS :: Teme");
-        teme.setResizable(false);
-        // TODO add your handling code here:
+    	c.openAssignments();
     }//GEN-LAST:event_butTrimiteTemeActionPerformed
 
     private void butMaterialeCursActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butMaterialeCursActionPerformed
-
-        JFrame materiale = new frameStudMaterialeCurs();
-        materiale.setVisible(true);
-        materiale.setTitle("SEMS :: Materiale");
-        materiale.setResizable(false);
-        // TODO add your handling code here:
+    	c.openCourseComponents();
     }//GEN-LAST:event_butMaterialeCursActionPerformed
 
     private void butNoteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butNoteActionPerformed
-
-        JFrame note = new frameStudNote();
-        note.setVisible(true);
-        note.setTitle("SEMS :: Note");
-        note.setResizable(false);
-        // TODO add your handling code here:
+    	c.openGrades();
     }//GEN-LAST:event_butNoteActionPerformed
 
     private void butLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butLogoutActionPerformed
-
-        this.setVisible(false);
-        // TODO add your handling code here:
+        this.dispose();
     }//GEN-LAST:event_butLogoutActionPerformed
 
+
     /**
-    * @param args the command line arguments
-    */
+	 * @param butNote the butNote to set
+	 */
+	public void setButNote(javax.swing.JButton butNote) {
+		this.butNote = butNote;
+	}
 
 
-    // Variables declaration - do not modify//GEN-BEGIN:variables
+	/**
+	 * @return the butNote
+	 */
+	public javax.swing.JButton getButNote() {
+		return butNote;
+	}
+
+
+	/**
+	 * @param butMaterialeCurs the butMaterialeCurs to set
+	 */
+	public void setButMaterialeCurs(javax.swing.JButton butMaterialeCurs) {
+		this.butMaterialeCurs = butMaterialeCurs;
+	}
+
+
+	/**
+	 * @return the butMaterialeCurs
+	 */
+	public javax.swing.JButton getButMaterialeCurs() {
+		return butMaterialeCurs;
+	}
+
+
+	/**
+	 * @param butTrimiteTeme the butTrimiteTeme to set
+	 */
+	public void setButTrimiteTeme(javax.swing.JButton butTrimiteTeme) {
+		this.butTrimiteTeme = butTrimiteTeme;
+	}
+
+
+	/**
+	 * @return the butTrimiteTeme
+	 */
+	public javax.swing.JButton getButTrimiteTeme() {
+		return butTrimiteTeme;
+	}
+
+
+	// Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton butLogout;
     private javax.swing.JButton butMaterialeCurs;
     private javax.swing.JButton butNote;

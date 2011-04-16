@@ -9,13 +9,6 @@ import business.model.*;
  *
  */
 public class AppService {
-	
-	@SuppressWarnings("unused")
-	private AdministratorService as;
-	@SuppressWarnings("unused")
-	private ProfessorService ps;
-	@SuppressWarnings("unused")
-	private StudentService ss;
 	/**
 	 * atribut privat pentru singleton
 	 */
@@ -29,6 +22,7 @@ public class AppService {
 	}
 	
 	/**
+	 * permite accesul la singura instanta existenta a clasei
 	 * 
 	 * @return atributul privat <b>apps</b>, pentru a asigura unicitatea 
 	 * 		   serviciului in toata aplicatia 
