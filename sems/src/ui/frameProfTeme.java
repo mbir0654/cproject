@@ -11,15 +11,18 @@
 
 package ui;
 
+import controller.ControllerProfesor;
+
 /**
  *
  * @author snoopy
  */
 public class frameProfTeme extends javax.swing.JFrame {
-
+     private ControllerProfesor c;
     /** Creates new form frameProfTeme */
-    public frameProfTeme() {
+    public frameProfTeme(ControllerProfesor cp) {
         initComponents();
+        this.c=cp;
         setButtonsOn(false);
         panouAloca.setVisible(false);
     }

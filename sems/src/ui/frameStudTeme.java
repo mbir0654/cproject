@@ -11,7 +11,11 @@
 
 package ui;
 
-import controller.Controller;
+import controller.ControllerStudent;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextArea;
 
 /**
  *
@@ -19,10 +23,11 @@ import controller.Controller;
  * <p>updated by othniel to controller</p>
  */
 public class frameStudTeme extends javax.swing.JFrame {
-	private Controller c = new Controller();
+	private ControllerStudent c;
 	
     /** Creates new form frameStudTeme */
-    public frameStudTeme() {
+    public frameStudTeme(ControllerStudent cs) {
+        this.c=cs;
         initComponents();
     }
 
@@ -41,18 +46,18 @@ public class frameStudTeme extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         listTeme = new javax.swing.JList();
         labelCursSelectat = new javax.swing.JLabel();
-        setLabelInfoTeme(new javax.swing.JPanel());
-        temaNume = new javax.swing.JLabel();
-        temaPentru = new javax.swing.JLabel();
+        labelInfoTeme = new javax.swing.JPanel();
+        labelTemaTitlu = new javax.swing.JLabel();
+        labelTemaCurs = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        setTemaDetalii(new javax.swing.JTextArea());
+        labelTemaDetalii = new javax.swing.JTextArea();
         jLabel4 = new javax.swing.JLabel();
-        temaTermen = new javax.swing.JLabel();
-        temaButIncarca = new javax.swing.JButton();
+        labelTemaTermen = new javax.swing.JLabel();
+        butIncarca = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
-        temaDataIncarcare = new javax.swing.JLabel();
+        labelTemaData = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        temaNota = new javax.swing.JLabel();
+        labelTemaNota = new javax.swing.JLabel();
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "SEMS :: Teme", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 12), new java.awt.Color(51, 51, 255))); // NOI18N
 
@@ -73,7 +78,7 @@ public class frameStudTeme extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(listTeme);
 
-        labelCursSelectat.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        labelCursSelectat.setFont(new java.awt.Font("Tahoma", 1, 12));
         labelCursSelectat.setText("Analiza matematica");
 
         javax.swing.GroupLayout labelTemeLayout = new javax.swing.GroupLayout(labelTeme);
@@ -100,86 +105,86 @@ public class frameStudTeme extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        getLabelInfoTeme().setBorder(javax.swing.BorderFactory.createTitledBorder("Informatii despre tema"));
+        labelInfoTeme.setBorder(javax.swing.BorderFactory.createTitledBorder("Informatii despre tema"));
 
-        temaNume.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        temaNume.setText("Tema 1");
+        labelTemaTitlu.setFont(new java.awt.Font("Tahoma", 1, 12));
+        labelTemaTitlu.setText("Tema 1");
 
-        temaPentru.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        temaPentru.setText("Analiza matematica");
+        labelTemaCurs.setFont(new java.awt.Font("Tahoma", 1, 11));
+        labelTemaCurs.setText("Analiza matematica");
 
-        getTemaDetalii().setColumns(20);
-        getTemaDetalii().setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
-        getTemaDetalii().setRows(5);
-        getTemaDetalii().setText("Aici vin informatiile despre o tema\ndetalii, termen de predare....etc");
-        jScrollPane2.setViewportView(getTemaDetalii());
+        labelTemaDetalii.setColumns(20);
+        labelTemaDetalii.setFont(new java.awt.Font("Arial", 0, 10));
+        labelTemaDetalii.setRows(5);
+        labelTemaDetalii.setText("Aici vin informatiile despre o tema\ndetalii, termen de predare....etc");
+        jScrollPane2.setViewportView(labelTemaDetalii);
 
         jLabel4.setText("Termen de predare:");
 
-        temaTermen.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        temaTermen.setText("Saptamana 4");
+        labelTemaTermen.setFont(new java.awt.Font("Tahoma", 1, 11));
+        labelTemaTermen.setText("Saptamana 4");
 
-        temaButIncarca.setText("Incarca rezolvare");
+        butIncarca.setText("Incarca rezolvare");
 
         jLabel6.setText("Rezolvare incarcata in:");
 
-        temaDataIncarcare.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        temaDataIncarcare.setText("12/04/2011");
+        labelTemaData.setFont(new java.awt.Font("Tahoma", 1, 11));
+        labelTemaData.setText("12/04/2011");
 
         jLabel8.setText("Nota primita:");
 
-        temaNota.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        temaNota.setText("9");
+        labelTemaNota.setFont(new java.awt.Font("Tahoma", 1, 11));
+        labelTemaNota.setText("9");
 
-        javax.swing.GroupLayout labelInfoTemeLayout = new javax.swing.GroupLayout(getLabelInfoTeme());
-        getLabelInfoTeme().setLayout(labelInfoTemeLayout);
+        javax.swing.GroupLayout labelInfoTemeLayout = new javax.swing.GroupLayout(labelInfoTeme);
+        labelInfoTeme.setLayout(labelInfoTemeLayout);
         labelInfoTemeLayout.setHorizontalGroup(
             labelInfoTemeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(labelInfoTemeLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(labelInfoTemeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 260, Short.MAX_VALUE)
-                    .addComponent(temaNume)
-                    .addComponent(temaPentru)
+                    .addComponent(labelTemaTitlu)
+                    .addComponent(labelTemaCurs)
                     .addGroup(labelInfoTemeLayout.createSequentialGroup()
                         .addGroup(labelInfoTemeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel6)
                             .addComponent(jLabel8))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(labelInfoTemeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(temaNota)
-                            .addComponent(temaDataIncarcare)))
+                            .addComponent(labelTemaNota)
+                            .addComponent(labelTemaData)))
                     .addGroup(labelInfoTemeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(temaButIncarca, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(butIncarca, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(javax.swing.GroupLayout.Alignment.LEADING, labelInfoTemeLayout.createSequentialGroup()
                             .addComponent(jLabel4)
                             .addGap(18, 18, 18)
-                            .addComponent(temaTermen))))
+                            .addComponent(labelTemaTermen))))
                 .addContainerGap())
         );
         labelInfoTemeLayout.setVerticalGroup(
             labelInfoTemeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(labelInfoTemeLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(temaPentru)
+                .addComponent(labelTemaCurs)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(temaNume)
+                .addComponent(labelTemaTitlu)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(labelInfoTemeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(temaTermen))
+                    .addComponent(labelTemaTermen))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(labelInfoTemeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
-                    .addComponent(temaDataIncarcare))
+                    .addComponent(labelTemaData))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 7, Short.MAX_VALUE)
                 .addGroup(labelInfoTemeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
-                    .addComponent(temaNota))
+                    .addComponent(labelTemaNota))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(temaButIncarca)
+                .addComponent(butIncarca)
                 .addContainerGap())
         );
 
@@ -191,7 +196,7 @@ public class frameStudTeme extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(labelTeme, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(getLabelInfoTeme(), javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(labelInfoTeme, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -199,7 +204,7 @@ public class frameStudTeme extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(getLabelInfoTeme(), javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(labelInfoTeme, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(labelTeme, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -242,18 +247,48 @@ public class frameStudTeme extends javax.swing.JFrame {
 		return labelInfoTeme;
 	}
 
+    public JLabel getLabelTemaCurs() {
+        return labelTemaCurs;
+    }
+
+    public JLabel getLabelTemaData() {
+        return labelTemaData;
+    }
+
+    public JTextArea getLabelTemaDetalii() {
+        return labelTemaDetalii;
+    }
+
+    public JLabel getLabelTemaNota() {
+        return labelTemaNota;
+    }
+
+    public JLabel getLabelTemaTermen() {
+        return labelTemaTermen;
+    }
+
+    public JLabel getLabelTemaTitlu() {
+        return labelTemaTitlu;
+    }
+
+    public JButton getButIncarca() {
+        return butIncarca;
+    }
+    
+
+
+
 	/**
 	 * @param temaDetalii the temaDetalii to set
 	 */
-	public void setTemaDetalii(javax.swing.JTextArea temaDetalii) {
-		this.temaDetalii = temaDetalii;
-	}
+         
+
 
 	/**
 	 * @return the temaDetalii
 	 */
 	public javax.swing.JTextArea getTemaDetalii() {
-		return temaDetalii;
+		return labelTemaDetalii;
 	}
 
 	/**
@@ -262,6 +297,7 @@ public class frameStudTeme extends javax.swing.JFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton butIncarca;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel6;
@@ -271,15 +307,14 @@ public class frameStudTeme extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel labelCursSelectat;
     private javax.swing.JPanel labelInfoTeme;
+    private javax.swing.JLabel labelTemaCurs;
+    private javax.swing.JLabel labelTemaData;
+    private javax.swing.JTextArea labelTemaDetalii;
+    private javax.swing.JLabel labelTemaNota;
+    private javax.swing.JLabel labelTemaTermen;
+    private javax.swing.JLabel labelTemaTitlu;
     private javax.swing.JPanel labelTeme;
     private javax.swing.JList listTeme;
-    private javax.swing.JButton temaButIncarca;
-    private javax.swing.JLabel temaDataIncarcare;
-    private javax.swing.JTextArea temaDetalii;
-    private javax.swing.JLabel temaNota;
-    private javax.swing.JLabel temaNume;
-    private javax.swing.JLabel temaPentru;
-    private javax.swing.JLabel temaTermen;
     // End of variables declaration//GEN-END:variables
 
 }

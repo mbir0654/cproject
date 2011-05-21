@@ -11,15 +11,18 @@
 
 package ui;
 
+import controller.ControllerProfesor;
+
 /**
  *
  * @author snoopy
  */
 public class frameProfEvaluari extends javax.swing.JFrame {
-
+     private ControllerProfesor c;
     /** Creates new form frameProfEvaluari */
-    public frameProfEvaluari() {
+    public frameProfEvaluari(ControllerProfesor cp) {
         initComponents();
+        this.c=cp;
         panouInfoTest.setVisible(false);
         testDel.setEnabled(false);
         panouInfoExamen.setVisible(false);

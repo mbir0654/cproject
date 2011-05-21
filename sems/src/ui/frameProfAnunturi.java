@@ -10,17 +10,19 @@
  */
 
 package ui;
+import controller.ControllerProfesor;
 
 /**
  *
  * @author snoopy
  */
 public class frameProfAnunturi extends javax.swing.JFrame {
-
+     private ControllerProfesor c;
     /** Creates new form frameProfAnunturi */
-    public frameProfAnunturi() {
+    public frameProfAnunturi(ControllerProfesor cp) {
         initComponents();
         panouAnunt.setVisible(false);
+        this.c=cp;
     }
 
     /** This method is called from within the constructor to

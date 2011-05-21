@@ -12,7 +12,7 @@
 package ui;
 import java.awt.Color;
 import javax.swing.*;
-import controller.Controller;
+import controller.*;
 
 
 /**
@@ -21,12 +21,15 @@ import controller.Controller;
  * <p>updated by othniel to controller</p>
  */
 public class frameStudMain extends javax.swing.JFrame {
-	private Controller c = new Controller();
+	private ControllerStudent c;
 
     /** Creates new form frameStudMain */
-    public frameStudMain() {
+    public frameStudMain(ControllerStudent cs) {
+        this.c=cs;
         initComponents();
         c.setStudMainButtons(false, this);
+        c.loadCursuri(this);
+        c.loadAnnounces(this);
         }
 
     
@@ -38,36 +41,31 @@ public class frameStudMain extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
-    	
-    	
-        c = new Controller();
-        /*
-    	 * componente generate de form editor din netbeans
-    	 */
-    	welcome = new javax.swing.JPanel();
-        jPanel2 = new javax.swing.JPanel();
+
+        welcome = new javax.swing.JPanel();
+        panouCursuriInscris = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         listCursuri = new javax.swing.JList();
-        jPanel3 = new javax.swing.JPanel();
+        panouAnunturi = new javax.swing.JPanel();
         jSeparator1 = new javax.swing.JSeparator();
         labelAnuntTitlu = new javax.swing.JLabel();
-        labelAnuntBy = new javax.swing.JLabel();
+        labelAnuntProf = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
-        textAnunt = new javax.swing.JTextArea();
-        jLabel1 = new javax.swing.JLabel();
+        labelAnuntText = new javax.swing.JTextArea();
+        titluAnunturi = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         listAnunturi = new javax.swing.JList();
         labelAnuntCurs = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
-        setButMaterialeCurs(new javax.swing.JButton());
-        setButNote(new javax.swing.JButton());
-        setButTrimiteTeme(new javax.swing.JButton());
+        butMaterialeCurs = new javax.swing.JButton();
+        butNote = new javax.swing.JButton();
+        butTrimiteTeme = new javax.swing.JButton();
         butLogout = new javax.swing.JButton();
 
         welcome.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Welcome to SEMS", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 12), new java.awt.Color(51, 51, 255))); // NOI18N
 
-        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Cursuri la care sunteti inscris"));
+        panouCursuriInscris.setBorder(javax.swing.BorderFactory.createTitledBorder("Cursuri la care sunteti inscris"));
 
         listCursuri.setModel(new javax.swing.AbstractListModel() {
             String[] strings = { "Analiza matematica", "Algebra", "Arhitectura Calculatoarelor", "Baze de date", "Proiect colectiv" };
@@ -82,38 +80,38 @@ public class frameStudMain extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(listCursuri);
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
+        javax.swing.GroupLayout panouCursuriInscrisLayout = new javax.swing.GroupLayout(panouCursuriInscris);
+        panouCursuriInscris.setLayout(panouCursuriInscrisLayout);
+        panouCursuriInscrisLayout.setHorizontalGroup(
+            panouCursuriInscrisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panouCursuriInscrisLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 161, Short.MAX_VALUE)
                 .addContainerGap())
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
+        panouCursuriInscrisLayout.setVerticalGroup(
+            panouCursuriInscrisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panouCursuriInscrisLayout.createSequentialGroup()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder("Anunturi"));
+        panouAnunturi.setBorder(javax.swing.BorderFactory.createTitledBorder("Anunturi"));
 
         labelAnuntTitlu.setFont(new java.awt.Font("Tahoma", 1, 12));
         labelAnuntTitlu.setText("Anunt test 1");
 
-        labelAnuntBy.setText("Prof. Mircea Badea");
+        labelAnuntProf.setText("Prof. Mircea Badea");
 
-        textAnunt.setColumns(20);
-        textAnunt.setFont(new java.awt.Font("Arial", 0, 10));
-        textAnunt.setRows(5);
-        textAnunt.setText("aeq wqkjenljkqw njlkeqw\n eqwjkne qwlkjnej kqwe \nqw ejkqwnlkje qnwkenkqw \n eqw");
-        textAnunt.setEnabled(false);
-        jScrollPane3.setViewportView(textAnunt);
+        labelAnuntText.setColumns(20);
+        labelAnuntText.setFont(new java.awt.Font("Arial", 0, 10));
+        labelAnuntText.setRows(5);
+        labelAnuntText.setText("aeq wqkjenljkqw njlkeqw\n eqwjkne qwlkjnej kqwe \nqw ejkqwnlkje qnwkenkqw \n eqw");
+        labelAnuntText.setEnabled(false);
+        jScrollPane3.setViewportView(labelAnuntText);
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 11));
-        jLabel1.setText("Titlul anuntului");
+        titluAnunturi.setFont(new java.awt.Font("Tahoma", 1, 11));
+        titluAnunturi.setText("Titlul anuntului");
 
         listAnunturi.setModel(new javax.swing.AbstractListModel() {
             String[] strings = { "Anunt test 1 (Prof. Dan Stirb)", "In gura presei (Prof. Mircea Badea)", "Etc Etc (Dr. Ing. Mihai Gugu)" };
@@ -121,39 +119,44 @@ public class frameStudMain extends javax.swing.JFrame {
             public Object getElementAt(int i) { return strings[i]; }
         });
         listAnunturi.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        listAnunturi.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
+            public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
+                listAnunturiValueChanged(evt);
+            }
+        });
         jScrollPane2.setViewportView(listAnunturi);
 
         labelAnuntCurs.setFont(new java.awt.Font("Tahoma", 1, 12));
         labelAnuntCurs.setText("Baze de date");
 
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
+        javax.swing.GroupLayout panouAnunturiLayout = new javax.swing.GroupLayout(panouAnunturi);
+        panouAnunturi.setLayout(panouAnunturiLayout);
+        panouAnunturiLayout.setHorizontalGroup(
+            panouAnunturiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panouAnunturiLayout.createSequentialGroup()
+                .addGroup(panouAnunturiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panouAnunturiLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(panouAnunturiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 338, Short.MAX_VALUE)
-                            .addComponent(jLabel1)
+                            .addComponent(titluAnunturi)
                             .addComponent(jSeparator1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 338, Short.MAX_VALUE)
                             .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 338, Short.MAX_VALUE)))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
+                    .addGroup(panouAnunturiLayout.createSequentialGroup()
                         .addGap(115, 115, 115)
                         .addComponent(labelAnuntTitlu))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
+                    .addGroup(panouAnunturiLayout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(labelAnuntCurs))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
+                    .addGroup(panouAnunturiLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(labelAnuntBy)))
+                        .addComponent(labelAnuntProf)))
                 .addContainerGap())
         );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addComponent(jLabel1)
+        panouAnunturiLayout.setVerticalGroup(
+            panouAnunturiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panouAnunturiLayout.createSequentialGroup()
+                .addComponent(titluAnunturi)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -161,7 +164,7 @@ public class frameStudMain extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(labelAnuntCurs)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(labelAnuntBy)
+                .addComponent(labelAnuntProf)
                 .addGap(11, 11, 11)
                 .addComponent(labelAnuntTitlu)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -178,22 +181,22 @@ public class frameStudMain extends javax.swing.JFrame {
             }
         });
 
-        getButMaterialeCurs().setText("Materiale de curs");
-        getButMaterialeCurs().addActionListener(new java.awt.event.ActionListener() {
+        butMaterialeCurs.setText("Materiale de curs");
+        butMaterialeCurs.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 butMaterialeCursActionPerformed(evt);
             }
         });
 
-        getButNote().setText("Note");
-        getButNote().addActionListener(new java.awt.event.ActionListener() {
+        butNote.setText("Note");
+        butNote.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 butNoteActionPerformed(evt);
             }
         });
 
-        getButTrimiteTeme().setText("Trimite teme");
-        getButTrimiteTeme().addActionListener(new java.awt.event.ActionListener() {
+        butTrimiteTeme.setText("Trimite teme");
+        butTrimiteTeme.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 butTrimiteTemeActionPerformed(evt);
             }
@@ -214,9 +217,9 @@ public class frameStudMain extends javax.swing.JFrame {
                 .addGap(25, 25, 25)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(butLogout, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 137, Short.MAX_VALUE)
-                    .addComponent(getButNote(), javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 137, Short.MAX_VALUE)
-                    .addComponent(getButMaterialeCurs(), javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 137, Short.MAX_VALUE)
-                    .addComponent(getButTrimiteTeme(), javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 137, Short.MAX_VALUE)
+                    .addComponent(butNote, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 137, Short.MAX_VALUE)
+                    .addComponent(butMaterialeCurs, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 137, Short.MAX_VALUE)
+                    .addComponent(butTrimiteTeme, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 137, Short.MAX_VALUE)
                     .addComponent(jButton1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(19, 19, 19))
         );
@@ -225,11 +228,11 @@ public class frameStudMain extends javax.swing.JFrame {
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addComponent(jButton1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(getButTrimiteTeme())
+                .addComponent(butTrimiteTeme)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(getButMaterialeCurs())
+                .addComponent(butMaterialeCurs)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(getButNote())
+                .addComponent(butNote)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(butLogout)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -243,9 +246,9 @@ public class frameStudMain extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(welcomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(panouCursuriInscris, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(panouAnunturi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         welcomeLayout.setVerticalGroup(
@@ -253,10 +256,10 @@ public class frameStudMain extends javax.swing.JFrame {
             .addGroup(welcomeLayout.createSequentialGroup()
                 .addGroup(welcomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(welcomeLayout.createSequentialGroup()
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(panouCursuriInscris, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(panouAnunturi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -303,6 +306,12 @@ public class frameStudMain extends javax.swing.JFrame {
     private void butLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butLogoutActionPerformed
         this.dispose();
     }//GEN-LAST:event_butLogoutActionPerformed
+
+    private void listAnunturiValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_listAnunturiValueChanged
+
+        c.showMainAnnounce(this);
+        // TODO add your handling code here:
+    }//GEN-LAST:event_listAnunturiValueChanged
 
 
     /**
@@ -353,27 +362,52 @@ public class frameStudMain extends javax.swing.JFrame {
 	}
 
 
-	// Variables declaration - do not modify//GEN-BEGIN:variables
+    // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton butLogout;
     private javax.swing.JButton butMaterialeCurs;
     private javax.swing.JButton butNote;
     private javax.swing.JButton butTrimiteTeme;
     private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JLabel labelAnuntBy;
     private javax.swing.JLabel labelAnuntCurs;
+    private javax.swing.JLabel labelAnuntProf;
+    private javax.swing.JTextArea labelAnuntText;
     private javax.swing.JLabel labelAnuntTitlu;
     private javax.swing.JList listAnunturi;
     private javax.swing.JList listCursuri;
-    private javax.swing.JTextArea textAnunt;
+    private javax.swing.JPanel panouAnunturi;
+    private javax.swing.JPanel panouCursuriInscris;
+    private javax.swing.JLabel titluAnunturi;
     private javax.swing.JPanel welcome;
     // End of variables declaration//GEN-END:variables
 
+    public JList getListCursuri() {
+        return listCursuri;
+    }
+
+    public JList getListAnunturi() {
+        return listAnunturi;
+    }
+
+    public JLabel getLabelAnuntCurs() {
+        return labelAnuntCurs;
+    }
+
+    public JLabel getLabelAnuntProf() {
+        return labelAnuntProf;
+    }
+
+    public JTextArea getLabelAnuntText() {
+        return labelAnuntText;
+    }
+
+    public JLabel getLabelAnuntTitlu() {
+        return labelAnuntTitlu;
+    }
+
+    
 }

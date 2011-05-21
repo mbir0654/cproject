@@ -11,7 +11,8 @@
 
 package ui;
 
-import controller.Controller;
+import controller.*;
+import javax.swing.JLabel;
 
 /**
  *
@@ -19,10 +20,12 @@ import controller.Controller;
  * <p>updated by othniel to controller</p>
  */
 public class frameStudContracte extends javax.swing.JFrame {
-	private Controller c = new Controller();
+	private ControllerStudent c;
+
 
     /** Creates new form frameStudContracte */
-    public frameStudContracte() {
+    public frameStudContracte(ControllerStudent cs) {
+        this.c=cs;
         initComponents();
     }
 
@@ -34,26 +37,26 @@ public class frameStudContracte extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
-    	
+
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         listCursuri = new javax.swing.JList();
-        setPanouInfoCurs(new javax.swing.JPanel());
+        panouInfoCurs = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        labelDenumire = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
+        labelCredite = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
+        labelPredatDe = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
+        labelOre = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
+        labelCod = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
+        labelAnPredare = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
-        setButContracteaza(new javax.swing.JButton());
+        butContracteaza = new javax.swing.JButton();
         butActualizare = new javax.swing.JButton();
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "SEMS :: Contracte", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 12), new java.awt.Color(51, 51, 255))); // NOI18N
@@ -89,40 +92,40 @@ public class frameStudContracte extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        getPanouInfoCurs().setBorder(javax.swing.BorderFactory.createTitledBorder("Informatii curs"));
+        panouInfoCurs.setBorder(javax.swing.BorderFactory.createTitledBorder("Informatii curs"));
 
         jLabel1.setText("Denumire:");
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jLabel2.setText("Baze de date distribuite (BDD)");
+        labelDenumire.setFont(new java.awt.Font("Tahoma", 1, 11));
+        labelDenumire.setText("Baze de date distribuite (BDD)");
 
         jLabel3.setText("Credite:");
 
-        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jLabel4.setText("6");
+        labelCredite.setFont(new java.awt.Font("Tahoma", 1, 11));
+        labelCredite.setText("6");
 
         jLabel5.setText("Predat de:");
 
-        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jLabel6.setText("Prof. Mihai Iorga");
+        labelPredatDe.setFont(new java.awt.Font("Tahoma", 1, 11));
+        labelPredatDe.setText("Prof. Mihai Iorga");
 
         jLabel7.setText("Ore pe saptamana:");
 
-        jLabel8.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jLabel8.setText("1S + 2L + 2C");
+        labelOre.setFont(new java.awt.Font("Tahoma", 1, 11));
+        labelOre.setText("1S + 2L + 2C");
 
         jLabel9.setText("Cod:");
 
-        jLabel10.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jLabel10.setText("MI100345");
+        labelCod.setFont(new java.awt.Font("Tahoma", 1, 11));
+        labelCod.setText("MI100345");
 
         jLabel11.setText("An de predare:");
 
-        jLabel12.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jLabel12.setText("2");
+        labelAnPredare.setFont(new java.awt.Font("Tahoma", 1, 11));
+        labelAnPredare.setText("2");
 
-        javax.swing.GroupLayout panouInfoCursLayout = new javax.swing.GroupLayout(getPanouInfoCurs());
-        getPanouInfoCurs().setLayout(panouInfoCursLayout);
+        javax.swing.GroupLayout panouInfoCursLayout = new javax.swing.GroupLayout(panouInfoCurs);
+        panouInfoCurs.setLayout(panouInfoCursLayout);
         panouInfoCursLayout.setHorizontalGroup(
             panouInfoCursLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panouInfoCursLayout.createSequentialGroup()
@@ -136,12 +139,12 @@ public class frameStudContracte extends javax.swing.JFrame {
                     .addComponent(jLabel11))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(panouInfoCursLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel12)
-                    .addComponent(jLabel10)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel4)
-                    .addComponent(jLabel6)
-                    .addComponent(jLabel8))
+                    .addComponent(labelAnPredare)
+                    .addComponent(labelCod)
+                    .addComponent(labelDenumire)
+                    .addComponent(labelCredite)
+                    .addComponent(labelPredatDe)
+                    .addComponent(labelOre))
                 .addContainerGap(80, Short.MAX_VALUE))
         );
         panouInfoCursLayout.setVerticalGroup(
@@ -149,33 +152,38 @@ public class frameStudContracte extends javax.swing.JFrame {
             .addGroup(panouInfoCursLayout.createSequentialGroup()
                 .addGroup(panouInfoCursLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(jLabel2))
+                    .addComponent(labelDenumire))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(panouInfoCursLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(jLabel4))
+                    .addComponent(labelCredite))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(panouInfoCursLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(jLabel6))
+                    .addComponent(labelPredatDe))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(panouInfoCursLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
-                    .addComponent(jLabel8))
+                    .addComponent(labelOre))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(panouInfoCursLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel9)
-                    .addComponent(jLabel10))
+                    .addComponent(labelCod))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(panouInfoCursLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel11)
-                    .addComponent(jLabel12))
+                    .addComponent(labelAnPredare))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder("Optiuni curs"));
 
-        getButContracteaza().setText("Contracteaza");
+        butContracteaza.setText("Contracteaza");
+        butContracteaza.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                butContracteazaActionPerformed(evt);
+            }
+        });
 
         butActualizare.setText("Actualizare contract");
 
@@ -186,7 +194,7 @@ public class frameStudContracte extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(21, 21, 21)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(getButContracteaza(), javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(butContracteaza, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(butActualizare, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -194,7 +202,7 @@ public class frameStudContracte extends javax.swing.JFrame {
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(getButContracteaza())
+                .addComponent(butContracteaza)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(butActualizare)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -207,7 +215,7 @@ public class frameStudContracte extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(getPanouInfoCurs(), javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(panouInfoCurs, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -222,7 +230,7 @@ public class frameStudContracte extends javax.swing.JFrame {
                     .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(getPanouInfoCurs(), javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(panouInfoCurs, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -248,7 +256,13 @@ public class frameStudContracte extends javax.swing.JFrame {
 
     private void listCursuriValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_listCursuriValueChanged
     	c.enableContractButtons(this);
+        c.getContractInfo(this);
+
     }//GEN-LAST:event_listCursuriValueChanged
+
+    private void butContracteazaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butContracteazaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_butContracteazaActionPerformed
 
     /**
 	 * @param butContracteaza the butContracteaza to set
@@ -264,6 +278,7 @@ public class frameStudContracte extends javax.swing.JFrame {
 		return butContracteaza;
 	}
 
+
 	/**
 	 * @param panouInfoCurs the panouInfoCurs to set
 	 */
@@ -278,27 +293,57 @@ public class frameStudContracte extends javax.swing.JFrame {
 		return panouInfoCurs;
 	}
 
-	// Variables declaration - do not modify//GEN-BEGIN:variables
+    public JLabel getLabelDenumire() {
+        return labelDenumire;
+    }
+
+    public JLabel getLabelAnPredare() {
+        return labelAnPredare;
+    }
+
+    public JLabel getLabelCod() {
+        return labelCod;
+    }
+
+    public JLabel getLabelCredite() {
+        return labelCredite;
+    }
+
+    public JLabel getLabelOre() {
+        return labelOre;
+    }
+
+    public JLabel getLabelPredatDe() {
+        return labelPredatDe;
+    }
+    
+
+
+        
+
+    // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton butActualizare;
     private javax.swing.JButton butContracteaza;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel labelAnPredare;
+    private javax.swing.JLabel labelCod;
+    private javax.swing.JLabel labelCredite;
+    private javax.swing.JLabel labelDenumire;
+    private javax.swing.JLabel labelOre;
+    private javax.swing.JLabel labelPredatDe;
     private javax.swing.JList listCursuri;
     private javax.swing.JPanel panouInfoCurs;
     // End of variables declaration//GEN-END:variables
+
+
 
 }

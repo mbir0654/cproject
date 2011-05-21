@@ -100,6 +100,11 @@ public class Course {
 	public void addAnnouncement(Announcement a) {
 		announcements.add(a);
 	}
+
+        public ArrayList<Announcement> getAnnouncements() {
+            return announcements;
+        }
+
 	
 	/**
 	 * 

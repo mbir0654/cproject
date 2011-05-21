@@ -11,15 +11,18 @@
 
 package ui;
 
+import controller.ControllerProfesor;
+
 /**
  *
  * @author snoopy
  */
 public class frameProfGrupeStud extends javax.swing.JFrame {
-
+     private ControllerProfesor c;
     /** Creates new form frameProfGrupeStud */
-    public frameProfGrupeStud() {
+    public frameProfGrupeStud(ControllerProfesor cp) {
         initComponents();
+        this.c=cp;
         panouTransfer.setVisible(false);
         panouAdauga.setVisible(false);
         butTransferStud.setEnabled(false);

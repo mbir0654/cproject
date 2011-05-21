@@ -56,7 +56,7 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="jPanel5" pref="194" max="32767" attributes="1"/>
-                      <Component id="jPanel2" alignment="0" min="-2" max="-2" attributes="1"/>
+                      <Component id="jPanel2" min="-2" max="-2" attributes="1"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
@@ -71,8 +71,8 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jPanel2" max="32767" attributes="1"/>
                       <Component id="jPanel3" max="32767" attributes="1"/>
+                      <Component id="jPanel2" min="-2" max="-2" attributes="1"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
@@ -100,7 +100,6 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="butLogout" alignment="1" pref="103" max="32767" attributes="1"/>
                           <Component id="butAnunturi" alignment="1" pref="103" max="32767" attributes="1"/>
                           <Component id="butGrupeStud" alignment="1" max="32767" attributes="1"/>
                       </Group>
@@ -115,9 +114,7 @@
                       <Component id="butGrupeStud" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="butAnunturi" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="butLogout" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="51" max="32767" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -138,11 +135,6 @@
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="butAnunturiActionPerformed"/>
               </Events>
-            </Component>
-            <Component class="javax.swing.JButton" name="butLogout">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Delogare"/>
-              </Properties>
             </Component>
           </SubComponents>
         </Container>
@@ -168,7 +160,7 @@
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <Component id="jScrollPane1" pref="132" max="32767" attributes="0"/>
+                      <Component id="jScrollPane1" pref="143" max="32767" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -241,16 +233,25 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Adauga componenta curs"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="butAddCursActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="butDelCurs">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Sterge componenta curs"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="butDelCursActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="butModCurs">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Modifica componenta curs"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="butModCursActionPerformed"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>

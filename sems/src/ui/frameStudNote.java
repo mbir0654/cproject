@@ -11,7 +11,8 @@
 
 package ui;
 
-import controller.Controller;
+import controller.ControllerStudent;
+import javax.swing.JLabel;
 
 /**
  *
@@ -19,10 +20,11 @@ import controller.Controller;
  * <p>updated by othniel to controller</p>
  */
 public class frameStudNote extends javax.swing.JFrame {
-	private Controller c = new Controller();
+	private ControllerStudent c;
 
     /** Creates new form frameStudNote */
-    public frameStudNote() {
+    public frameStudNote(ControllerStudent cs) {
+        this.c=cs;
         initComponents();
     }
 
@@ -42,14 +44,14 @@ public class frameStudNote extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         listTip = new javax.swing.JComboBox();
         jScrollPane1 = new javax.swing.JScrollPane();
-        setListTeste(new javax.swing.JList());
-        setInfoTest(new javax.swing.JPanel());
+        listTeste = new javax.swing.JList();
+        infoTest = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
-        infoTitlu = new javax.swing.JLabel();
+        labelTitlu = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        infoData = new javax.swing.JLabel();
+        labelData = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        infoNota = new javax.swing.JLabel();
+        labelNota = new javax.swing.JLabel();
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "SEMS :: Note", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 12), new java.awt.Color(51, 51, 255))); // NOI18N
 
@@ -57,7 +59,7 @@ public class frameStudNote extends javax.swing.JFrame {
 
         jLabel1.setText("Curs selectat: ");
 
-        labelCurs.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        labelCurs.setFont(new java.awt.Font("Tahoma", 1, 12));
         labelCurs.setText("Analiza matematica");
 
         jLabel3.setText("Tipul verificarii:");
@@ -69,18 +71,18 @@ public class frameStudNote extends javax.swing.JFrame {
             }
         });
 
-        getListTeste().setModel(new javax.swing.AbstractListModel() {
+        listTeste.setModel(new javax.swing.AbstractListModel() {
             String[] strings = { "12/04/2011", "30/03/2011", "15/01/2011" };
             public int getSize() { return strings.length; }
             public Object getElementAt(int i) { return strings[i]; }
         });
-        getListTeste().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
-        getListTeste().addListSelectionListener(new javax.swing.event.ListSelectionListener() {
+        listTeste.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        listTeste.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
             public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
                 listTesteValueChanged(evt);
             }
         });
-        jScrollPane1.setViewportView(getListTeste());
+        jScrollPane1.setViewportView(listTeste);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -116,25 +118,25 @@ public class frameStudNote extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        getInfoTest().setBorder(javax.swing.BorderFactory.createTitledBorder("Detalii verificare"));
+        infoTest.setBorder(javax.swing.BorderFactory.createTitledBorder("Detalii verificare"));
 
         jLabel4.setText("Titlu:");
 
-        infoTitlu.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        infoTitlu.setText("Capitolul 5");
+        labelTitlu.setFont(new java.awt.Font("Tahoma", 1, 11));
+        labelTitlu.setText("Capitolul 5");
 
         jLabel6.setText("Din data de:");
 
-        infoData.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        infoData.setText("12/04/2011");
+        labelData.setFont(new java.awt.Font("Tahoma", 1, 11));
+        labelData.setText("12/04/2011");
 
         jLabel8.setText("Nota:");
 
-        infoNota.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
-        infoNota.setText("10");
+        labelNota.setFont(new java.awt.Font("Tahoma", 1, 13));
+        labelNota.setText("10");
 
-        javax.swing.GroupLayout infoTestLayout = new javax.swing.GroupLayout(getInfoTest());
-        getInfoTest().setLayout(infoTestLayout);
+        javax.swing.GroupLayout infoTestLayout = new javax.swing.GroupLayout(infoTest);
+        infoTest.setLayout(infoTestLayout);
         infoTestLayout.setHorizontalGroup(
             infoTestLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(infoTestLayout.createSequentialGroup()
@@ -145,9 +147,9 @@ public class frameStudNote extends javax.swing.JFrame {
                     .addComponent(jLabel8))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(infoTestLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(infoNota)
-                    .addComponent(infoTitlu)
-                    .addComponent(infoData))
+                    .addComponent(labelNota)
+                    .addComponent(labelTitlu)
+                    .addComponent(labelData))
                 .addContainerGap(72, Short.MAX_VALUE))
         );
         infoTestLayout.setVerticalGroup(
@@ -155,15 +157,15 @@ public class frameStudNote extends javax.swing.JFrame {
             .addGroup(infoTestLayout.createSequentialGroup()
                 .addGroup(infoTestLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(infoTitlu))
+                    .addComponent(labelTitlu))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(infoTestLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
-                    .addComponent(infoData))
+                    .addComponent(labelData))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(infoTestLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
-                    .addComponent(infoNota))
+                    .addComponent(labelNota))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -175,7 +177,7 @@ public class frameStudNote extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(getInfoTest(), javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(infoTest, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -184,7 +186,7 @@ public class frameStudNote extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(getInfoTest(), javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(infoTest, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -248,10 +250,7 @@ public class frameStudNote extends javax.swing.JFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel infoData;
-    private javax.swing.JLabel infoNota;
     private javax.swing.JPanel infoTest;
-    private javax.swing.JLabel infoTitlu;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -261,8 +260,28 @@ public class frameStudNote extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel labelCurs;
+    private javax.swing.JLabel labelData;
+    private javax.swing.JLabel labelNota;
+    private javax.swing.JLabel labelTitlu;
     private javax.swing.JList listTeste;
     private javax.swing.JComboBox listTip;
     // End of variables declaration//GEN-END:variables
 
+    public JLabel getLabelCurs() {
+        return labelCurs;
+    }
+
+    public JLabel getLabelData() {
+        return labelData;
+    }
+
+    public JLabel getLabelNota() {
+        return labelNota;
+    }
+
+    public JLabel getLabelTitlu() {
+        return labelTitlu;
+    }
+
+    
 }

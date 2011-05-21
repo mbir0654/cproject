@@ -1,16 +1,22 @@
 package business.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
 public class Professor extends User{
 	private List<Group> groups;
+        private List<Course> courses;
+        private List<Announcement> announcements;
 	/**
 	 * Constructorul implicit
 	 * 
 	 * @see User#User()
 	 */
 	public Professor(){
+            groups = new ArrayList<Group>();
+            courses = new ArrayList<Course>();
+            announcements = new ArrayList<Announcement>();
 		//atributele ne-continute in User ar trebui inititalizate aici
 	}
 	
@@ -55,5 +61,9 @@ public class Professor extends User{
 	public List<Group> getGroups() {
 		return groups;
 	}
+
+        public List<Course> getCourses() {
+                return courses;
+        }
 } 
 

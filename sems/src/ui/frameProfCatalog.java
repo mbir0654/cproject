@@ -11,15 +11,18 @@
 
 package ui;
 
+import controller.ControllerProfesor;
+
 /**
  *
  * @author snoopy
  */
 public class frameProfCatalog extends javax.swing.JFrame {
-
+     private ControllerProfesor c;
     /** Creates new form frameProfCatalog */
-    public frameProfCatalog() {
+    public frameProfCatalog(ControllerProfesor cp) {
         initComponents();
+        this.c=cp;
         butGenCatGrupe.setEnabled(false);
         butGenCatStud.setEnabled(false);
         listStudenti.setEnabled(true);

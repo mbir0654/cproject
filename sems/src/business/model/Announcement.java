@@ -1,9 +1,13 @@
 package business.model;
 
+import java.util.Date;
+
 public class Announcement {
 	private String announcement = "";
+        private String subject;
 	private Professor prof;
 	private Course course;
+        private Date date;
 	
 	
 	/**
@@ -76,4 +80,13 @@ public class Announcement {
 	public Course getCourse() {
 		return course;
 	}
+
+    public Date getData() {
+        return date;
+    }
+
+    public String getSubiect() {
+        return subject;
+    }
+        
 }

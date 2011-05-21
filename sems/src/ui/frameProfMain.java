@@ -11,26 +11,23 @@
 
 package ui;
 import javax.swing.*;
+import controller.ControllerProfesor;
+
 /**
  *
  * @author snoopy
  */
 public class frameProfMain extends javax.swing.JFrame {
-
+    private ControllerProfesor c;
     /** Creates new form frameProfMain */
-    public frameProfMain() {
+    public frameProfMain(ControllerProfesor cp) {
         initComponents();
-        setButtonsOn(false);
+        this.c=cp;
+        c.loadCourses(this);
+        c.mainSetButtonState(this,false);
     }
 
-    public void setButtonsOn(boolean var) {
-        butEvaluari.setEnabled(var);
-        butTeme.setEnabled(var);
-        butCatalog.setEnabled(var);
-        butAddCurs.setEnabled(var);
-        butDelCurs.setEnabled(var);
-        butModCurs.setEnabled(var);
-    }
+   
 
     /** This method is called from within the constructor to
      * initialize the form.
@@ -45,7 +42,6 @@ public class frameProfMain extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         butGrupeStud = new javax.swing.JButton();
         butAnunturi = new javax.swing.JButton();
-        butLogout = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         listCursuri = new javax.swing.JList();
@@ -76,8 +72,6 @@ public class frameProfMain extends javax.swing.JFrame {
             }
         });
 
-        butLogout.setText("Delogare");
-
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -85,7 +79,6 @@ public class frameProfMain extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(38, 38, 38)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(butLogout, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 103, Short.MAX_VALUE)
                     .addComponent(butAnunturi, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 103, Short.MAX_VALUE)
                     .addComponent(butGrupeStud, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(39, 39, 39))
@@ -97,12 +90,10 @@ public class frameProfMain extends javax.swing.JFrame {
                 .addComponent(butGrupeStud)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(butAnunturi)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(butLogout)
-                .addContainerGap(51, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder("Cursuri alocate"));
+        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder("Cursuri alcate"));
 
         listCursuri.setModel(new javax.swing.AbstractListModel() {
             String[] strings = { "Analiza", "Algebra", "Arhitectura Calculatoarelor" };
@@ -128,17 +119,32 @@ public class frameProfMain extends javax.swing.JFrame {
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 132, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 143, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
         jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder("Componente curs"));
 
         butAddCurs.setText("Adauga componenta curs");
+        butAddCurs.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                butAddCursActionPerformed(evt);
+            }
+        });
 
         butDelCurs.setText("Sterge componenta curs");
+        butDelCurs.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                butDelCursActionPerformed(evt);
+            }
+        });
 
         butModCurs.setText("Modifica componenta curs");
+        butModCurs.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                butModCursActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -228,8 +234,8 @@ public class frameProfMain extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -258,53 +264,56 @@ public class frameProfMain extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void listCursuriValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_listCursuriValueChanged
-            setButtonsOn(true);
-
+            c.mainSetButtonState(this,true);
+            // de completat.
         // TODO add your handling code here:
     }//GEN-LAST:event_listCursuriValueChanged
 
     private void butAnunturiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butAnunturiActionPerformed
-        JFrame anunt = new frameProfAnunturi();
-        anunt.setVisible(true);
-        anunt.setTitle("SEMS :: Anunturi");
-        anunt.setResizable(false);
+        c.openAnnouncements();
+
 
         // TODO add your handling code here:
     }//GEN-LAST:event_butAnunturiActionPerformed
 
     private void butCatalogActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butCatalogActionPerformed
 
-        JFrame catalog = new frameProfCatalog();
-        catalog.setVisible(true);
-        catalog.setTitle("SEMS :: Catalog");
+        c.openCatalog();
         // TODO add your handling code here:
     }//GEN-LAST:event_butCatalogActionPerformed
 
     private void butGrupeStudActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butGrupeStudActionPerformed
 
-        JFrame grupeStud = new frameProfGrupeStud();
-        grupeStud.setVisible(true);
-        grupeStud.setResizable(false);
-        grupeStud.setTitle("SEMS :: Grupe Studenti");
+        c.openStudentGroups();
         // TODO add your handling code here:
     }//GEN-LAST:event_butGrupeStudActionPerformed
 
     private void butTemeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butTemeActionPerformed
 
-        JFrame teme = new frameProfTeme();
-        teme.setVisible(true);
-        teme.setResizable(false);
-        teme.setTitle("SEMS :: Alocari teme");
+        c.openTeme();
         // TODO add your handling code here:
     }//GEN-LAST:event_butTemeActionPerformed
 
     private void butEvaluariActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butEvaluariActionPerformed
-        JFrame evaluari = new frameProfEvaluari();
-        evaluari.setVisible(true);
-        evaluari.setResizable(false);
-        evaluari.setTitle("SEMS :: Evaluari");
+
+        c.openEvaluations();
         // TODO add your handling code here:
     }//GEN-LAST:event_butEvaluariActionPerformed
+
+    private void butAddCursActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butAddCursActionPerformed
+        c.addCourseComponents();
+        // TODO add your handling code here:
+    }//GEN-LAST:event_butAddCursActionPerformed
+
+    private void butDelCursActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butDelCursActionPerformed
+        c.delCourseComponents();
+        // TODO add your handling code here:
+    }//GEN-LAST:event_butDelCursActionPerformed
+
+    private void butModCursActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butModCursActionPerformed
+        c.modCourseComponents();
+        // TODO add your handling code here:
+    }//GEN-LAST:event_butModCursActionPerformed
 
     /**
     * @param args the command line arguments
@@ -318,7 +327,6 @@ public class frameProfMain extends javax.swing.JFrame {
     private javax.swing.JButton butDelCurs;
     private javax.swing.JButton butEvaluari;
     private javax.swing.JButton butGrupeStud;
-    private javax.swing.JButton butLogout;
     private javax.swing.JButton butModCurs;
     private javax.swing.JButton butTeme;
     private javax.swing.JPanel jPanel1;
@@ -329,5 +337,44 @@ public class frameProfMain extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JList listCursuri;
     // End of variables declaration//GEN-END:variables
+
+    public JButton getButAddCurs() {
+        return butAddCurs;
+    }
+
+    public JButton getButAnunturi() {
+        return butAnunturi;
+    }
+
+    public JButton getButCatalog() {
+        return butCatalog;
+    }
+
+    public JButton getButDelCurs() {
+        return butDelCurs;
+    }
+
+    public JButton getButEvaluari() {
+        return butEvaluari;
+    }
+
+    public JButton getButGrupeStud() {
+        return butGrupeStud;
+    }
+
+
+    public JButton getButModCurs() {
+        return butModCurs;
+    }
+
+    public JButton getButTeme() {
+        return butTeme;
+    }
+
+    public JList getListCursuri() {
+        return listCursuri;
+    }
+
+    
 
 }
