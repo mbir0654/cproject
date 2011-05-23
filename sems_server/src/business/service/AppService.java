@@ -48,7 +48,7 @@ public class AppService implements InterfaceAppService {
 	 * @return User (Administratpr/Teacher/Student)
 	 */
 	public User ValidateUser(String username, String password) {
-		/*String sql = "SELECT userId, rol FROM users " +
+		String sql = "SELECT userId, rol FROM users " +
 						"WHERE userName = '" + username + "' " +
 						"AND password = '" + password + "' " +
 						"LIMIT 1";
@@ -59,19 +59,23 @@ public class AppService implements InterfaceAppService {
 
 			rs.last();
 		    if(rs.getRow() == 1){
-		    	String userId = rs.getString(userId);
-		    	User u;
-		    	if((u = userRepo.findByName()) == null)
-		    		if((u = studentRepo.findByName()) == null)
-		    			if((u = teacherRepo.findByName()) == null)
-		    				return null;
+		    	String userId = rs.getString("userId");
+		    	String rol = rs.getString("rol");
+		    	User s;
+		    	if(rol == "admin"){
+		    		userRepo = AdministratorRepository.getInstance();
+		    	} else if (rol == "prof") {
+		    		userRepo = ProfessorRepository.getInstance();
+		    	} else if (rol == "stud"){
+		    		userRepo = StudentRepository.getInstance();
+		    	}
+		    	User u = userRepo.findByName(userId);
 		    	return u;
-		    	
 		    }
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}*/
+		}
 		return null;
 	}
 	
