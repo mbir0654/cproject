@@ -14,6 +14,7 @@ public class Course {
 	private String syllabus;
 	private String name;
 	private int numberOfCredits;
+	private ArrayList<String> materialeDeCurs;
 	
 	/**
 	 * Constructorul implicit
@@ -178,5 +179,24 @@ public class Course {
     public String toString() {
         return this.name+" "+this.numberOfCredits;
     }
-
+	/**
+	 * @param materialeDeCurs the materialeDeCurs to set
+	 */
+	public void setMaterialeDeCurs(ArrayList<String> materialeDeCurs) {
+		this.materialeDeCurs = materialeDeCurs;
+	}
+	/**
+	 * @return the materialeDeCurs
+	 */
+	public ArrayList<String> getMaterialeDeCurs() {
+		return materialeDeCurs;
+	}
+	
+	/**
+	 * Adauga materiale de curs.
+	 * @param mat
+	 */
+	public void addMaterialeDeCurs(String mat){
+		this.materialeDeCurs.add(mat);
+	}
 }
