@@ -7,7 +7,7 @@ public class Grade {
 	private Date date = null;
 	private Exam exam;
 	private String type;
-	
+	private Student stud;
 	/**
 	 * Constructor de copiere
 	 * 
@@ -16,6 +16,7 @@ public class Grade {
 	public Grade(Grade n){
 		grade = n.grade;
 		date = n.date;
+		stud = n.stud;
 	}
 	
 	/**
