@@ -126,7 +126,7 @@ public class ControllerStudent {
              DefaultTableModel dtm = new DefaultTableModel();
              for(Exam e : selectedCourse.getExams()) {
                  for(Grade g : e.getGrade()) {
-                      
+                      // de completat
                  }
              }
          }

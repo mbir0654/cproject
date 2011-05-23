@@ -29,6 +29,9 @@ public class Professor extends User{
 	 */
 	public Professor(Professor p){
 		super(p);
+                groups=p.getGroups();
+                courses=p.getCourses();
+                announcements=p.getAnnouncements();
 		// TODO restul atributelor se copiaza
 	}
 	
@@ -51,19 +54,27 @@ public class Professor extends User{
 	/**
 	 * @param groups the groups to set
 	 */
-	public void setGroups(List<Group> groups) {
-		this.groups = groups;
+	public void addGroup(Group groups) {
+		this.groups.add(groups);
 	}
 
 	/**
 	 * @return the groups
 	 */
-	public List<Group> getGroups() {
-		return groups;
+	public ArrayList<Group> getGroups() {
+		return (ArrayList<Group>) groups;
 	}
 
         public List<Course> getCourses() {
                 return courses;
         }
+
+    public List<Announcement> getAnnouncements() {
+        return this.announcements;
+    }
+    public void addAnnouncement(Announcement a) {
+        this.announcements.add(a);
+    }
+    
 } 
 

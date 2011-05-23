@@ -23,7 +23,9 @@ import ui.*;
  *
  */
 public class Controller {
+	
 	private User u;
+	
 	@SuppressWarnings("unused")
 //	private AppService apps;
 	
@@ -37,15 +39,14 @@ public class Controller {
 //		apps = AppService.getInstance();
 	}
 	
-
-	/**
-	 * @param f este referinta spre fereastra afectata de metoda
-	 */
-
+	public User ValidateUser(String u, String p){
+		return null;
+	}
+	
         /*
          * Checking the login username and password to know what to open
          */
-        public void checkLogin(frameLogin f) {
+    public void checkLogin(frameLogin f) {
             String inputUser = f.getInputUser().getText();
             /*
              * Trimite username-ul si parola in format MD5
@@ -95,7 +96,7 @@ public class Controller {
 	}
 	
 	
-	public User login(String username, String password){
+	public User login(String username, String password) throws NoSuchAlgorithmException{
 	    
 		MessageDigest m = MessageDigest.getInstance("MD5");
         byte[] data = password.getBytes(); 

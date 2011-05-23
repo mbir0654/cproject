@@ -60,8 +60,8 @@
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="jPanel3" max="32767" attributes="1"/>
                       <Component id="jPanel4" min="-2" max="-2" attributes="1"/>
-                      <Component id="jPanel3" alignment="0" max="32767" attributes="1"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
@@ -75,11 +75,11 @@
                       <Component id="jPanel2" min="-2" max="-2" attributes="1"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Component id="jPanel5" max="32767" attributes="1"/>
-                      <Component id="jPanel4" alignment="0" max="32767" attributes="1"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="jPanel5" min="-2" max="-2" attributes="1"/>
+                      <Component id="jPanel4" min="-2" max="-2" attributes="1"/>
                   </Group>
-                  <EmptySpace min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -209,7 +209,6 @@
                       <Group type="103" groupAlignment="1" attributes="0">
                           <Component id="butAddCurs" alignment="0" pref="207" max="32767" attributes="1"/>
                           <Component id="butDelCurs" alignment="0" pref="207" max="32767" attributes="1"/>
-                          <Component id="butModCurs" alignment="1" pref="207" max="32767" attributes="1"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
@@ -221,8 +220,6 @@
                       <Component id="butAddCurs" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="butDelCurs" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="butModCurs" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
                   </Group>
               </Group>
@@ -243,14 +240,6 @@
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="butDelCursActionPerformed"/>
-              </Events>
-            </Component>
-            <Component class="javax.swing.JButton" name="butModCurs">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Modifica componenta curs"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="butModCursActionPerformed"/>
               </Events>
             </Component>
           </SubComponents>

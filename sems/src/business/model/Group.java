@@ -3,6 +3,7 @@
  */
 package business.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -13,12 +14,20 @@ public class Group {
 	private List<Student> student;
 	private String group;
 	private Specialty specialty;
-	
+
+        public Group() {
+            group="";
+            student = new ArrayList<Student>();
+        }
+        public Group(String gr) {
+            this.group=gr;
+            student=new ArrayList<Student>();
+        }
 	/**
 	 * @param student the student to set
 	 */
-	public void setStudent(List<Student> student) {
-		this.student = student;
+	public void addStudent(Student s) {
+		this.student.add(s);
 	}
 	/**
 	 * @return the student
@@ -50,5 +59,8 @@ public class Group {
 	public Specialty getSpecialty() {
 		return specialty;
 	}
+        public int getStudentNr() {
+            return this.student.size();
+        }
 
 }

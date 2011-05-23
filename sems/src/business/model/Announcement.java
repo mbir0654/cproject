@@ -4,7 +4,7 @@ import java.util.Date;
 
 public class Announcement {
 	private String announcement = "";
-        private String subject;
+        private String subject = "";
 	private Professor prof;
 	private Course course;
         private Date date;
@@ -17,9 +17,11 @@ public class Announcement {
 	 * 
 	 * @param p este profesorul care a facut anuntul
 	 */
-	public Announcement(String a, Professor p) {
-		setAnnouncement(a);
+	public Announcement(String msg, String subj, Professor p) {
+		setAnnouncement(msg);
+                this.subject=subj;
 		setProf(p);
+                this.date= new Date();
 	}
 	
 	public Announcement() {
@@ -88,5 +90,12 @@ public class Announcement {
     public String getSubiect() {
         return subject;
     }
-        
+    @Override
+    public String toString() {
+        return this.subject;
+    }
+
+    public void setData(Date d) {
+        this.date=d;
+    }
 }

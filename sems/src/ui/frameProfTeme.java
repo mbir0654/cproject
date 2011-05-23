@@ -65,6 +65,14 @@ public class frameProfTeme extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         alocaListStud = new javax.swing.JList();
         butAlocaSend = new javax.swing.JButton();
+        panouAdd = new javax.swing.JPanel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        inputTitlu = new javax.swing.JTextField();
+        imputDeadline = new javax.swing.JFormattedTextField();
+        comboCursuri = new javax.swing.JComboBox();
+        butAddTema = new javax.swing.JButton();
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "SEMS :: Teme", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 12), new java.awt.Color(51, 51, 255))); // NOI18N
 
@@ -158,26 +166,26 @@ public class frameProfTeme extends javax.swing.JFrame {
                 .addContainerGap(16, Short.MAX_VALUE))
         );
 
-        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 11));
         jLabel3.setText("Teme pentru cursul");
 
-        cursLabelName.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        cursLabelName.setFont(new java.awt.Font("Tahoma", 1, 12));
         cursLabelName.setForeground(new java.awt.Color(0, 51, 102));
         cursLabelName.setText("Analiza matematica");
 
         panouAloca.setBorder(javax.swing.BorderFactory.createTitledBorder("Aloca tema"));
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 12));
         jLabel1.setText("Tema");
 
         alocaNumeTema.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Problema 2", "Problema 3", "Problema 4", "Problema 5" }));
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 12));
         jLabel2.setText("Grupei");
 
         alogaGrupaTeme.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Grupa 222", "Grupa 223", "Grupa 666", "Grupa 221" }));
 
-        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 12));
         jLabel4.setText("Studentilor");
 
         alocaListStud.setModel(new javax.swing.AbstractListModel() {
@@ -235,13 +243,70 @@ public class frameProfTeme extends javax.swing.JFrame {
                 .addComponent(butAlocaSend))
         );
 
+        panouAdd.setBorder(javax.swing.BorderFactory.createTitledBorder("Adauga tema"));
+
+        jLabel5.setText("Titlu");
+
+        jLabel6.setText("Termen limita");
+
+        jLabel7.setText("Curs");
+
+        imputDeadline.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(java.text.DateFormat.getDateInstance(java.text.DateFormat.MEDIUM))));
+
+        comboCursuri.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        butAddTema.setText("Adauga");
+
+        javax.swing.GroupLayout panouAddLayout = new javax.swing.GroupLayout(panouAdd);
+        panouAdd.setLayout(panouAddLayout);
+        panouAddLayout.setHorizontalGroup(
+            panouAddLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panouAddLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(panouAddLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel7)
+                    .addGroup(panouAddLayout.createSequentialGroup()
+                        .addGroup(panouAddLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel6)
+                            .addComponent(jLabel5))
+                        .addGroup(panouAddLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(panouAddLayout.createSequentialGroup()
+                                .addGap(5, 5, 5)
+                                .addComponent(inputTitlu, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(panouAddLayout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(panouAddLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(comboCursuri, 0, 211, Short.MAX_VALUE)
+                                    .addComponent(imputDeadline)
+                                    .addComponent(butAddTema))))))
+                .addContainerGap(41, Short.MAX_VALUE))
+        );
+        panouAddLayout.setVerticalGroup(
+            panouAddLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panouAddLayout.createSequentialGroup()
+                .addGroup(panouAddLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5)
+                    .addComponent(inputTitlu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(panouAddLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel6)
+                    .addComponent(imputDeadline, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(panouAddLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel7)
+                    .addComponent(comboCursuri, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(butAddTema))
+        );
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(panouAdd, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(panouAloca, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -265,7 +330,8 @@ public class frameProfTeme extends javax.swing.JFrame {
                     .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(panouAloca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(panouAdd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -312,16 +378,23 @@ public class frameProfTeme extends javax.swing.JFrame {
     private javax.swing.JComboBox alocaNumeTema;
     private javax.swing.JComboBox alogaGrupaTeme;
     private javax.swing.JButton butAdd;
+    private javax.swing.JButton butAddTema;
     private javax.swing.JButton butAloca;
     private javax.swing.JButton butAlocaSend;
     private javax.swing.JButton butDel;
     private javax.swing.JButton butMod;
     private javax.swing.JButton butNoteaza;
+    private javax.swing.JComboBox comboCursuri;
     private javax.swing.JLabel cursLabelName;
+    private javax.swing.JFormattedTextField imputDeadline;
+    private javax.swing.JTextField inputTitlu;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
@@ -329,6 +402,7 @@ public class frameProfTeme extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JList listTeme;
+    private javax.swing.JPanel panouAdd;
     private javax.swing.JPanel panouAloca;
     // End of variables declaration//GEN-END:variables
 

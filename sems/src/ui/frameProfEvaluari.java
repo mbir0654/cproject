@@ -59,7 +59,7 @@ public class frameProfEvaluari extends javax.swing.JFrame {
         testInfoStudNr = new javax.swing.JLabel();
         jPanel7 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        testInfoListStudenti = new javax.swing.JList();
+        jTable1 = new javax.swing.JTable();
         jLabel8 = new javax.swing.JLabel();
         testInfoNotaMed = new javax.swing.JLabel();
         jPanel8 = new javax.swing.JPanel();
@@ -87,7 +87,7 @@ public class frameProfEvaluari extends javax.swing.JFrame {
         examenInfoStudNr = new javax.swing.JLabel();
         jPanel10 = new javax.swing.JPanel();
         jScrollPane4 = new javax.swing.JScrollPane();
-        examenInfoListStudenti = new javax.swing.JList();
+        jTable2 = new javax.swing.JTable();
         jLabel9 = new javax.swing.JLabel();
         examenInfoNotaMed = new javax.swing.JLabel();
         jPanel11 = new javax.swing.JPanel();
@@ -188,13 +188,31 @@ public class frameProfEvaluari extends javax.swing.JFrame {
 
         jPanel7.setBorder(javax.swing.BorderFactory.createTitledBorder("Studenti participanti"));
 
-        testInfoListStudenti.setModel(new javax.swing.AbstractListModel() {
-            String[] strings = { "[Grupa 221] Bunta Adrian (10)", "[Grupa 221] Mihut Bogdan (10)", "[Grupa 221] Nicola Otniel (10)", "[Grupa 222] Miron Cosma (5)", "[Grupa 222] Vadim Tudor (6)" };
-            public int getSize() { return strings.length; }
-            public Object getElementAt(int i) { return strings[i]; }
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
+            },
+            new String [] {
+                "Grupa", "Student", "Nota"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
         });
-        testInfoListStudenti.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
-        jScrollPane2.setViewportView(testInfoListStudenti);
+        jScrollPane2.setViewportView(jTable1);
+        jTable1.getColumnModel().getColumn(0).setResizable(false);
+        jTable1.getColumnModel().getColumn(0).setPreferredWidth(30);
+        jTable1.getColumnModel().getColumn(1).setResizable(false);
+        jTable1.getColumnModel().getColumn(2).setResizable(false);
+        jTable1.getColumnModel().getColumn(2).setPreferredWidth(20);
 
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
@@ -202,7 +220,7 @@ public class frameProfEvaluari extends javax.swing.JFrame {
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel7Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 240, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 301, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanel7Layout.setVerticalGroup(
@@ -252,7 +270,7 @@ public class frameProfEvaluari extends javax.swing.JFrame {
                         .addComponent(testInfoAddNota, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(testInfoAddBut, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addContainerGap(17, Short.MAX_VALUE))
+                .addContainerGap(78, Short.MAX_VALUE))
         );
         jPanel8Layout.setVerticalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -427,39 +445,59 @@ public class frameProfEvaluari extends javax.swing.JFrame {
 
         jLabel7.setText("Studenti prezenti:");
 
-        examenInfoNume.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        examenInfoNume.setFont(new java.awt.Font("Tahoma", 1, 11));
         examenInfoNume.setText("An 2 sem 1");
 
         examenInfoData.setFont(new java.awt.Font("Tahoma", 1, 11));
         examenInfoData.setText("12.05.2009");
 
-        examenInfoStudNr.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        examenInfoStudNr.setFont(new java.awt.Font("Tahoma", 1, 11));
         examenInfoStudNr.setText("25");
 
         jPanel10.setBorder(javax.swing.BorderFactory.createTitledBorder("Studenti participanti"));
 
-        examenInfoListStudenti.setModel(new javax.swing.AbstractListModel() {
-            String[] strings = { "[Grupa 221] Bunta Adrian (10)", "[Grupa 221] Mihut Bogdan (10)", "[Grupa 221] Nicola Otniel (10)", "[Grupa 222] Miron Cosma (5)", "[Grupa 222] Vadim Tudor (6)" };
-            public int getSize() { return strings.length; }
-            public Object getElementAt(int i) { return strings[i]; }
+        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
+            },
+            new String [] {
+                "Grupa", "Student", "Nota"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
         });
-        examenInfoListStudenti.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
-        jScrollPane4.setViewportView(examenInfoListStudenti);
+        jScrollPane4.setViewportView(jTable2);
+        jTable2.getColumnModel().getColumn(0).setResizable(false);
+        jTable2.getColumnModel().getColumn(0).setPreferredWidth(30);
+        jTable2.getColumnModel().getColumn(1).setResizable(false);
+        jTable2.getColumnModel().getColumn(2).setResizable(false);
+        jTable2.getColumnModel().getColumn(2).setPreferredWidth(20);
 
         javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
         jPanel10.setLayout(jPanel10Layout);
         jPanel10Layout.setHorizontalGroup(
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 321, Short.MAX_VALUE)
             .addGroup(jPanel10Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 240, Short.MAX_VALUE)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 301, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanel10Layout.setVerticalGroup(
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 168, Short.MAX_VALUE)
             .addGroup(jPanel10Layout.createSequentialGroup()
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 157, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         jLabel9.setText("Nota medie: ");
@@ -502,7 +540,7 @@ public class frameProfEvaluari extends javax.swing.JFrame {
                         .addComponent(examenInfoAddNota, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(examenInfoAddBut, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addContainerGap(17, Short.MAX_VALUE))
+                .addContainerGap(78, Short.MAX_VALUE))
         );
         jPanel11Layout.setVerticalGroup(
             jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -524,7 +562,7 @@ public class frameProfEvaluari extends javax.swing.JFrame {
 
         jLabel16.setText("Eliminatoriu:");
 
-        examenInfoElim.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        examenInfoElim.setFont(new java.awt.Font("Tahoma", 1, 11));
         examenInfoElim.setText("Nu");
 
         javax.swing.GroupLayout panouInfoExamenLayout = new javax.swing.GroupLayout(panouInfoExamen);
@@ -608,16 +646,17 @@ public class frameProfEvaluari extends javax.swing.JFrame {
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(panouExameneCurente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(188, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(examenSelectExamen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(panouInfoExamen, javax.swing.GroupLayout.PREFERRED_SIZE, 448, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(23, 23, 23))
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(panouExameneCurente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(188, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                        .addComponent(examenSelectExamen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(panouInfoExamen, javax.swing.GroupLayout.PREFERRED_SIZE, 448, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(23, 23, 23))))
         );
 
         jTabbedPane1.addTab("Examene", jPanel3);
@@ -629,12 +668,12 @@ public class frameProfEvaluari extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 499, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 560, Short.MAX_VALUE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel3)
                         .addGap(18, 18, 18)
                         .addComponent(cursLabelName)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -653,15 +692,15 @@ public class frameProfEvaluari extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(21, Short.MAX_VALUE))
         );
 
         pack();
@@ -696,7 +735,6 @@ public class frameProfEvaluari extends javax.swing.JFrame {
     private javax.swing.JComboBox examenInfoAddStud;
     private javax.swing.JLabel examenInfoData;
     private javax.swing.JLabel examenInfoElim;
-    private javax.swing.JList examenInfoListStudenti;
     private javax.swing.JLabel examenInfoNotaMed;
     private javax.swing.JLabel examenInfoNume;
     private javax.swing.JLabel examenInfoStudNr;
@@ -733,6 +771,8 @@ public class frameProfEvaluari extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JTable jTable1;
+    private javax.swing.JTable jTable2;
     private javax.swing.JPanel panouExameneCurente;
     private javax.swing.JPanel panouInfoExamen;
     private javax.swing.JPanel panouInfoTest;
@@ -743,7 +783,6 @@ public class frameProfEvaluari extends javax.swing.JFrame {
     private javax.swing.JTextField testInfoAddNota;
     private javax.swing.JComboBox testInfoAddStud;
     private javax.swing.JLabel testInfoData;
-    private javax.swing.JList testInfoListStudenti;
     private javax.swing.JLabel testInfoNotaMed;
     private javax.swing.JLabel testInfoNume;
     private javax.swing.JLabel testInfoStudNr;

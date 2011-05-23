@@ -48,7 +48,6 @@ public class frameProfMain extends javax.swing.JFrame {
         jPanel4 = new javax.swing.JPanel();
         butAddCurs = new javax.swing.JButton();
         butDelCurs = new javax.swing.JButton();
-        butModCurs = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
         butEvaluari = new javax.swing.JButton();
         butTeme = new javax.swing.JButton();
@@ -139,13 +138,6 @@ public class frameProfMain extends javax.swing.JFrame {
             }
         });
 
-        butModCurs.setText("Modifica componenta curs");
-        butModCurs.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                butModCursActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
@@ -154,8 +146,7 @@ public class frameProfMain extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(butAddCurs, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 207, Short.MAX_VALUE)
-                    .addComponent(butDelCurs, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 207, Short.MAX_VALUE)
-                    .addComponent(butModCurs, javax.swing.GroupLayout.DEFAULT_SIZE, 207, Short.MAX_VALUE))
+                    .addComponent(butDelCurs, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 207, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel4Layout.setVerticalGroup(
@@ -164,8 +155,6 @@ public class frameProfMain extends javax.swing.JFrame {
                 .addComponent(butAddCurs)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(butDelCurs)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(butModCurs)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -226,8 +215,8 @@ public class frameProfMain extends javax.swing.JFrame {
                     .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -237,9 +226,9 @@ public class frameProfMain extends javax.swing.JFrame {
                     .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
 
@@ -310,11 +299,6 @@ public class frameProfMain extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_butDelCursActionPerformed
 
-    private void butModCursActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butModCursActionPerformed
-        c.modCourseComponents();
-        // TODO add your handling code here:
-    }//GEN-LAST:event_butModCursActionPerformed
-
     /**
     * @param args the command line arguments
     */
@@ -327,7 +311,6 @@ public class frameProfMain extends javax.swing.JFrame {
     private javax.swing.JButton butDelCurs;
     private javax.swing.JButton butEvaluari;
     private javax.swing.JButton butGrupeStud;
-    private javax.swing.JButton butModCurs;
     private javax.swing.JButton butTeme;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
@@ -363,9 +346,7 @@ public class frameProfMain extends javax.swing.JFrame {
     }
 
 
-    public JButton getButModCurs() {
-        return butModCurs;
-    }
+
 
     public JButton getButTeme() {
         return butTeme;
