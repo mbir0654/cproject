@@ -10,11 +10,13 @@ import data.dbutil.DbUtil;
 import data.repositorydb.AdministratorRepository;
 import data.repositoryinterface.Repository;
 import business.model.*;
+import service.InterfaceAppService;
+
 /**
  * @author BSK:D
  *
  */
-public class AppService {
+public class AppService implements InterfaceAppService {
 	/**
 	 * atribut privat pentru singleton
 	 */
