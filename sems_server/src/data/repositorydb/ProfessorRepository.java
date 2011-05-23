@@ -13,8 +13,15 @@ public class ProfessorRepository implements Repository<Professor> {
 	
 	private List<Professor> l;
 	
-	public ProfessorRepository(){
+	private static final ProfessorRepository theTeachers =
+		new ProfessorRepository();
+	
+	private ProfessorRepository(){
 		l = new ArrayList<Professor>();
+	}
+	
+	public static ProfessorRepository getInstance(){
+		return theTeachers;
 	}
 
 	/**

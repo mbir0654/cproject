@@ -13,8 +13,14 @@ public class AdministratorRepository implements Repository<Administrator>{
 	
 	private List<Administrator> l;
 	
-	public AdministratorRepository(){
+	private static final AdministratorRepository theAdmins = new AdministratorRepository();
+	
+	private AdministratorRepository(){
 		l = new ArrayList<Administrator>();
+	}
+	
+	public static AdministratorRepository getInstance(){
+		return theAdmins;
 	}
 
 	/**
