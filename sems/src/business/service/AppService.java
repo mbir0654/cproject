@@ -7,6 +7,8 @@ import java.sql.SQLException;
 import java.util.*;
 
 import data.dbutil.DbUtil;
+import data.repositorydb.AdministratorRepository;
+import data.repositoryinterface.Repository;
 import business.model.*;
 /**
  * @author BSK:D
@@ -17,6 +19,8 @@ public class AppService {
 	 * atribut privat pentru singleton
 	 */
 	private static AppService apps = new AppService();
+	
+	private Repository<User> userRepo;
 	
 	/**
 	 *  cvonstuctor privat pentru singleton
@@ -42,7 +46,7 @@ public class AppService {
 	 * @return User (Administratpr/Teacher/Student)
 	 */
 	public User ValidateUser(String username, String password) {
-		String sql = "SELECT userId, rol FROM users " +
+		/*String sql = "SELECT userId, rol FROM users " +
 						"WHERE userName = '" + username + "' " +
 						"AND password = '" + password + "' " +
 						"LIMIT 1";
@@ -55,7 +59,7 @@ public class AppService {
 		    if(rs.getRow() == 1){
 		    	String userId = rs.getString(userId);
 		    	User u;
-		    	if((u = adminRepo.findByName()) == null)
+		    	if((u = userRepo.findByName()) == null)
 		    		if((u = studentRepo.findByName()) == null)
 		    			if((u = teacherRepo.findByName()) == null)
 		    				return null;
@@ -65,7 +69,7 @@ public class AppService {
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
+		}*/
 		return null;
 	}
 	

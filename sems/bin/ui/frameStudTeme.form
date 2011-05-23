@@ -128,10 +128,8 @@
                 <Component class="javax.swing.JList" name="listTeme">
                   <Properties>
                     <Property name="model" type="javax.swing.ListModel" editor="org.netbeans.modules.form.editors2.ListModelEditor">
-                      <StringArray count="3">
-                        <StringItem index="0" value="Tema 1"/>
-                        <StringItem index="1" value="Tema 2"/>
-                        <StringItem index="2" value="Tema 3"/>
+                      <StringArray count="1">
+                        <StringItem index="0" value="TEST TEME"/>
                       </StringArray>
                     </Property>
                     <Property name="selectionMode" type="int" value="0"/>
@@ -168,8 +166,8 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="jScrollPane2" alignment="0" pref="260" max="32767" attributes="0"/>
-                          <Component id="temaNume" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="temaPentru" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="labelTemaTitlu" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="labelTemaCurs" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="jLabel6" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -177,16 +175,16 @@
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="temaNota" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="temaDataIncarcare" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="labelTemaNota" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="labelTemaData" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                              <Component id="temaButIncarca" alignment="0" max="32767" attributes="1"/>
+                              <Component id="butIncarca" alignment="0" max="32767" attributes="1"/>
                               <Group type="102" alignment="0" attributes="0">
                                   <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="temaTermen" min="-2" max="-2" attributes="0"/>
+                                  <Component id="labelTemaTermen" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -198,35 +196,35 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="temaPentru" min="-2" max="-2" attributes="0"/>
+                      <Component id="labelTemaCurs" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="temaNume" min="-2" max="-2" attributes="0"/>
+                      <Component id="labelTemaTitlu" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jScrollPane2" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="temaTermen" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="labelTemaTermen" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="temaDataIncarcare" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="labelTemaData" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace pref="7" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel8" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="temaNota" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="labelTemaNota" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="temaButIncarca" min="-2" max="-2" attributes="0"/>
+                      <Component id="butIncarca" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JLabel" name="temaNume">
+            <Component class="javax.swing.JLabel" name="labelTemaTitlu">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="12" style="1"/>
@@ -234,7 +232,7 @@
                 <Property name="text" type="java.lang.String" value="Tema 1"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="temaPentru">
+            <Component class="javax.swing.JLabel" name="labelTemaCurs">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="11" style="1"/>
@@ -249,7 +247,7 @@
 
               <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
               <SubComponents>
-                <Component class="javax.swing.JTextArea" name="temaDetalii">
+                <Component class="javax.swing.JTextArea" name="labelTemaDetalii">
                   <Properties>
                     <Property name="columns" type="int" value="20"/>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -266,7 +264,7 @@
                 <Property name="text" type="java.lang.String" value="Termen de predare:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="temaTermen">
+            <Component class="javax.swing.JLabel" name="labelTemaTermen">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="11" style="1"/>
@@ -274,7 +272,7 @@
                 <Property name="text" type="java.lang.String" value="Saptamana 4"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JButton" name="temaButIncarca">
+            <Component class="javax.swing.JButton" name="butIncarca">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Incarca rezolvare"/>
               </Properties>
@@ -284,7 +282,7 @@
                 <Property name="text" type="java.lang.String" value="Rezolvare incarcata in:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="temaDataIncarcare">
+            <Component class="javax.swing.JLabel" name="labelTemaData">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="11" style="1"/>
@@ -297,7 +295,7 @@
                 <Property name="text" type="java.lang.String" value="Nota primita:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="temaNota">
+            <Component class="javax.swing.JLabel" name="labelTemaNota">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="11" style="1"/>
