@@ -14,6 +14,7 @@ package ui;
 import controller.ControllerStudent;
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 
@@ -66,7 +67,7 @@ public class frameStudTeme extends javax.swing.JFrame {
         jLabel1.setText("Curs selectat");
 
         listTeme.setModel(new javax.swing.AbstractListModel() {
-            String[] strings = { "Tema 1", "Tema 2", "Tema 3" };
+            String[] strings = { "TEST TEME" };
             public int getSize() { return strings.length; }
             public Object getElementAt(int i) { return strings[i]; }
         });
@@ -273,6 +274,14 @@ public class frameStudTeme extends javax.swing.JFrame {
 
     public JButton getButIncarca() {
         return butIncarca;
+    }
+
+    public JLabel getLabelCursSelectat() {
+        return labelCursSelectat;
+    }
+
+    public JList getListTeme() {
+        return listTeme;
     }
     
 

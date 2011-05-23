@@ -3,10 +3,12 @@
  */
 package controller;
 
+import business.model.Administrator;
 import business.model.Professor;
 import business.model.Student;
 import business.model.User;
 import javax.swing.JFrame;
+import java.security.*;
 
 import ui.*;
 //import business.service.AppService;
@@ -36,8 +38,31 @@ public class Controller {
 	/**
 	 * @param f este referinta spre fereastra afectata de metoda
 	 */
-	public void loginAdmin(JFrame f){
-		JFrame admin = new frameAdminMain();
+
+        /*
+         * Checking the login username and password to know what to open
+         */
+        public void checkLogin(frameLogin f) {
+            String inputUser = f.getInputUser().getText();
+            /*
+             * Trimite username-ul si parola in format MD5
+             * spre verificare la server
+            */
+            User U=new Student();
+             System.out.println(U.getClass().toString());
+            if(U.getClass().toString().contains("Administrator"))
+                this.loginAdmin(f, (Administrator) U);
+            else if(U.getClass().toString().contains("Professor"))
+                this.loginProf(f,(Professor) U);
+            else if(U.getClass().toString().contains("Student"))
+                this.loginStudent(f,(Student) U);
+
+        }
+
+	public void loginAdmin(JFrame f,Administrator adm){
+            u = new Administrator(adm);
+            ControllerAdmin ca = new ControllerAdmin((Administrator) u);
+		JFrame admin = new frameAdminMain(ca);
         admin.setVisible(true);
         admin.setTitle("SEMS :: Administrator");
         admin.setResizable(false);
@@ -46,29 +71,24 @@ public class Controller {
 	/**
 	 * @param f este referinta spre fereastra afectata de metoda
 	 */
-	public void loginStudent(JFrame f){
-            u = new Student();
+	public void loginStudent(JFrame f,Student stud){
+            u = new Student(stud);
             ControllerStudent cs = new ControllerStudent((Student)u);
-		JFrame student = new frameStudMain(cs);
-        student.setVisible(true);
-        student.setTitle("SEMS :: Administrator");
-        student.setResizable(false);
-
-        //f.setVisible(false); //lasa linia asta comentata!!!
+            cs.openMainFrame();
 	}
 
         
 	/**
 	 * @param f este referinta spre fereastra afectata de metoda
 	 */
-	public void loginProf(JFrame f){
-            u = new Professor();
+	public void loginProf(JFrame f, Professor P){
+            u = new Professor(P);
             ControllerProfesor cp = new ControllerProfesor((Professor) u);
-		JFrame prof = new frameProfMain(cp);
-        prof.setVisible(true);
-        prof.setTitle("SEMS :: Profesor");
-        prof.setResizable(false);
-        //f.setVisible(false); //lasa linia asta comentata!!!
+            JFrame prof = new frameProfMain(cp);
+            prof.setVisible(true);
+            prof.setTitle("SEMS :: Profesor");
+            prof.setResizable(false);
+            //f.setVisible(false); //lasa linia asta comentata!!!
 	}
 
 

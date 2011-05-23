@@ -26,6 +26,14 @@ public class Course {
 		name = "";
 		numberOfCredits = 0;
 	}
+        public Course(Course c) {
+            exams=c.exams;
+            announcements=c.announcements;
+            assignments=c.assignments;
+            syllabus=c.syllabus;
+            name=c.name;
+            numberOfCredits=c.numberOfCredits;
+        }
 	
 	/**
 	 * Constructorul parametrizat
@@ -35,8 +43,13 @@ public class Course {
 	 */
 	public Course(String n, int nC) {
 		name = n;
+                exams = new ArrayList<Exam>();
+		announcements = new ArrayList<Announcement>();
+                assignments = new ArrayList<Assignment>();
 		numberOfCredits = nC;
 	}
+
+
 	
 	/**
 	 * verifica daca 2 cursuri sunt identice
@@ -138,6 +151,11 @@ public class Course {
 		assignments.remove(t);
 	}
 
+    public ArrayList<Exam> getExams() {
+        return exams;
+    }
+
+        
 	/**
 	 * @param syllabus va fi numele fisierului cu syllabusul
 	 */
@@ -151,5 +169,14 @@ public class Course {
 	public String getSyllabus() {
 		return syllabus;
 	}
-	
+
+        public ArrayList<Assignment> getAssignments() {
+            return this.assignments;
+        }
+
+    @Override
+    public String toString() {
+        return this.name+" "+this.numberOfCredits;
+    }
+
 }

@@ -6,7 +6,7 @@ public class Grade {
 	private int grade = 0;
 	private Date date = null;
 	private Exam exam;
-	private String type;
+        private Student stud;
 	
 	/**
 	 * Constructor de copiere
@@ -16,6 +16,7 @@ public class Grade {
 	public Grade(Grade n){
 		grade = n.grade;
 		date = n.date;
+                stud = n.stud;
 	}
 	
 	/**
@@ -88,17 +89,19 @@ public class Grade {
 		return exam;
 	}
 
-	/**
-	 * @param type the type to set
-	 */
-	public void setType(String type) {
-		this.type = type;
-	}
+        /**
+         * 
+         * @param stud va fi noul student asociat notei
+         */
+        public void setStud(Student stud) {
+            this.stud = stud;
+        }
 
-	/**
-	 * @return the type
-	 */
-	public String getType() {
-		return type;
-	}
+        /**
+         *
+         * @return studentul asociat notei
+         */
+        public Student getStud() {
+            return stud;
+        }
 }

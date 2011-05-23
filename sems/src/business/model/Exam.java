@@ -104,5 +104,10 @@ public class Exam {
 	public Course getCourse() {
 		return course;
 	}
+
+    public ArrayList<Grade> getGrades() {
+        return grades;
+    }
+        
 	
 }

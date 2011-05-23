@@ -41,13 +41,11 @@ public class frameStudMaterialeCurs extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        labelCursSelected = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         materialSelect = new javax.swing.JComboBox();
         materialInfo = new javax.swing.JPanel();
         labelTitlu = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        labelAdaugatDe = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         labelMaterialText = new javax.swing.JTextArea();
         butDescarca = new javax.swing.JButton();
@@ -56,8 +54,8 @@ public class frameStudMaterialeCurs extends javax.swing.JFrame {
 
         jLabel1.setText("Curs selectat: ");
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 12));
-        jLabel2.setText("Analiza matematica");
+        labelCursSelected.setFont(new java.awt.Font("Tahoma", 1, 12));
+        labelCursSelected.setText("Analiza matematica");
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 12));
         jLabel3.setText("Materiale disponibile: ");
@@ -74,11 +72,6 @@ public class frameStudMaterialeCurs extends javax.swing.JFrame {
         labelTitlu.setFont(new java.awt.Font("Tahoma", 1, 12));
         labelTitlu.setText("Titlu material");
 
-        jLabel5.setText("Adaugat de:");
-
-        labelAdaugatDe.setFont(new java.awt.Font("Tahoma", 1, 11));
-        labelAdaugatDe.setText("Prof. Bufnea Darius");
-
         labelMaterialText.setColumns(20);
         labelMaterialText.setFont(new java.awt.Font("Arial", 0, 11));
         labelMaterialText.setRows(5);
@@ -93,17 +86,13 @@ public class frameStudMaterialeCurs extends javax.swing.JFrame {
             materialInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(materialInfoLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(materialInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(materialInfoLayout.createSequentialGroup()
-                        .addComponent(jLabel5)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(labelAdaugatDe))
+                .addGroup(materialInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(materialInfoLayout.createSequentialGroup()
                         .addComponent(labelTitlu)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 164, Short.MAX_VALUE)
                         .addComponent(butDescarca, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane1))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 427, Short.MAX_VALUE))
+                .addContainerGap())
         );
         materialInfoLayout.setVerticalGroup(
             materialInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -111,14 +100,10 @@ public class frameStudMaterialeCurs extends javax.swing.JFrame {
                 .addGroup(materialInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(materialInfoLayout.createSequentialGroup()
                         .addGap(19, 19, 19)
-                        .addComponent(labelTitlu)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(materialInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel5)
-                            .addComponent(labelAdaugatDe)))
+                        .addComponent(labelTitlu))
                     .addComponent(butDescarca))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 188, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 177, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -129,15 +114,15 @@ public class frameStudMaterialeCurs extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(materialInfo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel2))
+                        .addComponent(labelCursSelected))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(materialSelect, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(materialInfo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(materialSelect, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -146,14 +131,14 @@ public class frameStudMaterialeCurs extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(jLabel2))
+                    .addComponent(labelCursSelected))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(materialSelect, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(materialInfo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(materialInfo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -169,8 +154,8 @@ public class frameStudMaterialeCurs extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -214,21 +199,17 @@ public class frameStudMaterialeCurs extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton butDescarca;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JLabel labelAdaugatDe;
+    private javax.swing.JLabel labelCursSelected;
     private javax.swing.JTextArea labelMaterialText;
     private javax.swing.JLabel labelTitlu;
     private javax.swing.JPanel materialInfo;
     private javax.swing.JComboBox materialSelect;
     // End of variables declaration//GEN-END:variables
 
-    public JLabel getLabelAdaugatDe() {
-        return labelAdaugatDe;
-    }
+
 
     public JLabel getLabelTitlu() {
         return labelTitlu;
@@ -241,6 +222,11 @@ public class frameStudMaterialeCurs extends javax.swing.JFrame {
     public JButton getButDescarca() {
         return butDescarca;
     }
+
+    public JLabel getLabelCursSelected() {
+        return labelCursSelected;
+    }
+    
 
     
 }

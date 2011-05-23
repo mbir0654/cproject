@@ -14,6 +14,9 @@ public class Administrator extends User {
 	public Administrator(){
 		//atributele ne-continute in User ar trebui inititalizate aici
 	}
+        public Administrator(Administrator adm) {
+            super(adm);
+        }
 	
 	/**
 	 * 
@@ -27,4 +30,5 @@ public class Administrator extends User {
 			return true;
 		return false;
 	}
+
 } 

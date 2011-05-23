@@ -292,15 +292,15 @@ public class frameStudMain extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void butTrimiteTemeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butTrimiteTemeActionPerformed
-    	c.openAssignments();
+    	c.openAssignments(this);
     }//GEN-LAST:event_butTrimiteTemeActionPerformed
 
     private void butMaterialeCursActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butMaterialeCursActionPerformed
-    	c.openCourseComponents();
+    	c.openCourseComponents(this);
     }//GEN-LAST:event_butMaterialeCursActionPerformed
 
     private void butNoteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butNoteActionPerformed
-    	c.openGrades();
+    	c.openGrades(this);
     }//GEN-LAST:event_butNoteActionPerformed
 
     private void butLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butLogoutActionPerformed

@@ -10,15 +10,18 @@
  */
 
 package ui;
+import business.model.Administrator;
+import controller.ControllerAdmin;
 import javax.swing.*;
 /**
  *
  * @author Snoopy
  */
 public class frameAdminMain extends javax.swing.JFrame {
-
+    private ControllerAdmin c;
     /** Creates new form frameAdminMain */
-    public frameAdminMain() {
+    public frameAdminMain(ControllerAdmin adm) {
+        this.c=adm;
         initComponents();
     }
 

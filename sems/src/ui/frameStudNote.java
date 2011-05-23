@@ -12,7 +12,9 @@
 package ui;
 
 import controller.ControllerStudent;
+import javax.swing.JComboBox;
 import javax.swing.JLabel;
+import javax.swing.JTable;
 
 /**
  *
@@ -40,18 +42,9 @@ public class frameStudNote extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        labelCurs = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        listTip = new javax.swing.JComboBox();
         jScrollPane1 = new javax.swing.JScrollPane();
-        listTeste = new javax.swing.JList();
-        infoTest = new javax.swing.JPanel();
-        jLabel4 = new javax.swing.JLabel();
-        labelTitlu = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        labelData = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        labelNota = new javax.swing.JLabel();
+        tabelInfo = new javax.swing.JTable();
+        comboCursuri = new javax.swing.JComboBox();
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "SEMS :: Note", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 12), new java.awt.Color(51, 51, 255))); // NOI18N
 
@@ -59,30 +52,26 @@ public class frameStudNote extends javax.swing.JFrame {
 
         jLabel1.setText("Curs selectat: ");
 
-        labelCurs.setFont(new java.awt.Font("Tahoma", 1, 12));
-        labelCurs.setText("Analiza matematica");
+        tabelInfo.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null}
+            },
+            new String [] {
+                "Data", "Tip testare", "Nota"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, true, false
+            };
 
-        jLabel3.setText("Tipul verificarii:");
-
-        listTip.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Tema", "Examen", "Test" }));
-        listTip.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                listTipActionPerformed(evt);
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
             }
         });
+        jScrollPane1.setViewportView(tabelInfo);
+        tabelInfo.getColumnModel().getColumn(2).setPreferredWidth(30);
 
-        listTeste.setModel(new javax.swing.AbstractListModel() {
-            String[] strings = { "12/04/2011", "30/03/2011", "15/01/2011" };
-            public int getSize() { return strings.length; }
-            public Object getElementAt(int i) { return strings[i]; }
-        });
-        listTeste.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
-        listTeste.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
-            public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
-                listTesteValueChanged(evt);
-            }
-        });
-        jScrollPane1.setViewportView(listTeste);
+        comboCursuri.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Curs1" }));
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -90,83 +79,23 @@ public class frameStudNote extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 206, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
-                            .addComponent(jLabel1)
-                            .addGap(18, 18, 18)
-                            .addComponent(labelCurs))
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
-                            .addComponent(jLabel3)
-                            .addGap(18, 18, 18)
-                            .addComponent(listTip, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addContainerGap(15, Short.MAX_VALUE))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 376, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(comboCursuri, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(labelCurs))
+                    .addComponent(comboCursuri, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(listTip, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        infoTest.setBorder(javax.swing.BorderFactory.createTitledBorder("Detalii verificare"));
-
-        jLabel4.setText("Titlu:");
-
-        labelTitlu.setFont(new java.awt.Font("Tahoma", 1, 11));
-        labelTitlu.setText("Capitolul 5");
-
-        jLabel6.setText("Din data de:");
-
-        labelData.setFont(new java.awt.Font("Tahoma", 1, 11));
-        labelData.setText("12/04/2011");
-
-        jLabel8.setText("Nota:");
-
-        labelNota.setFont(new java.awt.Font("Tahoma", 1, 13));
-        labelNota.setText("10");
-
-        javax.swing.GroupLayout infoTestLayout = new javax.swing.GroupLayout(infoTest);
-        infoTest.setLayout(infoTestLayout);
-        infoTestLayout.setHorizontalGroup(
-            infoTestLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(infoTestLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(infoTestLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel6)
-                    .addComponent(jLabel4)
-                    .addComponent(jLabel8))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(infoTestLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(labelNota)
-                    .addComponent(labelTitlu)
-                    .addComponent(labelData))
-                .addContainerGap(72, Short.MAX_VALUE))
-        );
-        infoTestLayout.setVerticalGroup(
-            infoTestLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(infoTestLayout.createSequentialGroup()
-                .addGroup(infoTestLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(labelTitlu))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(infoTestLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
-                    .addComponent(labelData))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(infoTestLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel8)
-                    .addComponent(labelNota))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 157, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -176,18 +105,14 @@ public class frameStudNote extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(infoTest, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(infoTest, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -196,92 +121,41 @@ public class frameStudNote extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void listTipActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listTipActionPerformed
-    	c.enableTestList(this);
-    }//GEN-LAST:event_listTipActionPerformed
-
-    private void listTesteValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_listTesteValueChanged
-    	c.enableTestInfo(this);
-    }//GEN-LAST:event_listTesteValueChanged
-
-    /**
-	 * @param listTeste the listTeste to set
-	 */
-	public void setListTeste(javax.swing.JList listTeste) {
-		this.listTeste = listTeste;
-	}
-
-	/**
-	 * @return the listTeste
-	 */
-	public javax.swing.JList getListTeste() {
-		return listTeste;
-	}
-
-	/**
-	 * @param infoTest the infoTest to set
-	 */
-	public void setInfoTest(javax.swing.JPanel infoTest) {
-		this.infoTest = infoTest;
-	}
-
-	/**
-	 * @return the infoTest
-	 */
-	public javax.swing.JPanel getInfoTest() {
-		return infoTest;
-	}
-
+  
 	
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel infoTest;
+    private javax.swing.JComboBox comboCursuri;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JLabel labelCurs;
-    private javax.swing.JLabel labelData;
-    private javax.swing.JLabel labelNota;
-    private javax.swing.JLabel labelTitlu;
-    private javax.swing.JList listTeste;
-    private javax.swing.JComboBox listTip;
+    private javax.swing.JTable tabelInfo;
     // End of variables declaration//GEN-END:variables
 
-    public JLabel getLabelCurs() {
-        return labelCurs;
+    public JComboBox getComboCursuri() {
+        return comboCursuri;
     }
 
-    public JLabel getLabelData() {
-        return labelData;
+    public JTable getTabelInfo() {
+        return tabelInfo;
     }
 
-    public JLabel getLabelNota() {
-        return labelNota;
-    }
-
-    public JLabel getLabelTitlu() {
-        return labelTitlu;
-    }
-
+  
     
 }
