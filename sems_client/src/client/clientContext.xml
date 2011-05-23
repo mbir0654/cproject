@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+         http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="semsClient" class="client.SemsClient">
+		<property name="appService" ref="appService" />
+	</bean>
+
+	<bean id="appService" class="org.springframework.remoting.rmi.RmiProxyFactoryBean">
+		<property name="serviceUrl" value="rmi://localhost:1188/AppService" />
+		<property name="serviceInterface" value="service.InterfaceAppService" />
+	</bean>
+
+</beans>
