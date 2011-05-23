@@ -1,7 +1,8 @@
 *.bak
 *.class
 .metadata/*
-.metadata/.plugins/org.eclipse.core.resources/.history/
-.metadata/.plugins/org.eclipse.epp.usagedata.recording/
-.metadata/.plugins/org.eclipse.jdt.core/*.index
-.metadata/.plugins/org.eclipse.core.resources/.projects/*/.indexes/
+.settings/*
+sems_client/bin/*
+sems_server/bin/*
+.classpath
+.project
