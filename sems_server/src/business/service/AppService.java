@@ -10,7 +10,7 @@ import data.dbutil.DbUtil;
 import data.repositorydb.AdministratorRepository;
 import data.repositoryinterface.Repository;
 import business.model.*;
-import service.InterfaceAppService;
+import business.serviceinterface.InterfaceAppService;
 
 /**
  * @author BSK:D
