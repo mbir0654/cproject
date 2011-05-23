@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 	/**
 	 * 
-	 * @author byskis
+	 * @author biskis
 	 *
 	 */
 public class Course {
@@ -14,6 +14,7 @@ public class Course {
 	private String syllabus;
 	private String name;
 	private int numberOfCredits;
+	private ArrayList<String> materialeCurs;
 	
 	/**
 	 * Constructorul implicit
@@ -151,5 +152,26 @@ public class Course {
 	public String getSyllabus() {
 		return syllabus;
 	}
+
+	/**
+	 * @param materialeCurs the materialeCurs to set
+	 */
+	public void setMaterialeCurs(ArrayList<String> materialeCurs) {
+		this.materialeCurs = materialeCurs;
+	}
+
+	/**
+	 * @return the materialeCurs
+	 */
+	public ArrayList<String> getMaterialeCurs() {
+		return materialeCurs;
+	}
 	
+	/**
+	 * Adauga un material de curs pentru cursul curent.
+	 * @param materialCurs
+	 */
+	public void addMaterialCurs(String materialCurs){
+		this.materialeCurs.add(materialCurs);
+	}
 }
