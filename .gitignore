@@ -6,3 +6,7 @@ sems_client/bin/*
 sems_server/bin/*
 .classpath
 .project
+*.iml
+*.ipr
+*.iws
+*/out/*
