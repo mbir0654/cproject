@@ -21,7 +21,23 @@ public class GuiTester {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+    	try {
+    	    // Set System L&F
+            UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+        } 
+        catch (UnsupportedLookAndFeelException e) {
+           // handle exception
+        }
+        catch (ClassNotFoundException e) {
+           // handle exception
+        }
+        catch (InstantiationException e) {
+           // handle exception
+        }
+        catch (IllegalAccessException e) {
+           // handle exception
+        }
+        
         JFrame loginFrame = new frameLogin();
         loginFrame.setVisible(true);
         loginFrame.setTitle("SEMS:: Login");
