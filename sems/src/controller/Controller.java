@@ -8,6 +8,9 @@ import business.model.Professor;
 import business.model.Student;
 import business.model.User;
 import javax.swing.JFrame;
+
+import java.math.BigInteger;
+import java.nio.charset.Charset;
 import java.security.*;
 
 import ui.*;
@@ -89,6 +92,20 @@ public class Controller {
             prof.setTitle("SEMS :: Profesor");
             prof.setResizable(false);
             //f.setVisible(false); //lasa linia asta comentata!!!
+	}
+	
+	
+	public User login(String username, String password){
+	    
+		MessageDigest m = MessageDigest.getInstance("MD5");
+        byte[] data = password.getBytes(); 
+        m.update(data,0,data.length);
+        BigInteger i = new BigInteger(1,m.digest());
+        String pas = String.format("%1$032X", i);
+	
+		u = ValidateUser(username, pas);
+		
+		return u;
 	}
 
 
