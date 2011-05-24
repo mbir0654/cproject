@@ -14,22 +14,22 @@
 
 	<bean id="appService" class="org.springframework.remoting.rmi.RmiProxyFactoryBean">
 		<property name="serviceUrl" value="rmi://localhost:1188/AppService" />
-		<property name="serviceInterface" value="service.InterfaceAppService" />
+		<property name="serviceInterface" value="business.serviceinterface.InterfaceAppService" />
 	</bean>
 
     <bean id="studentService" class="org.springframework.remoting.rmi.RmiProxyFactoryBean">
         <property name="serviceUrl" value="rmi://localhost:1188/StudentService" />
-        <property name="serviceInterface" value="service.InterfaceStudentService" />
+        <property name="serviceInterface" value="business.serviceinterface.InterfaceStudentService" />
     </bean>
 
     <bean id="administratorService" class="org.springframework.remoting.rmi.RmiProxyFactoryBean">
         <property name="serviceUrl" value="rmi://localhost:1188/AdministratorService" />
-        <property name="serviceInterface" value="service.InterfaceAdministratorService" />
+        <property name="serviceInterface" value="business.serviceinterface.InterfaceAdministratorService" />
     </bean>
 
     <bean id="professorService" class="org.springframework.remoting.rmi.RmiProxyFactoryBean">
         <property name="serviceUrl" value="rmi://localhost:1188/ProfessorService" />
-        <property name="serviceInterface" value="service.InterfaceProfessorService" />
+        <property name="serviceInterface" value="business.serviceinterface.InterfaceProfessorService" />
     </bean>
 
 </beans>

@@ -2,7 +2,7 @@ package data.repositorydb;
 
 import java.util.ArrayList;
 import java.util.List;
-import business.model.Professor;
+import business.model.*;
 import data.repositoryinterface.Repository;
 
 /**
@@ -29,8 +29,7 @@ public class ProfessorRepository implements Repository<Professor> {
 	 */
 	@Override
 	public void add(Professor item) {
-		l.add(item);
-		
+		l.add(item);		
 	}
 
 	/**

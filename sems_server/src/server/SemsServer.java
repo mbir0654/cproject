@@ -2,6 +2,8 @@ package server;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import business.model.*;
+import data.repositorydb.*;
 
 /**
  * Created by IntelliJ IDEA.
@@ -12,7 +14,12 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  */
 public class SemsServer {
     public static void main(String args[]) {
-        ApplicationContext factory = new ClassPathXmlApplicationContext(
+        @SuppressWarnings("unused")
+		ApplicationContext factory = new ClassPathXmlApplicationContext(
                 "classpath:server/serverContext.xml");
+        AdministratorRepository ar = AdministratorRepository.getInstance();
+        for( Administrator a : ar.getAll()){
+        	System.out.println(a.toString());
+        }
     }
 }

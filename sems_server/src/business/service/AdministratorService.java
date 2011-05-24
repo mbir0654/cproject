@@ -1,7 +1,7 @@
 package business.service;
 
 import business.model.Administrator;
-import service.InterfaceAdministratorService;
+import business.serviceinterface.InterfaceAdministratorService;
 
 
 /**

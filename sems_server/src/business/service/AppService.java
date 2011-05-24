@@ -8,12 +8,14 @@ import java.util.*;
 
 import data.dbutil.DbUtil;
 import data.repositorydb.AdministratorRepository;
+import data.repositorydb.ProfessorRepository;
+import data.repositorydb.StudentRepository;
 import data.repositoryinterface.Repository;
 import business.model.*;
-import service.InterfaceAppService;
+import business.serviceinterface.InterfaceAppService;
 
 /**
- * @author BSK:D
+ * @author BSK
  *
  */
 public class AppService implements InterfaceAppService {
@@ -25,10 +27,15 @@ public class AppService implements InterfaceAppService {
 	 */
 	private static AppService apps = new AppService();
 	
-	private Repository<User> userRepo;
+	private Repository<Administrator> adminRepo = 
+		AdministratorRepository.getInstance();
+	private Repository<Professor> profRepo = 
+		ProfessorRepository.getInstance();
+	private Repository<Student> studRepo = 
+		StudentRepository.getInstance();
 	
 	/**
-	 *  cvonstuctor privat pentru singleton
+	 *  constuctor privat pentru singleton
 	 */
 	private AppService(){
 		
@@ -51,7 +58,7 @@ public class AppService implements InterfaceAppService {
 	 * @return User (Administratpr/Teacher/Student)
 	 */
 	public User ValidateUser(String username, String password) {
-		String sql = "SELECT userId, rol FROM users " +
+		String sql = "SELECT userName, rol FROM users " +
 						"WHERE userName = '" + username + "' " +
 						"AND password = '" + password + "' " +
 						"LIMIT 1";
@@ -62,18 +69,17 @@ public class AppService implements InterfaceAppService {
 
 			rs.last();
 		    if(rs.getRow() == 1){
-		    	String userId = rs.getString("userId");
+		    	String userName = rs.getString("userName");
 		    	String rol = rs.getString("rol");
-		    	User s;
-		    	/*if(rol == "admin"){
-		    		userRepo = AdministratorRepository.getInstance();
+		    	User u = null;
+		    	if(rol == "admin"){
+		    		u = adminRepo.findByName(userName);		    		
 		    	} else if (rol == "prof") {
-		    		userRepo = ProfessorRepository.getInstance();
+		    		u = profRepo.findByName(userName);
 		    	} else if (rol == "stud"){
-		    		userRepo = StudentRepository.getInstance();
+		    		u = studRepo.findByName(userName);
 		    	}
-		    	User u = userRepo.findByName(userId);
-		    	return u;                            */
+		    	return u;
 		    }
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block

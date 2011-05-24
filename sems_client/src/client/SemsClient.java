@@ -1,12 +1,11 @@
 package client;
 
+import business.serviceinterface.InterfaceAppService;
+
+import business.serviceinterface.*;
 import com.sun.org.apache.bcel.internal.util.ClassPath;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import service.InterfaceAdministratorService;
-import service.InterfaceAppService;
-import service.InterfaceProfessorService;
-import service.InterfaceStudentService;
 
 /**
  * Created by IntelliJ IDEA.

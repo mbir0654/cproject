@@ -1,4 +1,4 @@
-package service;
+package business.serviceinterface;
 /**
  * @author biskis
  *

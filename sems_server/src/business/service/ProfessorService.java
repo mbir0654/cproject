@@ -1,7 +1,7 @@
 package business.service;
 
 import business.model.Professor;
-import service.InterfaceProfessorService;
+import business.serviceinterface.InterfaceProfessorService;
 
 /**
  * @author myh

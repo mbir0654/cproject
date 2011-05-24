@@ -1,4 +1,4 @@
-package service;
+package business.serviceinterface;
 
 import java.util.*;
 import business.model.*;
