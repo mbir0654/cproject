@@ -17,6 +17,9 @@ import service.InterfaceAppService;
  *
  */
 public class AppService implements InterfaceAppService {
+    public String hello(){
+        return "greetings, from app";
+    }
 	/**
 	 * atribut privat pentru singleton
 	 */
@@ -62,7 +65,7 @@ public class AppService implements InterfaceAppService {
 		    	String userId = rs.getString("userId");
 		    	String rol = rs.getString("rol");
 		    	User s;
-		    	if(rol == "admin"){
+		    	/*if(rol == "admin"){
 		    		userRepo = AdministratorRepository.getInstance();
 		    	} else if (rol == "prof") {
 		    		userRepo = ProfessorRepository.getInstance();
@@ -70,7 +73,7 @@ public class AppService implements InterfaceAppService {
 		    		userRepo = StudentRepository.getInstance();
 		    	}
 		    	User u = userRepo.findByName(userId);
-		    	return u;
+		    	return u;                            */
 		    }
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block

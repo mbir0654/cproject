@@ -5,6 +5,7 @@ package service;
  */
 
 public interface InterfaceProfessorService {
+    public String hello();
 	public void exitSystem();
 	public void mannageAnnouncements();
 	public void viewCourses();

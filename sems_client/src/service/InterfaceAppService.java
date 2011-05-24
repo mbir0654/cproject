@@ -7,6 +7,7 @@ import business.model.*;
  *
  */
 public interface InterfaceAppService {
+    public String hello();
 	
 	public User ValidateUser(String username, String password);
 	

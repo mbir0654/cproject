@@ -3,7 +3,10 @@ package client;
 import com.sun.org.apache.bcel.internal.util.ClassPath;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import service.InterfaceAdministratorService;
 import service.InterfaceAppService;
+import service.InterfaceProfessorService;
+import service.InterfaceStudentService;
 
 /**
  * Created by IntelliJ IDEA.
@@ -21,13 +24,30 @@ public class SemsClient {
     }
 
     public void run() {
-
+        System.out.println(appService.hello());
+        System.out.println(studentService.hello());
+        System.out.println(adminService.hello());
+        System.out.println(profService.hello());
     }
-
-    private InterfaceAppService appService;
 
     public void setAppService(InterfaceAppService service) {
         this.appService = service;
     }
 
+    public void setAdminService(InterfaceAdministratorService service) {
+        this.adminService = service;
+    }
+
+    public void setProfService(InterfaceProfessorService service) {
+        this.profService = service;
+    }
+
+    public void setStudentService(InterfaceStudentService service) {
+        this.studentService = service;
+    }
+
+    private InterfaceAppService appService;
+    private InterfaceAdministratorService adminService;
+    private InterfaceProfessorService profService;
+    private InterfaceStudentService studentService;
 }
