@@ -17,9 +17,9 @@ public class SemsServer {
         @SuppressWarnings("unused")
 		ApplicationContext factory = new ClassPathXmlApplicationContext(
                 "classpath:server/serverContext.xml");
-        /*AdministratorRepository ar = AdministratorRepository.getInstance();
+        AdministratorRepository ar = AdministratorRepository.getInstance();
         for( Administrator a : ar.getAll()){
         	System.out.println(a.toString());
-        }*/
+        }
     }
 }

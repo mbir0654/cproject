@@ -4,7 +4,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import business.model.Administrator;
+import business.model.*;
 import data.dbutil.DbUtil;
 import data.repositoryinterface.Repository;
 
@@ -49,6 +49,17 @@ public class AdministratorRepository implements Repository<Administrator>{
 	@Override
 	public void add(Administrator item) {
 		l.add(item);
+		DbUtil dbu;
+		try {
+			dbu = new DbUtil();
+			String str = "insert into users values('"+item.getFirstName()+"','"+
+			item.getLastName()+"','"+item.getUserName()+"','"+item.getPassword()+
+			"','admin')";
+			dbu.makeUpdate(str);
+		} catch (SQLException e) {
+			System.err.println(e.getMessage());
+			e.printStackTrace();
+		}
 	}
 
 	/**
@@ -90,7 +101,16 @@ public class AdministratorRepository implements Repository<Administrator>{
 	
 	@Override
 	public void delete(Administrator item) {
-		l.remove(item);		
+		l.remove(item);
+		DbUtil dbu;
+		try {
+			dbu = new DbUtil();
+			String str  = "delete from users where userName = "+item.getUserName();
+			dbu.makeUpdate(str);
+		} catch (SQLException e) {
+			System.err.println(e.getMessage());
+			e.printStackTrace();
+		}
 	}
 		
 }
