@@ -12,7 +12,7 @@ import data.repositorydb.ProfessorRepository;
 import data.repositorydb.StudentRepository;
 import data.repositoryinterface.Repository;
 import business.model.*;
-import service.InterfaceAppService;
+import business.serviceinterface.InterfaceAppService;
 
 /**
  * @author BSK
