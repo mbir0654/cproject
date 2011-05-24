@@ -99,4 +99,8 @@ public abstract class User {
 	public String getPassword() {
 		return password;
 	}
+	
+	public String toString() {
+		return this.firstName+" "+this.lastName;
+	}
 }

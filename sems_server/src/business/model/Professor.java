@@ -17,7 +17,6 @@ public class Professor extends User{
             groups = new ArrayList<Group>();
             courses = new ArrayList<Course>();
             announcements = new ArrayList<Announcement>();
-		//atributele ne-continute in User ar trebui inititalizate aici
 	}
 	
 	/**
@@ -65,16 +64,28 @@ public class Professor extends User{
 		return (ArrayList<Group>) groups;
 	}
 
-        public List<Course> getCourses() {
-                return courses;
-        }
+    /**
+     * 
+     * @return lista de cursuri predate de acest profesor
+     */
+	public List<Course> getCourses() {
+        return courses;
+    }
 
-    public List<Announcement> getAnnouncements() {
+    /**
+     * 
+     * @return lista de anunturi facute de acest profesor
+     */
+	public List<Announcement> getAnnouncements() {
         return this.announcements;
     }
+	
+	/**
+	 * 
+	 * @param a este anuntul pe care il adauga profesorul
+	 */
     public void addAnnouncement(Announcement a) {
         this.announcements.add(a);
     }
-    
 } 
 

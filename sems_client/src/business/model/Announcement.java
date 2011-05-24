@@ -4,10 +4,10 @@ import java.util.Date;
 
 public class Announcement {
 	private String announcement = "";
-        private String subject = "";
+    private String subject = "";
 	private Professor prof;
 	private Course course;
-        private Date date;
+    private Date date;
 	
 	
 	/**
@@ -20,11 +20,12 @@ public class Announcement {
 	public Announcement(String msg, String subj, Professor p) {
 		setAnnouncement(msg);
                 this.subject=subj;
-		setProf(p);
+                setProf(p);
                 this.date= new Date();
 	}
 	
 	public Announcement() {
+		this.date = new Date();
 	}
 	
 	/**

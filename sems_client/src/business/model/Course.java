@@ -1,6 +1,6 @@
 package business.model;
 
-import java.util.ArrayList;
+import java.util.*;
 
 	/**
 	 * 
@@ -11,10 +11,11 @@ public class Course {
 	private ArrayList<Exam> exams;
 	private ArrayList<Announcement> announcements;
 	private ArrayList<Assignment> assignments;
-	private String syllabus;
 	private String name;
 	private int numberOfCredits;
-	private ArrayList<String> materialeDeCurs;
+	private ArrayList<MaterialCurs> materialeDeCurs;
+	private List<Professor> profesori;
+	private Specialty specializare;
 	
 	/**
 	 * Constructorul implicit
@@ -23,24 +24,31 @@ public class Course {
 		exams = new ArrayList<Exam>();
 		announcements = new ArrayList<Announcement>();
 		assignments = new ArrayList<Assignment>();
-		syllabus = "";
+		materialeDeCurs = new ArrayList<MaterialCurs>();
 		name = "";
 		numberOfCredits = 0;
+		profesori = new ArrayList<Professor>();
+		specializare = new Specialty();
 	}
-        public Course(Course c) {
-            exams=c.exams;
-            announcements=c.announcements;
-            assignments=c.assignments;
-            syllabus=c.syllabus;
-            name=c.name;
-            numberOfCredits=c.numberOfCredits;
-        }
+	/**
+	 * Constructorul de copiere
+	 * 
+	 * @param c este cursul de duplicat
+	 */
+    public Course(Course c) {
+        exams=c.exams;
+        announcements=c.announcements;
+        assignments=c.assignments;
+        materialeDeCurs = c.materialeDeCurs;
+        name=c.name;
+        numberOfCredits=c.numberOfCredits;
+    }
 	
 	/**
 	 * Constructorul parametrizat
 	 * 
-	 * @param n este...
-	 * @param nC este...
+	 * @param n este numele cursului
+	 * @param nC este numarul de credite
 	 */
 	public Course(String n, int nC) {
 		name = n;
@@ -62,17 +70,17 @@ public class Course {
 	public boolean equals(Course c){
 		if(name.equalsIgnoreCase(c.getName()) &&
 		   numberOfCredits == c.getNumberOfCredits() &&
-		   syllabus.equalsIgnoreCase(c.getSyllabus()))
+		   c.specializare.equals(c.specializare))
 			return true;
 		return false;
 	}
 	
 	/**
 	 * 
-	 * @param d va fi ...
+	 * @param n va fi noua denumire a cursului
 	 */
-	public void setName(String d) {
-		name = d;
+	public void setName(String n) {
+		name = n;
 	}
 	
 	/**
@@ -85,7 +93,7 @@ public class Course {
 	
 	/**
 	 * 
-	 * @return ...
+	 * @return denumirea cursului
 	 */
 	public String getName() {
 		return name;
@@ -101,7 +109,7 @@ public class Course {
 	
 	/**
 	 * 
-	 * @param e va fi ...
+	 * @param e va fi examenul de adaugat
 	 */
 	public void addExam(Exam e) {
 		exams.add(e);
@@ -109,7 +117,7 @@ public class Course {
 	
 	/**
 	 * 
-	 * @param a este ...
+	 * @param a este anuntul de adaugat
 	 */
 	public void addAnnouncement(Announcement a) {
 		announcements.add(a);
@@ -122,7 +130,7 @@ public class Course {
 	
 	/**
 	 * 
-	 * @param t este ... 
+	 * @param t este tema de adaugat 
 	 */
 	public void addAssignment(Assignment t) {
 		assignments.add(t);
@@ -152,51 +160,65 @@ public class Course {
 		assignments.remove(t);
 	}
 
-    public ArrayList<Exam> getExams() {
+    /**
+     * 
+     * @return lista de examene aferenta cursului
+     */
+	public ArrayList<Exam> getExams() {
         return exams;
     }
 
-        
-	/**
-	 * @param syllabus va fi numele fisierului cu syllabusul
-	 */
-	public void setSyllabus(String syllabus) {
-		this.syllabus = syllabus;
-	}
-
-	/**
-	 * @return numele fisierului cu syllabusul
-	 */
-	public String getSyllabus() {
-		return syllabus;
-	}
-
-        public ArrayList<Assignment> getAssignments() {
-            return this.assignments;
-        }
-
-    @Override
-    public String toString() {
-        return this.name+" "+this.numberOfCredits;
+    /**
+     *     
+     *  @return lista de teme asociata cursului
+     */
+    public ArrayList<Assignment> getAssignments() {
+        return this.assignments;
     }
+    
 	/**
-	 * @param materialeDeCurs the materialeDeCurs to set
+	 * @param materialeDeCurs este noua lista cu materiale de curs
 	 */
-	public void setMaterialeDeCurs(ArrayList<String> materialeDeCurs) {
+	public void setMaterialeDeCurs(ArrayList<MaterialCurs> materialeDeCurs) {
 		this.materialeDeCurs = materialeDeCurs;
-	}
-	/**
-	 * @return the materialeDeCurs
-	 */
-	public ArrayList<String> getMaterialeDeCurs() {
-		return materialeDeCurs;
 	}
 	
 	/**
 	 * Adauga materiale de curs.
-	 * @param mat
+	 * 
+	 * @param mc este materialul de adaugat in lista
 	 */
-	public void addMaterialeDeCurs(String mat){
-		this.materialeDeCurs.add(mat);
+	public void addMaterialCurs(MaterialCurs mc){
+		materialeDeCurs.add(mc);
 	}
+	
+	/**
+	 * @return lista cu materialele aferente cursului
+	 */
+	public ArrayList<MaterialCurs> getMaterialeDeCurs() {
+		return materialeDeCurs;
+	}
+	
+	/**
+	 * 
+	 * @param p este profesorul adaugat
+	 */
+	public void addProfessor(Professor p){
+		profesori.add(p);
+	}
+	
+	/**
+	 * 
+	 * @return lista de profesori care predau la acest curs
+	 */
+	public List<Professor> getProfesors(){
+		return profesori;
+	}
+	
+	/**
+	 * creaza un String din nume si numar de credite
+	 */
+    public String toString() {
+        return this.name+" "+this.numberOfCredits;
+    }
 }

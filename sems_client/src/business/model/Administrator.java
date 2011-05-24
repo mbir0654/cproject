@@ -12,11 +12,13 @@ public class Administrator extends User {
 	 * Constructorul implicit 
 	 */
 	public Administrator(){
-		//atributele ne-continute in User ar trebui inititalizate aici
+		super();
 	}
-        public Administrator(Administrator adm) {
-            super(adm);
-        }
+    
+	public Administrator(Administrator adm) {
+        super(adm);
+    }
+        
 	
 	/**
 	 * 

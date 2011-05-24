@@ -18,12 +18,12 @@ public class DbUtil {
     Connection con;
     public DbUtil() throws SQLException{
         try {
-            //Database URL	jdbc:mysql://localhost/gestiunebani
             Class.forName("com.mysql.jdbc.Driver").newInstance();
         } catch (Exception ex) {
             Logger.getLogger(DbUtil.class.getName()).log(Level.SEVERE, null, ex);
         }
-        con = DriverManager.getConnection("jdbc:mysql://localhost:3306/pc221","root", "");
+        con = DriverManager.getConnection
+        	("jdbc:mysql://localhost:3306/pc221","root", "");
     }
     public ResultSet getDate(String str) throws SQLException{
 
@@ -37,6 +37,4 @@ public class DbUtil {
         int rasp = st.executeUpdate(str);
         return rasp;
     }
-
-
 }
