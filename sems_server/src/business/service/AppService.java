@@ -19,6 +19,9 @@ import business.serviceinterface.InterfaceAppService;
  *
  */
 public class AppService implements InterfaceAppService {
+    public String hello(){
+        return "greetings, from app";
+    }
 	/**
 	 * atribut privat pentru singleton
 	 */

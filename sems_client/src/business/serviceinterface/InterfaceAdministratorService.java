@@ -5,6 +5,7 @@ package business.serviceinterface;
  */
 
 public interface InterfaceAdministratorService {
+    public String hello();
 	public void exitSystem() ;
 	public void registerStudent();
 	public void manageResources() ;

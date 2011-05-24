@@ -3,6 +3,7 @@
  */
 package business.service;
 
+import business.serviceinterface.InterfaceStudentService;
 import data.repositorydb.StudentRepository;
 
 
@@ -10,7 +11,11 @@ import data.repositorydb.StudentRepository;
  * @author myh
  *
  */
-final class StudentService {
+final class StudentService implements InterfaceStudentService{
+
+    public String hello() {
+        return "greetings, from student";
+    }
 	
 	/**
 	 * The student for which we offer the services.

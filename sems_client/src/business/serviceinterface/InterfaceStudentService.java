@@ -5,6 +5,7 @@ package business.serviceinterface;
  *
  */
 public interface InterfaceStudentService {
+    public String hello();
 	public void viewCourses();	
 	public void viewAnnouncements();
 	public void makeContract();

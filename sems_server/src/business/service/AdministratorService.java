@@ -1,13 +1,18 @@
 package business.service;
 
 import business.model.Administrator;
+import business.serviceinterface.InterfaceAdministratorService;
 
 
 /**
  * @author myh
  * 	
  */
-public final class AdministratorService {
+public final class AdministratorService implements InterfaceAdministratorService {
+
+    public String hello() {
+        return "greetings, from admin";
+    }
 	
 	@SuppressWarnings("unused")
 	private Administrator a;

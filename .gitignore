@@ -10,3 +10,4 @@ sems_server/bin/*
 *.ipr
 *.iws
 */out/*
+*META*
