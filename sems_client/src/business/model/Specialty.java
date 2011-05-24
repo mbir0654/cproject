@@ -84,4 +84,12 @@ public class Specialty {
 	public Faculty getFaculty() {
 		return faculty;
 	}
+	
+	/**
+	 * returneaza un string cu denumirea specializarii
+	 */
+	@Override
+	public String toString() {
+		return name;
+	}
 }

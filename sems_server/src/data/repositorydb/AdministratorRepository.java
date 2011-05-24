@@ -97,8 +97,6 @@ public class AdministratorRepository implements Repository<Administrator>{
 	/**
 	 * @see data.repositoryinterface.Repository#delete(java.lang.Object)
 	 */
-	
-	
 	@Override
 	public void delete(Administrator item) {
 		l.remove(item);

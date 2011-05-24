@@ -141,4 +141,12 @@ public class Student extends User {
 		return group;
 	}
 
+	/**
+	 * genereaza un string cu numele si specializarea studentului
+	 */
+	@Override
+	public String toString() {
+		return getFirstName()+" "+getLastName()+" - "+ specialty.toString();
+	}
+
 } 

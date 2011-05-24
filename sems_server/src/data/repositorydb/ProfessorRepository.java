@@ -1,8 +1,11 @@
 package data.repositorydb;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import business.model.*;
+import data.dbutil.DbUtil;
 import data.repositoryinterface.Repository;
 
 /**
@@ -18,6 +21,28 @@ public class ProfessorRepository implements Repository<Professor> {
 	
 	private ProfessorRepository(){
 		l = new ArrayList<Professor>();
+		Professor p;
+		try {
+			DbUtil dbu = new DbUtil();
+			String str = "select * from users where role = 'prof'";
+			ResultSet rs = dbu.getDate(str);
+			while (rs.next()){
+				ResultSet rs2 = dbu.getDate("select teacherId from teachers" +
+						" as t where userName = "+rs.getString("userName"));
+				rs2.next();
+				int i = rs2.getInt(1);
+				p = new Professor();
+				p.setId(i);
+				p.setFirstName(rs.getString("firstName"));
+				p.setLastName(rs.getString("lastName"));
+				p.setUserName(rs.getString("userName"));
+				p.setPassword(rs.getString("password"));
+				l.add(p);
+			}
+		} catch (SQLException e) {
+			System.err.println(e.getMessage());
+			e.printStackTrace();
+		}
 	}
 	
 	public static ProfessorRepository getInstance(){
@@ -29,7 +54,18 @@ public class ProfessorRepository implements Repository<Professor> {
 	 */
 	@Override
 	public void add(Professor item) {
-		l.add(item);		
+		l.add(item);
+		DbUtil dbu;
+		try {
+			dbu = new DbUtil();
+			String str = "insert into users values('"+item.getFirstName()+"','"+
+			item.getLastName()+"','"+item.getUserName()+"','"+item.getPassword()+
+			"','prof')";
+			dbu.makeUpdate(str);
+		} catch (SQLException e) {
+			System.err.println(e.getMessage());
+			e.printStackTrace();
+		}
 	}
 
 	/**
@@ -68,7 +104,16 @@ public class ProfessorRepository implements Repository<Professor> {
 	 */
 	@Override
 	public void delete(Professor item) {
-		l.remove(item);		
+		l.remove(item);
+		DbUtil dbu;
+		try {
+			dbu = new DbUtil();
+			String str  = "delete from users where userName = "+item.getUserName();
+			dbu.makeUpdate(str);
+		} catch (SQLException e) {
+			System.err.println(e.getMessage());
+			e.printStackTrace();
+		}
 	}
 
 }

@@ -3,9 +3,16 @@
  */
 package data.repositorydb;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+
+import business.model.Administrator;
+import business.model.Course;
 import business.model.Faculty;
+import business.model.Specialty;
+import data.dbutil.DbUtil;
 import data.repositoryinterface.Repository;
 
 /**
@@ -26,6 +33,38 @@ public class FacultyRepository implements Repository<Faculty>{
 	@Override
 	public void add(Faculty item) {
 		l.add(item);
+		Faculty f;
+		try {
+			DbUtil dbu = new DbUtil();
+			String str = "select * from faculties";
+			ResultSet rs = dbu.getDate(str);
+			while (rs.next()){
+				f = new Faculty();
+				f.setName(rs.getString("facultyName"));
+				f.setAddress(rs.getString("address"));
+				int fid = rs.getInt(1);
+				ResultSet rs2 = dbu.getDate("select * from specializations" +
+						"where spId in (select spId from faculties_" +
+						"specializations where facultyId = "+fid);
+				while(rs2.next()){
+					Specialty sp = new Specialty();
+					sp.setFaculty(f);
+					sp.setName(rs.getString(2));
+					sp.setNumberOfYears(rs.getInt(3));
+					int spId = rs.getInt(1);
+					ResultSet rs3 = dbu.getDate("select ");
+					while(rs3.next()){
+						ResultSet rss = dbu.getDate("select ");
+						Course c = new Course();
+						
+					}
+				}
+				l.add(f);
+			}
+		} catch (SQLException e) {
+			System.err.println(e.getMessage());
+			e.printStackTrace();
+		}
 	}
 
 	/**

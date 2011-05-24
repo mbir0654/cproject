@@ -1,12 +1,10 @@
 package business.model;
 
-import java.util.Date;
 
 public class Grade {
 	private int grade = 0;
-	private Date date = null;
 	private Exam exam;
-        private Student stud;
+    private Student stud;
 	
 	/**
 	 * Constructor de copiere
@@ -15,8 +13,7 @@ public class Grade {
 	 */
 	public Grade(Grade n){
 		grade = n.grade;
-		date = n.date;
-                stud = n.stud;
+		stud = n.stud;
 	}
 	
 	/**
@@ -24,23 +21,11 @@ public class Grade {
 	 * 
 	 * @param n este nota propriu-zisa
 	 * 
-	 * @param d este data la care s-a acordat nota respectiva
+	 * @param s este studentul caruia i se acorda nota
 	 */
-	public Grade(int n, Date d){
+	public Grade(int n, Student s){
 		grade = n;
-		date = d;
-	}
-	
-	/**
-	 * Constructor parametrizat
-	 * 
-	 * data este setata la null
-	 * 
-	 * @param n este nota care se acorda
-	 */
-	public Grade(int n){
-		grade = n;
-		
+		stud = s;
 	}
 	
 	/**
@@ -53,28 +38,12 @@ public class Grade {
 	
 	/**
 	 * 
-	 * @param d va fi noua data
-	 */
-	public void setDate(Date d){
-		date = d;
-	}
-	
-	/**
-	 * 
 	 * @return valoarea notei
 	 */
 	public int getGrade(){
 		return grade;
 	}
 	
-	/**
-	 * 
-	 * @return data la care a fost acordata nota
-	 */
-	public Date getDate(){
-		return date;
-	}
-
 	/**
 	 * @param exam the exam to set
 	 */
@@ -89,19 +58,19 @@ public class Grade {
 		return exam;
 	}
 
-        /**
-         * 
-         * @param stud va fi noul student asociat notei
-         */
-        public void setStud(Student stud) {
-            this.stud = stud;
-        }
+    /**
+    * 
+    * @param stud va fi noul student asociat notei
+    */
+    public void setStud(Student stud) {
+    	this.stud = stud;
+	}
 
-        /**
-         *
-         * @return studentul asociat notei
-         */
-        public Student getStud() {
-            return stud;
-        }
+	/**
+    *
+    * @return studentul asociat notei
+    */
+    public Student getStud() {
+    	return stud;
+	}
 }

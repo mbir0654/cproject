@@ -3,7 +3,6 @@ package business.model;
 import java.util.ArrayList;
 
 public class Faculty {
-	private String university = "";
 	private String name = "";
 	private String address = "";
 	private ArrayList<Specialty> specialties = new ArrayList<Specialty>();
@@ -23,27 +22,12 @@ public class Faculty {
 	 * 	 	   cu dea data ca parametru
 	 */
 	public boolean equals(Faculty f){
-		if(this.university == f.getUniversity() &&
-		   this.name == f.getName() &&
+		if(this.name == f.getName() &&
 		   this.address == f.getAddress())
 			return true;
 		return false;
 	}
-
-	/**
-	 * @param university va fi Univestiatea de care apartine facultatea
-	 */
-	public void setUniversity(String university) {
-		this.university = university;
-	}
-
-	/**
-	 * @return Univestiatea de care apartine facultatea
-	 */
-	public String getUniversity() {
-		return university;
-	}
-
+	
 	/**
 	 * @param name va fi numele facultatii
 	 */

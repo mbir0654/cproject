@@ -17,6 +17,7 @@ public class Student extends User {
 	private List<Assignment> assignments;
 	private Specialty specialty;
 	private Group group;
+	private final int id = 0;
 	/**
 	 * Constructorul implicit
 	 */
@@ -139,6 +140,22 @@ public class Student extends User {
 	 */
 	public Group getGroup() {
 		return group;
+	}
+	
+	/**
+	 * 
+	 * @return id-ul studentului din baza de date
+	 */
+	public int getId() {
+		return id;
+	}
+	
+	/**
+	 * genereaza un string cu numele si specializarea studentului
+	 */
+	@Override
+	public String toString() {
+		return getFirstName()+" "+getLastName()+" - "+ specialty.toString();
 	}
 
 } 
