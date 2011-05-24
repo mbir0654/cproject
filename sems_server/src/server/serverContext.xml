@@ -10,7 +10,7 @@
 	<bean class="org.springframework.remoting.rmi.RmiServiceExporter">
 		<property name="serviceName" value="AppService" />
 		<property name="service" ref="appService" />
-		<property name="serviceInterface" value="service.InterfaceAppService" />
+		<property name="serviceInterface" value="business.serviceinterface.InterfaceAppService" />
 		<property name="registryPort" value="1188" />
 	</bean>
 
