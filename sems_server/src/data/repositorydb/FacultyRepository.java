@@ -25,12 +25,17 @@ public class FacultyRepository implements Repository<Faculty>{
 	private StudentRepository sr = StudentRepository.getInstance();
 	private ProfessorRepository pr = ProfessorRepository.getInstance();
 	
-	private static final FacultyRepository theFacult = new FacultyRepository();
+	private static final FacultyRepository theFaculties = 
+		new FacultyRepository();
 	
 	public static FacultyRepository getInstance(){
-		return theFacult;
+		return theFaculties;
 	}
 	
+	/**
+	 * Constructor implicit. Initializeaza facultatile din baza de date
+	 * 	impreuna cu toate legaturile campurilor din ele
+	 */
 	private FacultyRepository(){
 		l = new ArrayList<Faculty>();
 		Faculty f;
@@ -57,9 +62,8 @@ public class FacultyRepository implements Repository<Faculty>{
 				 * extragem din baza de date specializarile 
 				 * asociate unei facultati
 				 */
-				ResultSet rs2 = dbu.getDate("select * from specializations " +
-						"where spId in (select spId from faculties " +
-						"specializations where facultyId = "+fid+")");
+				String sff = "call specialties_for_faculty("+fid+")";
+				ResultSet rs2 = dbu.getDate(sff);
 				/*
 				 * cat timp exista specializari, construim obiectele 
 				 * si le adaugam in lista
@@ -73,11 +77,8 @@ public class FacultyRepository implements Repository<Faculty>{
 					/*
 					 *extragem lista de cursuri asociate unei specializari 
 					 */
-					ResultSet rs3 = dbu.getDate("select s.csId, " +
-							"c.courseName, s.courseCode, s.courseType, " +
-							"s.courseCredits, s.semester from courses c " +
-							"inner join specializations_courses s " +
-							"on c.courseId = s.courseId where s.spId ="+spId);
+					String cfs = "call courses_for_specialty("+spId+")";
+					ResultSet rs3 = dbu.getDate(cfs);
 					/*
 					 * cat timp exista cursuri, construim obiectele 
 					 * si le adaugam in lista
@@ -108,11 +109,8 @@ public class FacultyRepository implements Repository<Faculty>{
 							/*
 							 * extragem notele acordate la un examen 
 							 */
-							String grades = "select  userName, grade from students"+
-								" s inner join grades g inner join exams e on"+
-								" g.csid=e.csid and g.type = e.type and " +
-								"g.studentId=s.studentId where examId = "+exId;
-							ResultSet rs5 = dbu.getDate(grades);
+							String gfe = "call grades_for_exam("+exId+")";
+							ResultSet rs5 = dbu.getDate(gfe);
 							/*
 							 * cat timp exista note, construim obiectele 
 							 * si le adaugam in lista
@@ -127,18 +125,19 @@ public class FacultyRepository implements Repository<Faculty>{
 						/*
 						 * extragem anunturile asociate unui curs,din BD
 						 */
-						String ann = "SELECT * FROM announcement a inner join"+
-								" teachers t on a.teacherId = t.teacherId" +
-								" where csid="+csId;
-						ResultSet rs6 = dbu.getDate(ann);
+						String afc = "call announce_for_course("+csId+")";
+						ResultSet rs6 = dbu.getDate(afc);
 						/*
 						 * cat timp exista anunturi, construim obiectele 
 						 * si le adaugam in lista
 						 */
 						while(rs6.next()){
 							Announcement an = new Announcement(rs6.getString(2)
-									,rs6.getString(3),rs6.getDate(3),c);
-							an.setProf(pr.findByName(rs6.getString("userName")));
+									,rs6.getString(1),rs6.getDate(3),c);
+							Professor p = pr.findByName(
+									rs6.getString("userName"));
+							an.setProf(p);
+							p.addAnnouncement(an);
 							c.addAnnouncement(an);
 						}
 						/*
@@ -158,13 +157,8 @@ public class FacultyRepository implements Repository<Faculty>{
 							/*
 							 * extragem lista de rezolvari pentru fiecare tema
 							 */
-							String asSol = "select solution, completed, " +
-									"userName from solutions sl inner join" +
-									" students_specializations ss inner join" +
-									" students st on sl.ssId = ss.ssId and" +
-									" ss.studentId = st.studentId where " +
-									"sl.assignmentId = "+asId;
-							ResultSet rs8 =dbu.getDate(asSol);
+							String sfa = "call solutions_for_assig("+asId+")";
+							ResultSet rs8 =dbu.getDate(sfa);
 							/*
 							 * cat timp exista rezolvari, construim obiectele 
 							 * si le adaugam in lista
@@ -175,6 +169,7 @@ public class FacultyRepository implements Repository<Faculty>{
 								AssignmentSolution(slStud,a,rs8.getDate(2),
 										rs8.getString(1));
 								a.addSolution(assol);
+								slStud.addSolution(assol);
 							}
 							c.addAssignment(a);
 						}
@@ -196,12 +191,8 @@ public class FacultyRepository implements Repository<Faculty>{
 						/*
 						 * extragem lista cu profesorii care predau cursul
 						 */
-						String profs = "select userName from teachers t " +
-								"inner join teachers_spec ts inner join " +
-								"specializations_courses s on t.teacherId" +
-								" = ts.teacherId and ts.csId = s.csId " +
-								"where s.csId ="+csId;
-						ResultSet rs0 = dbu.getDate(profs);
+						String tfc = "call teachers_for_course("+csId+")";
+						ResultSet rs0 = dbu.getDate(tfc);
 						/*
 						 * cat timp exista profesori, construim obiectele 
 						 * si le adaugam in lista
@@ -209,10 +200,71 @@ public class FacultyRepository implements Repository<Faculty>{
 						while(rs0.next()){
 							Professor p = pr.findByName(rs0.getString(1));
 							c.addProfessor(p);
+							
 						}
-						sp.addCourse(c);
+					sp.addCourse(c);
 					}
-					f.addSpecialty(sp);
+					/*
+					 * extragem lista cu grupe pentru fiecare specializare
+					 */
+					String gfs = "SELECT name, groupId FROM groups where"
+							+" spId = "+spId;
+					ResultSet rs1 = dbu.getDate(gfs);
+					/*
+					 * cat timp exista grupe, construim obiectele 
+					 * si le adaugam in lista
+					 */
+					while (rs1.next()){
+						Group g = new Group();
+						g.setSpecialty(sp);
+						g.setGroupName(rs1.getString(1));
+						/*
+						 *extragem lista cu studentii unei grupe 
+						 */
+						String sfg = "call students_for_group("
+							+rs1.getInt(2)+")";
+						ResultSet rs10 = dbu.getDate(sfg);
+						/*
+						 * cat timp exista studenti, construim obiectele 
+						 * si le adaugam in lista
+						 */
+						while(rs10.next()){
+							int cId = rs10.getInt(1);
+							Student s = new Student();
+							s.setGroup(g);
+							s.setNrMat(rs10.getString(4));
+							s.setCnp(rs10.getString(5));
+							s.setFirstName(rs10.getString(6));
+							s.setLastName(rs10.getString(7));
+							s.setPassword(rs10.getString(8));
+							s.setUserName(rs10.getString(9));
+							s.setSpecialty(sp);
+							/*
+							 * extragem cursurile pentru contractul
+							 * studentului
+							 */
+							String cfc = "call courses_for_contract("
+								+cId+")";
+							Contract contract = new Contract();
+							contract.setStudent(s);
+							ResultSet rs11 = dbu.getDate(cfc);
+							/*
+							 * cat timp exista cursuri, le adaugam in lista
+							 */
+							while (rs11.next()){
+								for(Course curs : sp.getCourses()){ 
+									if(curs.getCod().equals
+											(rs11.getString(1))){
+										contract.addCourse(curs);
+									}
+								}
+							}
+							s.setContract(contract);
+							g.addStudent(s);
+						}
+						sp.addGroup(g);
+					}
+				f.addSpecialty(sp);
 				}
 				l.add(f);
 			}
@@ -222,6 +274,7 @@ public class FacultyRepository implements Repository<Faculty>{
 		}
 	}
 
+	
 	/**
 	 * @see data.repositoryinterface.Repository#add(java.lang.Object)
 	 */
@@ -253,12 +306,10 @@ public class FacultyRepository implements Repository<Faculty>{
 	}
 
 	/**
-	 * @see data.repositoryinterface.Repository#update()
+	 * @see data.repositoryinterface.Repository#update(java.lang.Object)
 	 */
 	@Override
-	public void update() {
-		// TODO Auto-generated method stub
-		
+	public void update(Faculty item) {
 	}
 
 	/**

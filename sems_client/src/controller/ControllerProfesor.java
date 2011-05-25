@@ -10,6 +10,8 @@ import business.model.Group;
 import business.model.Professor;
 import business.model.Student;
 import java.util.ArrayList;
+import java.util.Date;
+
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.DefaultListModel;
 import ui.*;
@@ -139,7 +141,9 @@ public class ControllerProfesor {
             dlm.addElement(a);
 
         // DE STERS
-        dlm.addElement(new Announcement("TEST mesaj","TEST SUBJECT", p));
+        dlm.addElement(new Announcement("TEST mesaj","TEST SUBJECT",new Date(),
+        		new Course()));
+        
         //////////
         f.getListAnunturi().setModel(dlm);
     }
@@ -171,8 +175,10 @@ public class ControllerProfesor {
      * Metoda de adaugare a unui anunt la un curs.
      */
     public void addAnunt(frameProfAnunturi f) {
-        Announcement a = new Announcement(f.getAddMesaj().getText(),f.getAddTitlu().getText(),p);
-        a.setCourse((Course) f.getComboCursuri().getSelectedItem());
+        Announcement a = new Announcement(
+        		f.getAddMesaj().getText(),f.getAddTitlu().getText(),
+        		new Date(),(Course) f.getComboCursuri().getSelectedItem());
+        a.setProf(p);
         p.addAnnouncement(a);
         f.getInfoText().setVisible(true);
         f.getAddMesaj().setText("");

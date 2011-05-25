@@ -61,7 +61,7 @@ CREATE TABLE `assignments` (
   `deadline` date NOT NULL,
   `subject` varchar(255) NOT NULL,
   PRIMARY KEY (`assignmentId`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -90,7 +90,7 @@ CREATE TABLE `contracts` (
   KEY `ssId_2` (`ssId`),
   CONSTRAINT `contracts_ibfk_1` FOREIGN KEY (`spId`) REFERENCES `specializations` (`spId`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `contracts_ibfk_2` FOREIGN KEY (`ssId`) REFERENCES `students_specializations` (`ssId`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -99,6 +99,7 @@ CREATE TABLE `contracts` (
 
 LOCK TABLES `contracts` WRITE;
 /*!40000 ALTER TABLE `contracts` DISABLE KEYS */;
+INSERT INTO `contracts` VALUES (1,2,2),(2,3,2),(3,4,2),(4,5,2);
 /*!40000 ALTER TABLE `contracts` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -125,6 +126,7 @@ CREATE TABLE `contracts_data` (
 
 LOCK TABLES `contracts_data` WRITE;
 /*!40000 ALTER TABLE `contracts_data` DISABLE KEYS */;
+INSERT INTO `contracts_data` VALUES (1,2),(1,5),(1,10),(2,2),(2,5),(2,10),(3,2),(3,5),(3,10),(4,2),(4,5),(4,10);
 /*!40000 ALTER TABLE `contracts_data` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -140,7 +142,7 @@ CREATE TABLE `coursematerials` (
   `csId` int(11) NOT NULL,
   `fileName` varchar(255) NOT NULL,
   PRIMARY KEY (`cmId`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -288,6 +290,33 @@ INSERT INTO `grades` VALUES (1,2,2,10,'final'),(2,2,3,10,'final'),(3,2,4,10,'fin
 UNLOCK TABLES;
 
 --
+-- Table structure for table `groups`
+--
+
+DROP TABLE IF EXISTS `groups`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `groups` (
+  `groupId` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NOT NULL,
+  `spId` int(11) NOT NULL,
+  PRIMARY KEY (`groupId`),
+  KEY `fk_gr_sp` (`spId`),
+  CONSTRAINT `fk_gr_sp` FOREIGN KEY (`spId`) REFERENCES `specializations` (`spId`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `groups`
+--
+
+LOCK TABLES `groups` WRITE;
+/*!40000 ALTER TABLE `groups` DISABLE KEYS */;
+INSERT INTO `groups` VALUES (1,'221',2);
+/*!40000 ALTER TABLE `groups` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `solutions`
 --
 
@@ -409,11 +438,13 @@ CREATE TABLE `students_specializations` (
   `studentId` int(11) NOT NULL,
   `spId` int(11) NOT NULL,
   `serialNumber` int(11) NOT NULL,
-  `group` int(11) NOT NULL DEFAULT '221',
+  `groupId` int(11) NOT NULL,
   `year` int(11) NOT NULL DEFAULT '2',
   PRIMARY KEY (`ssId`),
   KEY `spId` (`spId`),
   KEY `studentId` (`studentId`),
+  KEY `students_specializations_ibfk_3` (`groupId`),
+  CONSTRAINT `students_specializations_ibfk_3` FOREIGN KEY (`groupId`) REFERENCES `groups` (`groupId`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `students_specializations_ibfk_1` FOREIGN KEY (`studentId`) REFERENCES `students` (`studentId`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `students_specializations_ibfk_2` FOREIGN KEY (`spId`) REFERENCES `specializations` (`spId`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
@@ -425,7 +456,7 @@ CREATE TABLE `students_specializations` (
 
 LOCK TABLES `students_specializations` WRITE;
 /*!40000 ALTER TABLE `students_specializations` DISABLE KEYS */;
-INSERT INTO `students_specializations` VALUES (2,2,2,10680,221,2),(3,3,2,10681,221,2),(4,4,2,10682,221,2),(5,5,2,10684,221,2);
+INSERT INTO `students_specializations` VALUES (2,2,2,10680,1,2),(3,3,2,10681,1,2),(4,4,2,10682,1,2),(5,5,2,10684,1,2);
 /*!40000 ALTER TABLE `students_specializations` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -452,7 +483,7 @@ CREATE TABLE `teachers` (
 
 LOCK TABLES `teachers` WRITE;
 /*!40000 ALTER TABLE `teachers` DISABLE KEYS */;
-INSERT INTO `teachers` VALUES (1,'bobby','Prof.'),(2,'marcel','Asistent'),(3,'dia','Lector');
+INSERT INTO `teachers` VALUES (1,'bobby','Prof.'),(3,'dia','Lector');
 /*!40000 ALTER TABLE `teachers` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -468,8 +499,8 @@ CREATE TABLE `teachers_spec` (
   `csId` int(11) NOT NULL,
   KEY `csId` (`csId`),
   KEY `teacherId` (`teacherId`),
-  CONSTRAINT `teachers_spec_ibfk_1` FOREIGN KEY (`teacherId`) REFERENCES `teachers` (`teacherId`),
-  CONSTRAINT `teachers_spec_ibfk_2` FOREIGN KEY (`csId`) REFERENCES `specializations_courses` (`csId`)
+  CONSTRAINT `teachers_spec_ibfk_1` FOREIGN KEY (`teacherId`) REFERENCES `teachers` (`teacherId`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `teachers_spec_ibfk_2` FOREIGN KEY (`csId`) REFERENCES `specializations_courses` (`csId`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -479,7 +510,7 @@ CREATE TABLE `teachers_spec` (
 
 LOCK TABLES `teachers_spec` WRITE;
 /*!40000 ALTER TABLE `teachers_spec` DISABLE KEYS */;
-INSERT INTO `teachers_spec` VALUES (1,2),(2,2),(3,2);
+INSERT INTO `teachers_spec` VALUES (1,2),(3,2);
 /*!40000 ALTER TABLE `teachers_spec` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -507,7 +538,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES ('Adrian','Bunta','adi','1a1dc91c907325c69271ddf0c944bc72','admin'),('Alexandru','Suciu','alex','1a1dc91c907325c69271ddf0c944bc72','stud'),('Andrei','Suciu','andu','1a1dc91c907325c69271ddf0c944bc72','stud'),('Bot-Rus','Rares','bobby','1a1dc91c907325c69271ddf0c944bc72','prof'),('Daniel','Dudas','dani','1a1dc91c907325c69271ddf0c944bc72','admin'),('Bujorean','Diana','dia','1a1dc91c907325c69271ddf0c944bc72','prof'),('Codrea','Marcel','marcel','1a1dc91c907325c69271ddf0c944bc72','prof'),('Mihai','Suciu','mishu','1a1dc91c907325c69271ddf0c944bc72','stud'),('Bogdan','Mihut','myh','1a1dc91c907325c69271ddf0c944bc72','admin'),('Ovidiu','Suciu','ovi','1a1dc91c907325c69271ddf0c944bc72','stud');
+INSERT INTO `users` VALUES ('Adrian','Bunta','adi','1a1dc91c907325c69271ddf0c944bc72','admin'),('Alexandru','Suciu','alex','1a1dc91c907325c69271ddf0c944bc72','stud'),('Andrei','Suciu','andu','1a1dc91c907325c69271ddf0c944bc72','stud'),('Bot-Rus','Rares','bobby','1a1dc91c907325c69271ddf0c944bc72','prof'),('Daniel','Dudas','dani','1a1dc91c907325c69271ddf0c944bc72','admin'),('Bujorean','Diana','dia','1a1dc91c907325c69271ddf0c944bc72','prof'),('Mihai','Suciu','mishu','1a1dc91c907325c69271ddf0c944bc72','stud'),('Bogdan','Mihut','myh','1a1dc91c907325c69271ddf0c944bc72','admin'),('Ovidiu','Suciu','ovi','1a1dc91c907325c69271ddf0c944bc72','stud');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -520,4 +551,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2011-05-25 17:40:00
+-- Dump completed on 2011-05-26  0:24:57

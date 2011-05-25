@@ -138,7 +138,7 @@ public class AdministratorTextRep implements Repository<Administrator> {
 	 * @see data.repositoryinterface.Repository#update()
 	 */
 	@Override
-	public void update() {
+	public void update(Administrator item) {
 		// TODO Auto-generated method stub
 		
 	}

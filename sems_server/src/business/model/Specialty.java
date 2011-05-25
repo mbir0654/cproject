@@ -5,6 +5,7 @@ import java.util.List;
 
 public class Specialty {
 	private List<Course> courses;
+	private List<Group> groups;
 	private String name;
 	private int numberOfYears;
 	private Faculty faculty;
@@ -14,6 +15,7 @@ public class Specialty {
 	 */
 	public Specialty(){
 		courses = new ArrayList<Course>();
+		groups = new ArrayList<Group>();
 		name = "";
 		numberOfYears = 3;
 	}
@@ -83,6 +85,21 @@ public class Specialty {
 	 */
 	public Faculty getFaculty() {
 		return faculty;
+	}
+	
+	/**
+	 * 
+	 * @param groups
+	 */
+	public void addGroup(Group group) {
+		groups.add(group);
+	}
+	
+	/**
+	 * 
+	 */
+	public List<Group> getGroups() {
+		return groups;
 	}
 	
 	/**

@@ -18,6 +18,19 @@ public class AdministratorRepository implements Repository<Administrator>{
 	
 	private static final AdministratorRepository theAdmins = new AdministratorRepository();
 	
+	/**
+	 * Metoda asigura acces la singura instanta a repositoryului 
+	 * 
+	 * @return o referinta la repository
+	 */
+	public static AdministratorRepository getInstance(){
+		return theAdmins;
+	}
+	
+	/**
+	 * Constructorul implicit privat impiedica crearea mai multor instante de 
+	 *  repository din afara
+	 */
 	private AdministratorRepository(){
 		l = new ArrayList<Administrator>();
 		Administrator a;
@@ -37,10 +50,6 @@ public class AdministratorRepository implements Repository<Administrator>{
 			System.err.println(e.getMessage());
 			e.printStackTrace();
 		}
-	}
-	
-	public static AdministratorRepository getInstance(){
-		return theAdmins;
 	}
 
 	/**
@@ -67,18 +76,16 @@ public class AdministratorRepository implements Repository<Administrator>{
 	 */
 	@Override
 	public List<Administrator> getAll() {
-		List<Administrator> r = new ArrayList<Administrator>();
-		r.addAll(l);
-		return r;
+		return l;
 	}
 
 	/**
-	 * @see data.repositoryinterface.Repository#find(java.lang.String)
+	 * @see data.repositoryinterface.Repository#findByName(java.lang.String)
 	 */
 	@Override
 	public Administrator findByName(String name) {
 		for (Administrator a : l){
-			if(a.getUserName().equalsIgnoreCase(name));
+			if(a.getUserName().equals(name));
 			return a;
 		}
 		return null;
@@ -88,10 +95,18 @@ public class AdministratorRepository implements Repository<Administrator>{
 	 * @see data.repositoryinterface.Repository#update(java.lang.Object)
 	 */
 	@Override
-	public void update() {
-		/* TODO 
-		 */
-		
+	public void update(Administrator item) {
+		String updater = "UPDATE users SET fisrtName="+item.getFirstName()+
+		", lastName="+item.getLastName()+", password = '"+item.getPassword()+
+		"' WHERE userName='"+item.getUserName()+"'";
+		DbUtil dbu;
+		try {
+			dbu = new DbUtil();
+			dbu.makeUpdate(updater);
+		} catch (SQLException e) {
+			System.err.println(e.getMessage());
+			e.printStackTrace();
+		}
 	}
 
 	/**

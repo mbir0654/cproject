@@ -77,7 +77,7 @@ public class StudentRepository implements Repository<Student>{
 	}
 
 	/**
-	 * @see data.repositoryinterface.Repository#find(java.lang.String)
+	 * @see data.repositoryinterface.Repository#findByName(java.lang.String)
 	 */
 	@Override
 	public Student findByName(String id) {
@@ -92,7 +92,7 @@ public class StudentRepository implements Repository<Student>{
 	 * @see data.repositoryinterface.Repository#update(java.lang.Object)
 	 */
 	@Override
-	public void update() {
+	public void update(Student item) {
 		// TODO Auto-generated method stub
 		
 	}

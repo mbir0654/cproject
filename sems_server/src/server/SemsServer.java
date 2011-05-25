@@ -13,5 +13,18 @@ public class SemsServer {
         @SuppressWarnings("unused")
 		ApplicationContext factory = new ClassPathXmlApplicationContext(
                 "classpath:server/serverContext.xml");
+        FacultyRepository fr = FacultyRepository.getInstance();
+        for(Faculty f: fr.getAll()){
+        	System.out.println(f.getSpecialties());
+        	for (Specialty s : f.getSpecialties()){
+        		System.out.println(s.getGroups());
+        		for(Group g : s.getGroups()){
+        			System.out.println(g);
+        			for(Student st : g.getStudents()){
+        				System.out.println(st);
+        			}
+        		}
+        	}
+        }
     }
 }

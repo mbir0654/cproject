@@ -22,9 +22,17 @@ public class Contract {
 	/**
 	 * @param courses va fi lista de cursuri contractate
 	 */
-	public void setCourses(List<Course> courses) {
-		this.courses.clear();
-		this.courses.addAll(courses);
+	public void addCourse(Course course) {
+		courses.add(course);
+	}
+	
+	
+	/**
+	 * 
+	 * @param c este cursul care va fi scos din contract
+	 */
+	public void removeCourse(Course c){
+		courses.remove(c);
 	}
 
 	/**

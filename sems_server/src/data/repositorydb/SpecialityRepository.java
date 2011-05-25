@@ -41,7 +41,7 @@ public class SpecialityRepository implements Repository<Specialty>{
 	}
 
 	/**
-	 * @see data.repositoryinterface.Repository#find(java.lang.String)
+	 * @see data.repositoryinterface.Repository#findNyName(java.lang.String)
 	 */
 	@Override
 	public Specialty findByName(String id) {
@@ -56,7 +56,7 @@ public class SpecialityRepository implements Repository<Specialty>{
 	 * @see data.repositoryinterface.Repository#update(java.lang.Object)
 	 */
 	@Override
-	public void update() {
+	public void update(Specialty item) {
 		// TODO Auto-generated method stub
 		
 	}

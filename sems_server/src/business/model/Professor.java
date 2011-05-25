@@ -5,7 +5,7 @@ import java.util.List;
 
 
 public class Professor extends User{
-	private List<Group> groups;
+		private List<Group> groups;
         private List<Course> courses;
         private List<Announcement> announcements;
         private int id;
@@ -54,8 +54,8 @@ public class Professor extends User{
 	/**
 	 * @param groups the groups to set
 	 */
-	public void addGroup(Group groups) {
-		this.groups.add(groups);
+	public void addGroup(Group group) {
+		groups.add(group);
 	}
 
 	/**
