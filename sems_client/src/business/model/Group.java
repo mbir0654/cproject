@@ -11,7 +11,7 @@ import java.util.List;
  *
  */
 public class Group {
-	private List<Student> student;
+	private List<Student> students;
 	private String group;
 	private Specialty specialty;
 
@@ -20,7 +20,7 @@ public class Group {
 	 */
     public Group() {
     	group="";
-        student = new ArrayList<Student>();
+        students = new ArrayList<Student>();
     }
     
     /**
@@ -29,34 +29,34 @@ public class Group {
      */
     public Group(String gr) {
     	this.group=gr;
-        student=new ArrayList<Student>();
+        students=new ArrayList<Student>();
     }
         
 	/**
 	 * @param student the student to set
 	 */
 	public void addStudent(Student s) {
-		this.student.add(s);
+		this.students.add(s);
 	}
 	
 	/**
 	 * @return the student
 	 */
-	public List<Student> getStudent() {
-		return student;
+	public List<Student> getStudents() {
+		return students;
 	}
 	
 	/**
 	 * @param group the group to set
 	 */
-	public void setGroup(String group) {
+	public void setGroupName(String group) {
 		this.group = group;
 	}
 	
 	/**
 	 * @return the group
 	 */
-	public String getGroup() {
+	public String getGroupName() {
 		return group;
 	}
 	
@@ -79,7 +79,13 @@ public class Group {
 	 * @return numarul de studenti din grupa
 	 */
 	public int getStudentNr() {
-        return this.student.size();
+        return this.students.size();
     }
+	
+	
+	@Override
+	public String toString() {
+		return group+" "+specialty;
+	}
 
 }

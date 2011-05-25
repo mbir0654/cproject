@@ -11,13 +11,15 @@ import java.util.List;
 
 public class Student extends User {
 	
+	private String cnp; 
 	private String nrMat;
 	private Contract contract;
 	private List<AssignmentSolution> solutions;
-	private List<Assignment> assignments;
+	//private List<Assignment> assignments;
 	private Specialty specialty;
 	private Group group;
 	private final int id = 0;
+	
 	/**
 	 * Constructorul implicit
 	 */
@@ -25,7 +27,7 @@ public class Student extends User {
 		nrMat = "";
 		contract = new Contract();
 		solutions = new ArrayList<AssignmentSolution>();
-		assignments = new ArrayList<Assignment>();
+		//assignments = new ArrayList<Assignment>();
 		specialty = new Specialty();
 	}
 	
@@ -39,7 +41,7 @@ public class Student extends User {
 		nrMat = s.getNrMat();
 		contract = s.getContract();
 		solutions = s.getSolutions();
-		assignments = s.getAssignments();
+		//assignments = s.getAssignments();
 		specialty = s.getSpecialty();
 	}
 	
@@ -87,14 +89,14 @@ public class Student extends User {
 	}
 
 	/**
-	 * @param solutions the solutions to set
+	 * @param solution este rezolvarea adaugata
 	 */
-	public void setSolutions(List<AssignmentSolution> solutions) {
-		this.solutions = solutions;
+	public void addSolution(AssignmentSolution solution) {
+		this.solutions.add(solution);
 	}
 
 	/**
-	 * @return the solutions
+	 * @return lista cu solutiile studentului
 	 */
 	public List<AssignmentSolution> getSolutions() {
 		return solutions;
@@ -103,16 +105,16 @@ public class Student extends User {
 	/**
 	 * @param assignment este noua tema atribuita studentului
 	 */
-	public void addAssignment(Assignment assignment) {
+	/*public void addAssignment(Assignment assignment) {
 		this.assignments.add(assignment);
-	}
+	}*/
 
 	/**
 	 * @return lista cu teme pentru studentul curent
 	 */
-	public List<Assignment> getAssignments() {
+	/*public List<Assignment> getAssignments() {
 		return assignments;
-	}
+	}*/
 
 	/**
 	 * @param specialty va fi noua specialitate a studentului
@@ -148,6 +150,38 @@ public class Student extends User {
 	 */
 	public int getId() {
 		return id;
+	}
+	
+	/**
+	 * 
+	 * @return cnp-ul studentului
+	 */
+	public String getCnp() {
+		return cnp;
+	}
+	
+	/**
+	 * 
+	 * @param cnp actualizaeaza cnp-ul studentului
+	 */
+	public void setCnp(String cnp) {
+		this.cnp = cnp;
+	}
+	
+	
+	/**
+	 * 
+	 * @param e este examenul la care se acorda nota
+	 * 
+	 * @param g este nota acordata
+	 */
+	public void addGrade(Exam e, Grade g){
+		g.setStud(this);
+		for(Course c : contract.getCourses()){
+			if(c.getExams().contains(e)){
+				e.addGrade(g);
+			}
+		}
 	}
 	
 	/**
