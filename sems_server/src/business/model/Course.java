@@ -8,17 +8,22 @@ import java.util.*;
 	 *
 	 */
 public class Course {
+	
 	private ArrayList<Exam> exams;
 	private ArrayList<Announcement> announcements;
 	private ArrayList<Assignment> assignments;
+	private ArrayList<CourseMaterial> materialeDeCurs;
+	private List<Professor> profesori;
 	private String name = "";
 	private int numberOfCredits = 0;
-	private ArrayList<MaterialCurs> materialeDeCurs;
-	private List<Professor> profesori;
 	private Specialty specializare;
-	private String cod = "";
-	private String tip = ""; 
 	private int semestrul = 0;
+	private String cod = "";
+	/**
+	 * tipul cursului, care poate fi <B>OBLIGATORIU</B>,<B>FACULTATIV</B> sau
+	 * <B>OPTIONAL</B>
+	 */
+	private String tip = "";
 	
 	/**
 	 * Constructorul implicit
@@ -27,7 +32,7 @@ public class Course {
 		exams = new ArrayList<Exam>();
 		announcements = new ArrayList<Announcement>();
 		assignments = new ArrayList<Assignment>();
-		materialeDeCurs = new ArrayList<MaterialCurs>();
+		materialeDeCurs = new ArrayList<CourseMaterial>();
 		profesori = new ArrayList<Professor>();
 		specializare = new Specialty();
 	}
@@ -73,9 +78,7 @@ public class Course {
 	 * @return true daca cele 2 cursuri sunt identice
 	 */
 	public boolean equals(Course c){
-		if(name.equalsIgnoreCase(c.getName()) &&
-		   numberOfCredits == c.getNumberOfCredits() &&
-		   c.specializare.equals(c.specializare))
+		if(cod.equalsIgnoreCase(c.cod))
 			return true;
 		return false;
 	}
@@ -184,7 +187,7 @@ public class Course {
 	/**
 	 * @param materialeDeCurs este noua lista cu materiale de curs
 	 */
-	public void setMaterialeDeCurs(ArrayList<MaterialCurs> materialeDeCurs) {
+	public void setMaterialeDeCurs(ArrayList<CourseMaterial> materialeDeCurs) {
 		this.materialeDeCurs = materialeDeCurs;
 	}
 	
@@ -193,14 +196,14 @@ public class Course {
 	 * 
 	 * @param mc este materialul de adaugat in lista
 	 */
-	public void addMaterialCurs(MaterialCurs mc){
+	public void addMaterialCurs(CourseMaterial mc){
 		materialeDeCurs.add(mc);
 	}
 	
 	/**
 	 * @return lista cu materialele aferente cursului
 	 */
-	public ArrayList<MaterialCurs> getMaterialeDeCurs() {
+	public ArrayList<CourseMaterial> getMaterialeDeCurs() {
 		return materialeDeCurs;
 	}
 	
@@ -296,9 +299,9 @@ public class Course {
 	}
 	
 	/**
-	 * creaza un String din nume si numar de credite
+	 * creaza un String din nume specializare si numar de credite
 	 */
     public String toString() {
-        return this.name+" "+this.numberOfCredits;
+        return name+" "+numberOfCredits+" "+specializare;
     }
 }

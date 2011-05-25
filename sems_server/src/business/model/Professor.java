@@ -29,10 +29,10 @@ public class Professor extends User{
 	 */
 	public Professor(Professor p){
 		super(p);
-                groups=p.getGroups();
-                courses=p.getCourses();
-                announcements=p.getAnnouncements();
-                id = p.id;
+		groups=p.getGroups();
+        courses=p.getCourses();
+        announcements=p.getAnnouncements();
+        id = p.id;
 	}
 	
 	/**

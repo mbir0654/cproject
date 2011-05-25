@@ -11,11 +11,14 @@ public class Course {
 	private ArrayList<Exam> exams;
 	private ArrayList<Announcement> announcements;
 	private ArrayList<Assignment> assignments;
-	private String name;
-	private int numberOfCredits;
+	private String name = "";
+	private int numberOfCredits = 0;
 	private ArrayList<MaterialCurs> materialeDeCurs;
 	private List<Professor> profesori;
 	private Specialty specializare;
+	private String cod = "";
+	private String tip = ""; 
+	private int semestrul = 0;
 	
 	/**
 	 * Constructorul implicit
@@ -25,8 +28,6 @@ public class Course {
 		announcements = new ArrayList<Announcement>();
 		assignments = new ArrayList<Assignment>();
 		materialeDeCurs = new ArrayList<MaterialCurs>();
-		name = "";
-		numberOfCredits = 0;
 		profesori = new ArrayList<Professor>();
 		specializare = new Specialty();
 	}
@@ -42,6 +43,10 @@ public class Course {
         materialeDeCurs = c.materialeDeCurs;
         name=c.name;
         numberOfCredits=c.numberOfCredits;
+        cod = c.cod;
+        specializare = c.specializare;
+        tip = c.tip;
+        semestrul = c.semestrul;
     }
 	
 	/**
@@ -52,9 +57,9 @@ public class Course {
 	 */
 	public Course(String n, int nC) {
 		name = n;
-                exams = new ArrayList<Exam>();
+        exams = new ArrayList<Exam>();
 		announcements = new ArrayList<Announcement>();
-                assignments = new ArrayList<Assignment>();
+        assignments = new ArrayList<Assignment>();
 		numberOfCredits = nC;
 	}
 
@@ -213,6 +218,81 @@ public class Course {
 	 */
 	public List<Professor> getProfesors(){
 		return profesori;
+	}
+	
+	/**
+	 * 
+	 * @return codul de identificare a cursului
+	 */
+	public String getCod() {
+		return cod;
+	}
+	
+	/**
+	 * 
+	 * @param cod ul de identificare
+	 * compus din abrevierea cursului si a
+	 * specializarii 
+	 */
+	public void setCod(String cod) {
+		this.cod = cod;
+	}
+	
+	/**
+	 * 
+	 * @return tipul cursului
+	 */
+	public String getTip() {
+		return tip;
+	}
+	
+	/**
+	 * 
+	 * @param tip este tipul cursului:
+	 * obligatoriu, facultativ, optional
+	 */
+	public void setTip(String tip) {
+		this.tip = tip;
+	}
+	
+	/**
+	 * 
+	 * @return specializarea asociata cursului
+	 */
+	public Specialty getSpecializare() {
+		return specializare;
+	}
+	
+	/**
+	 * 
+	 * @param specializare este specializarea asociata cursului
+	 */
+	public void setSpecializare(Specialty specializare) {
+		this.specializare = specializare;
+	}
+	
+	/**
+	 * 
+	 * @return lista de profesori care predau la acest curs
+	 */
+	public List<Professor> getProfesori() {
+		return profesori;
+	}
+	
+	/**
+	 * 
+	 * @return semestrul in care se preda cursul.
+	 */
+	public int getSemestrul() {
+		return semestrul;
+	}
+	
+	/**
+	 * 
+	 * @param semestrul va fi semestrul in care se preda cursul
+	 */
+	public void setSemestrul(int semestrul) {
+		this.semestrul = semestrul;
 	}
 	
 	/**

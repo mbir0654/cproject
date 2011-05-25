@@ -8,15 +8,16 @@ public class Professor extends User{
 	private List<Group> groups;
         private List<Course> courses;
         private List<Announcement> announcements;
+        private int id;
 	/**
 	 * Constructorul implicit
 	 * 
 	 * @see User#User()
 	 */
 	public Professor(){
-            groups = new ArrayList<Group>();
-            courses = new ArrayList<Course>();
-            announcements = new ArrayList<Announcement>();
+        groups = new ArrayList<Group>();
+        courses = new ArrayList<Course>();
+        announcements = new ArrayList<Announcement>();
 	}
 	
 	/**
@@ -31,7 +32,7 @@ public class Professor extends User{
                 groups=p.getGroups();
                 courses=p.getCourses();
                 announcements=p.getAnnouncements();
-		// TODO restul atributelor se copiaza
+                id = p.id;
 	}
 	
 	/**
@@ -87,5 +88,21 @@ public class Professor extends User{
     public void addAnnouncement(Announcement a) {
         this.announcements.add(a);
     }
+    
+    /**
+     * 
+     * @return id studentului in baza de date
+     */
+    public int getId() {
+		return id;
+	}
+    
+    /**
+     * 
+     * @param id este noul identificator
+     */
+    public void setId(int id) {
+		this.id = id;
+	}
 } 
 

@@ -27,12 +27,7 @@ public class ProfessorRepository implements Repository<Professor> {
 			String str = "select * from users where role = 'prof'";
 			ResultSet rs = dbu.getDate(str);
 			while (rs.next()){
-				ResultSet rs2 = dbu.getDate("select teacherId from teachers" +
-						" as t where userName = "+rs.getString("userName"));
-				rs2.next();
-				int i = rs2.getInt(1);
 				p = new Professor();
-				p.setId(i);
 				p.setFirstName(rs.getString("firstName"));
 				p.setLastName(rs.getString("lastName"));
 				p.setUserName(rs.getString("userName"));

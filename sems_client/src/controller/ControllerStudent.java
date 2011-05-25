@@ -125,7 +125,7 @@ public class ControllerStudent {
          public void getGradeInfo(frameStudNote f, Course selectedCourse) {
              DefaultTableModel dtm = new DefaultTableModel();
              for(Exam e : selectedCourse.getExams()) {
-                 for(Grade g : e.getGrade()) {
+                 for(Grade g : e.getGrades()) {
                       // de completat
                  }
              }

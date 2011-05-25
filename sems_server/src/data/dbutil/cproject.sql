@@ -28,12 +28,12 @@ CREATE TABLE `announcement` (
   `date` date DEFAULT NULL,
   `announcementId` int(11) NOT NULL AUTO_INCREMENT,
   `teacherId` int(11) NOT NULL,
-  `courseId` int(11) NOT NULL,
+  `csId` int(11) NOT NULL,
   PRIMARY KEY (`announcementId`),
   KEY `ann_fk1` (`teacherId`),
-  KEY `ann_fk2` (`courseId`),
-  CONSTRAINT `ann_fk1` FOREIGN KEY (`teacherId`) REFERENCES `teachers` (`teacherId`),
-  CONSTRAINT `ann_fk2` FOREIGN KEY (`courseId`) REFERENCES `courses` (`courseId`)
+  KEY `ann_fk2` (`csId`),
+  CONSTRAINT `ann_fk1` FOREIGN KEY (`teacherId`) REFERENCES `teachers` (`teacherId`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `ann_fk2` FOREIGN KEY (`csId`) REFERENCES `specializations_courses` (`csId`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -43,7 +43,7 @@ CREATE TABLE `announcement` (
 
 LOCK TABLES `announcement` WRITE;
 /*!40000 ALTER TABLE `announcement` DISABLE KEYS */;
-INSERT INTO `announcement` VALUES ('primul anunt','aici este continutul primului anunt','2011-05-24',1,1,1);
+INSERT INTO `announcement` VALUES ('titlu','continut','2011-05-24',1,1,2);
 /*!40000 ALTER TABLE `announcement` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -59,6 +59,7 @@ CREATE TABLE `assignments` (
   `csId` int(11) NOT NULL,
   `text` text NOT NULL,
   `deadline` date NOT NULL,
+  `subject` varchar(255) NOT NULL,
   PRIMARY KEY (`assignmentId`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -87,8 +88,8 @@ CREATE TABLE `contracts` (
   KEY `spId` (`spId`),
   KEY `ssId` (`ssId`),
   KEY `ssId_2` (`ssId`),
-  CONSTRAINT `contracts_ibfk_1` FOREIGN KEY (`spId`) REFERENCES `specializations` (`spId`),
-  CONSTRAINT `contracts_ibfk_2` FOREIGN KEY (`ssId`) REFERENCES `students_specializations` (`ssId`)
+  CONSTRAINT `contracts_ibfk_1` FOREIGN KEY (`spId`) REFERENCES `specializations` (`spId`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `contracts_ibfk_2` FOREIGN KEY (`ssId`) REFERENCES `students_specializations` (`ssId`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -113,8 +114,8 @@ CREATE TABLE `contracts_data` (
   `csId` int(11) NOT NULL,
   KEY `contractId` (`contractId`),
   KEY `csId` (`csId`),
-  CONSTRAINT `contracts_data_ibfk_1` FOREIGN KEY (`contractId`) REFERENCES `contracts` (`contractId`),
-  CONSTRAINT `contracts_data_ibfk_2` FOREIGN KEY (`csId`) REFERENCES `specializations_courses` (`csId`)
+  CONSTRAINT `contracts_data_ibfk_1` FOREIGN KEY (`contractId`) REFERENCES `contracts` (`contractId`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `contracts_data_ibfk_2` FOREIGN KEY (`csId`) REFERENCES `specializations_courses` (`csId`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -176,6 +177,34 @@ INSERT INTO `courses` VALUES (1,'BMC'),(2,'Analiza'),(3,'FP');
 UNLOCK TABLES;
 
 --
+-- Table structure for table `exams`
+--
+
+DROP TABLE IF EXISTS `exams`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `exams` (
+  `examId` int(11) NOT NULL AUTO_INCREMENT,
+  `date` date NOT NULL,
+  `csId` int(11) NOT NULL,
+  `type` varchar(255) NOT NULL,
+  PRIMARY KEY (`examId`),
+  KEY `new_fk_constraint` (`csId`),
+  CONSTRAINT `new_fk_constraint` FOREIGN KEY (`csId`) REFERENCES `specializations_courses` (`csId`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1 ROW_FORMAT=FIXED;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `exams`
+--
+
+LOCK TABLES `exams` WRITE;
+/*!40000 ALTER TABLE `exams` DISABLE KEYS */;
+INSERT INTO `exams` VALUES (3,'2011-05-21',10,'final'),(4,'2011-05-24',5,'final'),(5,'2011-05-27',2,'final');
+/*!40000 ALTER TABLE `exams` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `faculties`
 --
 
@@ -212,8 +241,8 @@ CREATE TABLE `faculties_specializations` (
   `spId` int(11) NOT NULL,
   KEY `facultyId` (`facultyId`),
   KEY `spId` (`spId`),
-  CONSTRAINT `faculties_specializations_ibfk_1` FOREIGN KEY (`facultyId`) REFERENCES `faculties` (`facultyId`),
-  CONSTRAINT `faculties_specializations_ibfk_2` FOREIGN KEY (`spId`) REFERENCES `specializations` (`spId`)
+  CONSTRAINT `faculties_specializations_ibfk_1` FOREIGN KEY (`facultyId`) REFERENCES `faculties` (`facultyId`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `faculties_specializations_ibfk_2` FOREIGN KEY (`spId`) REFERENCES `specializations` (`spId`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -228,33 +257,34 @@ INSERT INTO `faculties_specializations` VALUES (1,2),(1,3),(1,4);
 UNLOCK TABLES;
 
 --
--- Table structure for table `grade`
+-- Table structure for table `grades`
 --
 
-DROP TABLE IF EXISTS `grade`;
+DROP TABLE IF EXISTS `grades`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `grade` (
-  `noteId` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `grades` (
+  `gradeId` int(11) NOT NULL AUTO_INCREMENT,
   `csId` int(11) NOT NULL,
   `studentId` int(11) NOT NULL,
   `grade` int(11) NOT NULL,
   `type` varchar(50) NOT NULL,
-  PRIMARY KEY (`noteId`),
+  PRIMARY KEY (`gradeId`) USING BTREE,
   KEY `csId` (`csId`),
   KEY `studentId` (`studentId`),
-  CONSTRAINT `grade_ibfk_1` FOREIGN KEY (`csId`) REFERENCES `specializations_courses` (`csId`),
-  CONSTRAINT `grade_ibfk_2` FOREIGN KEY (`studentId`) REFERENCES `students` (`studentId`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  CONSTRAINT `grades_ibfk_1` FOREIGN KEY (`csId`) REFERENCES `specializations_courses` (`csId`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `grades_ibfk_2` FOREIGN KEY (`studentId`) REFERENCES `students` (`studentId`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `grade`
+-- Dumping data for table `grades`
 --
 
-LOCK TABLES `grade` WRITE;
-/*!40000 ALTER TABLE `grade` DISABLE KEYS */;
-/*!40000 ALTER TABLE `grade` ENABLE KEYS */;
+LOCK TABLES `grades` WRITE;
+/*!40000 ALTER TABLE `grades` DISABLE KEYS */;
+INSERT INTO `grades` VALUES (1,2,2,10,'final'),(2,2,3,10,'final'),(3,2,4,10,'final'),(4,2,5,10,'final'),(5,5,2,10,'final'),(6,5,3,10,'final'),(7,5,4,10,'final'),(8,5,5,10,'final'),(9,10,2,10,'final'),(10,10,3,10,'final'),(11,10,4,10,'final'),(12,10,5,10,'final');
+/*!40000 ALTER TABLE `grades` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -268,6 +298,7 @@ CREATE TABLE `solutions` (
   `assignmentId` int(11) NOT NULL,
   `ssId` int(11) NOT NULL,
   `solution` int(11) NOT NULL,
+  `completed` date NOT NULL,
   PRIMARY KEY (`assignmentId`,`ssId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -324,8 +355,8 @@ CREATE TABLE `specializations_courses` (
   PRIMARY KEY (`csId`),
   KEY `spId` (`spId`),
   KEY `courseId` (`courseId`),
-  CONSTRAINT `specializations_courses_ibfk_1` FOREIGN KEY (`spId`) REFERENCES `specializations` (`spId`),
-  CONSTRAINT `specializations_courses_ibfk_2` FOREIGN KEY (`courseId`) REFERENCES `courses` (`courseId`)
+  CONSTRAINT `specializations_courses_ibfk_1` FOREIGN KEY (`spId`) REFERENCES `specializations` (`spId`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `specializations_courses_ibfk_2` FOREIGN KEY (`courseId`) REFERENCES `courses` (`courseId`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -352,7 +383,7 @@ CREATE TABLE `students` (
   `personalCode` varchar(255) NOT NULL,
   PRIMARY KEY (`studentId`),
   KEY `userName` (`userName`) USING BTREE,
-  CONSTRAINT `students_fk1` FOREIGN KEY (`userName`) REFERENCES `users` (`userName`)
+  CONSTRAINT `students_fk1` FOREIGN KEY (`userName`) REFERENCES `users` (`userName`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -383,8 +414,8 @@ CREATE TABLE `students_specializations` (
   PRIMARY KEY (`ssId`),
   KEY `spId` (`spId`),
   KEY `studentId` (`studentId`),
-  CONSTRAINT `students_specializations_ibfk_1` FOREIGN KEY (`studentId`) REFERENCES `students` (`studentId`),
-  CONSTRAINT `students_specializations_ibfk_2` FOREIGN KEY (`spId`) REFERENCES `specializations` (`spId`)
+  CONSTRAINT `students_specializations_ibfk_1` FOREIGN KEY (`studentId`) REFERENCES `students` (`studentId`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `students_specializations_ibfk_2` FOREIGN KEY (`spId`) REFERENCES `specializations` (`spId`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -394,7 +425,7 @@ CREATE TABLE `students_specializations` (
 
 LOCK TABLES `students_specializations` WRITE;
 /*!40000 ALTER TABLE `students_specializations` DISABLE KEYS */;
-INSERT INTO `students_specializations` VALUES (2,2,2,10680,221,2),(3,3,2,10681,221,2),(4,4,2,10682,221,2),(5,5,2,10684,221,2),(6,5,2,10686,221,2);
+INSERT INTO `students_specializations` VALUES (2,2,2,10680,221,2),(3,3,2,10681,221,2),(4,4,2,10682,221,2),(5,5,2,10684,221,2);
 /*!40000 ALTER TABLE `students_specializations` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -411,7 +442,7 @@ CREATE TABLE `teachers` (
   `teacherTitle` varchar(255) NOT NULL DEFAULT '',
   PRIMARY KEY (`teacherId`),
   KEY `userName` (`userName`) USING BTREE,
-  CONSTRAINT `fk1` FOREIGN KEY (`userName`) REFERENCES `users` (`userName`)
+  CONSTRAINT `fk1` FOREIGN KEY (`userName`) REFERENCES `users` (`userName`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -489,4 +520,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2011-05-25 10:16:29
+-- Dump completed on 2011-05-25 17:40:00
