@@ -22,10 +22,13 @@ public class Grade {
 	 * @param n este nota propriu-zisa
 	 * 
 	 * @param s este studentul caruia i se acorda nota
+	 * 
+	 * @param s este examenul la care se acorad nota
 	 */
-	public Grade(int n, Student s){
+	public Grade(int n, Student s, Exam e){
 		grade = n;
 		stud = s;
+		exam = e;
 	}
 	
 	/**
@@ -73,4 +76,12 @@ public class Grade {
     public Student getStud() {
     	return stud;
 	}
+    
+    /**
+     * @return un string continand cursul, tipul, studentul si nota
+     */
+    @Override
+    public String toString() {
+    	return stud+" "+grade;
+    }
 }

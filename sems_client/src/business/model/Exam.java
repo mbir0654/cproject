@@ -27,6 +27,7 @@ public class Exam {
 	 * @param c este cursul la care se da examenul
 	 */
 	public Exam(Date d, String t, Course c) {
+		grades = new ArrayList<Grade>();
 		date = d;
 		type = t;
 		course = c;
@@ -92,5 +93,13 @@ public class Exam {
 	 */
 	public Course getCourse() {
 		return course;
+	}
+	
+	/**
+	 * @return un string continand cursul si data
+	 */
+	@Override
+	public String toString() {
+		return course+" "+type+" "+date;
 	}
 }

@@ -33,11 +33,11 @@ public class Specialty {
 	}
 	
 	/**
-	 * @param courses va fi noua lista care contine cursurile care se predau
-	 *        in cadrul acestei specializari
+	 * @param course este cursul care se adauga in lista care contine cursurile
+	 * 				care se predau in cadrul acestei specializari
 	 */
-	public void setCourses(ArrayList<Course> courses) {
-		this.courses = courses;
+	public void addCourse(Course course) {
+		courses.add(course);
 	}
 	/**
 	 * @return lista care contine cursurile care se predau in cadrul

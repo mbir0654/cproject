@@ -30,7 +30,8 @@ public class Faculty {
 	
 	/**
 	 * @param name va fi numele facultatii
-	 */
+	 */		// TODO Auto-generated method stub
+
 	public void setName(String name) {
 		this.name = name;
 	}
@@ -57,16 +58,25 @@ public class Faculty {
 	}
 
 	/**
-	 * @param specialties ca fi lista cu specialitatile facultatii
+	 * @param specialtie este specialitatea ce va fi adaugata in lista cu 
+	 * 		specializarile facultatii
 	 */
-	public void setSpecialties(ArrayList<Specialty> specialties) {
-		this.specialties = specialties;
+	public void addSpecialty(Specialty specialty) {
+		specialties.add(specialty);
 	}
 
 	/**
-	 * @return lista cu specialitatile facultatii
+	 * @return lista cu specializarile facultatii
 	 */
 	public ArrayList<Specialty> getSpecialties() {
 		return specialties;
+	}
+	
+	/**
+	 * @return
+	 */
+	@Override
+	public String toString() {
+		return name+" "+address;
 	}
 }

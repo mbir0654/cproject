@@ -5,11 +5,11 @@ package business.model;
  * @author otniel
  *
  */
-public class MaterialCurs {
+public class CourseMaterial {
 	private String path;
 	byte[] fisier;
 	
-	public MaterialCurs() {
+	public CourseMaterial() {
 		path = "";
 	}
 	
@@ -26,6 +26,14 @@ public class MaterialCurs {
 	 * @return calea fisierului
 	 */
 	public String getPath() {
+		return path;
+	}
+	
+	/**
+	 * @return un string cu numele fisierului
+	 */
+	@Override
+	public String toString() {
 		return path;
 	}
 }
