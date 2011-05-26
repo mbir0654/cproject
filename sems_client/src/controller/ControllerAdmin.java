@@ -6,6 +6,8 @@
 package controller;
 import business.model.Administrator;
 import javax.swing.DefaultListModel;
+
+import business.serviceinterface.InterfaceAdministratorService;
 import ui.*;
 /**
  *
@@ -13,8 +15,10 @@ import ui.*;
  */
 public class ControllerAdmin {
     private final Administrator a;
-    public ControllerAdmin(Administrator adm) {
+    private final InterfaceAdministratorService administratorService;
+    public ControllerAdmin(Administrator adm, InterfaceAdministratorService service) {
         this.a=adm;
+        administratorService = service;
     }
 
 }

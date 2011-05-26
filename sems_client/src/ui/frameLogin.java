@@ -13,6 +13,9 @@ package ui;
 import javax.swing.*;
 
 import controller.Controller;
+import sun.awt.image.SurfaceManager;
+
+import java.awt.*;
 
 /**
  *
@@ -21,12 +24,13 @@ import controller.Controller;
  */
 
 public class frameLogin extends javax.swing.JFrame {
-	private Controller c = new Controller();
+	private final Controller c;
 
     /** Creates new form frameLogin */
-    public frameLogin() {
+    public frameLogin(Controller controller) {
         initComponents();
         infoText.setVisible(false);
+        c = controller;
     }
 
     /** This method is called from within the constructor to
@@ -47,6 +51,7 @@ public class frameLogin extends javax.swing.JFrame {
         butLogin = new javax.swing.JButton();
         infoText = new javax.swing.JLabel();
 
+        setTitle("SEMS:: Login");
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setName("Login"); // NOI18N
 
@@ -134,7 +139,7 @@ public class frameLogin extends javax.swing.JFrame {
     private void butLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butLoginActionPerformed
 
         
-        c.checkLogin(this);
+        c.checkLogin();
     }//GEN-LAST:event_butLoginActionPerformed
 
 

@@ -1,4 +1,4 @@
---anunturi pt un curs
+-- anunturi pt un curs
 DELIMITER $$
 DROP PROCEDURE IF EXISTS `pc221`.`announce_for_course`$$
 CREATE DEFINER=`root`@`localhost` PROCEDURE  `pc221`.`announce_for_course`(IN param6 INT)
@@ -8,7 +8,7 @@ BEGIN
 END$$
 DELIMITER ;
 
---cursurile unei specializari
+-- cursurile unei specializari
 DELIMITER $$
 DROP PROCEDURE IF EXISTS `pc221`.`courses_for_specialty`$$
 CREATE DEFINER=`root`@`localhost` PROCEDURE  `pc221`.`courses_for_specialty`(IN param4 INT)
@@ -19,7 +19,7 @@ BEGIN
 END$$
 DELIMITER ;
 
---notele la un examen
+-- notele la un examen
 DELIMITER $$
 DROP PROCEDURE IF EXISTS `pc221`.`grades_for_exam`$$
 CREATE DEFINER=`root`@`localhost` PROCEDURE  `pc221`.`grades_for_exam`(IN param3 INT)
@@ -30,7 +30,7 @@ BEGIN
 END$$
 DELIMITER ;
 
---rezolvarile unei teme
+-- rezolvarile unei teme
 DELIMITER $$
 DROP PROCEDURE IF EXISTS `pc221`.`solutions_for_assign`$$
 CREATE DEFINER=`root`@`localhost` PROCEDURE  `pc221`.`solutions_for_assign`(IN param2 INT)
@@ -41,7 +41,7 @@ BEGIN
 END$$
 DELIMITER ;
 
---specializarile unei facultati
+-- specializarile unei facultati
 DELIMITER $$
 DROP PROCEDURE IF EXISTS `pc221`.`specialties_for_faculty`$$
 CREATE DEFINER=`root`@`localhost` PROCEDURE  `pc221`.`specialties_for_faculty`(IN param5 INT)
@@ -51,7 +51,7 @@ BEGIN
 END$$
 DELIMITER ;
 
---tprofesorii unui curs
+-- tprofesorii unui curs
 DELIMITER $$
 DROP PROCEDURE IF EXISTS `pc221`.`teachers_for_course`$$
 CREATE DEFINER=`root`@`localhost` PROCEDURE  `pc221`.`teachers_for_course`(IN param1 INT)
@@ -62,7 +62,7 @@ BEGIN
 END$$
 DELIMITER ;
 
---grupele unui profesor
+-- grupele unui profesor
 DELIMITER $$
 DROP PROCEDURE IF EXISTS `pc221`.`groups_for_teacher`$$
 CREATE PROCEDURE `pc221`.`groups_for_teacher` (IN param7 VARCHAR(255))
@@ -73,7 +73,7 @@ BEGIN
 END$$
 DELIMITER ;
 
---cursurile dintr-un contract
+-- cursurile dintr-un contract
 DELIMITER $$
 DROP PROCEDURE IF EXISTS `pc221`.`courses_for_contract`$$
 CREATE PROCEDURE `pc221`.`courses_for_contract` (IN param9 INT)
@@ -83,7 +83,7 @@ BEGIN
 END$$
 DELIMITER ;
 
---studentii unei grupe
+-- studentii unei grupe
 DELIMITER $$
 DROP PROCEDURE IF EXISTS `pc221`.`students_for_group`$$
 CREATE DEFINER=`root`@`localhost` PROCEDURE `students_for_group`(IN param8 INT)

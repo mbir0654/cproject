@@ -11,3 +11,4 @@ sems_server/bin/*
 *.iws
 */out/*
 *META*
+sems_server/src/data/dbutil/*

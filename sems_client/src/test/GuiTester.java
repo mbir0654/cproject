@@ -6,6 +6,7 @@ package test;
 import javax.swing.*;
 /*import java.awt.*;
 import java.awt.event.*;*/
+import controller.Controller;
 import ui.*;
 
 /**
@@ -37,12 +38,14 @@ public class GuiTester {
         catch (IllegalAccessException e) {
            // handle exception
         }
-        
+
+/*        Controller controlerLogin = new Controller()
         JFrame loginFrame = new frameLogin();
         loginFrame.setVisible(true);
         loginFrame.setTitle("SEMS:: Login");
         loginFrame.setName("Login");
-        loginFrame.setResizable(false);
+        loginFrame.pack();
+        loginFrame.setResizable(false);*/
     }
 }
 

@@ -14,6 +14,8 @@ import java.util.Date;
 
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.DefaultListModel;
+
+import business.serviceinterface.InterfaceProfessorService;
 import ui.*;
 /**
  *
@@ -21,9 +23,10 @@ import ui.*;
  */
 public class ControllerProfesor {
     private final Professor p;
-
-    public ControllerProfesor(Professor pr) {
-        this.p=pr;
+    private final InterfaceProfessorService professorService;
+    public ControllerProfesor(Professor pr, InterfaceProfessorService service) {
+        this.p = pr;
+        professorService = service;
     }
 
 
@@ -214,13 +217,13 @@ public class ControllerProfesor {
          DefaultListModel dlm = new DefaultListModel();
          for(Group g : p.getGroups()){
             if(g.getSpecialty().getCourses().equals(c)){
-                dlm.addElement("Grupa "+g.getGroup()+" ("+g.getStudentNr()+")");
+                dlm.addElement("Grupa "+g.getGroupName()+" ("+g.getStudentNr()+")");
             }
          }
          // DE STERS
          Group t = new Group();
-         t.setGroup("221");
-         dlm.addElement("Grupa "+t.getGroup()+" ("+t.getStudentNr()+")");
+         t.setGroupName("221");
+         dlm.addElement("Grupa "+t.getGroupName()+" ("+t.getStudentNr()+")");
          /////////////////
          f.getListGrupe().setModel(dlm);
          f.getListGrupe().setEnabled(true);

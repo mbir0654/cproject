@@ -13,16 +13,20 @@ import business.model.Student;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.DefaultListModel;
 import javax.swing.table.*;
+
+import business.serviceinterface.InterfaceStudentService;
 import ui.*;
 /**
  *
  * @author snoopy
  */
 public class ControllerStudent {
-        private final Student s;
+    private final Student s;
+    private final InterfaceStudentService studentService;
 
-    public ControllerStudent(Student s) {
+    public ControllerStudent(Student s, InterfaceStudentService service) {
         this.s = s;
+        studentService = service;
     }
 
         /*

@@ -35,8 +35,8 @@ public class Group {
 	/**
 	 * @param student the student to set
 	 */
-	public void addStudent(Student s) {
-		this.students.add(s);
+	public void addStudent(Student student) {
+		this.students.add(student);
 	}
 	
 	/**
