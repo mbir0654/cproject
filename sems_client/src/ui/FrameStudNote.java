@@ -4,7 +4,7 @@
  */
 
 /*
- * frameStudNote.java
+ * FrameStudNote.java
  *
  * Created on Apr 11, 2011, 6:46:03 PM
  */
@@ -21,11 +21,11 @@ import javax.swing.JTable;
  * @author snoopy
  * <p>updated by othniel to controller</p>
  */
-public class frameStudNote extends javax.swing.JFrame {
+public class FrameStudNote extends javax.swing.JFrame {
 	private ControllerStudent c;
 
-    /** Creates new form frameStudNote */
-    public frameStudNote(ControllerStudent cs) {
+    /** Creates new form FrameStudNote */
+    public FrameStudNote(ControllerStudent cs) {
         this.c=cs;
         initComponents();
     }

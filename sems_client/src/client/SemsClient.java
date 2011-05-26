@@ -1,9 +1,6 @@
 package client;
 
 import controller.Controller;
-import ui.frameLogin;
-
-import javax.swing.*;
 
 /**
  * Created by IntelliJ IDEA.

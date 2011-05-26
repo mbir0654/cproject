@@ -4,7 +4,7 @@
  */
 
 /*
- * frameAdminConfirm.java
+ * FrameAdminConfirm.java
  *
  * Created on Apr 8, 2011, 1:18:36 PM
  */
@@ -15,10 +15,10 @@ package ui;
  *
  * @author snoopy
  */
-public class frameAdminConfirm extends javax.swing.JFrame {
+public class FrameAdminConfirm extends javax.swing.JFrame {
 
-    /** Creates new form frameAdminConfirm */
-    public frameAdminConfirm() {
+    /** Creates new form FrameAdminConfirm */
+    public FrameAdminConfirm() {
         initComponents();
     }
 

@@ -4,7 +4,7 @@
  */
 
 /*
- * frameAdminAddFaculta.java
+ * FrameAdminAddFaculta.java
  *
  * Created on Apr 8, 2011, 1:14:08 PM
  */
@@ -15,10 +15,10 @@ package ui;
  *
  * @author snoopy
  */
-public class frameAdminAddFaculta extends javax.swing.JFrame {
+public class FrameAdminAddFaculta extends javax.swing.JFrame {
 
-    /** Creates new form frameAdminAddFaculta */
-    public frameAdminAddFaculta() {
+    /** Creates new form FrameAdminAddFaculta */
+    public FrameAdminAddFaculta() {
         initComponents();
     }
 

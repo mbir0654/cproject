@@ -4,7 +4,7 @@
  */
 
 /*
- * frameAdminResurse.java
+ * FrameAdminResurse.java
  *
  * Created on Apr 8, 2011, 12:29:59 PM
  */
@@ -15,10 +15,10 @@ import javax.swing.*;
  *
  * @author snoopy
  */
-public class frameAdminResurse extends javax.swing.JFrame {
+public class FrameAdminResurse extends javax.swing.JFrame {
     
-    /** Creates new form frameAdminResurse */
-    public frameAdminResurse() {
+    /** Creates new form FrameAdminResurse */
+    public FrameAdminResurse() {
         initComponents();
         // ne facem butoanele
         setButtons(false);
@@ -444,40 +444,40 @@ public class frameAdminResurse extends javax.swing.JFrame {
     }//GEN-LAST:event_jList1ValueChanged
 
     private void butAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butAddActionPerformed
-        JFrame addFaculta = new frameAdminAddFaculta();
+        JFrame addFaculta = new FrameAdminAddFaculta();
         addFaculta.setVisible(true);
 
         // TODO add your handling code here:
     }//GEN-LAST:event_butAddActionPerformed
 
     private void butDelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butDelActionPerformed
-        JFrame confirm = new frameAdminConfirm();
+        JFrame confirm = new FrameAdminConfirm();
         confirm.setVisible(true);
         // TODO add your handling code here:
     }//GEN-LAST:event_butDelActionPerformed
 
     private void butGestProfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butGestProfActionPerformed
-         JFrame gestionari = new frameAdminFacultaGestionari(1);
+         JFrame gestionari = new FrameAdminFacultaGestionari(1);
         gestionari.setVisible(true);
 
         // TODO add your handling code here:
     }//GEN-LAST:event_butGestProfActionPerformed
 
     private void butGestCursActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butGestCursActionPerformed
-        JFrame gestionari = new frameAdminFacultaGestionari(0);
+        JFrame gestionari = new FrameAdminFacultaGestionari(0);
         gestionari.setVisible(true);
        // gestionari.setActiveTab(1);
         // TODO add your handling code here:
     }//GEN-LAST:event_butGestCursActionPerformed
 
     private void butGestSpecActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butGestSpecActionPerformed
-        JFrame gestionari = new frameAdminFacultaGestionari(2);
+        JFrame gestionari = new FrameAdminFacultaGestionari(2);
         gestionari.setVisible(true);
         // TODO add your handling code here:
     }//GEN-LAST:event_butGestSpecActionPerformed
 
     private void butAprobaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butAprobaActionPerformed
-        JFrame gestionari = new frameAdminFacultaGestionari(3);
+        JFrame gestionari = new FrameAdminFacultaGestionari(3);
         gestionari.setVisible(true);
         // TODO add your handling code here:
     }//GEN-LAST:event_butAprobaActionPerformed

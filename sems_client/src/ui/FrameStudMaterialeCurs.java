@@ -4,7 +4,7 @@
  */
 
 /*
- * frameStudMaterialeCurs.java
+ * FrameStudMaterialeCurs.java
  *
  * Created on Apr 11, 2011, 6:37:39 PM
  */
@@ -21,11 +21,11 @@ import javax.swing.JTextArea;
  * @author snoopy
  * <p>updated by snoopy to controller</p>
  */
-public class frameStudMaterialeCurs extends javax.swing.JFrame {
+public class FrameStudMaterialeCurs extends javax.swing.JFrame {
 	private ControllerStudent c;
 
-    /** Creates new form frameStudMaterialeCurs */
-    public frameStudMaterialeCurs(ControllerStudent cs) {
+    /** Creates new form FrameStudMaterialeCurs */
+    public FrameStudMaterialeCurs(ControllerStudent cs) {
         this.c=cs;
         initComponents();
     }

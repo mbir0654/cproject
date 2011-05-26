@@ -4,7 +4,7 @@
  */
 
 /*
- * frameStudMain.java
+ * FrameStudMain.java
  *
  * Created on Apr 10, 2011, 3:36:32 PM
  */
@@ -20,11 +20,11 @@ import controller.*;
  * @author snoopy
  * <p>updated by othniel to controller</p>
  */
-public class frameStudMain extends javax.swing.JFrame {
+public class FrameStudMain extends javax.swing.JFrame {
 	private ControllerStudent c;
 
-    /** Creates new form frameStudMain */
-    public frameStudMain(ControllerStudent cs) {
+    /** Creates new form FrameStudMain */
+    public FrameStudMain(ControllerStudent cs) {
         this.c=cs;
         initComponents();
         c.setStudMainButtons(false, this);

@@ -4,7 +4,7 @@
  */
 
 /*
- * frameAdminFacultaGestionari.java
+ * FrameAdminFacultaGestionari.java
  *
  * Created on Apr 8, 2011, 1:31:19 PM
  */
@@ -15,10 +15,10 @@ import javax.swing.*;
  *
  * @author snoopy
  */
-public class frameAdminFacultaGestionari extends javax.swing.JFrame {
+public class FrameAdminFacultaGestionari extends javax.swing.JFrame {
 
-    /** Creates new form frameAdminFacultaGestionari */
-    public frameAdminFacultaGestionari(int tab) {
+    /** Creates new form FrameAdminFacultaGestionari */
+    public FrameAdminFacultaGestionari(int tab) {
         initComponents();
         setButtonsOn(false);
         setActiveTab(tab);
@@ -461,13 +461,13 @@ public class frameAdminFacultaGestionari extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void cursDelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cursDelActionPerformed
-        JFrame confirm = new frameAdminConfirm();
+        JFrame confirm = new FrameAdminConfirm();
         confirm.setVisible(true);
         // TODO add your handling code here:
     }//GEN-LAST:event_cursDelActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        JFrame confirm = new frameAdminConfirm();
+        JFrame confirm = new FrameAdminConfirm();
         confirm.setVisible(true);
 
         // TODO add your handling code here:

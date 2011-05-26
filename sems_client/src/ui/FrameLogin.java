@@ -4,7 +4,7 @@
  */
 
 /*
- * frameLogin.java
+ * FrameLogin.java
  *
  * Created on Apr 7, 2011, 3:23:08 PM
  */
@@ -23,11 +23,11 @@ import java.awt.*;
  * <p>updated by othniel to controller</p>
  */
 
-public class frameLogin extends javax.swing.JFrame {
+public class FrameLogin extends javax.swing.JFrame {
 	private final Controller c;
 
-    /** Creates new form frameLogin */
-    public frameLogin(Controller controller) {
+    /** Creates new form FrameLogin */
+    public FrameLogin(Controller controller) {
         initComponents();
         infoText.setVisible(false);
         c = controller;

@@ -4,7 +4,7 @@
  */
 
 /*
- * frameProfTeme.java
+ * FrameProfTeme.java
  *
  * Created on Apr 9, 2011, 8:17:03 AM
  */
@@ -17,10 +17,10 @@ import controller.ControllerProfesor;
  *
  * @author snoopy
  */
-public class frameProfTeme extends javax.swing.JFrame {
+public class FrameProfTeme extends javax.swing.JFrame {
      private ControllerProfesor c;
-    /** Creates new form frameProfTeme */
-    public frameProfTeme(ControllerProfesor cp) {
+    /** Creates new form FrameProfTeme */
+    public FrameProfTeme(ControllerProfesor cp) {
         initComponents();
         this.c=cp;
         setButtonsOn(false);

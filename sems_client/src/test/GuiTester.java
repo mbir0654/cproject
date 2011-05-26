@@ -40,7 +40,7 @@ public class GuiTester {
         }
 
 /*        Controller controlerLogin = new Controller()
-        JFrame loginFrame = new frameLogin();
+        JFrame loginFrame = new FrameLogin();
         loginFrame.setVisible(true);
         loginFrame.setTitle("SEMS:: Login");
         loginFrame.setName("Login");

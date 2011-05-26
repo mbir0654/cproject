@@ -4,7 +4,7 @@
  */
 
 /*
- * frameAdminInmatriculare.java
+ * FrameAdminInmatriculare.java
  *
  * Created on Apr 8, 2011, 2:01:45 PM
  */
@@ -15,10 +15,10 @@ package ui;
  *
  * @author snoopy
  */
-public class frameAdminInmatriculare extends javax.swing.JFrame {
+public class FrameAdminInmatriculare extends javax.swing.JFrame {
 
-    /** Creates new form frameAdminInmatriculare */
-    public frameAdminInmatriculare() {
+    /** Creates new form FrameAdminInmatriculare */
+    public FrameAdminInmatriculare() {
         initComponents();
     }
 

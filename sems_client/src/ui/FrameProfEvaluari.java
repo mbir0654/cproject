@@ -4,7 +4,7 @@
  */
 
 /*
- * frameProfEvaluari.java
+ * FrameProfEvaluari.java
  *
  * Created on Apr 9, 2011, 8:38:02 AM
  */
@@ -17,10 +17,10 @@ import controller.ControllerProfesor;
  *
  * @author snoopy
  */
-public class frameProfEvaluari extends javax.swing.JFrame {
+public class FrameProfEvaluari extends javax.swing.JFrame {
      private ControllerProfesor c;
-    /** Creates new form frameProfEvaluari */
-    public frameProfEvaluari(ControllerProfesor cp) {
+    /** Creates new form FrameProfEvaluari */
+    public FrameProfEvaluari(ControllerProfesor cp) {
         initComponents();
         this.c=cp;
         panouInfoTest.setVisible(false);

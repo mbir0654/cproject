@@ -4,23 +4,22 @@
  */
 
 /*
- * frameAdminMain.java
+ * FrameAdminMain.java
  *
  * Created on Apr 7, 2011, 3:58:45 PM
  */
 
 package ui;
-import business.model.Administrator;
 import controller.ControllerAdmin;
 import javax.swing.*;
 /**
  *
  * @author Snoopy
  */
-public class frameAdminMain extends javax.swing.JFrame {
+public class FrameAdminMain extends javax.swing.JFrame {
     private ControllerAdmin c;
-    /** Creates new form frameAdminMain */
-    public frameAdminMain(ControllerAdmin adm) {
+    /** Creates new form FrameAdminMain */
+    public FrameAdminMain(ControllerAdmin adm) {
         this.c=adm;
         initComponents();
     }
@@ -126,7 +125,7 @@ public class frameAdminMain extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        JFrame frameResurse = new frameAdminResurse();
+        JFrame frameResurse = new FrameAdminResurse();
         frameResurse.setVisible(true);
         
 
@@ -134,7 +133,7 @@ public class frameAdminMain extends javax.swing.JFrame {
 }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        JFrame rapoarte = new frameAdminRapoarteGestionari();
+        JFrame rapoarte = new FrameAdminRapoarteGestionari();
         rapoarte.setVisible(true);
 
         // TODO add your handling code here:
