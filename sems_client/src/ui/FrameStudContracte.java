@@ -12,15 +12,15 @@
 package ui;
 
 import controller.*;
-import javax.swing.JLabel;
-import javax.swing.JList;
+
+import javax.swing.*;
 
 /**
  *
  * @author snoopy
  * <p>updated by othniel to controller</p>
  */
-public class FrameStudContracte extends javax.swing.JFrame {
+public class FrameStudContracte extends JDialog {
 	private ControllerStudent c;
 
 

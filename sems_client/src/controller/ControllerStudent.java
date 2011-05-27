@@ -55,72 +55,68 @@ public class ControllerStudent {
 
 	public void openContracts(){
 		FrameStudContracte contract = new FrameStudContracte(this);
-                contract.setTitle("SEMS :: Contracte");
-                contract.setResizable(false);
-                contract.getButContracteaza().setEnabled(false);
-                contract.getPanouInfoCurs().setVisible(false);
-                contract.setVisible(true);
+        contract.setTitle("SEMS :: Contracte");
+        contract.setResizable(false);
+        contract.getButContracteaza().setEnabled(false);
+        contract.getPanouInfoCurs().setVisible(false);
+        contract.setModal(true);
+        contract.setVisible(true);
 	}
         
 	public void openAssignments(FrameStudMain main){
                  /*
                  * Incarcam lista de teme pentru cursul selectat din mainFrame
 //                 */
-                DefaultListModel dlm = new DefaultListModel();
-                Course c = (Course) main.getListCursuri().getSelectedValue();
-                    for(Assignment a : c.getAssignments()) {
-                        dlm.addElement(a);
-                    }
-                dlm.addElement("TEST");
 
-
+        DefaultListModel dlm = new DefaultListModel();
+        Course c = (Course) main.getListCursuri().getSelectedValue();
+        for(Assignment a : c.getAssignments()) {
+            dlm.addElement(a);
+        }
+        dlm.addElement("TEST");
 		FrameStudTeme teme = new FrameStudTeme(this);
-                teme.getListTeme().setModel(dlm);
-                teme.setVisible(true);
-                teme.setTitle("SEMS :: Teme");
-                teme.setResizable(false);
-                teme.getLabelInfoTeme().setVisible(false);
-                teme.getTemaDetalii().setEditable(false);
-                teme.getLabelCursSelectat().setText(c.getName());
-
+        teme.setModal(true);
+        teme.getListTeme().setModel(dlm);
+        teme.setTitle("SEMS :: Teme");
+        teme.setResizable(false);
+        teme.getLabelInfoTeme().setVisible(false);
+        teme.getTemaDetalii().setEditable(false);
+        teme.getLabelCursSelectat().setText(c.getName());
+        teme.setVisible(true);
 	}
         
-        public void openCourseComponents(FrameStudMain main){
+    public void openCourseComponents(FrameStudMain main){
 
-                Course c = (Course) main.getListCursuri().getSelectedValue();
+        Course c = (Course) main.getListCursuri().getSelectedValue();
                 
 
 		FrameStudMaterialeCurs materiale = new FrameStudMaterialeCurs(this);
-                materiale.setVisible(true);
-                materiale.setTitle("SEMS :: Materiale");
-                materiale.setResizable(false);
-                materiale.getMaterialText().setEditable(false);
-                materiale.getMaterialInfo().setVisible(false);
-                materiale.getLabelCursSelected().setText(c.getName());
+        materiale.setModal(true);
+        materiale.setTitle("SEMS :: Materiale");
+        materiale.setResizable(false);
+        materiale.getMaterialText().setEditable(false);
+        materiale.getLabelCursSelected().setText(c.getName());
+        materiale.getMaterialInfo().setVisible(false);
+        materiale.setVisible(true);
 	}
 
         /*
          * Metoda folosita pentru a deschide frame-ul de note al studentului
          */
-        public void openGrades(FrameStudMain main) {
-
-                Course selectedCourse = (Course) main.getListCursuri().getSelectedValue();
-
-                
+    public void openGrades(FrameStudMain main) {
+        Course selectedCourse = (Course) main.getListCursuri().getSelectedValue();
 		FrameStudNote note = new FrameStudNote(this);
-                note.setVisible(true);
-                note.setTitle("SEMS :: Note");
-                note.setResizable(false);
-                // afisam informatia pentru cursul selectat
-
-                            // populam lista de cursuri la care e inscris studentul
-            DefaultComboBoxModel dlm = new DefaultComboBoxModel();
-            for(Course c : s.getContract().getCourses())
-                dlm.addElement(c);
-
-
-            note.getComboCursuri().setSelectedItem(selectedCourse);
-            note.getComboCursuri().setModel(dlm);
+        note.setTitle("SEMS :: Note");
+        note.setResizable(false);
+        // afisam informatia pentru cursul selectat
+        // populam lista de cursuri la care e inscris studentul
+        DefaultComboBoxModel dlm = new DefaultComboBoxModel();
+        for(Course c : s.getContract().getCourses())
+            dlm.addElement(c);
+        note.getComboCursuri().setSelectedItem(selectedCourse);
+        note.getComboCursuri().setModel(dlm);
+        note.setModal(true);
+        note.setVisible(true);
 	}
         /*
          * Metoda folosita pentru a repopula tabelul de note al unui student
