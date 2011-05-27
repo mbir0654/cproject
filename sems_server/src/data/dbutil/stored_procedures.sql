@@ -24,8 +24,9 @@ DELIMITER $$
 DROP PROCEDURE IF EXISTS `pc221`.`grades_for_exam`$$
 CREATE DEFINER=`root`@`localhost` PROCEDURE  `pc221`.`grades_for_exam`(IN param3 INT)
 BEGIN
-	select  userName, grade from students s inner join grades g inner join exams e 
-	on g.csid=e.csid and g.type = e.type and g.studentId=s.studentId 
+	select  userName, grade from students_specializations ss inner join grades g inner join 
+	exams e inner join students s on g.csId=e.csId and g.type = e.type and g.ssId=s.ssId 
+	and s.studentId=ss.studentId
 	where examId = param3; 
 END$$
 DELIMITER ;
@@ -67,9 +68,9 @@ DELIMITER $$
 DROP PROCEDURE IF EXISTS `pc221`.`groups_for_teacher`$$
 CREATE PROCEDURE `pc221`.`groups_for_teacher` (IN param7 VARCHAR(255))
 BEGIN
-	select g.name from groups g inner join specializations_courses s inner join teachers_spec ts inner join teachers t 
-	inner join specializations sp on s.spId = sp.spId and g.spId = s.spId and s.csId = ts.csid 
-	and ts.teacherId = t.teacherId where t.userName = param7;
+	select g.name from groups g inner join teachers_groups tg inner join teachers_spec ts inner join teachers t 
+	on g.groupId = tg.groupId and ts.tsId = ts.tsid and ts.teacherId = t.teacherId
+	where t.userName = param7;
 END$$
 DELIMITER ;
 
