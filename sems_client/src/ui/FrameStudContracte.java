@@ -4,7 +4,7 @@
  */
 
 /*
- * frameStudContracte.java
+ * FrameStudContracte.java
  *
  * Created on Apr 10, 2011, 4:01:26 PM
  */
@@ -20,12 +20,12 @@ import javax.swing.JList;
  * @author snoopy
  * <p>updated by othniel to controller</p>
  */
-public class frameStudContracte extends javax.swing.JFrame {
+public class FrameStudContracte extends javax.swing.JFrame {
 	private ControllerStudent c;
 
 
-    /** Creates new form frameStudContracte */
-    public frameStudContracte(ControllerStudent cs) {
+    /** Creates new form FrameStudContracte */
+    public FrameStudContracte(ControllerStudent cs) {
         this.c=cs;
         initComponents();
     }

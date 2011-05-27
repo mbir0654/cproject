@@ -3,12 +3,8 @@ package client;
 import business.serviceinterface.InterfaceAppService;
 
 import business.serviceinterface.*;
-import controller.Controller;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import ui.frameLogin;
-
-import javax.swing.*;
 
 /**
  * Created by IntelliJ IDEA.

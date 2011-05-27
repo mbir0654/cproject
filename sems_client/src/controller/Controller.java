@@ -10,7 +10,6 @@ import business.model.User;
 import javax.swing.JFrame;
 
 import java.math.BigInteger;
-import java.nio.charset.Charset;
 import java.security.*;
 
 import business.serviceinterface.InterfaceAppService;
@@ -28,7 +27,7 @@ public class Controller {
 	@SuppressWarnings("unused")
 
 	private User u;
-	private frameLogin loginFrame;
+	private FrameLogin loginFrame;
 	private InterfaceAppService apps;
 	
 	/**
@@ -47,7 +46,7 @@ public class Controller {
 	}
 
     public void openLoginFrame() {
-        loginFrame = new frameLogin(this);
+        loginFrame = new FrameLogin(this);
         loginFrame.setVisible(true);
     }
 	
@@ -82,7 +81,7 @@ public class Controller {
 	public void loginAdmin(JFrame f,Administrator adm){
         u = new Administrator(adm);
         ControllerAdmin ca = new ControllerAdmin((Administrator) u, RMIUtil.getAdminService());
-		JFrame adminFrame = new frameAdminMain(ca);
+		JFrame adminFrame = new FrameAdminMain(ca);
         adminFrame.setTitle("SEMS :: Administrator");
         adminFrame.setResizable(false);
         adminFrame.setVisible(true);
@@ -105,7 +104,7 @@ public class Controller {
 	public void loginProf(JFrame f, Professor P){
         u = new Professor(P);
         ControllerProfesor cp = new ControllerProfesor((Professor) u, RMIUtil.getProfService());
-        JFrame profFrame = new frameProfMain(cp);
+        JFrame profFrame = new FrameProfMain(cp);
         profFrame.setVisible(true);
         profFrame.setResizable(false);
         profFrame.setTitle("SEMS :: Profesor");

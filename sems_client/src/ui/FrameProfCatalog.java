@@ -4,7 +4,7 @@
  */
 
 /*
- * frameProfCatalog.java
+ * FrameProfCatalog.java
  *
  * Created on Apr 9, 2011, 7:27:09 AM
  */
@@ -20,10 +20,10 @@ import javax.swing.JList;
  *
  * @author snoopy
  */
-public class frameProfCatalog extends javax.swing.JFrame {
+public class FrameProfCatalog extends javax.swing.JFrame {
      private ControllerProfesor c;
-    /** Creates new form frameProfCatalog */
-    public frameProfCatalog(ControllerProfesor cp) {
+    /** Creates new form FrameProfCatalog */
+    public FrameProfCatalog(ControllerProfesor cp) {
         initComponents();
         this.c=cp;
         butGenCatGrupe.setEnabled(false);

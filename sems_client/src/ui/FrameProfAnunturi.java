@@ -4,7 +4,7 @@
  */
 
 /*
- * frameProfAnunturi.java
+ * FrameProfAnunturi.java
  *
  * Created on Apr 8, 2011, 3:56:01 PM
  */
@@ -22,10 +22,10 @@ import javax.swing.JTextField;
  *
  * @author snoopy
  */
-public class frameProfAnunturi extends javax.swing.JFrame {
+public class FrameProfAnunturi extends javax.swing.JFrame {
      private ControllerProfesor c;
-    /** Creates new form frameProfAnunturi */
-    public frameProfAnunturi(ControllerProfesor cp) {
+    /** Creates new form FrameProfAnunturi */
+    public FrameProfAnunturi(ControllerProfesor cp) {
         initComponents();
         panouAnunt.setVisible(false);
         this.c=cp;

@@ -4,7 +4,7 @@
  */
 
 /*
- * frameAdminRapoarteGestionari.java
+ * FrameAdminRapoarteGestionari.java
  *
  * Created on Apr 8, 2011, 1:57:24 PM
  */
@@ -15,10 +15,10 @@ package ui;
  *
  * @author snoopy
  */
-public class frameAdminRapoarteGestionari extends javax.swing.JFrame {
+public class FrameAdminRapoarteGestionari extends javax.swing.JFrame {
 
-    /** Creates new form frameAdminRapoarteGestionari */
-    public frameAdminRapoarteGestionari() {
+    /** Creates new form FrameAdminRapoarteGestionari */
+    public FrameAdminRapoarteGestionari() {
         initComponents();
     }
 

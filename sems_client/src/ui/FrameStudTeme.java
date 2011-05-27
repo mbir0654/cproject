@@ -4,7 +4,7 @@
  */
 
 /*
- * frameStudTeme.java
+ * FrameStudTeme.java
  *
  * Created on Apr 11, 2011, 6:21:25 PM
  */
@@ -23,11 +23,11 @@ import javax.swing.JTextArea;
  * @author snoopy 
  * <p>updated by othniel to controller</p>
  */
-public class frameStudTeme extends javax.swing.JFrame {
+public class FrameStudTeme extends javax.swing.JFrame {
 	private ControllerStudent c;
 	
-    /** Creates new form frameStudTeme */
-    public frameStudTeme(ControllerStudent cs) {
+    /** Creates new form FrameStudTeme */
+    public FrameStudTeme(ControllerStudent cs) {
         this.c=cs;
         initComponents();
     }

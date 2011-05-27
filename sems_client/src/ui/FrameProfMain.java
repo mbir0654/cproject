@@ -4,7 +4,7 @@
  */
 
 /*
- * frameProfMain.java
+ * FrameProfMain.java
  *
  * Created on Apr 8, 2011, 2:15:24 PM
  */
@@ -17,10 +17,10 @@ import controller.ControllerProfesor;
  *
  * @author snoopy
  */
-public class frameProfMain extends javax.swing.JFrame {
+public class FrameProfMain extends javax.swing.JFrame {
     private ControllerProfesor c;
-    /** Creates new form frameProfMain */
-    public frameProfMain(ControllerProfesor cp) {
+    /** Creates new form FrameProfMain */
+    public FrameProfMain(ControllerProfesor cp) {
         initComponents();
         this.c=cp;
         c.loadCourses(this);

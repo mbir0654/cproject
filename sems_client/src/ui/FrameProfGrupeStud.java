@@ -4,7 +4,7 @@
  */
 
 /*
- * frameProfGrupeStud.java
+ * FrameProfGrupeStud.java
  *
  * Created on Apr 9, 2011, 7:48:04 AM
  */
@@ -17,10 +17,10 @@ import controller.ControllerProfesor;
  *
  * @author snoopy
  */
-public class frameProfGrupeStud extends javax.swing.JFrame {
+public class FrameProfGrupeStud extends javax.swing.JFrame {
      private ControllerProfesor c;
-    /** Creates new form frameProfGrupeStud */
-    public frameProfGrupeStud(ControllerProfesor cp) {
+    /** Creates new form FrameProfGrupeStud */
+    public FrameProfGrupeStud(ControllerProfesor cp) {
         initComponents();
         this.c=cp;
         panouTransfer.setVisible(false);
