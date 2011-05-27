@@ -4,6 +4,8 @@
 package test;
 
 import javax.swing.*;
+
+import client.RMIUtil;
 /*import java.awt.*;
 import java.awt.event.*;*/
 import controller.Controller;
@@ -15,7 +17,17 @@ import ui.*;
  */
 
 public class GuiTester {
-	
+	/**
+	 * 
+	 * Date de incercare!!!!
+	 * 
+	 * admin - Username: adi Password: pass
+	 * 
+	 * student - Username: alex Password: pass
+	 * 
+	 * profesor - username: bobby Password pass 
+	 * 
+	 */
 	
 	
 	/**
@@ -39,13 +51,8 @@ public class GuiTester {
            // handle exception
         }
 
-/*        Controller controlerLogin = new Controller()
-        JFrame loginFrame = new FrameLogin();
-        loginFrame.setVisible(true);
-        loginFrame.setTitle("SEMS:: Login");
-        loginFrame.setName("Login");
-        loginFrame.pack();
-        loginFrame.setResizable(false);*/
+        Controller controllerLogin = new Controller(RMIUtil.getAppService());
+        controllerLogin.openLoginFrame();
     }
 }
 

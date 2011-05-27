@@ -12,7 +12,6 @@ import controller.Controller;
 public class SemsClient {
     public static void main(String[] args) {
         RMIUtil.init();
-
         Controller loginController = new Controller(RMIUtil.getAppService());
         loginController.openLoginFrame();
     }

@@ -1,9 +1,10 @@
 package business.model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Specialty {
+public class Specialty implements Serializable {
 	private List<Course> courses;
 	private List<Group> groups;
 	private String name;

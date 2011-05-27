@@ -3,12 +3,14 @@
  */
 package business.model;
 
+import java.io.Serializable;
+
 	/**
 	 * 
 	 * @author otniel
 	 *
 	 */
-public abstract class User {
+public abstract class User implements Serializable {
 	
 	private String firstName = "";
 	private String lastName = "";

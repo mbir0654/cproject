@@ -1,7 +1,9 @@
 package business.model;
 
+import java.io.Serializable;
 
-public class Grade {
+
+public class Grade implements Serializable {
 	private int grade = 0;
 	private Exam exam;
     private Student stud;

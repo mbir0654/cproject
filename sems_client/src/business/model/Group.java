@@ -3,6 +3,7 @@
  */
 package business.model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,7 +11,7 @@ import java.util.List;
  * @author CLJ
  *
  */
-public class Group {
+public class Group implements Serializable {
 	private List<Student> students;
 	private String group;
 	private Specialty specialty;

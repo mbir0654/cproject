@@ -1,10 +1,11 @@
 package business.model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class Assignment {
+public class Assignment implements Serializable {
 	private String name = "";
 	private String text = "";
 	private Date deadline;

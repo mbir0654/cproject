@@ -1,5 +1,9 @@
 package business.service;
 
+import data.repositorydb.AdministratorRepository;
+import data.repositorydb.FacultyRepository;
+import data.repositorydb.ProfessorRepository;
+import data.repositorydb.StudentRepository;
 import business.model.Administrator;
 import business.serviceinterface.InterfaceAdministratorService;
 
@@ -10,12 +14,16 @@ import business.serviceinterface.InterfaceAdministratorService;
  */
 public final class AdministratorService implements InterfaceAdministratorService {
 
-    public String hello() {
+    private ProfessorRepository profRepo;
+	private StudentRepository studRepo;
+	private FacultyRepository facultRepo;
+    private Administrator a;
+	
+	public String hello() {
         return "greetings, from admin";
     }
 	
 	@SuppressWarnings("unused")
-	private Administrator a;
 
     /**
      * TODO

@@ -1,9 +1,10 @@
 package business.model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 
-public class Exam {
+public class Exam implements Serializable {
 	private Date date;
 	private String type;
 	private ArrayList<Grade> grades;
