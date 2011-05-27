@@ -12,18 +12,15 @@
 package ui;
 
 import controller.ControllerStudent;
-import javax.swing.JButton;
-import javax.swing.JLabel;
-import javax.swing.JList;
-import javax.swing.JPanel;
-import javax.swing.JTextArea;
+
+import javax.swing.*;
 
 /**
  *
  * @author snoopy 
  * <p>updated by othniel to controller</p>
  */
-public class FrameStudTeme extends javax.swing.JFrame {
+public class FrameStudTeme extends JDialog {
 	private ControllerStudent c;
 	
     /** Creates new form FrameStudTeme */
