@@ -47,6 +47,7 @@ public class Controller {
 
     public void openLoginFrame() {
         loginFrame = new FrameLogin(this);
+        loginFrame.pack();
         loginFrame.setVisible(true);
     }
 	
