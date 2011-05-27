@@ -1,11 +1,13 @@
 package business.model;
 
+import java.io.Serializable;
+
 /**
  * 
  * @author otniel
  *
  */
-public class CourseMaterial {
+public class CourseMaterial implements Serializable {
 	private String path;
 	byte[] fisier;
 	

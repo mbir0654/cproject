@@ -47,7 +47,7 @@ public class FrameLogin extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         inputUser = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        inputPass = new javax.swing.JTextField();
+        inputPass = new javax.swing.JPasswordField();
         butLogin = new javax.swing.JButton();
         infoText = new javax.swing.JLabel();
 
@@ -146,7 +146,7 @@ public class FrameLogin extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton butLogin;
     private javax.swing.JLabel infoText;
-    private javax.swing.JTextField inputPass;
+    private javax.swing.JPasswordField inputPass;
     private javax.swing.JTextField inputUser;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -158,7 +158,7 @@ public class FrameLogin extends javax.swing.JFrame {
         return infoText;
     }
 
-    public JTextField getInputPass() {
+    public JPasswordField getInputPass() {
         return inputPass;
     }
 

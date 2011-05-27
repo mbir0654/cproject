@@ -14,6 +14,12 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  * To change this template use File | Settings | File Templates.
  */
 public class RMIUtil {
+
+    private static InterfaceAppService appService;
+    private static InterfaceAdministratorService adminService;
+    private static InterfaceProfessorService profService;
+    private static InterfaceStudentService studentService;
+    
     public static void init() {
         ApplicationContext factory = new ClassPathXmlApplicationContext(
                 "classpath:client/clientContext.xml");
@@ -60,8 +66,4 @@ public class RMIUtil {
         studentService = service;
     }
 
-    private static InterfaceAppService appService;
-    private static InterfaceAdministratorService adminService;
-    private static InterfaceProfessorService profService;
-    private static InterfaceStudentService studentService;
 }

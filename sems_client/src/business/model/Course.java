@@ -1,5 +1,6 @@
 package business.model;
 
+import java.io.Serializable;
 import java.util.*;
 
 	/**
@@ -7,7 +8,7 @@ import java.util.*;
 	 * @author byskis
 	 *
 	 */
-public class Course {
+public class Course implements Serializable {
 	
 	private ArrayList<Exam> exams;
 	private ArrayList<Announcement> announcements;

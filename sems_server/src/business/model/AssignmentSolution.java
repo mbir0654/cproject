@@ -1,8 +1,9 @@
 package business.model;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class AssignmentSolution {
+public class AssignmentSolution implements Serializable {
 	private Assignment assignment;
 	private String solution = "";
 	private Date date = null;

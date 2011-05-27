@@ -1,8 +1,9 @@
 package business.model;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class Announcement {
+public class Announcement implements Serializable {
 	private String announcement = "";
     private String subject = "";
 	private Professor prof;

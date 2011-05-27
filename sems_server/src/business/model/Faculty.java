@@ -1,8 +1,9 @@
 package business.model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Faculty {
+public class Faculty implements Serializable {
 	private String name = "";
 	private String address = "";
 	private ArrayList<Specialty> specialties = new ArrayList<Specialty>();

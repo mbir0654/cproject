@@ -8,6 +8,7 @@ import java.util.*;
 
 import data.dbutil.DbUtil;
 import data.repositorydb.AdministratorRepository;
+import data.repositorydb.FacultyRepository;
 import data.repositorydb.ProfessorRepository;
 import data.repositorydb.StudentRepository;
 import data.repositoryinterface.Repository;
@@ -19,7 +20,7 @@ import business.serviceinterface.InterfaceAppService;
  *
  */
 public class AppService implements InterfaceAppService {
-    public String hello(){
+	public String hello(){
         return "greetings, from app";
     }
 	/**
@@ -27,18 +28,17 @@ public class AppService implements InterfaceAppService {
 	 */
 	private static AppService apps = new AppService();
 	
-	private Repository<Administrator> adminRepo = 
-		AdministratorRepository.getInstance();
-	private Repository<Professor> profRepo = 
-		ProfessorRepository.getInstance();
-	private Repository<Student> studRepo = 
-		StudentRepository.getInstance();
+	private Repository<Administrator> adminRepo;
+	private Repository<Professor> profRepo;
+	private Repository<Student> studRepo;
 	
 	/**
 	 *  constuctor privat pentru singleton
 	 */
 	private AppService(){
-		
+		adminRepo = AdministratorRepository.getInstance();
+		profRepo = ProfessorRepository.getInstance();
+		studRepo = StudentRepository.getInstance();
 	}
 	
 	/**
@@ -57,28 +57,29 @@ public class AppService implements InterfaceAppService {
 	 * @param password
 	 * @return User (Administratpr/Teacher/Student)
 	 */
+	
 	public User ValidateUser(String username, String password) {
-		String sql = "SELECT userName, rol FROM users " +
+		String sql = "SELECT userName, role, password FROM users " +
 						"WHERE userName = '" + username + "' " +
-						"AND password = '" + password + "' " +
-						"LIMIT 1";
+						"AND password = '" + password + "'";
 		DbUtil db;
 		try {
 			db = new DbUtil();
 			ResultSet rs = db.getDate(sql);
-
-			rs.last();
+			rs.next();
 		    if(rs.getRow() == 1){
-		    	String userName = rs.getString("userName");
-		    	String rol = rs.getString("rol");
-		    	User u = null;
-		    	if(rol == "admin"){
+		    	
+		    	String userName = rs.getString(1);
+		    	String rol = rs.getString(2);
+		    	User u =  null;
+		    	if(rol.equals("admin")){
 		    		u = adminRepo.findByName(userName);		    		
-		    	} else if (rol == "prof") {
+		    	} else if (rol.equals("prof")) {
 		    		u = profRepo.findByName(userName);
-		    	} else if (rol == "stud"){
+		    	} else if (rol.equals("stud")){
 		    		u = studRepo.findByName(userName);
 		    	}
+		    	System.out.println(u);
 		    	return u;
 		    }
 		} catch (SQLException e) {

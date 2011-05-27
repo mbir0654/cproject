@@ -1,13 +1,14 @@
 
 package business.model;
 
+import java.io.Serializable;
+
 /**
  * 
  * @author otniel
  *
  */
 public class Administrator extends User {
-	
 	/**
 	 * Constructorul implicit 
 	 */
