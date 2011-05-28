@@ -55,5 +55,10 @@ public class Contract implements Serializable {
 	 */
 	public Student getStudent() {
 		return student;
-	}	
+	}
+
+    @Override
+    public String toString(){
+        return courses + " " + student;
+    }
 }

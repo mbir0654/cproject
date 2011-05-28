@@ -31,7 +31,6 @@ public class FacultyRepository implements Repository<Faculty>{
 	public static FacultyRepository getInstance(){
 		return theFaculties;
 	}
-	
 	/**
 	 * Constructor implicit. Initializeaza facultatile din baza de date
 	 * 	impreuna cu toate legaturile campurilor din ele
@@ -151,7 +150,7 @@ public class FacultyRepository implements Repository<Faculty>{
 						 * si le adaugam in lista
 						 */
 						while(rs7.next()){
-							int asId = rs.getInt(1);
+							int asId = rs7.getInt(1);
 							Assignment a = new Assignment(rs7.getString(5),
 									rs7.getString(3),rs7.getDate(4),c);
 							/*
@@ -230,14 +229,11 @@ public class FacultyRepository implements Repository<Faculty>{
 						 */
 						while(rs10.next()){
 							int cId = rs10.getInt(1);
-							Student s = new Student();
+							Student s = sr.findByName(rs10.getString(6));
 							s.setGroup(g);
 							s.setNrMat(rs10.getString(4));
 							s.setCnp(rs10.getString(5));
-							s.setFirstName(rs10.getString(6));
-							s.setLastName(rs10.getString(7));
-							s.setPassword(rs10.getString(8));
-							s.setUserName(rs10.getString(9));
+                                                        s.setYear(rs10.getInt(7));
 							s.setSpecialty(sp);
 							/*
 							 * extragem cursurile pentru contractul
@@ -260,7 +256,7 @@ public class FacultyRepository implements Repository<Faculty>{
 								}
 							}
 							s.setContract(contract);
-                            g.addStudent(s);
+                                                        g.addStudent(s);
 						}
 						sp.addGroup(g);
 					}

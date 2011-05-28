@@ -36,8 +36,8 @@ public class Group implements Serializable {
 	/**
 	 * @param student the student to set
 	 */
-	public void addStudent(Student student) {
-		this.students.add(student);
+	public void addStudent(Student s) {
+		this.students.add(s);
 	}
 	
 	/**
@@ -86,7 +86,7 @@ public class Group implements Serializable {
 	
 	@Override
 	public String toString() {
-		return group+" "+specialty;
+		return group+" - "+specialty;
 	}
 
 }

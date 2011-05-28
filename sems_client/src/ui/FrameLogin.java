@@ -10,6 +10,7 @@
  */
 
 package ui;
+import java.awt.event.ActionEvent;
 import javax.swing.*;
 
 import controller.Controller;
@@ -67,6 +68,17 @@ public class FrameLogin extends javax.swing.JFrame {
                 butLoginActionPerformed(evt);
             }
         });
+        inputUser.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                inputUserActionPerformed(evt);
+            }
+        });
+        inputPass.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                inputPassActionPerformed(evt);
+            }
+        });
+        
 
         infoText.setForeground(new java.awt.Color(204, 0, 0));
         infoText.setText("label pt erori");
@@ -115,11 +127,16 @@ public class FrameLogin extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void butLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butLoginActionPerformed
-
-
         c.checkLogin();
-}//GEN-LAST:event_butLoginActionPerformed
+    }
 
+    private void inputPassActionPerformed(java.awt.event.ActionEvent evt ){
+        c.checkLogin();
+    }
+
+    private void inputUserActionPerformed(java.awt.event.ActionEvent evt){
+        c.checkLogin();
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton butLogin;
