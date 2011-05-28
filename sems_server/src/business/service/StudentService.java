@@ -14,10 +14,11 @@ import java.util.List;
 
 
 /**
- * @author myh
+ * @author bsk
  *
  */
 final class StudentService implements InterfaceStudentService{
+
 
     public String hello() {
         return "greetings, from student";
@@ -65,7 +66,7 @@ final class StudentService implements InterfaceStudentService{
         }
         return grades;
     }
-
+    
     public void viewCourses() {
         throw new UnsupportedOperationException("Not supported yet.");
     }
@@ -92,6 +93,9 @@ final class StudentService implements InterfaceStudentService{
 
     public void sendHomeWork() {
         throw new UnsupportedOperationException("Not supported yet.");
+
+        //To change body of implemented methods use File | Settings | File Templates.
+
     }
 
 }
