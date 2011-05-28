@@ -2,6 +2,7 @@ package data.repositorydb;
 
 import business.model.Announcement;
 import business.model.Course;
+import data.repositoryinterface.Repository;
 
 import java.util.List;
 
@@ -12,7 +13,7 @@ import java.util.List;
  * Time: 1:01 PM
  * To change this template use File | Settings | File Templates.
  */
-public class AnnouncementRepository {
+public class AnnouncementRepository implements Repository<Announcement>{
     private List<Announcement> l;
     private CourseRepository courses = CourseRepository.getInstance();
 
@@ -26,5 +27,25 @@ public class AnnouncementRepository {
             for(Announcement announcement:course.getAnnouncements())
                 l.add(announcement);
         }
+    }
+
+    public void add(Announcement item) {
+        //To change body of implemented methods use File | Settings | File Templates.
+    }
+
+    public List<Announcement> getAll() {
+        return null;  //To change body of implemented methods use File | Settings | File Templates.
+    }
+
+    public Announcement findByName(String name) {
+        return null;  //To change body of implemented methods use File | Settings | File Templates.
+    }
+
+    public void update(Announcement item) {
+        //To change body of implemented methods use File | Settings | File Templates.
+    }
+
+    public void delete(Announcement item) {
+        //To change body of implemented methods use File | Settings | File Templates.
     }
 }

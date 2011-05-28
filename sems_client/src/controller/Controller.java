@@ -44,8 +44,6 @@ public class Controller {
 	public Controller(InterfaceAppService service){
         apps = service;
 	}
-	
-	
 
     public void openLoginFrame() {
         loginFrame = new FrameLogin(this);
@@ -76,7 +74,7 @@ public class Controller {
         String inputPassword = String.copyValueOf(
         		loginFrame.getInputPass().getPassword());
         User user;
-	try {
+        try {
             user = login(inputUser, inputPassword);
             /*
              * Trimite username-ul si parola in format MD5
@@ -96,15 +94,14 @@ public class Controller {
                 loginFrame.setVisible(false);
             }
             else {
-            	loginFrame.getInfoText().setText("User sau parola gresite!!!");
-            	loginFrame.getInfoText().setVisible(true);
+                loginFrame.getInfoText().setText("User sau parola gresite!!!");
+                loginFrame.getInfoText().setVisible(true);
             }
-			} catch (NoSuchAlgorithmException e) {
-				System.out.println(e.getMessage());
-				e.printStackTrace();
-			}      
+        } catch (NoSuchAlgorithmException e) {
+            System.out.println(e.getMessage());
+            e.printStackTrace();
         }
-
+    }
 
 	/**
 	 * @param f este referinta spre fereastra afectata de metoda
@@ -129,7 +126,7 @@ public class Controller {
         profFrame.setTitle("SEMS :: Profesor");
         //f.setVisible(false); //lasa linia asta comentata!!!
 	}
-	
+
 	
 	public User login(String username, String password) throws NoSuchAlgorithmException{
             MessageDigest m = MessageDigest.getInstance("MD5");
