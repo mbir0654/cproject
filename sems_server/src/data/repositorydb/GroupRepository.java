@@ -19,7 +19,7 @@ import java.util.List;
 public class GroupRepository implements Repository<Group>{
 
     private static ArrayList<Group> l = new ArrayList<Group>();
-    private SpecialityRepository specRepo = SpecialityRepository.getInstance();
+    private static SpecialityRepository specRepo = SpecialityRepository.getInstance();
     private static ProfessorRepository pr = ProfessorRepository.getInstance();
     private static final GroupRepository theGroups = new GroupRepository();
 
@@ -31,11 +31,12 @@ public class GroupRepository implements Repository<Group>{
         for(Specialty s : specRepo.getAll()){
             l.addAll(s.getGroups());
         for(Professor p : pr.getAll())
-            for(Group grp : p.getGroups())
+            for(Group grp : p.getGroups()){
                 for(Group grr : s.getGroups())
                     if(grp.getGroupName().equals(grr.getGroupName())){
                         grp.setSpecialty(grr.getSpecialty());
                     }
+                System.out.println(p);}
         }
     }
 
