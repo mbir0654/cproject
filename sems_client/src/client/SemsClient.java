@@ -18,6 +18,7 @@ public class SemsClient {
     }
     catch (Exception e)
     {    }
+
         RMIUtil.init();
         Controller loginController = new Controller(RMIUtil.getAppService());
         loginController.openLoginFrame();
