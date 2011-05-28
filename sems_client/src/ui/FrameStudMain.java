@@ -769,7 +769,8 @@ public class FrameStudMain extends javax.swing.JFrame {
     }//GEN-LAST:event_temeListCursuriItemStateChanged
 
     private void butContracteazaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butContracteazaActionPerformed
-        // TODO add your handling code here:
+
+
     }//GEN-LAST:event_butContracteazaActionPerformed
 
 
