@@ -11,12 +11,15 @@ import java.util.List;
 
 public class Student extends User {
 	
+	private String cnp; 
 	private String nrMat;
 	private Contract contract;
 	private List<AssignmentSolution> solutions;
-	private List<Assignment> assignments;
+	//private List<Assignment> assignments;
 	private Specialty specialty;
 	private Group group;
+	private final int year = 1;
+	
 	/**
 	 * Constructorul implicit
 	 */
@@ -24,7 +27,7 @@ public class Student extends User {
 		nrMat = "";
 		contract = new Contract();
 		solutions = new ArrayList<AssignmentSolution>();
-		assignments = new ArrayList<Assignment>();
+		//assignments = new ArrayList<Assignment>();
 		specialty = new Specialty();
 	}
 	
@@ -35,11 +38,12 @@ public class Student extends User {
 	 */
 	public Student(Student s){
 		super(s);
-		nrMat = s.getNrMat();
-		contract = s.getContract();
-		solutions = s.getSolutions();
-		assignments = s.getAssignments();
-		specialty = s.getSpecialty();
+		nrMat = s.nrMat();
+		contract = s.contract;
+		solutions = s.solutions;
+		//assignments = s.getAssignments();
+		specialty = s.specialty;
+		year = s.year;
 	}
 	
 	/**
@@ -86,14 +90,14 @@ public class Student extends User {
 	}
 
 	/**
-	 * @param solutions the solutions to set
+	 * @param solution este rezolvarea adaugata
 	 */
-	public void setSolutions(List<AssignmentSolution> solutions) {
-		this.solutions = solutions;
+	public void addSolution(AssignmentSolution solution) {
+		this.solutions.add(solution);
 	}
 
 	/**
-	 * @return the solutions
+	 * @return lista cu solutiile studentului
 	 */
 	public List<AssignmentSolution> getSolutions() {
 		return solutions;
@@ -102,16 +106,16 @@ public class Student extends User {
 	/**
 	 * @param assignment este noua tema atribuita studentului
 	 */
-	public void addAssignment(Assignment assignment) {
+	/*public void addAssignment(Assignment assignment) {
 		this.assignments.add(assignment);
-	}
+	}*/
 
 	/**
 	 * @return lista cu teme pentru studentul curent
 	 */
-	public List<Assignment> getAssignments() {
+	/*public List<Assignment> getAssignments() {
 		return assignments;
-	}
+	}*/
 
 	/**
 	 * @param specialty va fi noua specialitate a studentului
@@ -139,6 +143,70 @@ public class Student extends User {
 	 */
 	public Group getGroup() {
 		return group;
+	}
+	
+	/**
+	 * 
+	 * @return anul in care este inmatriculat studentul
+	 */
+	public int getYear() {
+		return id;
+	}
+	
+	/**
+	 *
+	 * @param year este anul in care va fi inmatriculat studentul
+	 */
+  public void  setYear(int year){
+      this.year = year;
+  }
+	
+	/**
+	 * 
+	 * @return cnp-ul studentului
+	 */
+	public String getCnp() {
+		return cnp;
+	}
+	
+	/**
+	 * 
+	 * @param cnp actualizaeaza cnp-ul studentului
+	 */
+	public void setCnp(String cnp) {
+		this.cnp = cnp;
+	}
+	
+	
+	/**
+	 * 
+	 * @param e este examenul la care se acorda nota
+	 * 
+	 * @param g este nota acordata
+	 */
+	public void addGrade(Exam e, Grade g){
+		g.setStud(this);
+		for(Course c : contract.getCourses()){
+			if(c.getExams().contains(e)){
+				e.addGrade(g);
+			}
+		}
+	}
+	
+	/**
+	 * genereaza un string cu numele si specializarea studentului
+	 */
+	@Override
+	public String toString() {
+		return getFirstName()+" "+getLastName()+" - "+ specialty.toString();
+	}
+	
+	@Overrride
+	public ArrayList<DbObject> toDbObjectStud(){
+      Dbobject db1 = new DbObject("personalCode",cnp);
+      Dbobject db1 = new DbObject("userName",userName);
+      ArrayList<DbObject> list = new ArrayList<DbObject>(Arrays.asList(
+                                         {db1,db2}));
 	}
 
 } 

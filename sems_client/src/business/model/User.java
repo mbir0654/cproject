@@ -3,12 +3,14 @@
  */
 package business.model;
 
+import java.io.Serializable;
+
 	/**
 	 * 
 	 * @author otniel
 	 *
 	 */
-public abstract class User {
+public abstract class User implements Serializable {
 	
 	private String firstName = "";
 	private String lastName = "";
@@ -102,5 +104,14 @@ public abstract class User {
 	
 	public String toString() {
 		return this.firstName+" "+this.lastName;
+	}
+	
+	public ArrayList<DbObject> toDbObjectList(){
+      DbObject db1 = new DbObject("firstName",firstName);
+      DbObject db2 = new DbObject("lastName",lastName);
+      DbObject db3 = new DbObject("userName",userName);
+      DbObject db4 = new DbObject("password",password);
+      ArrayList<DbObject> list = new ArrayList<DbObject>(Arrays.asList(
+                                        {db1,db2,db3,db4}));
 	}
 }

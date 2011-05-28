@@ -1,13 +1,14 @@
 
 package business.model;
 
+import java.io.Serializable;
+
 /**
  * 
  * @author otniel
  *
  */
 public class Administrator extends User {
-	
 	/**
 	 * Constructorul implicit 
 	 */
@@ -31,6 +32,11 @@ public class Administrator extends User {
 		if(super.equals(a))
 			return true;
 		return false;
+	}
+	
+	@Override
+	public ArrayList<DbObject> toDbObjectList(){
+      return super.toDbObject();
 	}
 
 } 

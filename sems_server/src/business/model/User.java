@@ -3,17 +3,21 @@
  */
 package business.model;
 
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Arrays;
+
 	/**
 	 * 
 	 * @author otniel
 	 *
 	 */
-public abstract class User {
+public abstract class User implements Serializable {
 	
-	private String firstName = "";
-	private String lastName = "";
-	private String userName = "";
-	private String password = "";
+	protected String firstName = "";
+	protected String lastName = "";
+	protected String userName = "";
+	protected String password = "";
 	
 	/**
 	 * Constructorul implicit
@@ -100,7 +104,18 @@ public abstract class User {
 		return password;
 	}
 	
+    @Override
 	public String toString() {
 		return this.firstName+" "+this.lastName;
+	}
+	
+	public ArrayList<DbObject> toDbObjectList(){
+            DbObject db1 = new DbObject("firstName",firstName);
+            DbObject db2 = new DbObject("lastName",lastName);
+            DbObject db3 = new DbObject("userName",userName);
+            DbObject db4 = new DbObject("password",password);
+            ArrayList<DbObject> list = new ArrayList<DbObject>();
+            list.add(db1); list.add(db2); list.add(db3);list.add(db4);
+            return list;
 	}
 }
