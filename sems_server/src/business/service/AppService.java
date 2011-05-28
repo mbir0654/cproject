@@ -80,8 +80,8 @@ public class AppService implements InterfaceAppService {
 		    		u = profRepo.findByName(userName);
 		    	} else if (rol.equals("stud")){
 		    		u = studRepo.findByName(userName);
-		    	}
-		    	System.out.println(u);
+                }
+                System.out.println(u);
 		    	return u;
 		    }
 		} catch (SQLException e) {

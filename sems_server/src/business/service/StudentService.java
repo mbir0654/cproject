@@ -36,9 +36,10 @@ final class StudentService implements InterfaceStudentService{
 
     public List<Announcement> getAnnouncements(Student student){
         List<Announcement> announcements = new ArrayList<Announcement>();
-        for(Course coutse:student.getContract().getCourses())
-            for(Announcement announcement:coutse.getAnnouncements())
+        for(Course course:student.getContract().getCourses())
+            for(Announcement announcement:course.getAnnouncements()){
                 announcements.add(announcement);
+            }
         return  announcements;
     }
 
