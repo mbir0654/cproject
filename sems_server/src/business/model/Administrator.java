@@ -2,6 +2,7 @@
 package business.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
 /**
  * 
@@ -32,6 +33,11 @@ public class Administrator extends User {
 		if(super.equals(a))
 			return true;
 		return false;
+	}
+	
+	@Override
+	public ArrayList<DbObject> toDbObjectList(){
+            return super.toDbObjectList();
 	}
 
 } 

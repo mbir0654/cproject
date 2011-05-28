@@ -2,31 +2,31 @@
 package business.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
 /**
- * 
+ *
  * @author otniel
  *
  */
 public class Administrator extends User {
-	
 	/**
-	 * Constructorul implicit 
+	 * Constructorul implicit
 	 */
 	public Administrator(){
 		super();
 	}
-    
+
 	public Administrator(Administrator adm) {
         super(adm);
     }
-        
-	
+
+
 	/**
-	 * 
+	 *
 	 * @param a este Administratorul cu care comparam
-	 * 
-	 * @return true daca administratorul curent este identic cu 
+	 *
+	 * @return true daca administratorul curent este identic cu
 	 *  	   cel dat ca parametru
 	 */
 	public boolean equals(Administrator a){
@@ -35,4 +35,9 @@ public class Administrator extends User {
 		return false;
 	}
 
-} 
+	@Override
+	public ArrayList<DbObject> toDbObjectList(){
+            return super.toDbObjectList();
+	}
+
+}

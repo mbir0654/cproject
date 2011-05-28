@@ -18,7 +18,8 @@ public class Student extends User {
 	//private List<Assignment> assignments;
 	private Specialty specialty;
 	private Group group;
-	private final int id = 0;
+	private int year = 1;
+
 	
 	/**
 	 * Constructorul implicit
@@ -38,11 +39,13 @@ public class Student extends User {
 	 */
 	public Student(Student s){
 		super(s);
-		nrMat = s.getNrMat();
-		contract = s.getContract();
-		solutions = s.getSolutions();
+
+		nrMat = s.nrMat;
+		contract = s.contract;
+		solutions = s.solutions;
 		//assignments = s.getAssignments();
-		specialty = s.getSpecialty();
+		specialty = s.specialty;
+		year = s.year;
 	}
 	
 	/**
@@ -103,20 +106,6 @@ public class Student extends User {
 	}
 
 	/**
-	 * @param assignment este noua tema atribuita studentului
-	 */
-	/*public void addAssignment(Assignment assignment) {
-		this.assignments.add(assignment);
-	}*/
-
-	/**
-	 * @return lista cu teme pentru studentul curent
-	 */
-	/*public List<Assignment> getAssignments() {
-		return assignments;
-	}*/
-
-	/**
 	 * @param specialty va fi noua specialitate a studentului
 	 */
 	public void setSpecialty(Specialty specialty) {
@@ -146,11 +135,21 @@ public class Student extends User {
 	
 	/**
 	 * 
-	 * @return id-ul studentului din baza de date
+	 * @return anul in care este inmatriculat studentul
 	 */
-	public int getId() {
-		return id;
+	public int getYear() {
+		return year;
 	}
+	
+	/**
+	 *
+	 * @param year este anul in care va fi inmatriculat studentul
+	 */
+        public void  setYear(int year){
+            this.year = year;
+        }
+	
+
 	
 	/**
 	 * 
@@ -190,6 +189,16 @@ public class Student extends User {
 	@Override
 	public String toString() {
 		return getFirstName()+" "+getLastName()+" - "+ specialty.toString();
+	}
+
+
+	public ArrayList<DbObject> toDbObjectStud(){
+            DbObject db1 = new DbObject("personalCode",cnp);
+            DbObject db2 = new DbObject("userName",userName);
+            ArrayList<DbObject> list = new ArrayList<DbObject>();
+            list.add(db1); list.add(db2);
+            return list;
+
 	}
 
 } 
