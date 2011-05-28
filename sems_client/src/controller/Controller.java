@@ -55,18 +55,6 @@ public class Controller {
     }
 	
     /**
-     * @see InterfaceAppService#ValidateUser(String, String)
-     * 
-     * @param u este username-ul
-     * @param p este parola 
-     * @return referinta la user daca exista in baza de date
-     */
-	public User ValidateUser(String u, String p){
-            System.out.println(apps.ValidateUser(u, p));
-            return apps.ValidateUser(u, p);
-	}
-	
-    /**
     * Checking the login username and password to know what to open
     */
     public void checkLogin() {
@@ -134,8 +122,8 @@ public class Controller {
             m.update(data,0,data.length);
             BigInteger i = new BigInteger(1,m.digest());
             String pas = String.format("%1$032X", i);
-            System.out.println(pas);
-            u = ValidateUser(username, pas);
+            //System.out.println(pas);
+            u = apps.ValidateUser(username, pas);
             return u;
 	}
 

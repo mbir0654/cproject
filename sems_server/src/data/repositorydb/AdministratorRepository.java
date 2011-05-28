@@ -85,8 +85,8 @@ public class AdministratorRepository implements Repository<Administrator>{
 	@Override
 	public Administrator findByName(String name) {
 		for (Administrator a : l){
-			if(a.getUserName().equals(name));
-			return a;
+			if(a.getUserName().equals(name))
+			    return a;
 		}
 		return null;
 	}

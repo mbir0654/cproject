@@ -15,6 +15,7 @@ public class SemsClient {
         try {
             UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
         } catch (Exception e) {
+            System.out.print(e.getMessage());
         }
         RMIUtil.init();
         Controller loginController = new Controller(RMIUtil.getAppService());
