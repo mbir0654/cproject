@@ -40,7 +40,7 @@
     <Container class="javax.swing.JPanel" name="jPanel5">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="e7" green="e7" red="e8" type="rgb"/>
+          <Color blue="f1" green="f1" red="f2" type="rgb"/>
         </Property>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
@@ -56,18 +56,18 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jTabbedPane1" alignment="0" min="-2" pref="596" max="-2" attributes="0"/>
-                      <Group type="102" alignment="0" attributes="0">
+                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                      <Component id="tabGlobal" alignment="0" min="-2" pref="596" max="-2" attributes="0"/>
+                      <Group type="102" alignment="0" attributes="1">
                           <Group type="103" groupAlignment="1" max="-2" attributes="0">
                               <Component id="labelAdmin" alignment="0" max="32767" attributes="0"/>
                               <Component id="semsIco" alignment="0" min="-2" pref="100" max="-2" attributes="1"/>
                           </Group>
-                          <EmptySpace pref="230" max="32767" attributes="0"/>
-                          <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="233" max="-2" attributes="0"/>
+                          <Component id="jPanel2" max="32767" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace max="-2" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -84,14 +84,14 @@
                       <Component id="jPanel2" min="-2" pref="51" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Component id="jTabbedPane1" min="-2" pref="452" max="-2" attributes="0"/>
+                  <Component id="tabGlobal" min="-2" pref="452" max="-2" attributes="0"/>
                   <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Container class="javax.swing.JTabbedPane" name="jTabbedPane1">
+        <Container class="javax.swing.JTabbedPane" name="tabGlobal">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="cc" red="99" type="rgb"/>
@@ -141,7 +141,7 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="panouResurse" min="-2" pref="48" max="-2" attributes="0"/>
+                          <Component id="panouResurse" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="panouAdmin" min="-2" pref="361" max="-2" attributes="0"/>
                           <EmptySpace max="32767" attributes="0"/>
@@ -183,7 +183,7 @@
                               <Group type="102" alignment="1" attributes="0">
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Component id="toolTipExporta" pref="188" max="32767" attributes="0"/>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
                                   <Component id="butResExporta" min="-2" pref="97" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
                               </Group>
@@ -192,11 +192,13 @@
                         <DimensionLayout dim="1">
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
-                                  <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="butResExporta" alignment="3" pref="36" max="32767" attributes="0"/>
-                                      <Component id="toolTipExporta" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
+                                  <Component id="butResExporta" pref="36" max="32767" attributes="0"/>
+                                  <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="toolTipExporta" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace pref="16" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                         </DimensionLayout>
@@ -209,13 +211,16 @@
                             </Property>
                             <Property name="text" type="java.lang.String" value="Exporta"/>
                           </Properties>
+                          <Events>
+                            <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="butResExportaMouseEntered"/>
+                            <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="butResExportaMouseExited"/>
+                          </Events>
                         </Component>
                         <Component class="javax.swing.JLabel" name="toolTipExporta">
                           <Properties>
                             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                               <Image iconType="3" name="/icons/windows-info.png"/>
                             </Property>
-                            <Property name="text" type="java.lang.String" value="Tooltip pt exporta"/>
                           </Properties>
                         </Component>
                       </SubComponents>
@@ -240,7 +245,7 @@
                               <Group type="102" alignment="1" attributes="0">
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Component id="toolTipImporta" pref="188" max="32767" attributes="0"/>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
                                   <Component id="butResImporta" min="-2" pref="97" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
                               </Group>
@@ -249,11 +254,13 @@
                         <DimensionLayout dim="1">
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
-                                  <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="butResImporta" alignment="3" pref="37" max="32767" attributes="0"/>
-                                      <Component id="toolTipImporta" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  </Group>
+                                  <Component id="butResImporta" pref="37" max="32767" attributes="0"/>
                                   <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="toolTipImporta" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace pref="16" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                         </DimensionLayout>
@@ -266,13 +273,16 @@
                             </Property>
                             <Property name="text" type="java.lang.String" value="Importa"/>
                           </Properties>
+                          <Events>
+                            <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="butResImportaMouseEntered"/>
+                            <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="butResImportaMouseExited"/>
+                          </Events>
                         </Component>
                         <Component class="javax.swing.JLabel" name="toolTipImporta">
                           <Properties>
                             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                               <Image iconType="3" name="/icons/windows-info.png"/>
                             </Property>
-                            <Property name="text" type="java.lang.String" value="Tooltip pt importa"/>
                           </Properties>
                         </Component>
                       </SubComponents>
@@ -312,7 +322,7 @@
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="1" attributes="0">
-                                      <Component id="jPanel11" alignment="0" max="32767" attributes="1"/>
+                                      <Component id="panouAddAdmin" alignment="0" max="32767" attributes="1"/>
                                       <Group type="102" alignment="0" attributes="0">
                                           <Component id="jScrollPane4" min="-2" pref="183" max="-2" attributes="1"/>
                                           <EmptySpace max="-2" attributes="0"/>
@@ -332,7 +342,7 @@
                                       <Component id="jScrollPane4" alignment="0" max="32767" attributes="1"/>
                                   </Group>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="jPanel11" min="-2" max="-2" attributes="0"/>
+                                  <Component id="panouAddAdmin" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace pref="85" max="32767" attributes="0"/>
                               </Group>
                           </Group>
@@ -416,6 +426,9 @@
                                 </Property>
                                 <Property name="text" type="java.lang.String" value="Adauga"/>
                               </Properties>
+                              <Events>
+                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="butAdminAddActionPerformed"/>
+                              </Events>
                             </Component>
                             <Component class="javax.swing.JButton" name="butAdminDel">
                               <Properties>
@@ -435,7 +448,7 @@
                             </Component>
                           </SubComponents>
                         </Container>
-                        <Container class="javax.swing.JPanel" name="jPanel11">
+                        <Container class="javax.swing.JPanel" name="panouAddAdmin">
                           <Properties>
                             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -554,6 +567,9 @@
                               <Properties>
                                 <Property name="text" type="java.lang.String" value="OK"/>
                               </Properties>
+                              <Events>
+                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="butAdminOkActionPerformed"/>
+                              </Events>
                             </Component>
                           </SubComponents>
                         </Container>
@@ -579,7 +595,7 @@
                               <Group type="102" alignment="1" attributes="0">
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="1" attributes="0">
-                                      <Component id="jTabbedPane2" alignment="0" pref="296" max="32767" attributes="0"/>
+                                      <Component id="panouInfoFaculta" alignment="0" pref="296" max="32767" attributes="0"/>
                                       <Component id="jScrollPane3" alignment="0" pref="296" max="32767" attributes="1"/>
                                   </Group>
                                   <EmptySpace max="-2" attributes="0"/>
@@ -592,7 +608,7 @@
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Component id="jScrollPane3" min="-2" pref="97" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="jTabbedPane2" min="-2" pref="233" max="-2" attributes="0"/>
+                                  <Component id="panouInfoFaculta" min="-2" pref="233" max="-2" attributes="0"/>
                                   <EmptySpace max="32767" attributes="0"/>
                               </Group>
                           </Group>
@@ -625,7 +641,7 @@
                             </Component>
                           </SubComponents>
                         </Container>
-                        <Container class="javax.swing.JTabbedPane" name="jTabbedPane2">
+                        <Container class="javax.swing.JTabbedPane" name="panouInfoFaculta">
                           <Properties>
                             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                               <Color blue="99" green="66" red="0" type="rgb"/>
@@ -654,7 +670,7 @@
                                       <Group type="102" alignment="1" attributes="0">
                                           <EmptySpace max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="1" attributes="0">
-                                              <Component id="jPanel17" alignment="0" max="32767" attributes="0"/>
+                                              <Component id="panouCursuriBut" alignment="0" max="32767" attributes="0"/>
                                               <Component id="jScrollPane1" alignment="0" pref="271" max="32767" attributes="0"/>
                                           </Group>
                                           <EmptySpace max="-2" attributes="0"/>
@@ -667,7 +683,7 @@
                                           <EmptySpace max="-2" attributes="0"/>
                                           <Component id="jScrollPane1" min="-2" pref="89" max="-2" attributes="0"/>
                                           <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="jPanel17" min="-2" max="-2" attributes="0"/>
+                                          <Component id="panouCursuriBut" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace pref="23" max="32767" attributes="0"/>
                                       </Group>
                                   </Group>
@@ -696,10 +712,13 @@
                                           </StringArray>
                                         </Property>
                                       </Properties>
+                                      <Events>
+                                        <EventHandler event="valueChanged" listener="javax.swing.event.ListSelectionListener" parameters="javax.swing.event.ListSelectionEvent" handler="listCursuriValueChanged"/>
+                                      </Events>
                                     </Component>
                                   </SubComponents>
                                 </Container>
-                                <Container class="javax.swing.JPanel" name="jPanel17">
+                                <Container class="javax.swing.JPanel" name="panouCursuriBut">
                                   <Properties>
                                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -719,13 +738,13 @@
                                           <Group type="102" attributes="0">
                                               <EmptySpace max="-2" attributes="0"/>
                                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                                  <Component id="jButton1" max="32767" attributes="1"/>
-                                                  <Component id="jButton2" alignment="0" pref="112" max="32767" attributes="1"/>
+                                                  <Component id="butCursuriAdd" max="32767" attributes="1"/>
+                                                  <Component id="butCursuriMod" alignment="0" pref="112" max="32767" attributes="1"/>
                                               </Group>
                                               <EmptySpace pref="34" max="32767" attributes="0"/>
                                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                                  <Component id="jButton3" max="32767" attributes="1"/>
-                                                  <Component id="jButton4" alignment="0" min="-2" max="-2" attributes="1"/>
+                                                  <Component id="butCursuriDel" max="32767" attributes="1"/>
+                                                  <Component id="butCursuriAloca" alignment="0" min="-2" max="-2" attributes="1"/>
                                               </Group>
                                               <EmptySpace max="-2" attributes="0"/>
                                           </Group>
@@ -737,14 +756,14 @@
                                               <EmptySpace max="-2" attributes="0"/>
                                               <Group type="103" groupAlignment="0" attributes="0">
                                                   <Group type="102" alignment="0" attributes="0">
-                                                      <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="butCursuriAdd" min="-2" max="-2" attributes="0"/>
                                                       <EmptySpace max="-2" attributes="0"/>
-                                                      <Component id="jButton2" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="butCursuriMod" min="-2" max="-2" attributes="0"/>
                                                   </Group>
                                                   <Group type="102" alignment="0" attributes="0">
-                                                      <Component id="jButton3" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="butCursuriDel" min="-2" max="-2" attributes="0"/>
                                                       <EmptySpace max="-2" attributes="0"/>
-                                                      <Component id="jButton4" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="butCursuriAloca" min="-2" max="-2" attributes="0"/>
                                                   </Group>
                                               </Group>
                                               <EmptySpace max="32767" attributes="0"/>
@@ -753,7 +772,7 @@
                                     </DimensionLayout>
                                   </Layout>
                                   <SubComponents>
-                                    <Component class="javax.swing.JButton" name="jButton1">
+                                    <Component class="javax.swing.JButton" name="butCursuriAdd">
                                       <Properties>
                                         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                                           <Color blue="99" green="33" red="0" type="rgb"/>
@@ -761,7 +780,7 @@
                                         <Property name="text" type="java.lang.String" value="Adauga"/>
                                       </Properties>
                                     </Component>
-                                    <Component class="javax.swing.JButton" name="jButton2">
+                                    <Component class="javax.swing.JButton" name="butCursuriMod">
                                       <Properties>
                                         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                                           <Color blue="99" green="33" red="0" type="rgb"/>
@@ -769,7 +788,7 @@
                                         <Property name="text" type="java.lang.String" value="Modifica"/>
                                       </Properties>
                                     </Component>
-                                    <Component class="javax.swing.JButton" name="jButton3">
+                                    <Component class="javax.swing.JButton" name="butCursuriDel">
                                       <Properties>
                                         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                                           <Color blue="99" green="33" red="0" type="rgb"/>
@@ -777,7 +796,7 @@
                                         <Property name="text" type="java.lang.String" value="Sterge"/>
                                       </Properties>
                                     </Component>
-                                    <Component class="javax.swing.JButton" name="jButton4">
+                                    <Component class="javax.swing.JButton" name="butCursuriAloca">
                                       <Properties>
                                         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                                           <Color blue="99" green="33" red="0" type="rgb"/>
@@ -836,7 +855,7 @@
 
                                   <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
                                   <SubComponents>
-                                    <Component class="javax.swing.JList" name="listCursuri1">
+                                    <Component class="javax.swing.JList" name="listProfesori">
                                       <Properties>
                                         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                                           <Color blue="66" green="33" red="0" type="rgb"/>
@@ -851,6 +870,9 @@
                                           </StringArray>
                                         </Property>
                                       </Properties>
+                                      <Events>
+                                        <EventHandler event="valueChanged" listener="javax.swing.event.ListSelectionListener" parameters="javax.swing.event.ListSelectionEvent" handler="listProfesoriValueChanged"/>
+                                      </Events>
                                     </Component>
                                   </SubComponents>
                                 </Container>
@@ -874,13 +896,13 @@
                                           <Group type="102" alignment="0" attributes="0">
                                               <EmptySpace max="-2" attributes="0"/>
                                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                                  <Component id="jButton5" alignment="0" max="32767" attributes="1"/>
-                                                  <Component id="jButton6" alignment="0" pref="112" max="32767" attributes="1"/>
+                                                  <Component id="butProfAdd" alignment="0" max="32767" attributes="1"/>
+                                                  <Component id="butProfMod" alignment="0" pref="112" max="32767" attributes="1"/>
                                               </Group>
                                               <EmptySpace pref="35" max="32767" attributes="0"/>
                                               <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                                  <Component id="jButton8" max="32767" attributes="1"/>
-                                                  <Component id="jButton7" alignment="1" pref="102" max="32767" attributes="1"/>
+                                                  <Component id="butProfAloca" max="32767" attributes="1"/>
+                                                  <Component id="butProfDel" alignment="1" pref="102" max="32767" attributes="1"/>
                                               </Group>
                                               <EmptySpace max="-2" attributes="0"/>
                                           </Group>
@@ -892,14 +914,14 @@
                                               <EmptySpace max="-2" attributes="0"/>
                                               <Group type="103" groupAlignment="0" attributes="0">
                                                   <Group type="102" alignment="0" attributes="0">
-                                                      <Component id="jButton5" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="butProfAdd" min="-2" max="-2" attributes="0"/>
                                                       <EmptySpace max="-2" attributes="0"/>
-                                                      <Component id="jButton6" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="butProfMod" min="-2" max="-2" attributes="0"/>
                                                   </Group>
                                                   <Group type="102" alignment="0" attributes="0">
-                                                      <Component id="jButton7" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="butProfDel" min="-2" max="-2" attributes="0"/>
                                                       <EmptySpace max="-2" attributes="0"/>
-                                                      <Component id="jButton8" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="butProfAloca" min="-2" max="-2" attributes="0"/>
                                                   </Group>
                                               </Group>
                                               <EmptySpace max="32767" attributes="0"/>
@@ -908,7 +930,7 @@
                                     </DimensionLayout>
                                   </Layout>
                                   <SubComponents>
-                                    <Component class="javax.swing.JButton" name="jButton5">
+                                    <Component class="javax.swing.JButton" name="butProfAdd">
                                       <Properties>
                                         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                                           <Color blue="99" green="33" red="0" type="rgb"/>
@@ -916,7 +938,7 @@
                                         <Property name="text" type="java.lang.String" value="Adauga"/>
                                       </Properties>
                                     </Component>
-                                    <Component class="javax.swing.JButton" name="jButton6">
+                                    <Component class="javax.swing.JButton" name="butProfMod">
                                       <Properties>
                                         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                                           <Color blue="99" green="33" red="0" type="rgb"/>
@@ -924,7 +946,7 @@
                                         <Property name="text" type="java.lang.String" value="Modifica"/>
                                       </Properties>
                                     </Component>
-                                    <Component class="javax.swing.JButton" name="jButton7">
+                                    <Component class="javax.swing.JButton" name="butProfDel">
                                       <Properties>
                                         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                                           <Color blue="99" green="33" red="0" type="rgb"/>
@@ -932,7 +954,7 @@
                                         <Property name="text" type="java.lang.String" value="Sterge"/>
                                       </Properties>
                                     </Component>
-                                    <Component class="javax.swing.JButton" name="jButton8">
+                                    <Component class="javax.swing.JButton" name="butProfAloca">
                                       <Properties>
                                         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                                           <Color blue="99" green="33" red="0" type="rgb"/>
@@ -991,7 +1013,7 @@
 
                                   <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
                                   <SubComponents>
-                                    <Component class="javax.swing.JList" name="listCursuri2">
+                                    <Component class="javax.swing.JList" name="listSpecializari">
                                       <Properties>
                                         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                                           <Color blue="66" green="33" red="0" type="rgb"/>
@@ -1006,6 +1028,9 @@
                                           </StringArray>
                                         </Property>
                                       </Properties>
+                                      <Events>
+                                        <EventHandler event="valueChanged" listener="javax.swing.event.ListSelectionListener" parameters="javax.swing.event.ListSelectionEvent" handler="listSpecializariValueChanged"/>
+                                      </Events>
                                     </Component>
                                   </SubComponents>
                                 </Container>
@@ -1029,11 +1054,11 @@
                                           <Group type="102" alignment="0" attributes="0">
                                               <EmptySpace max="-2" attributes="0"/>
                                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                                  <Component id="jButton9" alignment="0" max="32767" attributes="1"/>
-                                                  <Component id="jButton10" alignment="0" pref="112" max="32767" attributes="1"/>
+                                                  <Component id="butSpecAdd" alignment="0" max="32767" attributes="1"/>
+                                                  <Component id="butSpecMod" alignment="0" pref="112" max="32767" attributes="1"/>
                                               </Group>
                                               <EmptySpace pref="35" max="32767" attributes="0"/>
-                                              <Component id="jButton11" min="-2" pref="102" max="-2" attributes="1"/>
+                                              <Component id="butSpecDel" min="-2" pref="102" max="-2" attributes="1"/>
                                               <EmptySpace max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
@@ -1044,11 +1069,11 @@
                                               <EmptySpace max="-2" attributes="0"/>
                                               <Group type="103" groupAlignment="0" attributes="0">
                                                   <Group type="102" alignment="0" attributes="0">
-                                                      <Component id="jButton9" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="butSpecAdd" min="-2" max="-2" attributes="0"/>
                                                       <EmptySpace max="-2" attributes="0"/>
-                                                      <Component id="jButton10" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="butSpecMod" min="-2" max="-2" attributes="0"/>
                                                   </Group>
-                                                  <Component id="jButton11" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="butSpecDel" alignment="0" min="-2" max="-2" attributes="0"/>
                                               </Group>
                                               <EmptySpace max="32767" attributes="0"/>
                                           </Group>
@@ -1056,7 +1081,7 @@
                                     </DimensionLayout>
                                   </Layout>
                                   <SubComponents>
-                                    <Component class="javax.swing.JButton" name="jButton9">
+                                    <Component class="javax.swing.JButton" name="butSpecAdd">
                                       <Properties>
                                         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                                           <Color blue="99" green="33" red="0" type="rgb"/>
@@ -1064,7 +1089,7 @@
                                         <Property name="text" type="java.lang.String" value="Adauga"/>
                                       </Properties>
                                     </Component>
-                                    <Component class="javax.swing.JButton" name="jButton10">
+                                    <Component class="javax.swing.JButton" name="butSpecMod">
                                       <Properties>
                                         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                                           <Color blue="99" green="33" red="0" type="rgb"/>
@@ -1072,7 +1097,7 @@
                                         <Property name="text" type="java.lang.String" value="Modifica"/>
                                       </Properties>
                                     </Component>
-                                    <Component class="javax.swing.JButton" name="jButton11">
+                                    <Component class="javax.swing.JButton" name="butSpecDel">
                                       <Properties>
                                         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                                           <Color blue="99" green="33" red="0" type="rgb"/>
@@ -1108,8 +1133,8 @@
                                                   <Component id="jScrollPane6" min="-2" pref="153" max="-2" attributes="0"/>
                                                   <EmptySpace max="-2" attributes="0"/>
                                                   <Group type="103" groupAlignment="1" attributes="0">
-                                                      <Component id="jButton12" pref="112" max="32767" attributes="0"/>
-                                                      <Component id="jButton13" alignment="1" pref="112" max="32767" attributes="0"/>
+                                                      <Component id="butContractSee" pref="112" max="32767" attributes="0"/>
+                                                      <Component id="butContractApprove" alignment="1" pref="112" max="32767" attributes="0"/>
                                                   </Group>
                                               </Group>
                                               <Component id="jLabel7" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -1126,9 +1151,9 @@
                                           <EmptySpace max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="0" attributes="0">
                                               <Group type="102" alignment="0" attributes="0">
-                                                  <Component id="jButton12" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="butContractSee" min="-2" max="-2" attributes="0"/>
                                                   <EmptySpace max="-2" attributes="0"/>
-                                                  <Component id="jButton13" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="butContractApprove" min="-2" max="-2" attributes="0"/>
                                               </Group>
                                               <Component id="jScrollPane6" alignment="0" pref="163" max="32767" attributes="0"/>
                                           </Group>
@@ -1153,7 +1178,7 @@
 
                                   <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
                                   <SubComponents>
-                                    <Component class="javax.swing.JList" name="jList1">
+                                    <Component class="javax.swing.JList" name="listStudenti">
                                       <Properties>
                                         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                                           <Color blue="66" green="33" red="0" type="rgb"/>
@@ -1168,10 +1193,13 @@
                                           </StringArray>
                                         </Property>
                                       </Properties>
+                                      <Events>
+                                        <EventHandler event="valueChanged" listener="javax.swing.event.ListSelectionListener" parameters="javax.swing.event.ListSelectionEvent" handler="listStudentiValueChanged"/>
+                                      </Events>
                                     </Component>
                                   </SubComponents>
                                 </Container>
-                                <Component class="javax.swing.JButton" name="jButton12">
+                                <Component class="javax.swing.JButton" name="butContractSee">
                                   <Properties>
                                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                                       <Color blue="99" green="33" red="0" type="rgb"/>
@@ -1179,7 +1207,7 @@
                                     <Property name="text" type="java.lang.String" value="Vezi contract"/>
                                   </Properties>
                                 </Component>
-                                <Component class="javax.swing.JButton" name="jButton13">
+                                <Component class="javax.swing.JButton" name="butContractApprove">
                                   <Properties>
                                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                                       <Color blue="99" green="33" red="0" type="rgb"/>
@@ -1212,13 +1240,13 @@
                                               <Group type="102" alignment="0" attributes="0">
                                                   <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
                                                   <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-                                                  <Component id="jTextField1" pref="226" max="32767" attributes="0"/>
+                                                  <Component id="facultaAddInputNume" pref="226" max="32767" attributes="0"/>
                                               </Group>
                                               <Group type="102" alignment="0" attributes="0">
                                                   <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
                                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                                   <Group type="103" groupAlignment="0" attributes="0">
-                                                      <Component id="jButton14" alignment="0" min="-2" pref="97" max="-2" attributes="0"/>
+                                                      <Component id="butFacultaAdd" alignment="0" min="-2" pref="97" max="-2" attributes="0"/>
                                                       <Component id="jScrollPane7" alignment="0" pref="227" max="32767" attributes="0"/>
                                                   </Group>
                                               </Group>
@@ -1233,7 +1261,7 @@
                                           <EmptySpace max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="3" attributes="0">
                                               <Component id="jLabel8" alignment="3" min="-2" max="-2" attributes="0"/>
-                                              <Component id="jTextField1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                              <Component id="facultaAddInputNume" alignment="3" min="-2" max="-2" attributes="0"/>
                                           </Group>
                                           <EmptySpace max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="0" attributes="0">
@@ -1241,7 +1269,7 @@
                                               <Component id="jScrollPane7" min="-2" pref="62" max="-2" attributes="0"/>
                                           </Group>
                                           <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="jButton14" min="-2" max="-2" attributes="0"/>
+                                          <Component id="butFacultaAdd" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace pref="77" max="32767" attributes="0"/>
                                       </Group>
                                   </Group>
@@ -1264,10 +1292,10 @@
                                     <Property name="text" type="java.lang.String" value="Adresa"/>
                                   </Properties>
                                 </Component>
-                                <Component class="javax.swing.JTextField" name="jTextField1">
+                                <Component class="javax.swing.JTextField" name="facultaAddInputNume">
                                   <Properties>
                                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                                      <Color blue="66" green="33" red="0" type="rgb"/>
+                                      <Color blue="99" green="66" red="0" type="rgb"/>
                                     </Property>
                                   </Properties>
                                 </Component>
@@ -1278,21 +1306,21 @@
 
                                   <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
                                   <SubComponents>
-                                    <Component class="javax.swing.JTextArea" name="jTextArea1">
+                                    <Component class="javax.swing.JTextArea" name="facultaAddInputAdresa">
                                       <Properties>
                                         <Property name="columns" type="int" value="20"/>
                                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                                           <Font name="Tahoma" size="12" style="0"/>
                                         </Property>
                                         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                                          <Color blue="66" green="33" red="0" type="rgb"/>
+                                          <Color blue="99" green="66" red="0" type="rgb"/>
                                         </Property>
                                         <Property name="rows" type="int" value="3"/>
                                       </Properties>
                                     </Component>
                                   </SubComponents>
                                 </Container>
-                                <Component class="javax.swing.JButton" name="jButton14">
+                                <Component class="javax.swing.JButton" name="butFacultaAdd">
                                   <Properties>
                                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                                       <Color blue="99" green="33" red="0" type="rgb"/>
@@ -1329,7 +1357,7 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jTabbedPane3" pref="422" max="32767" attributes="0"/>
+                          <Component id="tabRapoarte" pref="422" max="32767" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -1338,14 +1366,14 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jTabbedPane3" pref="425" max="32767" attributes="0"/>
+                          <Component id="tabRapoarte" pref="425" max="32767" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
               </Layout>
               <SubComponents>
-                <Container class="javax.swing.JTabbedPane" name="jTabbedPane3">
+                <Container class="javax.swing.JTabbedPane" name="tabRapoarte">
                   <Properties>
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="66" green="33" red="0" type="rgb"/>
@@ -1371,231 +1399,501 @@
                       <Layout>
                         <DimensionLayout dim="0">
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <Component id="jScrollPane8" pref="397" max="32767" attributes="1"/>
-                                          <EmptySpace max="-2" attributes="0"/>
-                                      </Group>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <Group type="103" groupAlignment="1" attributes="0">
-                                              <Component id="jPanel22" alignment="0" max="32767" attributes="1"/>
-                                              <Group type="102" alignment="0" attributes="0">
-                                                  <Component id="jButton15" min="-2" pref="144" max="-2" attributes="1"/>
-                                                  <EmptySpace max="-2" attributes="0"/>
-                                                  <Component id="jButton16" min="-2" pref="161" max="-2" attributes="1"/>
-                                              </Group>
-                                          </Group>
-                                          <EmptySpace min="-2" pref="96" max="-2" attributes="0"/>
-                                      </Group>
-                                  </Group>
-                              </Group>
+                              <Component id="tabRapCatalog" alignment="0" pref="417" max="32767" attributes="0"/>
                           </Group>
                         </DimensionLayout>
                         <DimensionLayout dim="1">
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace min="-2" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="jButton15" alignment="3" min="-2" pref="39" max="-2" attributes="0"/>
-                                      <Component id="jButton16" alignment="3" min="-2" pref="39" max="-2" attributes="0"/>
-                                  </Group>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="jPanel22" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="jScrollPane8" pref="218" max="32767" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="tabRapCatalog" pref="386" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                         </DimensionLayout>
                       </Layout>
                       <SubComponents>
-                        <Component class="javax.swing.JButton" name="jButton15">
+                        <Container class="javax.swing.JTabbedPane" name="tabRapCatalog">
                           <Properties>
                             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                              <Color blue="99" green="66" red="0" type="rgb"/>
-                            </Property>
-                            <Property name="text" type="java.lang.String" value="Genereaza dupa curs"/>
-                          </Properties>
-                        </Component>
-                        <Component class="javax.swing.JButton" name="jButton16">
-                          <Properties>
-                            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                              <Color blue="99" green="66" red="0" type="rgb"/>
-                            </Property>
-                            <Property name="text" type="java.lang.String" value="Genereaza dupa student"/>
-                          </Properties>
-                        </Component>
-                        <Container class="javax.swing.JScrollPane" name="jScrollPane8">
-                          <AuxValues>
-                            <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
-                          </AuxValues>
-
-                          <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
-                          <SubComponents>
-                            <Component class="javax.swing.JTable" name="jTable1">
-                              <Properties>
-                                <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                                  <Table columnCount="3" rowCount="4">
-                                    <Column editable="false" title="Grupa" type="java.lang.Object"/>
-                                    <Column editable="false" title="Nume" type="java.lang.Object"/>
-                                    <Column editable="false" title="Nota finala" type="java.lang.Object"/>
-                                  </Table>
-                                </Property>
-                                <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
-                                  <TableColumnModel selectionModel="0">
-                                    <Column maxWidth="100" minWidth="100" prefWidth="100" resizable="true">
-                                      <Title/>
-                                      <Editor/>
-                                      <Renderer/>
-                                    </Column>
-                                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                                      <Title/>
-                                      <Editor/>
-                                      <Renderer/>
-                                    </Column>
-                                    <Column maxWidth="100" minWidth="100" prefWidth="100" resizable="true">
-                                      <Title/>
-                                      <Editor/>
-                                      <Renderer/>
-                                    </Column>
-                                  </TableColumnModel>
-                                </Property>
-                                <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
-                                  <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
-                                </Property>
-                              </Properties>
-                            </Component>
-                          </SubComponents>
-                        </Container>
-                        <Container class="javax.swing.JPanel" name="jPanel22">
-                          <Properties>
-                            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                              <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                            </Property>
-                            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-                              <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
-                                <LineBorder>
-                                  <Color PropertyName="color" blue="cc" green="cc" red="cc" type="rgb"/>
-                                </LineBorder>
-                              </Border>
+                              <Color blue="66" green="33" red="0" type="rgb"/>
                             </Property>
                           </Properties>
 
-                          <Layout>
-                            <DimensionLayout dim="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="jLabel10" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jLabel11" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jLabel12" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="jComboBox2" alignment="0" pref="207" max="32767" attributes="1"/>
-                                          <Component id="jComboBox1" alignment="1" pref="207" max="32767" attributes="1"/>
-                                          <Component id="jComboBox3" alignment="1" pref="207" max="32767" attributes="1"/>
-                                      </Group>
-                                      <EmptySpace pref="19" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
-                            </DimensionLayout>
-                            <DimensionLayout dim="1">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="jLabel10" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jComboBox1" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="jLabel11" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jComboBox2" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="jLabel12" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jComboBox3" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace max="32767" attributes="0"/>
-                                  </Group>
-                              </Group>
-                            </DimensionLayout>
-                          </Layout>
+                          <Layout class="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout"/>
                           <SubComponents>
-                            <Component class="javax.swing.JLabel" name="jLabel10">
+                            <Container class="javax.swing.JPanel" name="jPanel23">
                               <Properties>
-                                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                                  <Color blue="66" green="33" red="0" type="rgb"/>
-                                </Property>
-                                <Property name="text" type="java.lang.String" value="Facultate"/>
-                              </Properties>
-                            </Component>
-                            <Component class="javax.swing.JLabel" name="jLabel11">
-                              <Properties>
-                                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                                  <Color blue="66" green="33" red="0" type="rgb"/>
-                                </Property>
-                                <Property name="text" type="java.lang.String" value="Specializare"/>
-                              </Properties>
-                            </Component>
-                            <Component class="javax.swing.JLabel" name="jLabel12">
-                              <Properties>
-                                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                                  <Color blue="66" green="33" red="0" type="rgb"/>
-                                </Property>
-                                <Property name="text" type="java.lang.String" value="Curs"/>
-                              </Properties>
-                            </Component>
-                            <Component class="javax.swing.JComboBox" name="jComboBox1">
-                              <Properties>
-                                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                                  <Color blue="66" green="33" red="0" type="rgb"/>
-                                </Property>
-                                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                                  <StringArray count="4">
-                                    <StringItem index="0" value="Item 1"/>
-                                    <StringItem index="1" value="Item 2"/>
-                                    <StringItem index="2" value="Item 3"/>
-                                    <StringItem index="3" value="Item 4"/>
-                                  </StringArray>
+                                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
                                 </Property>
                               </Properties>
-                            </Component>
-                            <Component class="javax.swing.JComboBox" name="jComboBox2">
+                              <Constraints>
+                                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
+                                  <JTabbedPaneConstraints tabName="Genereaza dupa curs">
+                                    <Property name="tabTitle" type="java.lang.String" value="Genereaza dupa curs"/>
+                                  </JTabbedPaneConstraints>
+                                </Constraint>
+                              </Constraints>
+
+                              <Layout>
+                                <DimensionLayout dim="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="panouGenDupaCurs" alignment="0" min="-2" max="-2" attributes="1"/>
+                                              <Component id="jScrollPane10" alignment="0" pref="392" max="32767" attributes="0"/>
+                                          </Group>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                </DimensionLayout>
+                                <DimensionLayout dim="1">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Component id="panouGenDupaCurs" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="jScrollPane10" pref="246" max="32767" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                </DimensionLayout>
+                              </Layout>
+                              <SubComponents>
+                                <Container class="javax.swing.JPanel" name="panouGenDupaCurs">
+                                  <Properties>
+                                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                                    </Property>
+                                    <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                                      <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
+                                        <LineBorder>
+                                          <Color PropertyName="color" blue="cc" green="cc" red="cc" type="rgb"/>
+                                        </LineBorder>
+                                      </Border>
+                                    </Property>
+                                  </Properties>
+
+                                  <Layout>
+                                    <DimensionLayout dim="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Component id="jLabel10" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="labelSpec" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="labelCurs" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                              <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Component id="inputGenDupaCursSpecializare" alignment="0" pref="207" max="32767" attributes="1"/>
+                                                  <Component id="inputGenDupaCursFacultate" alignment="1" pref="207" max="32767" attributes="1"/>
+                                                  <Component id="inputGenDupaCursCurs" alignment="1" pref="207" max="32767" attributes="1"/>
+                                              </Group>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                    </DimensionLayout>
+                                    <DimensionLayout dim="1">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="3" attributes="0">
+                                                  <Component id="jLabel10" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="inputGenDupaCursFacultate" alignment="3" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="3" attributes="0">
+                                                  <Component id="labelSpec" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="inputGenDupaCursSpecializare" alignment="3" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="3" attributes="0">
+                                                  <Component id="labelCurs" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="inputGenDupaCursCurs" alignment="3" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                              <EmptySpace max="32767" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                    </DimensionLayout>
+                                  </Layout>
+                                  <SubComponents>
+                                    <Component class="javax.swing.JLabel" name="jLabel10">
+                                      <Properties>
+                                        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                          <Color blue="66" green="33" red="0" type="rgb"/>
+                                        </Property>
+                                        <Property name="text" type="java.lang.String" value="Facultate"/>
+                                      </Properties>
+                                    </Component>
+                                    <Component class="javax.swing.JLabel" name="labelSpec">
+                                      <Properties>
+                                        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                          <Color blue="66" green="33" red="0" type="rgb"/>
+                                        </Property>
+                                        <Property name="text" type="java.lang.String" value="Specializare"/>
+                                      </Properties>
+                                    </Component>
+                                    <Component class="javax.swing.JLabel" name="labelCurs">
+                                      <Properties>
+                                        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                          <Color blue="66" green="33" red="0" type="rgb"/>
+                                        </Property>
+                                        <Property name="text" type="java.lang.String" value="Curs"/>
+                                      </Properties>
+                                    </Component>
+                                    <Component class="javax.swing.JComboBox" name="inputGenDupaCursFacultate">
+                                      <Properties>
+                                        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                          <Color blue="66" green="33" red="0" type="rgb"/>
+                                        </Property>
+                                        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                                          <StringArray count="4">
+                                            <StringItem index="0" value="Item 1"/>
+                                            <StringItem index="1" value="Item 2"/>
+                                            <StringItem index="2" value="Item 3"/>
+                                            <StringItem index="3" value="Item 4"/>
+                                          </StringArray>
+                                        </Property>
+                                      </Properties>
+                                      <Events>
+                                        <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="inputGenDupaCursFacultateItemStateChanged"/>
+                                      </Events>
+                                    </Component>
+                                    <Component class="javax.swing.JComboBox" name="inputGenDupaCursSpecializare">
+                                      <Properties>
+                                        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                          <Color blue="66" green="33" red="0" type="rgb"/>
+                                        </Property>
+                                        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                                          <StringArray count="4">
+                                            <StringItem index="0" value="Item 1"/>
+                                            <StringItem index="1" value="Item 2"/>
+                                            <StringItem index="2" value="Item 3"/>
+                                            <StringItem index="3" value="Item 4"/>
+                                          </StringArray>
+                                        </Property>
+                                      </Properties>
+                                      <Events>
+                                        <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="inputGenDupaCursSpecializareItemStateChanged"/>
+                                      </Events>
+                                    </Component>
+                                    <Component class="javax.swing.JComboBox" name="inputGenDupaCursCurs">
+                                      <Properties>
+                                        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                          <Color blue="66" green="33" red="0" type="rgb"/>
+                                        </Property>
+                                        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                                          <StringArray count="4">
+                                            <StringItem index="0" value="Item 1"/>
+                                            <StringItem index="1" value="Item 2"/>
+                                            <StringItem index="2" value="Item 3"/>
+                                            <StringItem index="3" value="Item 4"/>
+                                          </StringArray>
+                                        </Property>
+                                      </Properties>
+                                      <Events>
+                                        <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="inputGenDupaCursCursItemStateChanged"/>
+                                      </Events>
+                                    </Component>
+                                  </SubComponents>
+                                </Container>
+                                <Container class="javax.swing.JScrollPane" name="jScrollPane10">
+                                  <AuxValues>
+                                    <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+                                  </AuxValues>
+
+                                  <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+                                  <SubComponents>
+                                    <Component class="javax.swing.JTable" name="tableCatalogDupaCurs">
+                                      <Properties>
+                                        <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
+                                          <Table columnCount="3" rowCount="4">
+                                            <Column editable="false" title="Grupa" type="java.lang.Object"/>
+                                            <Column editable="false" title="Nume" type="java.lang.Object"/>
+                                            <Column editable="true" title="Nota finala" type="java.lang.Object"/>
+                                          </Table>
+                                        </Property>
+                                        <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
+                                          <TableColumnModel selectionModel="0">
+                                            <Column maxWidth="50" minWidth="50" prefWidth="50" resizable="true">
+                                              <Title/>
+                                              <Editor/>
+                                              <Renderer/>
+                                            </Column>
+                                            <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                                              <Title/>
+                                              <Editor/>
+                                              <Renderer/>
+                                            </Column>
+                                            <Column maxWidth="70" minWidth="70" prefWidth="70" resizable="true">
+                                              <Title/>
+                                              <Editor/>
+                                              <Renderer/>
+                                            </Column>
+                                          </TableColumnModel>
+                                        </Property>
+                                        <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
+                                          <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
+                                        </Property>
+                                      </Properties>
+                                    </Component>
+                                  </SubComponents>
+                                </Container>
+                              </SubComponents>
+                            </Container>
+                            <Container class="javax.swing.JPanel" name="jPanel24">
                               <Properties>
-                                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                                  <Color blue="66" green="33" red="0" type="rgb"/>
-                                </Property>
-                                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                                  <StringArray count="4">
-                                    <StringItem index="0" value="Item 1"/>
-                                    <StringItem index="1" value="Item 2"/>
-                                    <StringItem index="2" value="Item 3"/>
-                                    <StringItem index="3" value="Item 4"/>
-                                  </StringArray>
+                                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
                                 </Property>
                               </Properties>
-                            </Component>
-                            <Component class="javax.swing.JComboBox" name="jComboBox3">
-                              <Properties>
-                                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                                  <Color blue="66" green="33" red="0" type="rgb"/>
-                                </Property>
-                                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                                  <StringArray count="4">
-                                    <StringItem index="0" value="Item 1"/>
-                                    <StringItem index="1" value="Item 2"/>
-                                    <StringItem index="2" value="Item 3"/>
-                                    <StringItem index="3" value="Item 4"/>
-                                  </StringArray>
-                                </Property>
-                              </Properties>
-                            </Component>
+                              <Constraints>
+                                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
+                                  <JTabbedPaneConstraints tabName="Genereaza dupa student">
+                                    <Property name="tabTitle" type="java.lang.String" value="Genereaza dupa student"/>
+                                  </JTabbedPaneConstraints>
+                                </Constraint>
+                              </Constraints>
+
+                              <Layout>
+                                <DimensionLayout dim="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="panouGenDupaStudent" alignment="0" min="-2" max="-2" attributes="1"/>
+                                              <Component id="jScrollPane11" alignment="0" pref="392" max="32767" attributes="0"/>
+                                          </Group>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                </DimensionLayout>
+                                <DimensionLayout dim="1">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Component id="panouGenDupaStudent" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="jScrollPane11" pref="215" max="32767" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                </DimensionLayout>
+                              </Layout>
+                              <SubComponents>
+                                <Container class="javax.swing.JPanel" name="panouGenDupaStudent">
+                                  <Properties>
+                                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                                    </Property>
+                                    <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                                      <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
+                                        <LineBorder>
+                                          <Color PropertyName="color" blue="cc" green="cc" red="cc" type="rgb"/>
+                                        </LineBorder>
+                                      </Border>
+                                    </Property>
+                                  </Properties>
+
+                                  <Layout>
+                                    <DimensionLayout dim="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="102" attributes="0">
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Component id="jLabel13" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="labelStudSpec" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="labelStudGrupa" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="labelStudStud" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                              <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="1" attributes="0">
+                                                  <Component id="inputGenDupaStudStudent" pref="207" max="32767" attributes="0"/>
+                                                  <Component id="inputGenDupaStudSpecializare" alignment="0" pref="207" max="32767" attributes="1"/>
+                                                  <Component id="inputGenDupaStudFacultate" alignment="1" pref="207" max="32767" attributes="1"/>
+                                                  <Component id="inputGenDupaStudGrupa" alignment="1" pref="207" max="32767" attributes="1"/>
+                                              </Group>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                    </DimensionLayout>
+                                    <DimensionLayout dim="1">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="3" attributes="0">
+                                                  <Component id="jLabel13" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="inputGenDupaStudFacultate" alignment="3" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="3" attributes="0">
+                                                  <Component id="labelStudSpec" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="inputGenDupaStudSpecializare" alignment="3" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="3" attributes="0">
+                                                  <Component id="labelStudGrupa" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="inputGenDupaStudGrupa" alignment="3" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="3" attributes="0">
+                                                  <Component id="inputGenDupaStudStudent" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="labelStudStud" alignment="3" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                              <EmptySpace max="32767" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                    </DimensionLayout>
+                                  </Layout>
+                                  <SubComponents>
+                                    <Component class="javax.swing.JLabel" name="jLabel13">
+                                      <Properties>
+                                        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                          <Color blue="66" green="33" red="0" type="rgb"/>
+                                        </Property>
+                                        <Property name="text" type="java.lang.String" value="Facultate"/>
+                                      </Properties>
+                                    </Component>
+                                    <Component class="javax.swing.JLabel" name="labelStudSpec">
+                                      <Properties>
+                                        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                          <Color blue="66" green="33" red="0" type="rgb"/>
+                                        </Property>
+                                        <Property name="text" type="java.lang.String" value="Specializare"/>
+                                      </Properties>
+                                    </Component>
+                                    <Component class="javax.swing.JLabel" name="labelStudGrupa">
+                                      <Properties>
+                                        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                          <Color blue="66" green="33" red="0" type="rgb"/>
+                                        </Property>
+                                        <Property name="text" type="java.lang.String" value="Grupa"/>
+                                      </Properties>
+                                    </Component>
+                                    <Component class="javax.swing.JComboBox" name="inputGenDupaStudFacultate">
+                                      <Properties>
+                                        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                          <Color blue="66" green="33" red="0" type="rgb"/>
+                                        </Property>
+                                        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                                          <StringArray count="4">
+                                            <StringItem index="0" value="Item 1"/>
+                                            <StringItem index="1" value="Item 2"/>
+                                            <StringItem index="2" value="Item 3"/>
+                                            <StringItem index="3" value="Item 4"/>
+                                          </StringArray>
+                                        </Property>
+                                      </Properties>
+                                      <Events>
+                                        <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="inputGenDupaStudFacultateItemStateChanged"/>
+                                      </Events>
+                                    </Component>
+                                    <Component class="javax.swing.JComboBox" name="inputGenDupaStudSpecializare">
+                                      <Properties>
+                                        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                          <Color blue="66" green="33" red="0" type="rgb"/>
+                                        </Property>
+                                        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                                          <StringArray count="4">
+                                            <StringItem index="0" value="Item 1"/>
+                                            <StringItem index="1" value="Item 2"/>
+                                            <StringItem index="2" value="Item 3"/>
+                                            <StringItem index="3" value="Item 4"/>
+                                          </StringArray>
+                                        </Property>
+                                      </Properties>
+                                      <Events>
+                                        <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="inputGenDupaStudSpecializareItemStateChanged"/>
+                                      </Events>
+                                    </Component>
+                                    <Component class="javax.swing.JComboBox" name="inputGenDupaStudGrupa">
+                                      <Properties>
+                                        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                          <Color blue="66" green="33" red="0" type="rgb"/>
+                                        </Property>
+                                        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                                          <StringArray count="4">
+                                            <StringItem index="0" value="Item 1"/>
+                                            <StringItem index="1" value="Item 2"/>
+                                            <StringItem index="2" value="Item 3"/>
+                                            <StringItem index="3" value="Item 4"/>
+                                          </StringArray>
+                                        </Property>
+                                      </Properties>
+                                      <Events>
+                                        <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="inputGenDupaStudGrupaItemStateChanged"/>
+                                      </Events>
+                                    </Component>
+                                    <Component class="javax.swing.JLabel" name="labelStudStud">
+                                      <Properties>
+                                        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                          <Color blue="66" green="33" red="0" type="rgb"/>
+                                        </Property>
+                                        <Property name="text" type="java.lang.String" value="Student"/>
+                                      </Properties>
+                                    </Component>
+                                    <Component class="javax.swing.JComboBox" name="inputGenDupaStudStudent">
+                                      <Properties>
+                                        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                          <Color blue="66" green="33" red="0" type="rgb"/>
+                                        </Property>
+                                        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                                          <StringArray count="4">
+                                            <StringItem index="0" value="Item 1"/>
+                                            <StringItem index="1" value="Item 2"/>
+                                            <StringItem index="2" value="Item 3"/>
+                                            <StringItem index="3" value="Item 4"/>
+                                          </StringArray>
+                                        </Property>
+                                      </Properties>
+                                      <Events>
+                                        <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="inputGenDupaStudStudentItemStateChanged"/>
+                                      </Events>
+                                    </Component>
+                                  </SubComponents>
+                                </Container>
+                                <Container class="javax.swing.JScrollPane" name="jScrollPane11">
+                                  <AuxValues>
+                                    <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+                                  </AuxValues>
+
+                                  <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+                                  <SubComponents>
+                                    <Component class="javax.swing.JTable" name="tableCatalogDupaStudent">
+                                      <Properties>
+                                        <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
+                                          <Table columnCount="3" rowCount="4">
+                                            <Column editable="false" title="Curs" type="java.lang.Object"/>
+                                            <Column editable="false" title="Credite" type="java.lang.Object"/>
+                                            <Column editable="false" title="Nota finala" type="java.lang.Object"/>
+                                          </Table>
+                                        </Property>
+                                        <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
+                                          <TableColumnModel selectionModel="0">
+                                            <Column maxWidth="50" minWidth="50" prefWidth="50" resizable="true">
+                                              <Title/>
+                                              <Editor/>
+                                              <Renderer/>
+                                            </Column>
+                                            <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                                              <Title/>
+                                              <Editor/>
+                                              <Renderer/>
+                                            </Column>
+                                            <Column maxWidth="70" minWidth="70" prefWidth="70" resizable="true">
+                                              <Title/>
+                                              <Editor/>
+                                              <Renderer/>
+                                            </Column>
+                                          </TableColumnModel>
+                                        </Property>
+                                        <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
+                                          <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
+                                        </Property>
+                                      </Properties>
+                                    </Component>
+                                  </SubComponents>
+                                </Container>
+                              </SubComponents>
+                            </Container>
                           </SubComponents>
                         </Container>
                       </SubComponents>
@@ -1617,101 +1915,461 @@
                       <Layout>
                         <DimensionLayout dim="0">
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" attributes="0">
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Group type="102" attributes="0">
-                                          <Component id="jScrollPane9" pref="397" max="32767" attributes="0"/>
-                                          <EmptySpace max="-2" attributes="0"/>
-                                      </Group>
-                                      <Group type="102" alignment="1" attributes="0">
-                                          <Component id="jButton17" min="-2" pref="144" max="-2" attributes="1"/>
-                                          <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="jButton18" min="-2" pref="161" max="-2" attributes="1"/>
-                                          <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
-                                      </Group>
-                                  </Group>
-                              </Group>
+                              <EmptySpace min="0" pref="417" max="32767" attributes="0"/>
+                              <Component id="tableRaportStud" alignment="0" pref="417" max="32767" attributes="0"/>
                           </Group>
                         </DimensionLayout>
                         <DimensionLayout dim="1">
                           <Group type="103" groupAlignment="0" attributes="0">
+                              <EmptySpace min="0" pref="397" max="32767" attributes="0"/>
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="jButton17" alignment="3" min="-2" pref="39" max="-2" attributes="0"/>
-                                      <Component id="jButton18" alignment="3" min="-2" pref="39" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="jScrollPane9" pref="325" max="32767" attributes="0"/>
-                                  <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                                  <Component id="tableRaportStud" pref="386" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                         </DimensionLayout>
                       </Layout>
                       <SubComponents>
-                        <Component class="javax.swing.JButton" name="jButton17">
+                        <Container class="javax.swing.JTabbedPane" name="tableRaportStud">
                           <Properties>
                             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                              <Color blue="99" green="66" red="0" type="rgb"/>
+                              <Color blue="66" green="33" red="0" type="rgb"/>
                             </Property>
-                            <Property name="text" type="java.lang.String" value="pentru Profesori"/>
                           </Properties>
-                        </Component>
-                        <Component class="javax.swing.JButton" name="jButton18">
-                          <Properties>
-                            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                              <Color blue="99" green="66" red="0" type="rgb"/>
-                            </Property>
-                            <Property name="text" type="java.lang.String" value="pentru Studenti"/>
-                          </Properties>
-                        </Component>
-                        <Container class="javax.swing.JScrollPane" name="jScrollPane9">
-                          <AuxValues>
-                            <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
-                          </AuxValues>
 
-                          <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+                          <Layout class="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout"/>
                           <SubComponents>
-                            <Component class="javax.swing.JTable" name="jTable2">
+                            <Container class="javax.swing.JPanel" name="jPanel26">
                               <Properties>
-                                <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                                  <Table columnCount="4" rowCount="4">
-                                    <Column editable="true" title="Nume" type="java.lang.Object"/>
-                                    <Column editable="true" title="Title 2" type="java.lang.Object"/>
-                                    <Column editable="true" title="Title 3" type="java.lang.Object"/>
-                                    <Column editable="true" title="Title 4" type="java.lang.Object"/>
-                                  </Table>
-                                </Property>
-                                <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
-                                  <TableColumnModel selectionModel="0">
-                                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                                      <Title/>
-                                      <Editor/>
-                                      <Renderer/>
-                                    </Column>
-                                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                                      <Title/>
-                                      <Editor/>
-                                      <Renderer/>
-                                    </Column>
-                                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                                      <Title/>
-                                      <Editor/>
-                                      <Renderer/>
-                                    </Column>
-                                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                                      <Title/>
-                                      <Editor/>
-                                      <Renderer/>
-                                    </Column>
-                                  </TableColumnModel>
-                                </Property>
-                                <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
-                                  <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
+                                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
                                 </Property>
                               </Properties>
-                            </Component>
+                              <Constraints>
+                                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
+                                  <JTabbedPaneConstraints tabName="pentru Profesori">
+                                    <Property name="tabTitle" type="java.lang.String" value="pentru Profesori"/>
+                                  </JTabbedPaneConstraints>
+                                </Constraint>
+                              </Constraints>
+
+                              <Layout>
+                                <DimensionLayout dim="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                              <Component id="jScrollPane8" alignment="0" max="32767" attributes="1"/>
+                                              <Component id="jPanel27" alignment="0" max="32767" attributes="1"/>
+                                          </Group>
+                                          <EmptySpace pref="100" max="32767" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                </DimensionLayout>
+                                <DimensionLayout dim="1">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Component id="jPanel27" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                          <Component id="jScrollPane8" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace pref="111" max="32767" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                </DimensionLayout>
+                              </Layout>
+                              <SubComponents>
+                                <Container class="javax.swing.JPanel" name="jPanel27">
+                                  <Properties>
+                                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                                    </Property>
+                                    <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                                      <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
+                                        <LineBorder>
+                                          <Color PropertyName="color" blue="cc" green="cc" red="cc" type="rgb"/>
+                                        </LineBorder>
+                                      </Border>
+                                    </Property>
+                                  </Properties>
+
+                                  <Layout>
+                                    <DimensionLayout dim="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="102" attributes="0">
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Component id="jLabel17" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="labelProfAlocSpec" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="labelProfAlocCurs" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                              <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Component id="inputRaportProfSpec" alignment="0" pref="207" max="32767" attributes="1"/>
+                                                  <Component id="inputRaportProfFaculta" alignment="1" pref="207" max="32767" attributes="1"/>
+                                                  <Component id="inputRaportProfCurs" alignment="0" pref="207" max="32767" attributes="0"/>
+                                              </Group>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                    </DimensionLayout>
+                                    <DimensionLayout dim="1">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="3" attributes="0">
+                                                  <Component id="jLabel17" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="inputRaportProfFaculta" alignment="3" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="3" attributes="0">
+                                                  <Component id="labelProfAlocSpec" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="inputRaportProfSpec" alignment="3" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="3" attributes="0">
+                                                  <Component id="labelProfAlocCurs" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="inputRaportProfCurs" alignment="3" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                              <EmptySpace max="32767" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                    </DimensionLayout>
+                                  </Layout>
+                                  <SubComponents>
+                                    <Component class="javax.swing.JLabel" name="jLabel17">
+                                      <Properties>
+                                        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                          <Color blue="66" green="33" red="0" type="rgb"/>
+                                        </Property>
+                                        <Property name="text" type="java.lang.String" value="Facultate"/>
+                                      </Properties>
+                                    </Component>
+                                    <Component class="javax.swing.JLabel" name="labelProfAlocSpec">
+                                      <Properties>
+                                        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                          <Color blue="66" green="33" red="0" type="rgb"/>
+                                        </Property>
+                                        <Property name="text" type="java.lang.String" value="Specializare"/>
+                                      </Properties>
+                                    </Component>
+                                    <Component class="javax.swing.JComboBox" name="inputRaportProfFaculta">
+                                      <Properties>
+                                        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                          <Color blue="66" green="33" red="0" type="rgb"/>
+                                        </Property>
+                                        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                                          <StringArray count="4">
+                                            <StringItem index="0" value="Item 1"/>
+                                            <StringItem index="1" value="Item 2"/>
+                                            <StringItem index="2" value="Item 3"/>
+                                            <StringItem index="3" value="Item 4"/>
+                                          </StringArray>
+                                        </Property>
+                                      </Properties>
+                                      <Events>
+                                        <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="inputRaportProfFacultaItemStateChanged"/>
+                                      </Events>
+                                    </Component>
+                                    <Component class="javax.swing.JComboBox" name="inputRaportProfSpec">
+                                      <Properties>
+                                        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                          <Color blue="66" green="33" red="0" type="rgb"/>
+                                        </Property>
+                                        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                                          <StringArray count="4">
+                                            <StringItem index="0" value="Item 1"/>
+                                            <StringItem index="1" value="Item 2"/>
+                                            <StringItem index="2" value="Item 3"/>
+                                            <StringItem index="3" value="Item 4"/>
+                                          </StringArray>
+                                        </Property>
+                                      </Properties>
+                                      <Events>
+                                        <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="inputRaportProfSpecItemStateChanged"/>
+                                      </Events>
+                                    </Component>
+                                    <Component class="javax.swing.JLabel" name="labelProfAlocCurs">
+                                      <Properties>
+                                        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                          <Color blue="66" green="33" red="0" type="rgb"/>
+                                        </Property>
+                                        <Property name="text" type="java.lang.String" value="Curs"/>
+                                      </Properties>
+                                    </Component>
+                                    <Component class="javax.swing.JComboBox" name="inputRaportProfCurs">
+                                      <Properties>
+                                        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                          <Color blue="66" green="33" red="0" type="rgb"/>
+                                        </Property>
+                                        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                                          <StringArray count="4">
+                                            <StringItem index="0" value="Item 1"/>
+                                            <StringItem index="1" value="Item 2"/>
+                                            <StringItem index="2" value="Item 3"/>
+                                            <StringItem index="3" value="Item 4"/>
+                                          </StringArray>
+                                        </Property>
+                                      </Properties>
+                                      <Events>
+                                        <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="inputRaportProfCursItemStateChanged"/>
+                                      </Events>
+                                    </Component>
+                                  </SubComponents>
+                                </Container>
+                                <Container class="javax.swing.JScrollPane" name="jScrollPane8">
+                                  <AuxValues>
+                                    <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+                                  </AuxValues>
+
+                                  <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+                                  <SubComponents>
+                                    <Component class="javax.swing.JList" name="listRaportProf">
+                                      <Properties>
+                                        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                          <Color blue="66" green="33" red="0" type="rgb"/>
+                                        </Property>
+                                        <Property name="model" type="javax.swing.ListModel" editor="org.netbeans.modules.form.editors2.ListModelEditor">
+                                          <StringArray count="5">
+                                            <StringItem index="0" value="Item 1"/>
+                                            <StringItem index="1" value="Item 2"/>
+                                            <StringItem index="2" value="Item 3"/>
+                                            <StringItem index="3" value="Item 4"/>
+                                            <StringItem index="4" value="Item 5"/>
+                                          </StringArray>
+                                        </Property>
+                                      </Properties>
+                                    </Component>
+                                  </SubComponents>
+                                </Container>
+                              </SubComponents>
+                            </Container>
+                            <Container class="javax.swing.JPanel" name="jPanel28">
+                              <Properties>
+                                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                                </Property>
+                              </Properties>
+                              <Constraints>
+                                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
+                                  <JTabbedPaneConstraints tabName="pentru Studenti">
+                                    <Property name="tabTitle" type="java.lang.String" value="pentru Studenti"/>
+                                  </JTabbedPaneConstraints>
+                                </Constraint>
+                              </Constraints>
+
+                              <Layout>
+                                <DimensionLayout dim="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="jScrollPane12" alignment="1" pref="392" max="32767" attributes="0"/>
+                                              <Component id="jPanel29" alignment="0" min="-2" max="-2" attributes="1"/>
+                                          </Group>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                </DimensionLayout>
+                                <DimensionLayout dim="1">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Component id="jPanel29" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                          <Component id="jScrollPane12" pref="230" max="32767" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                </DimensionLayout>
+                              </Layout>
+                              <SubComponents>
+                                <Container class="javax.swing.JPanel" name="jPanel29">
+                                  <Properties>
+                                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                                    </Property>
+                                    <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                                      <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
+                                        <LineBorder>
+                                          <Color PropertyName="color" blue="cc" green="cc" red="cc" type="rgb"/>
+                                        </LineBorder>
+                                      </Border>
+                                    </Property>
+                                  </Properties>
+
+                                  <Layout>
+                                    <DimensionLayout dim="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Component id="jLabel20" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="labelStudAlocSpec" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="labelStudAlocStud" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                              <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Component id="inputRaportStudSpec" alignment="0" pref="207" max="32767" attributes="1"/>
+                                                  <Component id="inputRaportStudFaculta" alignment="1" pref="207" max="32767" attributes="1"/>
+                                                  <Component id="inputRaportStudStud" alignment="0" pref="207" max="32767" attributes="0"/>
+                                              </Group>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                    </DimensionLayout>
+                                    <DimensionLayout dim="1">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="3" attributes="0">
+                                                  <Component id="jLabel20" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="inputRaportStudFaculta" alignment="3" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="3" attributes="0">
+                                                  <Component id="labelStudAlocSpec" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="inputRaportStudSpec" alignment="3" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="3" attributes="0">
+                                                  <Component id="labelStudAlocStud" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="inputRaportStudStud" alignment="3" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                              <EmptySpace max="32767" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                    </DimensionLayout>
+                                  </Layout>
+                                  <SubComponents>
+                                    <Component class="javax.swing.JLabel" name="jLabel20">
+                                      <Properties>
+                                        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                          <Color blue="66" green="33" red="0" type="rgb"/>
+                                        </Property>
+                                        <Property name="text" type="java.lang.String" value="Facultate"/>
+                                      </Properties>
+                                    </Component>
+                                    <Component class="javax.swing.JLabel" name="labelStudAlocSpec">
+                                      <Properties>
+                                        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                          <Color blue="66" green="33" red="0" type="rgb"/>
+                                        </Property>
+                                        <Property name="text" type="java.lang.String" value="Specializare"/>
+                                      </Properties>
+                                    </Component>
+                                    <Component class="javax.swing.JComboBox" name="inputRaportStudFaculta">
+                                      <Properties>
+                                        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                          <Color blue="66" green="33" red="0" type="rgb"/>
+                                        </Property>
+                                        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                                          <StringArray count="4">
+                                            <StringItem index="0" value="Item 1"/>
+                                            <StringItem index="1" value="Item 2"/>
+                                            <StringItem index="2" value="Item 3"/>
+                                            <StringItem index="3" value="Item 4"/>
+                                          </StringArray>
+                                        </Property>
+                                      </Properties>
+                                      <Events>
+                                        <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="inputRaportStudFacultaItemStateChanged"/>
+                                      </Events>
+                                    </Component>
+                                    <Component class="javax.swing.JComboBox" name="inputRaportStudSpec">
+                                      <Properties>
+                                        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                          <Color blue="66" green="33" red="0" type="rgb"/>
+                                        </Property>
+                                        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                                          <StringArray count="4">
+                                            <StringItem index="0" value="Item 1"/>
+                                            <StringItem index="1" value="Item 2"/>
+                                            <StringItem index="2" value="Item 3"/>
+                                            <StringItem index="3" value="Item 4"/>
+                                          </StringArray>
+                                        </Property>
+                                      </Properties>
+                                      <Events>
+                                        <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="inputRaportStudSpecItemStateChanged"/>
+                                      </Events>
+                                    </Component>
+                                    <Component class="javax.swing.JLabel" name="labelStudAlocStud">
+                                      <Properties>
+                                        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                          <Color blue="66" green="33" red="0" type="rgb"/>
+                                        </Property>
+                                        <Property name="text" type="java.lang.String" value="Student"/>
+                                      </Properties>
+                                    </Component>
+                                    <Component class="javax.swing.JComboBox" name="inputRaportStudStud">
+                                      <Properties>
+                                        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                          <Color blue="66" green="33" red="0" type="rgb"/>
+                                        </Property>
+                                        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                                          <StringArray count="4">
+                                            <StringItem index="0" value="Item 1"/>
+                                            <StringItem index="1" value="Item 2"/>
+                                            <StringItem index="2" value="Item 3"/>
+                                            <StringItem index="3" value="Item 4"/>
+                                          </StringArray>
+                                        </Property>
+                                      </Properties>
+                                      <Events>
+                                        <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="inputRaportStudStudItemStateChanged"/>
+                                      </Events>
+                                    </Component>
+                                  </SubComponents>
+                                </Container>
+                                <Container class="javax.swing.JScrollPane" name="jScrollPane12">
+                                  <AuxValues>
+                                    <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+                                  </AuxValues>
+
+                                  <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+                                  <SubComponents>
+                                    <Component class="javax.swing.JTable" name="tableRapStud">
+                                      <Properties>
+                                        <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
+                                          <Table columnCount="4" rowCount="4">
+                                            <Column editable="false" title="COD" type="java.lang.Object"/>
+                                            <Column editable="false" title="Nume curs" type="java.lang.Object"/>
+                                            <Column editable="false" title="Nr. Credite" type="java.lang.Object"/>
+                                            <Column editable="false" title="Sem." type="java.lang.Object"/>
+                                          </Table>
+                                        </Property>
+                                        <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
+                                          <TableColumnModel selectionModel="0">
+                                            <Column maxWidth="50" minWidth="50" prefWidth="50" resizable="true">
+                                              <Title/>
+                                              <Editor/>
+                                              <Renderer/>
+                                            </Column>
+                                            <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                                              <Title/>
+                                              <Editor/>
+                                              <Renderer/>
+                                            </Column>
+                                            <Column maxWidth="70" minWidth="70" prefWidth="70" resizable="true">
+                                              <Title/>
+                                              <Editor/>
+                                              <Renderer/>
+                                            </Column>
+                                            <Column maxWidth="50" minWidth="50" prefWidth="50" resizable="true">
+                                              <Title/>
+                                              <Editor/>
+                                              <Renderer/>
+                                            </Column>
+                                          </TableColumnModel>
+                                        </Property>
+                                        <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
+                                          <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
+                                        </Property>
+                                      </Properties>
+                                    </Component>
+                                  </SubComponents>
+                                </Container>
+                              </SubComponents>
+                            </Container>
                           </SubComponents>
                         </Container>
                       </SubComponents>
@@ -1737,15 +2395,388 @@
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <EmptySpace min="0" pref="442" max="32767" attributes="0"/>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="1" attributes="0">
+                              <Group type="102" alignment="1" attributes="0">
+                                  <EmptySpace pref="259" max="-2" attributes="0"/>
+                                  <Component id="butInmatriculeaza" min="-2" pref="116" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="103" alignment="1" groupAlignment="1" attributes="0">
+                                  <Component id="panouDateCont" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="panouDateFacultate" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="panouDatePersonale" alignment="0" max="32767" attributes="1"/>
+                              </Group>
+                          </Group>
+                          <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
+                      </Group>
                   </Group>
                 </DimensionLayout>
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <EmptySpace min="0" pref="447" max="32767" attributes="0"/>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
+                          <Component id="panouDatePersonale" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="panouDateFacultate" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="panouDateCont" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="butInmatriculeaza" min="-2" pref="47" max="-2" attributes="0"/>
+                          <EmptySpace pref="25" max="32767" attributes="0"/>
+                      </Group>
                   </Group>
                 </DimensionLayout>
               </Layout>
+              <SubComponents>
+                <Container class="javax.swing.JPanel" name="panouDatePersonale">
+                  <Properties>
+                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                    </Property>
+                    <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                      <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
+                        <TitledBorder title="Date personale">
+                          <Color PropertyName="color" blue="66" green="33" red="0" type="rgb"/>
+                        </TitledBorder>
+                      </Border>
+                    </Property>
+                  </Properties>
+
+                  <Layout>
+                    <DimensionLayout dim="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="jLabel27" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabel24" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabel26" alignment="0" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="inputInmatCnp" min="-2" pref="135" max="-2" attributes="0"/>
+                                  <Component id="inputInmatNume" alignment="0" pref="270" max="32767" attributes="1"/>
+                                  <Component id="inputInmatPrenume" alignment="0" pref="270" max="32767" attributes="1"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                    </DimensionLayout>
+                    <DimensionLayout dim="1">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="jLabel27" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="inputInmatNume" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="jLabel24" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="inputInmatPrenume" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="jLabel26" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="inputInmatCnp" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="32767" attributes="0"/>
+                          </Group>
+                      </Group>
+                    </DimensionLayout>
+                  </Layout>
+                  <SubComponents>
+                    <Component class="javax.swing.JLabel" name="jLabel24">
+                      <Properties>
+                        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                          <Color blue="66" green="33" red="0" type="rgb"/>
+                        </Property>
+                        <Property name="text" type="java.lang.String" value="Prenume"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="jLabel26">
+                      <Properties>
+                        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                          <Color blue="66" green="33" red="0" type="rgb"/>
+                        </Property>
+                        <Property name="text" type="java.lang.String" value="CNP"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="jLabel27">
+                      <Properties>
+                        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                          <Color blue="66" green="33" red="0" type="rgb"/>
+                        </Property>
+                        <Property name="text" type="java.lang.String" value="Nume"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JTextField" name="inputInmatNume">
+                      <Properties>
+                        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                          <Color blue="99" green="66" red="0" type="rgb"/>
+                        </Property>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JTextField" name="inputInmatPrenume">
+                      <Properties>
+                        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                          <Color blue="99" green="66" red="0" type="rgb"/>
+                        </Property>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JTextField" name="inputInmatCnp">
+                      <Properties>
+                        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                          <Color blue="99" green="66" red="0" type="rgb"/>
+                        </Property>
+                      </Properties>
+                    </Component>
+                  </SubComponents>
+                </Container>
+                <Container class="javax.swing.JPanel" name="panouDateFacultate">
+                  <Properties>
+                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                    </Property>
+                    <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                      <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
+                        <TitledBorder title="Date facultate">
+                          <Color PropertyName="color" blue="66" green="33" red="0" type="rgb"/>
+                        </TitledBorder>
+                      </Border>
+                    </Property>
+                  </Properties>
+
+                  <Layout>
+                    <DimensionLayout dim="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="labelInmatSpec" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabel23" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabel32" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabel33" alignment="0" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="inputInmatNrMat" min="-2" pref="71" max="-2" attributes="0"/>
+                                  <Component id="inputInmatAnStudiu" min="-2" max="-2" attributes="0"/>
+                                  <Component id="inputInmatFacultate" alignment="0" pref="261" max="32767" attributes="1"/>
+                                  <Component id="inputInmatSpecializare" alignment="0" pref="261" max="32767" attributes="1"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                    </DimensionLayout>
+                    <DimensionLayout dim="1">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="inputInmatFacultate" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabel23" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="inputInmatSpecializare" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="labelInmatSpec" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="inputInmatNrMat" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabel32" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="inputInmatAnStudiu" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabel33" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="32767" attributes="0"/>
+                          </Group>
+                      </Group>
+                    </DimensionLayout>
+                  </Layout>
+                  <SubComponents>
+                    <Component class="javax.swing.JLabel" name="jLabel23">
+                      <Properties>
+                        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                          <Color blue="66" green="33" red="0" type="rgb"/>
+                        </Property>
+                        <Property name="text" type="java.lang.String" value="Facultate"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="labelInmatSpec">
+                      <Properties>
+                        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                          <Color blue="66" green="33" red="0" type="rgb"/>
+                        </Property>
+                        <Property name="text" type="java.lang.String" value="Specializare"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="jLabel32">
+                      <Properties>
+                        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                          <Color blue="66" green="33" red="0" type="rgb"/>
+                        </Property>
+                        <Property name="text" type="java.lang.String" value="Nr. Matricol"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JComboBox" name="inputInmatFacultate">
+                      <Properties>
+                        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                          <Color blue="99" green="66" red="0" type="rgb"/>
+                        </Property>
+                        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                          <StringArray count="4">
+                            <StringItem index="0" value="Item 1"/>
+                            <StringItem index="1" value="Item 2"/>
+                            <StringItem index="2" value="Item 3"/>
+                            <StringItem index="3" value="Item 4"/>
+                          </StringArray>
+                        </Property>
+                      </Properties>
+                      <Events>
+                        <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="inputInmatFacultateItemStateChanged"/>
+                      </Events>
+                    </Component>
+                    <Component class="javax.swing.JComboBox" name="inputInmatSpecializare">
+                      <Properties>
+                        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                          <Color blue="99" green="66" red="0" type="rgb"/>
+                        </Property>
+                        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                          <StringArray count="4">
+                            <StringItem index="0" value="Item 1"/>
+                            <StringItem index="1" value="Item 2"/>
+                            <StringItem index="2" value="Item 3"/>
+                            <StringItem index="3" value="Item 4"/>
+                          </StringArray>
+                        </Property>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JTextField" name="inputInmatNrMat">
+                      <Properties>
+                        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                          <Color blue="99" green="66" red="0" type="rgb"/>
+                        </Property>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="jLabel33">
+                      <Properties>
+                        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                          <Color blue="66" green="33" red="0" type="rgb"/>
+                        </Property>
+                        <Property name="text" type="java.lang.String" value="An studiu"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JComboBox" name="inputInmatAnStudiu">
+                      <Properties>
+                        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                          <Color blue="99" green="66" red="0" type="rgb"/>
+                        </Property>
+                        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                          <StringArray count="4">
+                            <StringItem index="0" value="Item 1"/>
+                            <StringItem index="1" value="Item 2"/>
+                            <StringItem index="2" value="Item 3"/>
+                            <StringItem index="3" value="Item 4"/>
+                          </StringArray>
+                        </Property>
+                      </Properties>
+                    </Component>
+                  </SubComponents>
+                </Container>
+                <Container class="javax.swing.JPanel" name="panouDateCont">
+                  <Properties>
+                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                    </Property>
+                    <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                      <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
+                        <TitledBorder title="Date cont">
+                          <Color PropertyName="color" blue="66" green="33" red="0" type="rgb"/>
+                        </TitledBorder>
+                      </Border>
+                    </Property>
+                  </Properties>
+
+                  <Layout>
+                    <DimensionLayout dim="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="jLabel25" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabel34" alignment="0" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="inputInmatParolaCont" max="32767" attributes="1"/>
+                                  <Component id="inputInmatNumeCont" alignment="0" pref="185" max="32767" attributes="1"/>
+                              </Group>
+                              <EmptySpace pref="87" max="32767" attributes="0"/>
+                          </Group>
+                      </Group>
+                    </DimensionLayout>
+                    <DimensionLayout dim="1">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="jLabel25" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="inputInmatNumeCont" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="inputInmatParolaCont" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabel34" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="32767" attributes="0"/>
+                          </Group>
+                      </Group>
+                    </DimensionLayout>
+                  </Layout>
+                  <SubComponents>
+                    <Component class="javax.swing.JLabel" name="jLabel25">
+                      <Properties>
+                        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                          <Color blue="66" green="33" red="0" type="rgb"/>
+                        </Property>
+                        <Property name="text" type="java.lang.String" value="Nume utilizator"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="jLabel34">
+                      <Properties>
+                        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                          <Color blue="66" green="33" red="0" type="rgb"/>
+                        </Property>
+                        <Property name="text" type="java.lang.String" value="Parola"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JTextField" name="inputInmatNumeCont">
+                      <Properties>
+                        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                          <Color blue="99" green="66" red="0" type="rgb"/>
+                        </Property>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JTextField" name="inputInmatParolaCont">
+                      <Properties>
+                        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                          <Color blue="99" green="66" red="0" type="rgb"/>
+                        </Property>
+                      </Properties>
+                    </Component>
+                  </SubComponents>
+                </Container>
+                <Component class="javax.swing.JButton" name="butInmatriculeaza">
+                  <Properties>
+                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="66" green="33" red="0" type="rgb"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Inmatriculeaza"/>
+                  </Properties>
+                </Component>
+              </SubComponents>
             </Container>
           </SubComponents>
         </Container>
@@ -1789,8 +2820,15 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="164" max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Group type="102" attributes="0">
+                              <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="labelNumeAdmin" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Component id="labelUserAdmin" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace pref="68" max="32767" attributes="0"/>
                       <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
@@ -1802,9 +2840,16 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="jLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="labelNumeAdmin" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="labelUserAdmin" min="-2" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
-                      <EmptySpace pref="6" max="32767" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -1815,7 +2860,7 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="99" green="66" red="0" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="numeUser"/>
+                <Property name="text" type="java.lang.String" value="welcome,"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel2">
@@ -1823,6 +2868,25 @@
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/icons/windows-info.png"/>
                 </Property>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="labelNumeAdmin">
+              <Properties>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="99" green="66" red="0" type="rgb"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="numeAdministrator"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="labelUserAdmin">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Tahoma" size="11" style="1"/>
+                </Property>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="99" green="66" red="0" type="rgb"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="[username]"/>
               </Properties>
             </Component>
           </SubComponents>
