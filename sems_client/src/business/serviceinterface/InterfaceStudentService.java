@@ -10,7 +10,7 @@ import java.util.List;
  */
 public interface InterfaceStudentService {
     public List<Announcement> getAnnouncements(Student student);
-
+    public String hello();
     public boolean setContract(Student student, Contract contract);
 
     public List<Course> getAvailableCourses(Student student);
@@ -18,5 +18,4 @@ public interface InterfaceStudentService {
     public List<Grade> getGrades(Course course);
 	public void sendHomeWork();
 
-    public String hello();
 }

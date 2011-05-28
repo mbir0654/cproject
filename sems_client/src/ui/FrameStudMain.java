@@ -10,7 +10,6 @@
  */
 
 package ui;
-import java.awt.Color;
 import javax.swing.*;
 import controller.*;
 
@@ -21,11 +20,11 @@ import controller.*;
  * <p>updated by snoopy to controller</p>
  */
 public class FrameStudMain extends javax.swing.JFrame {
-	private ControllerStudent c;
+	private ControllerStudent controllerStudent;
 
     /** Creates new form FrameStudMain */
     public FrameStudMain(ControllerStudent cs) {
-        this.c=cs;
+        this.controllerStudent =cs;
         initComponents();
 
         panouMaterial.setVisible(false);
@@ -113,11 +112,12 @@ public class FrameStudMain extends javax.swing.JFrame {
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
 
         listAnunturi.setForeground(new java.awt.Color(0, 51, 102));
-        listAnunturi.setModel(new javax.swing.AbstractListModel() {
+        /*listAnunturi.setModel(new javax.swing.AbstractListModel() {
             String[] strings = { "Anunt test 1 (Prof. Dan Stirb)", "In gura presei (Prof. Mircea Badea)", "Etc Etc (Dr. Ing. Mihai Gugu)" };
             public int getSize() { return strings.length; }
             public Object getElementAt(int i) { return strings[i]; }
         });
+        */
         listAnunturi.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         listAnunturi.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
             public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
@@ -212,7 +212,7 @@ public class FrameStudMain extends javax.swing.JFrame {
         jLabel3.setText("Selectati curs");
 
         temeListCursuri.setForeground(new java.awt.Color(0, 102, 153));
-        temeListCursuri.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        //temeListCursuri.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         temeListCursuri.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 temeListCursuriItemStateChanged(evt);
@@ -768,17 +768,17 @@ public class FrameStudMain extends javax.swing.JFrame {
     }//GEN-LAST:event_temeListCursuriItemStateChanged
 
     private void butContracteazaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butContracteazaActionPerformed
-        // TODO add your handling code here:
+
+
     }//GEN-LAST:event_butContracteazaActionPerformed
 
 
+
+
     /**
-	 * @param butNote the butNote to set
-	 */
-	
+    * @param butNote the butNote to set
+    */
 
-
-	
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton butContracteaza;
     private javax.swing.JButton butDescarcaMaterial;
@@ -835,7 +835,20 @@ public class FrameStudMain extends javax.swing.JFrame {
     private javax.swing.JComboBox temeListCursuri;
     // End of variables declaration//GEN-END:variables
 
-    
+    //by bsk
+    public void setAnnouncement(ListModel model) {
+        listAnunturi.setModel(model);
+    }
+    public  void  setTemeListCursuri(ComboBoxModel model){
+        temeListCursuri.setModel(model);
+    }
 
-    
+    public  void setNameStudent(String fullname){
+        labelNumeStudent.setText(fullname);
+    }
+    public  void setUsernameStudent(String username){
+        labelUserStudent.setText(username);
+    }
+
+
 }

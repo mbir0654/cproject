@@ -12,8 +12,8 @@ import data.repositoryinterface.Repository;
  *
  */
 public class CourseRepository implements Repository<Course>{
-	
-	private List<Course> l;
+
+    private List<Course> l;
     private SpecialityRepository specialitys = SpecialityRepository.getInstance();
 
     private static final CourseRepository courses = new CourseRepository();
@@ -22,13 +22,13 @@ public class CourseRepository implements Repository<Course>{
         return  courses;
     }
 	public CourseRepository(){
-		l = new ArrayList<Course>();
-         for(Specialty specialty:specialitys.getAll()){
-            for(Course course:specialty.getCourses()){
-                l.add(course);
+            l = new ArrayList<Course>();
+            for(Specialty specialty:specialitys.getAll()){
+                for(Course course:specialty.getCourses()){
+                    l.add(course);
+                }
             }
         }
-	}
 
 	/**
 	 * @see data.repositoryinterface.Repository#add(java.lang.Object)

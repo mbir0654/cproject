@@ -31,10 +31,7 @@
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="0" attributes="0">
-              <Component id="jPanel5" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="32767" attributes="0"/>
-          </Group>
+          <Component id="jPanel5" alignment="0" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
   </Layout>
@@ -42,7 +39,7 @@
     <Container class="javax.swing.JPanel" name="jPanel5">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="f1" green="f1" red="f2" type="rgb"/>
+          <Color blue="ef" green="ef" red="f2" type="rgb"/>
         </Property>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
@@ -89,8 +86,8 @@
                       <Component id="jPanel2" min="-2" pref="51" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Component id="tabGlobal" min="-2" pref="452" max="-2" attributes="0"/>
-                  <EmptySpace max="32767" attributes="0"/>
+                  <Component id="tabGlobal" max="32767" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -135,13 +132,13 @@
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
+                      <Group type="102" alignment="1" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="panouAdmin" alignment="0" min="-2" pref="411" max="-2" attributes="1"/>
-                              <Component id="panouResurse" alignment="0" min="-2" max="-2" attributes="1"/>
+                          <Group type="103" groupAlignment="1" attributes="0">
+                              <Component id="panouAdmin" alignment="0" pref="431" max="32767" attributes="1"/>
+                              <Component id="panouResurse" alignment="0" pref="431" max="32767" attributes="1"/>
                           </Group>
-                          <EmptySpace pref="19" max="32767" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -190,7 +187,7 @@
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="1" attributes="0">
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="toolTipExporta" pref="188" max="32767" attributes="0"/>
+                                  <Component id="toolTipExporta" pref="197" max="32767" attributes="0"/>
                                   <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
                                   <Component id="butResExporta" min="-2" pref="97" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
@@ -252,7 +249,7 @@
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="1" attributes="0">
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="toolTipImporta" pref="188" max="32767" attributes="0"/>
+                                  <Component id="toolTipImporta" pref="197" max="32767" attributes="0"/>
                                   <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
                                   <Component id="butResImporta" min="-2" pref="97" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
@@ -337,7 +334,7 @@
                                           <Component id="jPanel10" min="-2" max="-2" attributes="1"/>
                                       </Group>
                                   </Group>
-                                  <EmptySpace pref="13" max="32767" attributes="0"/>
+                                  <EmptySpace pref="33" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                         </DimensionLayout>
@@ -351,7 +348,7 @@
                                   </Group>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Component id="panouAddAdmin" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace pref="75" max="32767" attributes="0"/>
+                                  <EmptySpace pref="103" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                         </DimensionLayout>
@@ -609,8 +606,8 @@
                               <Group type="102" alignment="1" attributes="0">
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="1" attributes="0">
-                                      <Component id="panouInfoFaculta" alignment="0" pref="296" max="32767" attributes="0"/>
-                                      <Component id="jScrollPane3" alignment="0" pref="296" max="32767" attributes="1"/>
+                                      <Component id="panouInfoFaculta" alignment="0" pref="316" max="32767" attributes="0"/>
+                                      <Component id="jScrollPane3" alignment="0" pref="316" max="32767" attributes="1"/>
                                   </Group>
                                   <EmptySpace max="-2" attributes="0"/>
                               </Group>
@@ -622,7 +619,7 @@
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Component id="jScrollPane3" min="-2" pref="97" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="panouInfoFaculta" pref="221" max="32767" attributes="0"/>
+                                  <Component id="panouInfoFaculta" max="32767" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
                               </Group>
                           </Group>
@@ -685,7 +682,7 @@
                                           <EmptySpace max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="1" attributes="0">
                                               <Component id="panouCursuriBut" alignment="0" max="32767" attributes="0"/>
-                                              <Component id="jScrollPane1" alignment="0" pref="271" max="32767" attributes="0"/>
+                                              <Component id="jScrollPane1" alignment="0" pref="291" max="32767" attributes="0"/>
                                           </Group>
                                           <EmptySpace max="-2" attributes="0"/>
                                       </Group>
@@ -698,7 +695,7 @@
                                           <Component id="jScrollPane1" min="-2" pref="89" max="-2" attributes="0"/>
                                           <EmptySpace max="-2" attributes="0"/>
                                           <Component id="panouCursuriBut" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace max="32767" attributes="0"/>
+                                          <EmptySpace pref="39" max="32767" attributes="0"/>
                                       </Group>
                                   </Group>
                                 </DimensionLayout>
@@ -755,7 +752,7 @@
                                                   <Component id="butCursuriAdd" max="32767" attributes="1"/>
                                                   <Component id="butCursuriMod" alignment="0" pref="112" max="32767" attributes="1"/>
                                               </Group>
-                                              <EmptySpace pref="34" max="32767" attributes="0"/>
+                                              <EmptySpace pref="54" max="32767" attributes="0"/>
                                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                                   <Component id="butCursuriDel" max="32767" attributes="1"/>
                                                   <Component id="butCursuriAloca" alignment="0" min="-2" max="-2" attributes="1"/>
@@ -855,7 +852,7 @@
                                           <EmptySpace max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="1" attributes="0">
                                               <Component id="jPanel18" alignment="0" max="32767" attributes="0"/>
-                                              <Component id="jScrollPane2" alignment="0" pref="271" max="32767" attributes="0"/>
+                                              <Component id="jScrollPane2" alignment="0" pref="291" max="32767" attributes="0"/>
                                           </Group>
                                           <EmptySpace max="-2" attributes="0"/>
                                       </Group>
@@ -868,7 +865,7 @@
                                           <Component id="jScrollPane2" min="-2" pref="89" max="-2" attributes="0"/>
                                           <EmptySpace max="-2" attributes="0"/>
                                           <Component id="jPanel18" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace max="32767" attributes="0"/>
+                                          <EmptySpace pref="39" max="32767" attributes="0"/>
                                       </Group>
                                   </Group>
                                 </DimensionLayout>
@@ -925,7 +922,7 @@
                                                   <Component id="butProfAdd" alignment="0" max="32767" attributes="1"/>
                                                   <Component id="butProfMod" alignment="0" pref="112" max="32767" attributes="1"/>
                                               </Group>
-                                              <EmptySpace pref="35" max="32767" attributes="0"/>
+                                              <EmptySpace pref="55" max="32767" attributes="0"/>
                                               <Group type="103" groupAlignment="1" max="-2" attributes="0">
                                                   <Component id="butProfAloca" max="32767" attributes="1"/>
                                                   <Component id="butProfDel" alignment="1" pref="102" max="32767" attributes="1"/>
@@ -1024,7 +1021,7 @@
                                       <Group type="102" attributes="0">
                                           <EmptySpace max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="jScrollPane5" alignment="0" pref="271" max="32767" attributes="0"/>
+                                              <Component id="jScrollPane5" alignment="0" pref="291" max="32767" attributes="0"/>
                                               <Component id="jPanel19" alignment="0" max="32767" attributes="0"/>
                                           </Group>
                                           <EmptySpace max="-2" attributes="0"/>
@@ -1038,7 +1035,7 @@
                                           <Component id="jScrollPane5" min="-2" pref="89" max="-2" attributes="0"/>
                                           <EmptySpace max="-2" attributes="0"/>
                                           <Component id="jPanel19" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace max="32767" attributes="0"/>
+                                          <EmptySpace pref="39" max="32767" attributes="0"/>
                                       </Group>
                                   </Group>
                                 </DimensionLayout>
@@ -1095,7 +1092,7 @@
                                                   <Component id="butSpecAdd" alignment="0" max="32767" attributes="1"/>
                                                   <Component id="butSpecMod" alignment="0" pref="112" max="32767" attributes="1"/>
                                               </Group>
-                                              <EmptySpace pref="35" max="32767" attributes="0"/>
+                                              <EmptySpace pref="55" max="32767" attributes="0"/>
                                               <Component id="butSpecDel" min="-2" pref="102" max="-2" attributes="1"/>
                                               <EmptySpace max="-2" attributes="0"/>
                                           </Group>
@@ -1164,8 +1161,8 @@
                               </Properties>
                               <Constraints>
                                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
-                                  <JTabbedPaneConstraints tabName="Contracte">
-                                    <Property name="tabTitle" type="java.lang.String" value="Contracte"/>
+                                  <JTabbedPaneConstraints tabName="Grupe">
+                                    <Property name="tabTitle" type="java.lang.String" value="Grupe"/>
                                   </JTabbedPaneConstraints>
                                 </Constraint>
                               </Constraints>
@@ -1173,15 +1170,29 @@
                               <Layout>
                                 <DimensionLayout dim="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Group type="102" alignment="0" attributes="0">
+                                      <Group type="102" attributes="0">
                                           <EmptySpace max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="0" attributes="0">
                                               <Group type="102" alignment="0" attributes="0">
-                                                  <Component id="jScrollPane6" min="-2" pref="153" max="-2" attributes="0"/>
-                                                  <EmptySpace max="-2" attributes="0"/>
-                                                  <Component id="butContractSee" pref="112" max="32767" attributes="0"/>
+                                                  <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
+                                                  <Component id="listGrupe" pref="234" max="32767" attributes="0"/>
                                               </Group>
-                                              <Component id="jLabel7" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Group type="102" alignment="0" attributes="0">
+                                                  <Component id="jLabel11" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                                  <Group type="103" groupAlignment="0" attributes="0">
+                                                      <Component id="jScrollPane6" alignment="0" pref="233" max="32767" attributes="0"/>
+                                                      <Group type="102" alignment="0" attributes="0">
+                                                          <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                                              <Component id="butAddStudentLaGrupa" alignment="0" max="32767" attributes="1"/>
+                                                              <Component id="butTransferaStudent" alignment="0" max="32767" attributes="1"/>
+                                                          </Group>
+                                                          <EmptySpace pref="13" max="32767" attributes="0"/>
+                                                          <Component id="butAddGrupa" min="-2" max="-2" attributes="0"/>
+                                                      </Group>
+                                                  </Group>
+                                              </Group>
                                           </Group>
                                           <EmptySpace max="-2" attributes="0"/>
                                       </Group>
@@ -1191,19 +1202,50 @@
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Group type="102" alignment="0" attributes="0">
                                           <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="3" attributes="0">
+                                              <Component id="jLabel7" alignment="3" min="-2" max="-2" attributes="0"/>
+                                              <Component id="listGrupe" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="butContractSee" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              <Component id="jScrollPane6" alignment="0" pref="151" max="32767" attributes="0"/>
+                                              <Component id="jLabel11" min="-2" max="-2" attributes="0"/>
+                                              <Component id="jScrollPane6" min="-2" pref="105" max="-2" attributes="1"/>
+                                          </Group>
+                                          <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="3" attributes="0">
+                                              <Component id="butAddStudentLaGrupa" alignment="3" min="-2" max="-2" attributes="0"/>
+                                              <Component id="butAddGrupa" alignment="3" min="-2" max="-2" attributes="0"/>
                                           </Group>
                                           <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="butTransferaStudent" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace max="32767" attributes="0"/>
                                       </Group>
                                   </Group>
                                 </DimensionLayout>
                               </Layout>
                               <SubComponents>
                                 <Component class="javax.swing.JLabel" name="jLabel7">
+                                  <Properties>
+                                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                      <Color blue="66" green="33" red="0" type="rgb"/>
+                                    </Property>
+                                    <Property name="text" type="java.lang.String" value="Grupe"/>
+                                  </Properties>
+                                </Component>
+                                <Component class="javax.swing.JComboBox" name="listGrupe">
+                                  <Properties>
+                                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                      <Color blue="66" green="33" red="0" type="rgb"/>
+                                    </Property>
+                                    <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                                      <StringArray count="2">
+                                        <StringItem index="0" value="Grupa 69"/>
+                                        <StringItem index="1" value="Grupa 666"/>
+                                      </StringArray>
+                                    </Property>
+                                  </Properties>
+                                </Component>
+                                <Component class="javax.swing.JLabel" name="jLabel11">
                                   <Properties>
                                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                                       <Color blue="66" green="33" red="0" type="rgb"/>
@@ -1218,36 +1260,53 @@
 
                                   <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
                                   <SubComponents>
-                                    <Component class="javax.swing.JList" name="listStudenti">
+                                    <Component class="javax.swing.JList" name="listGrupeStudenti">
                                       <Properties>
                                         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                                           <Color blue="66" green="33" red="0" type="rgb"/>
                                         </Property>
                                         <Property name="model" type="javax.swing.ListModel" editor="org.netbeans.modules.form.editors2.ListModelEditor">
-                                          <StringArray count="5">
-                                            <StringItem index="0" value="Item 1"/>
-                                            <StringItem index="1" value="Item 2"/>
-                                            <StringItem index="2" value="Item 3"/>
-                                            <StringItem index="3" value="Item 4"/>
-                                            <StringItem index="4" value="Item 5"/>
+                                          <StringArray count="2">
+                                            <StringItem index="0" value="Mihut Bogdan"/>
+                                            <StringItem index="1" value="Angelina Jolie"/>
                                           </StringArray>
                                         </Property>
+                                        <Property name="selectionMode" type="int" value="0"/>
                                       </Properties>
-                                      <Events>
-                                        <EventHandler event="valueChanged" listener="javax.swing.event.ListSelectionListener" parameters="javax.swing.event.ListSelectionEvent" handler="listStudentiValueChanged"/>
-                                      </Events>
                                     </Component>
                                   </SubComponents>
                                 </Container>
-                                <Component class="javax.swing.JButton" name="butContractSee">
+                                <Component class="javax.swing.JButton" name="butAddGrupa">
                                   <Properties>
                                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                                       <Color blue="99" green="33" red="0" type="rgb"/>
                                     </Property>
-                                    <Property name="text" type="java.lang.String" value="Vezi contract"/>
+                                    <Property name="text" type="java.lang.String" value="Adauga grupa"/>
                                   </Properties>
                                   <Events>
-                                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="butContractSeeActionPerformed"/>
+                                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="butAddGrupaActionPerformed"/>
+                                  </Events>
+                                </Component>
+                                <Component class="javax.swing.JButton" name="butAddStudentLaGrupa">
+                                  <Properties>
+                                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                      <Color blue="99" green="33" red="0" type="rgb"/>
+                                    </Property>
+                                    <Property name="text" type="java.lang.String" value="Adauga student"/>
+                                  </Properties>
+                                  <Events>
+                                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="butAddStudentLaGrupaActionPerformed"/>
+                                  </Events>
+                                </Component>
+                                <Component class="javax.swing.JButton" name="butTransferaStudent">
+                                  <Properties>
+                                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                      <Color blue="99" green="33" red="0" type="rgb"/>
+                                    </Property>
+                                    <Property name="text" type="java.lang.String" value="Transfera student"/>
+                                  </Properties>
+                                  <Events>
+                                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="butTransferaStudentActionPerformed"/>
                                   </Events>
                                 </Component>
                               </SubComponents>
@@ -1275,14 +1334,14 @@
                                               <Group type="102" alignment="0" attributes="0">
                                                   <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
                                                   <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-                                                  <Component id="facultaAddInputNume" pref="226" max="32767" attributes="0"/>
+                                                  <Component id="facultaAddInputNume" pref="246" max="32767" attributes="0"/>
                                               </Group>
                                               <Group type="102" alignment="0" attributes="0">
                                                   <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
                                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                                   <Group type="103" groupAlignment="0" attributes="0">
                                                       <Component id="butFacultaAdd" alignment="0" min="-2" pref="97" max="-2" attributes="0"/>
-                                                      <Component id="jScrollPane7" alignment="0" pref="227" max="32767" attributes="0"/>
+                                                      <Component id="jScrollPane7" alignment="0" pref="247" max="32767" attributes="0"/>
                                                   </Group>
                                               </Group>
                                           </Group>
@@ -1305,7 +1364,7 @@
                                           </Group>
                                           <EmptySpace max="-2" attributes="0"/>
                                           <Component id="butFacultaAdd" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace pref="65" max="32767" attributes="0"/>
+                                          <EmptySpace pref="93" max="32767" attributes="0"/>
                                       </Group>
                                   </Group>
                                 </DimensionLayout>
@@ -1407,7 +1466,7 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="tabRapoarte" pref="425" max="32767" attributes="0"/>
+                          <Component id="tabRapoarte" pref="465" max="32767" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -1447,7 +1506,7 @@
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="tabRapCatalog" pref="386" max="32767" attributes="0"/>
+                                  <Component id="tabRapCatalog" pref="426" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                         </DimensionLayout>
@@ -1494,7 +1553,7 @@
                                       <Group type="102" alignment="0" attributes="0">
                                           <Component id="panouGenDupaCurs" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="jScrollPane10" pref="246" max="32767" attributes="0"/>
+                                          <Component id="jScrollPane10" pref="286" max="32767" attributes="0"/>
                                       </Group>
                                   </Group>
                                 </DimensionLayout>
@@ -1714,7 +1773,7 @@
                                       <Group type="102" alignment="0" attributes="0">
                                           <Component id="panouGenDupaStudent" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="jScrollPane11" pref="215" max="32767" attributes="0"/>
+                                          <Component id="jScrollPane11" pref="255" max="32767" attributes="0"/>
                                       </Group>
                                   </Group>
                                 </DimensionLayout>
@@ -1926,6 +1985,9 @@
                                             </Column>
                                           </TableColumnModel>
                                         </Property>
+                                        <Property name="gridColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                          <Color blue="99" green="66" red="0" type="rgb"/>
+                                        </Property>
                                         <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
                                           <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
                                         </Property>
@@ -1963,7 +2025,7 @@
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="tableRaportStud" pref="386" max="32767" attributes="0"/>
+                                  <Component id="tableRaportStud" pref="426" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                         </DimensionLayout>
@@ -2011,7 +2073,7 @@
                                           <Component id="jPanel27" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                           <Component id="jScrollPane8" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace pref="111" max="32767" attributes="0"/>
+                                          <EmptySpace pref="151" max="32767" attributes="0"/>
                                       </Group>
                                   </Group>
                                 </DimensionLayout>
@@ -2214,7 +2276,7 @@
                                       <Group type="102" alignment="0" attributes="0">
                                           <Component id="jPanel29" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                          <Component id="jScrollPane12" pref="230" max="32767" attributes="0"/>
+                                          <Component id="jScrollPane12" pref="270" max="32767" attributes="0"/>
                                           <EmptySpace max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
@@ -2437,20 +2499,22 @@
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="1" attributes="0">
+                      <Group type="102" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="1" attributes="0">
-                                  <EmptySpace pref="259" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="panouDateFacultate" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="panouDatePersonale" alignment="0" max="32767" attributes="1"/>
+                                      <Component id="panouDateCont" alignment="0" max="32767" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <Group type="102" alignment="1" attributes="0">
+                                  <EmptySpace pref="325" max="32767" attributes="0"/>
                                   <Component id="butInmatriculeaza" min="-2" pref="116" max="-2" attributes="0"/>
                               </Group>
-                              <Group type="103" alignment="1" groupAlignment="1" attributes="0">
-                                  <Component id="panouDateCont" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="panouDateFacultate" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="panouDatePersonale" alignment="0" max="32767" attributes="1"/>
-                              </Group>
                           </Group>
-                          <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -2461,11 +2525,11 @@
                           <Component id="panouDatePersonale" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="panouDateFacultate" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
+                          <EmptySpace pref="11" max="32767" attributes="0"/>
                           <Component id="panouDateCont" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="butInmatriculeaza" min="-2" pref="47" max="-2" attributes="0"/>
-                          <EmptySpace pref="25" max="32767" attributes="0"/>
+                          <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -2498,8 +2562,8 @@
                               <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="inputInmatCnp" min="-2" pref="135" max="-2" attributes="0"/>
-                                  <Component id="inputInmatNume" alignment="0" pref="270" max="32767" attributes="1"/>
-                                  <Component id="inputInmatPrenume" alignment="0" pref="270" max="32767" attributes="1"/>
+                                  <Component id="inputInmatNume" alignment="0" pref="304" max="32767" attributes="1"/>
+                                  <Component id="inputInmatPrenume" alignment="0" pref="304" max="32767" attributes="1"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                           </Group>
@@ -2599,13 +2663,15 @@
                                   <Component id="jLabel23" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLabel32" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLabel33" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabel35" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="inputInmatNrMat" min="-2" pref="71" max="-2" attributes="0"/>
                                   <Component id="inputInmatAnStudiu" min="-2" max="-2" attributes="0"/>
-                                  <Component id="inputInmatFacultate" alignment="0" pref="261" max="32767" attributes="1"/>
-                                  <Component id="inputInmatSpecializare" alignment="0" pref="261" max="32767" attributes="1"/>
+                                  <Component id="inputInmatFacultate" alignment="0" pref="295" max="32767" attributes="1"/>
+                                  <Component id="inputInmatSpecializare" alignment="0" pref="295" max="32767" attributes="1"/>
+                                  <Component id="inputInmatAnStudiu1" alignment="0" min="-2" pref="130" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                           </Group>
@@ -2632,6 +2698,11 @@
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="inputInmatAnStudiu" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLabel33" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="jLabel35" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="inputInmatAnStudiu1" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="32767" attributes="0"/>
                           </Group>
@@ -2726,6 +2797,27 @@
                         </Property>
                       </Properties>
                     </Component>
+                    <Component class="javax.swing.JLabel" name="jLabel35">
+                      <Properties>
+                        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                          <Color blue="66" green="33" red="0" type="rgb"/>
+                        </Property>
+                        <Property name="text" type="java.lang.String" value="Grupa"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JComboBox" name="inputInmatAnStudiu1">
+                      <Properties>
+                        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                          <Color blue="99" green="66" red="0" type="rgb"/>
+                        </Property>
+                        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                          <StringArray count="2">
+                            <StringItem index="0" value="Grupa 2"/>
+                            <StringItem index="1" value="Grupa 3"/>
+                          </StringArray>
+                        </Property>
+                      </Properties>
+                    </Component>
                   </SubComponents>
                 </Container>
                 <Container class="javax.swing.JPanel" name="panouDateCont">
@@ -2756,7 +2848,7 @@
                                   <Component id="inputInmatParolaCont" max="32767" attributes="1"/>
                                   <Component id="inputInmatNumeCont" alignment="0" pref="185" max="32767" attributes="1"/>
                               </Group>
-                              <EmptySpace pref="87" max="32767" attributes="0"/>
+                              <EmptySpace pref="121" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>

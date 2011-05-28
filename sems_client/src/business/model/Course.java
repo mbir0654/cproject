@@ -132,9 +132,9 @@ public class Course implements Serializable {
 		announcements.add(a);
 	}
 
-        public ArrayList<Announcement> getAnnouncements() {
-            return announcements;
-        }
+    public ArrayList<Announcement> getAnnouncements() {
+        return announcements;
+    }
 
 	
 	/**

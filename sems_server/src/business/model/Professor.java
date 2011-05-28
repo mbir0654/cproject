@@ -5,65 +5,67 @@ import java.util.List;
 
 
 public class Professor extends User{
-		private List<Group> groups;
-        private List<Course> courses;
-        private List<Announcement> announcements;
-        private int id;
-	/**
-	 * Constructorul implicit
-	 * 
-	 * @see User#User()
-	 */
-	public Professor(){
+    private List<Group> groups;
+    private List<Course> courses;
+    private List<Announcement> announcements;
+    private int id;
+
+    /**
+    * Constructorul implicit
+    *
+    * @see User#User()
+    */
+    public Professor(){
         groups = new ArrayList<Group>();
         courses = new ArrayList<Course>();
         announcements = new ArrayList<Announcement>();
-	}
-	
-	/**
-	 * Constructorul de copiere
-	 * 
-	 * @param p este Profesorul care se va duplica
-	 * 
-	 * @see User#User(User)
-	 */
-	public Professor(Professor p){
-		super(p);
-		groups=p.getGroups();
+    }
+
+    /**
+     * Constructorul de copiere
+     *
+     * @param p este Profesorul care se va duplica
+     *
+     * @see User#User(User)
+     */
+    public Professor(Professor p){
+        super(p);
+        groups=p.getGroups();
         courses=p.getCourses();
         announcements=p.getAnnouncements();
         id = p.id;
-	}
-	
-	/**
-	 * verifica daca 2 profesori sunt identici
-	 * 
-	 * @param p este profesorul cu care comparam
-	 * 
-	 * @return true daca profesorul curent este identic
-	 *         cu cel dat ca parametru
-	 *         
-	 * @see User#equals(User)
-	 */
-	public boolean equals(Professor p){
-		if(super.equals(p))
-			return true;
-		return false;
-	}
+    }
 
-	/**
-	 * @param groups the groups to set
-	 */
-	public void addGroup(Group group) {
-		groups.add(group);
-	}
+    /**
+     * verifica daca 2 profesori sunt identici
+     *
+     * @param p este profesorul cu care comparam
+     *
+     * @return true daca profesorul curent este identic
+     *         cu cel dat ca parametru
+     *
+     * @see User#equals(User)
+     */
+    public boolean equals(Professor p){
+            if(super.equals(p))
+                    return true;
+            return false;
+    }
 
-	/**
-	 * @return the groups
-	 */
-	public ArrayList<Group> getGroups() {
-		return (ArrayList<Group>) groups;
-	}
+    /**
+     * @param groups the groups to set
+     */
+    public void addGroup(Group group) {
+            groups.add(group);
+    }
+
+    /**
+     * @return the groups
+     */
+    public ArrayList<Group> getGroups() {
+            return (ArrayList<Group>) groups;
+    }
+
 
     /**
      * 
@@ -104,5 +106,11 @@ public class Professor extends User{
     public void setId(int id) {
 		this.id = id;
 	}
+
+    @Override
+    public String toString() {
+        return super.toString()+" "+groups+" "+courses;
+    }
+
 } 
 

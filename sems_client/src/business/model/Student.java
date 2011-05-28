@@ -4,23 +4,23 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- *
+ * 
  * @author otniel
  *
  */
 
 public class Student extends User {
-
-	private String cnp;
+	
+	private String cnp; 
 	private String nrMat;
 	private Contract contract;
 	private List<AssignmentSolution> solutions;
 	//private List<Assignment> assignments;
 	private Specialty specialty;
 	private Group group;
-	private int year = 1;
+	private int year = 0;
 
-
+	
 	/**
 	 * Constructorul implicit
 	 */
@@ -31,10 +31,10 @@ public class Student extends User {
 		//assignments = new ArrayList<Assignment>();
 		specialty = new Specialty();
 	}
-
+	
 	/**
 	 * Constructor de copiere
-	 *
+	 * 
 	 * @param s este studentul pe care il duplicam
 	 */
 	public Student(Student s){
@@ -47,13 +47,13 @@ public class Student extends User {
 		specialty = s.specialty;
 		year = s.year;
 	}
-
+	
 	/**
 	 * verifica daca 2 studenti sunt identici
-	 *
+	 * 
 	 * @param s Studentul cu care comparam
-	 *
-	 * @return true daca studentul curent este identic
+	 * 
+	 * @return true daca studentul curent este identic 
 	 * 		   cu cel dat ca parametru
 	 */
 	public boolean equals(Student s){
@@ -61,7 +61,7 @@ public class Student extends User {
 			return true;
 		return false;
 	}
-
+	
 	/**
 	 * seteaza Numarul matricol al Studentului
 	 * @param nrMat va fi noul numar matricol al studentului
@@ -69,7 +69,7 @@ public class Student extends User {
 	public void setNrMat(String nrMat) {
 		this.nrMat = nrMat;
 	}
-
+	
 	/**
 	 * @return numarul matricol al studentului
 	 */
@@ -132,15 +132,15 @@ public class Student extends User {
 	public Group getGroup() {
 		return group;
 	}
-
+	
 	/**
-	 *
+	 * 
 	 * @return anul in care este inmatriculat studentul
 	 */
 	public int getYear() {
 		return year;
 	}
-
+	
 	/**
 	 *
 	 * @param year este anul in care va fi inmatriculat studentul
@@ -148,30 +148,30 @@ public class Student extends User {
         public void  setYear(int year){
             this.year = year;
         }
+	
 
-
-
+	
 	/**
-	 *
+	 * 
 	 * @return cnp-ul studentului
 	 */
 	public String getCnp() {
 		return cnp;
 	}
-
+	
 	/**
-	 *
+	 * 
 	 * @param cnp actualizaeaza cnp-ul studentului
 	 */
 	public void setCnp(String cnp) {
 		this.cnp = cnp;
 	}
-
-
+	
+	
 	/**
-	 *
+	 * 
 	 * @param e este examenul la care se acorda nota
-	 *
+	 * 
 	 * @param g este nota acordata
 	 */
 	public void addGrade(Exam e, Grade g){
@@ -182,13 +182,13 @@ public class Student extends User {
 			}
 		}
 	}
-
+	
 	/**
 	 * genereaza un string cu numele si specializarea studentului
 	 */
 	@Override
 	public String toString() {
-		return getFirstName()+" "+getLastName()+" - "+ specialty.toString();
+		return firstName+" "+lastName;
 	}
 
 
@@ -201,4 +201,4 @@ public class Student extends User {
 
 	}
 
-}
+} 

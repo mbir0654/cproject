@@ -14,10 +14,5 @@ public class SemsServer {
         @SuppressWarnings("unused")
 		ApplicationContext factory = new ClassPathXmlApplicationContext(
                 "classpath:server/serverContext.xml");
-        //FacultyRepository fr = FacultyRepository.getInstance();
-        AppService aps = AppService.getInstance();
-        aps.ValidateUser("adi", "1a1dc91c907325c69271ddf0c944bc72");
-
-
     }
 }

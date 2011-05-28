@@ -9,14 +9,13 @@ public class Assignment implements Serializable {
 	private String name = "";
 	private String text = "";
 	private Date deadline;
-	private ArrayList<AssignmentSolution> solutions;
+	private ArrayList<AssignmentSolution> solutions = new ArrayList<AssignmentSolution>();
 	private Course course;
 	
 	/**
 	 * Constructorul implicit
 	 */
 	public Assignment() {
-		solutions = new ArrayList<AssignmentSolution>();	
 	}
 	
 	/**
