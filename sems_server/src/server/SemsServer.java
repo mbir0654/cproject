@@ -17,17 +17,7 @@ public class SemsServer {
         //FacultyRepository fr = FacultyRepository.getInstance();
         AppService aps = AppService.getInstance();
         aps.ValidateUser("adi", "1a1dc91c907325c69271ddf0c944bc72");
-        /*for(Faculty f: fr.getAll()){
-        System.out.println(f.getSpecialties());
-        for (Specialty s : f.getSpecialties()){
-        System.out.println(s.getGroups());
-        for(Group g : s.getGroups()){
-        System.out.println(g);
-        for(Student st : g.getStudents()){
-        System.out.println(st);
-        }
-        }
-        }
-        }*/
+
+
     }
 }
