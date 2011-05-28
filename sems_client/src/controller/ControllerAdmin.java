@@ -7,6 +7,7 @@ package controller;
 import business.model.Administrator;
 import javax.swing.DefaultListModel;
 
+import business.model.Course;
 import business.model.Faculty;
 import business.model.Specialty;
 import business.serviceinterface.InterfaceAdministratorService;
@@ -62,5 +63,16 @@ public class ControllerAdmin {
             model.addElement(s);
         }
         adminMain.setSpecialties(model);
+    }
+
+    public void loadCourses(Faculty faculty) {
+        List<Specialty> specialties = faculty.getSpecialties();
+        DefaultListModel model = new DefaultListModel();
+        for (Specialty s:specialties) {
+            for (Course c:s.getCourses()) {
+                model.addElement(c);
+            }
+        }
+        adminMain.setListCursuri(model);
     }
 }

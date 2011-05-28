@@ -48,7 +48,7 @@ public class ControllerStudent {
             Course ct = new Course("TEST",2);
             dlm.addElement(ct);
             ///////////////////
-          //  mainFrame.getListCursuri().setModel(dlm);
+          mainFrame.getListCursuri().setModel(dlm);
 
              //f.setVisible(false); //lasa linia asta comentata!!!
          }
