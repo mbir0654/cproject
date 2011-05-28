@@ -423,10 +423,11 @@ public class FrameAdminFacultaGestionari extends javax.swing.JFrame {
             semsResurseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(semsResurseLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(semsResurseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(tabGestionari, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 496, Short.MAX_VALUE)
-                    .addComponent(jLabel1))
-                .addContainerGap())
+                .addComponent(jLabel1)
+                .addContainerGap(273, Short.MAX_VALUE))
+            .addGroup(semsResurseLayout.createSequentialGroup()
+                .addComponent(tabGestionari, javax.swing.GroupLayout.DEFAULT_SIZE, 496, Short.MAX_VALUE)
+                .addGap(20, 20, 20))
         );
         semsResurseLayout.setVerticalGroup(
             semsResurseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
