@@ -24,41 +24,6 @@ final class StudentService implements InterfaceStudentService{
         return "greetings, from student";
     }
 
-    @Override
-    public void viewCourses() {
-        //To change body of implemented methods use File | Settings | File Templates.
-    }
-
-    @Override
-    public void viewAnnouncements() {
-        //To change body of implemented methods use File | Settings | File Templates.
-    }
-
-    @Override
-    public void makeContract() {
-        //To change body of implemented methods use File | Settings | File Templates.
-    }
-
-    @Override
-    public void viewAvailableCourses() {
-        //To change body of implemented methods use File | Settings | File Templates.
-    }
-
-    @Override
-    public void viewMatterials() {
-        //To change body of implemented methods use File | Settings | File Templates.
-    }
-
-    @Override
-    public void viewGrades() {
-        //To change body of implemented methods use File | Settings | File Templates.
-    }
-
-    @Override
-    public void sendHomeWork() {
-        //To change body of implemented methods use File | Settings | File Templates.
-    }
-
     /**
 	 * The student for which we offer the services.
 	 */
