@@ -36,7 +36,6 @@ public class FrameAdminMain extends javax.swing.JFrame {
         butSpecDel.setEnabled(false);
         butSpecMod.setEnabled(false);
         
-        butContractApprove.setEnabled(false);
         butContractSee.setEnabled(false);
         
         butAdminDel.setEnabled(false);
@@ -143,7 +142,6 @@ public class FrameAdminMain extends javax.swing.JFrame {
         jScrollPane6 = new javax.swing.JScrollPane();
         listStudenti = new javax.swing.JList();
         butContractSee = new javax.swing.JButton();
-        butContractApprove = new javax.swing.JButton();
         jPanel16 = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
@@ -233,7 +231,6 @@ public class FrameAdminMain extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("SEMS :: Administrare");
         setBackground(new java.awt.Color(153, 204, 255));
-        setResizable(false);
 
         jPanel5.setBackground(new java.awt.Color(242, 241, 241));
         jPanel5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 102, 153)));
@@ -262,6 +259,11 @@ public class FrameAdminMain extends javax.swing.JFrame {
                 butResExportaMouseExited(evt);
             }
         });
+        butResExporta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                butResExportaActionPerformed(evt);
+            }
+        });
 
         toolTipExporta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/windows-info.png"))); // NOI18N
 
@@ -279,12 +281,11 @@ public class FrameAdminMain extends javax.swing.JFrame {
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
-                .addComponent(butResExporta, javax.swing.GroupLayout.DEFAULT_SIZE, 36, Short.MAX_VALUE)
-                .addGap(23, 23, 23))
-            .addGroup(jPanel6Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(toolTipExporta)
-                .addContainerGap(16, Short.MAX_VALUE))
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(butResExporta, javax.swing.GroupLayout.DEFAULT_SIZE, 41, Short.MAX_VALUE)
+                    .addComponent(toolTipExporta))
+                .addContainerGap())
         );
 
         panouResurse.addTab("Exporta resurse", jPanel6);
@@ -299,6 +300,11 @@ public class FrameAdminMain extends javax.swing.JFrame {
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 butResImportaMouseExited(evt);
+            }
+        });
+        butResImporta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                butResImportaActionPerformed(evt);
             }
         });
 
@@ -318,12 +324,11 @@ public class FrameAdminMain extends javax.swing.JFrame {
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel7Layout.createSequentialGroup()
-                .addComponent(butResImporta, javax.swing.GroupLayout.DEFAULT_SIZE, 37, Short.MAX_VALUE)
-                .addGap(22, 22, 22))
-            .addGroup(jPanel7Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(toolTipImporta)
-                .addContainerGap(16, Short.MAX_VALUE))
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(butResImporta, javax.swing.GroupLayout.DEFAULT_SIZE, 41, Short.MAX_VALUE)
+                    .addComponent(toolTipImporta))
+                .addContainerGap())
         );
 
         panouResurse.addTab("Importa resurse", jPanel7);
@@ -360,9 +365,19 @@ public class FrameAdminMain extends javax.swing.JFrame {
 
         butAdminDel.setForeground(new java.awt.Color(0, 102, 153));
         butAdminDel.setText("Sterge");
+        butAdminDel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                butAdminDelActionPerformed(evt);
+            }
+        });
 
         butAdminMod.setForeground(new java.awt.Color(0, 102, 153));
         butAdminMod.setText("Modifica");
+        butAdminMod.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                butAdminModActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
         jPanel10.setLayout(jPanel10Layout);
@@ -481,7 +496,7 @@ public class FrameAdminMain extends javax.swing.JFrame {
                     .addComponent(jScrollPane4, javax.swing.GroupLayout.Alignment.LEADING))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(panouAddAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(85, Short.MAX_VALUE))
+                .addContainerGap(75, Short.MAX_VALUE))
         );
 
         panouAdmin.addTab("Administratori", jPanel8);
@@ -523,15 +538,35 @@ public class FrameAdminMain extends javax.swing.JFrame {
 
         butCursuriAdd.setForeground(new java.awt.Color(0, 51, 153));
         butCursuriAdd.setText("Adauga");
+        butCursuriAdd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                butCursuriAddActionPerformed(evt);
+            }
+        });
 
         butCursuriMod.setForeground(new java.awt.Color(0, 51, 153));
         butCursuriMod.setText("Modifica");
+        butCursuriMod.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                butCursuriModActionPerformed(evt);
+            }
+        });
 
         butCursuriDel.setForeground(new java.awt.Color(0, 51, 153));
         butCursuriDel.setText("Sterge");
+        butCursuriDel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                butCursuriDelActionPerformed(evt);
+            }
+        });
 
         butCursuriAloca.setForeground(new java.awt.Color(0, 51, 153));
         butCursuriAloca.setText("Aloca profesor");
+        butCursuriAloca.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                butCursuriAlocaActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout panouCursuriButLayout = new javax.swing.GroupLayout(panouCursuriBut);
         panouCursuriBut.setLayout(panouCursuriButLayout);
@@ -582,7 +617,7 @@ public class FrameAdminMain extends javax.swing.JFrame {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(panouCursuriBut, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(23, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         panouInfoFaculta.addTab("Cursuri", jPanel12);
@@ -607,15 +642,35 @@ public class FrameAdminMain extends javax.swing.JFrame {
 
         butProfAdd.setForeground(new java.awt.Color(0, 51, 153));
         butProfAdd.setText("Adauga");
+        butProfAdd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                butProfAddActionPerformed(evt);
+            }
+        });
 
         butProfMod.setForeground(new java.awt.Color(0, 51, 153));
         butProfMod.setText("Modifica");
+        butProfMod.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                butProfModActionPerformed(evt);
+            }
+        });
 
         butProfDel.setForeground(new java.awt.Color(0, 51, 153));
         butProfDel.setText("Sterge");
+        butProfDel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                butProfDelActionPerformed(evt);
+            }
+        });
 
         butProfAloca.setForeground(new java.awt.Color(0, 51, 153));
         butProfAloca.setText("Aloca curs");
+        butProfAloca.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                butProfAlocaActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel18Layout = new javax.swing.GroupLayout(jPanel18);
         jPanel18.setLayout(jPanel18Layout);
@@ -666,7 +721,7 @@ public class FrameAdminMain extends javax.swing.JFrame {
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel18, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(23, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         panouInfoFaculta.addTab("Profesori", jPanel13);
@@ -691,12 +746,27 @@ public class FrameAdminMain extends javax.swing.JFrame {
 
         butSpecAdd.setForeground(new java.awt.Color(0, 51, 153));
         butSpecAdd.setText("Adauga");
+        butSpecAdd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                butSpecAddActionPerformed(evt);
+            }
+        });
 
         butSpecMod.setForeground(new java.awt.Color(0, 51, 153));
         butSpecMod.setText("Modifica");
+        butSpecMod.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                butSpecModActionPerformed(evt);
+            }
+        });
 
         butSpecDel.setForeground(new java.awt.Color(0, 51, 153));
         butSpecDel.setText("Sterge");
+        butSpecDel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                butSpecDelActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel19Layout = new javax.swing.GroupLayout(jPanel19);
         jPanel19.setLayout(jPanel19Layout);
@@ -742,7 +812,7 @@ public class FrameAdminMain extends javax.swing.JFrame {
                 .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel19, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(23, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         panouInfoFaculta.addTab("Specializari", jPanel14);
@@ -767,9 +837,11 @@ public class FrameAdminMain extends javax.swing.JFrame {
 
         butContractSee.setForeground(new java.awt.Color(0, 51, 153));
         butContractSee.setText("Vezi contract");
-
-        butContractApprove.setForeground(new java.awt.Color(0, 51, 153));
-        butContractApprove.setText("Aproba contract");
+        butContractSee.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                butContractSeeActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel15Layout = new javax.swing.GroupLayout(jPanel15);
         jPanel15.setLayout(jPanel15Layout);
@@ -781,9 +853,7 @@ public class FrameAdminMain extends javax.swing.JFrame {
                     .addGroup(jPanel15Layout.createSequentialGroup()
                         .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(butContractSee, javax.swing.GroupLayout.DEFAULT_SIZE, 112, Short.MAX_VALUE)
-                            .addComponent(butContractApprove, javax.swing.GroupLayout.DEFAULT_SIZE, 112, Short.MAX_VALUE)))
+                        .addComponent(butContractSee, javax.swing.GroupLayout.DEFAULT_SIZE, 112, Short.MAX_VALUE))
                     .addComponent(jLabel7))
                 .addContainerGap())
         );
@@ -794,11 +864,8 @@ public class FrameAdminMain extends javax.swing.JFrame {
                 .addComponent(jLabel7)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel15Layout.createSequentialGroup()
-                        .addComponent(butContractSee)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(butContractApprove))
-                    .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 163, Short.MAX_VALUE))
+                    .addComponent(butContractSee)
+                    .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 151, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
@@ -822,6 +889,11 @@ public class FrameAdminMain extends javax.swing.JFrame {
 
         butFacultaAdd.setForeground(new java.awt.Color(0, 51, 153));
         butFacultaAdd.setText("Adauga");
+        butFacultaAdd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                butFacultaAddActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel16Layout = new javax.swing.GroupLayout(jPanel16);
         jPanel16.setLayout(jPanel16Layout);
@@ -855,7 +927,7 @@ public class FrameAdminMain extends javax.swing.JFrame {
                     .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(butFacultaAdd)
-                .addContainerGap(77, Short.MAX_VALUE))
+                .addContainerGap(65, Short.MAX_VALUE))
         );
 
         panouInfoFaculta.addTab("Adauga", jPanel16);
@@ -877,8 +949,8 @@ public class FrameAdminMain extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(panouInfoFaculta, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(panouInfoFaculta, javax.swing.GroupLayout.DEFAULT_SIZE, 221, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         panouAdmin.addTab("Facultati", jPanel9);
@@ -892,7 +964,7 @@ public class FrameAdminMain extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(panouAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, 411, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(panouResurse, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(19, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -900,11 +972,11 @@ public class FrameAdminMain extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(panouResurse, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(panouAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, 361, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(panouAdmin)
+                .addContainerGap())
         );
 
-        tabGlobal.addTab("Gestioneaza resurse", jPanel1);
+        tabGlobal.addTab("Gestioneaza resurse", new javax.swing.ImageIcon(getClass().getResource("/icons/gestRaporturi.png")), jPanel1); // NOI18N
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -1022,7 +1094,7 @@ public class FrameAdminMain extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel23Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(panouGenDupaCurs, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane10, javax.swing.GroupLayout.DEFAULT_SIZE, 392, Short.MAX_VALUE))
+                    .addComponent(jScrollPane10, javax.swing.GroupLayout.DEFAULT_SIZE, 401, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel23Layout.setVerticalGroup(
@@ -1160,7 +1232,7 @@ public class FrameAdminMain extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel24Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(panouGenDupaStudent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane11, javax.swing.GroupLayout.DEFAULT_SIZE, 392, Short.MAX_VALUE))
+                    .addComponent(jScrollPane11, javax.swing.GroupLayout.DEFAULT_SIZE, 401, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel24Layout.setVerticalGroup(
@@ -1177,7 +1249,7 @@ public class FrameAdminMain extends javax.swing.JFrame {
         jPanel20.setLayout(jPanel20Layout);
         jPanel20Layout.setHorizontalGroup(
             jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(tabRapCatalog, javax.swing.GroupLayout.DEFAULT_SIZE, 417, Short.MAX_VALUE)
+            .addComponent(tabRapCatalog, javax.swing.GroupLayout.DEFAULT_SIZE, 426, Short.MAX_VALUE)
         );
         jPanel20Layout.setVerticalGroup(
             jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1282,7 +1354,7 @@ public class FrameAdminMain extends javax.swing.JFrame {
                 .addGroup(jPanel26Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(jScrollPane8, javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel27, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(100, Short.MAX_VALUE))
+                .addContainerGap(109, Short.MAX_VALUE))
         );
         jPanel26Layout.setVerticalGroup(
             jPanel26Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1405,7 +1477,7 @@ public class FrameAdminMain extends javax.swing.JFrame {
             .addGroup(jPanel28Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel28Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane12, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 392, Short.MAX_VALUE)
+                    .addComponent(jScrollPane12, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 401, Short.MAX_VALUE)
                     .addComponent(jPanel29, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
@@ -1424,8 +1496,8 @@ public class FrameAdminMain extends javax.swing.JFrame {
         jPanel21.setLayout(jPanel21Layout);
         jPanel21Layout.setHorizontalGroup(
             jPanel21Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 417, Short.MAX_VALUE)
-            .addComponent(tableRaportStud, javax.swing.GroupLayout.DEFAULT_SIZE, 417, Short.MAX_VALUE)
+            .addGap(0, 426, Short.MAX_VALUE)
+            .addComponent(tableRaportStud, javax.swing.GroupLayout.DEFAULT_SIZE, 426, Short.MAX_VALUE)
         );
         jPanel21Layout.setVerticalGroup(
             jPanel21Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1443,7 +1515,7 @@ public class FrameAdminMain extends javax.swing.JFrame {
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(tabRapoarte, javax.swing.GroupLayout.DEFAULT_SIZE, 422, Short.MAX_VALUE)
+                .addComponent(tabRapoarte, javax.swing.GroupLayout.DEFAULT_SIZE, 431, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
@@ -1454,7 +1526,7 @@ public class FrameAdminMain extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        tabGlobal.addTab("Gestioneaza rapoarte", jPanel3);
+        tabGlobal.addTab("Gestioneaza rapoarte", new javax.swing.ImageIcon(getClass().getResource("/icons/gestResurse.png")), jPanel3); // NOI18N
 
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -1624,6 +1696,11 @@ public class FrameAdminMain extends javax.swing.JFrame {
 
         butInmatriculeaza.setForeground(new java.awt.Color(0, 51, 102));
         butInmatriculeaza.setText("Inmatriculeaza");
+        butInmatriculeaza.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                butInmatriculeazaActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -1639,7 +1716,7 @@ public class FrameAdminMain extends javax.swing.JFrame {
                         .addComponent(panouDateCont, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(panouDateFacultate, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(panouDatePersonale, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addGap(35, 35, 35))
+                .addGap(44, 44, 44))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1655,7 +1732,7 @@ public class FrameAdminMain extends javax.swing.JFrame {
                 .addContainerGap(25, Short.MAX_VALUE))
         );
 
-        tabGlobal.addTab("Inmatriculeaza student", jPanel4);
+        tabGlobal.addTab("Inmatriculeaza student", new javax.swing.ImageIcon(getClass().getResource("/icons/inmatStud.png")), jPanel4); // NOI18N
 
         labelAdmin.setFont(new java.awt.Font("Tahoma", 3, 12)); // NOI18N
         labelAdmin.setForeground(new java.awt.Color(0, 102, 153));
@@ -1716,15 +1793,17 @@ public class FrameAdminMain extends javax.swing.JFrame {
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(tabGlobal, javax.swing.GroupLayout.PREFERRED_SIZE, 596, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addComponent(tabGlobal, javax.swing.GroupLayout.PREFERRED_SIZE, 634, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(labelAdmin, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(semsIco, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(233, 233, 233)
-                        .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addContainerGap(59, Short.MAX_VALUE))))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1749,7 +1828,9 @@ public class FrameAdminMain extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -1793,7 +1874,7 @@ public class FrameAdminMain extends javax.swing.JFrame {
 
     private void listStudentiValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_listStudentiValueChanged
 
-        butContractApprove.setEnabled(true);
+     
         butContractSee.setEnabled(true);
         // TODO add your handling code here:
     }//GEN-LAST:event_listStudentiValueChanged
@@ -1928,6 +2009,79 @@ public class FrameAdminMain extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_inputInmatFacultateItemStateChanged
 
+    private void butFacultaAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butFacultaAddActionPerformed
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_butFacultaAddActionPerformed
+
+    private void butCursuriAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butCursuriAddActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_butCursuriAddActionPerformed
+
+    private void butCursuriDelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butCursuriDelActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_butCursuriDelActionPerformed
+
+    private void butCursuriModActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butCursuriModActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_butCursuriModActionPerformed
+
+    private void butCursuriAlocaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butCursuriAlocaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_butCursuriAlocaActionPerformed
+
+    private void butProfAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butProfAddActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_butProfAddActionPerformed
+
+    private void butProfDelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butProfDelActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_butProfDelActionPerformed
+
+    private void butProfModActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butProfModActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_butProfModActionPerformed
+
+    private void butProfAlocaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butProfAlocaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_butProfAlocaActionPerformed
+
+    private void butSpecAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butSpecAddActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_butSpecAddActionPerformed
+
+    private void butSpecDelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butSpecDelActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_butSpecDelActionPerformed
+
+    private void butSpecModActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butSpecModActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_butSpecModActionPerformed
+
+    private void butContractSeeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butContractSeeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_butContractSeeActionPerformed
+
+    private void butResExportaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butResExportaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_butResExportaActionPerformed
+
+    private void butResImportaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butResImportaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_butResImportaActionPerformed
+
+    private void butAdminDelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butAdminDelActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_butAdminDelActionPerformed
+
+    private void butAdminModActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butAdminModActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_butAdminModActionPerformed
+
+    private void butInmatriculeazaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butInmatriculeazaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_butInmatriculeazaActionPerformed
+
     /**
     * @param args the command line arguments
     */
@@ -1938,7 +2092,6 @@ public class FrameAdminMain extends javax.swing.JFrame {
     private javax.swing.JButton butAdminDel;
     private javax.swing.JButton butAdminMod;
     private javax.swing.JButton butAdminOk;
-    private javax.swing.JButton butContractApprove;
     private javax.swing.JButton butContractSee;
     private javax.swing.JButton butCursuriAdd;
     private javax.swing.JButton butCursuriAloca;
