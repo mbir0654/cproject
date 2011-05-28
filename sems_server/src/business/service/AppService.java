@@ -7,13 +7,12 @@ import java.sql.SQLException;
 import java.util.*;
 
 import data.dbutil.DbUtil;
-import data.repositorydb.AdministratorRepository;
-import data.repositorydb.FacultyRepository;
-import data.repositorydb.ProfessorRepository;
-import data.repositorydb.StudentRepository;
+import data.repositorydb.*;
 import data.repositoryinterface.Repository;
 import business.model.*;
 import business.serviceinterface.InterfaceAppService;
+import data.repositorydb.GroupRepository;
+import data.repositorydb.SpecialityRepository;
 
 /**
  * @author BSK
@@ -31,6 +30,7 @@ public class AppService implements InterfaceAppService {
 	private Repository<Administrator> adminRepo;
 	private Repository<Professor> profRepo;
 	private Repository<Student> studRepo;
+        private Repository<Faculty> facultyReposiitory;
 	
 	/**
 	 *  constuctor privat pentru singleton
@@ -39,6 +39,8 @@ public class AppService implements InterfaceAppService {
 		adminRepo = AdministratorRepository.getInstance();
 		profRepo = ProfessorRepository.getInstance();
 		studRepo = StudentRepository.getInstance();
+                facultyReposiitory = FacultyRepository.getInstance();
+
 	}
 	
 	/**

@@ -32,6 +32,8 @@ public class SpecialityRepository implements Repository<Specialty>{
                 l.add(specialty);
             }
         }
+        for(Specialty s : l)
+        System.out.println(s.getGroups());
 	}
 
 	/**
