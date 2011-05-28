@@ -10,6 +10,7 @@
  */
 
 package ui;
+import business.model.Administrator;
 import controller.ControllerAdmin;
 import javax.swing.*;
 /**
@@ -2142,6 +2143,14 @@ public class FrameAdminMain extends javax.swing.JFrame {
     public void setFaculties(ListModel model) {
         listFacultati.setModel(model);
     }
+
+    public void setAdministrators(ListModel model) {
+        listAdmin.setModel(model);
+    }
+
+    public void setSpecialties(ListModel model) {
+        listSpecializari.setModel(model);
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton butAddGrupa;
     private javax.swing.JButton butAddStudentLaGrupa;
@@ -2296,4 +2305,11 @@ public class FrameAdminMain extends javax.swing.JFrame {
     private javax.swing.JLabel toolTipImporta;
     // End of variables declaration//GEN-END:variables
 
+    public void setLabelNumeAdmin(Administrator admin) {
+        labelNumeAdmin.setText(admin.toString());
+    }
+
+    public void setLabelUserAdmin(Administrator admin) {
+        labelUserAdmin.setText("[ "+admin.getUserName() + "]");
+    }
 }
