@@ -11,6 +11,7 @@ import javax.swing.DefaultListModel;
 import javax.swing.table.*;
 
 import business.serviceinterface.InterfaceStudentService;
+import com.sun.xml.internal.ws.api.streaming.XMLStreamWriterFactory;
 import ui.*;
 
 import java.util.List;
@@ -34,12 +35,14 @@ public class ControllerStudent {
      */
      public void openStudentFrame() {
         studentFrame = new FrameStudMain(this);
-
-        loadAnnouncement();
+        studentFrame.setNameStudent(student.getFirstName() + " " + student.getLastName());
+        studentFrame.setUsernameStudent(student.getUserName());
+        loadAnnouncements();
+        loadTemeCourses();
         studentFrame.setVisible(true);
      }
 
-     public void loadAnnouncement(){
+     public void loadAnnouncements(){
         List<Announcement> announcements = studentService.getAnnouncements(student);
         DefaultListModel model = new DefaultListModel();
         for (Announcement announcement:announcements) {
@@ -49,6 +52,14 @@ public class ControllerStudent {
         studentFrame.setAnnouncement(model);
      }
 
-
+     public  void loadTemeCourses(){
+         System.out.println("Controller");
+         List<Course> courses = student.getContract().getCourses();
+         DefaultComboBoxModel model = new DefaultComboBoxModel();
+         for(Course course:courses){
+             model.addElement(course);
+         }
+         studentFrame.setTemeListCursuri(model);
+     }
 
 }

@@ -10,7 +10,6 @@
  */
 
 package ui;
-import java.awt.Color;
 import javax.swing.*;
 import controller.*;
 
@@ -21,11 +20,11 @@ import controller.*;
  * <p>updated by snoopy to controller</p>
  */
 public class FrameStudMain extends javax.swing.JFrame {
-	private ControllerStudent c;
+	private ControllerStudent controllerStudent;
 
     /** Creates new form FrameStudMain */
     public FrameStudMain(ControllerStudent cs) {
-        this.c=cs;
+        this.controllerStudent =cs;
         initComponents();
 
         panouMaterial.setVisible(false);
@@ -213,7 +212,7 @@ public class FrameStudMain extends javax.swing.JFrame {
         jLabel3.setText("Selectati curs");
 
         temeListCursuri.setForeground(new java.awt.Color(0, 102, 153));
-        temeListCursuri.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        //temeListCursuri.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         temeListCursuri.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 temeListCursuriItemStateChanged(evt);
@@ -774,15 +773,12 @@ public class FrameStudMain extends javax.swing.JFrame {
     }//GEN-LAST:event_butContracteazaActionPerformed
 
 
+
+
     /**
-	 * @param butNote the butNote to set
-	 */
-	  public void setAnnouncement(ListModel model) {
-        listAnunturi.setModel(model);
-    }
+    * @param butNote the butNote to set
+    */
 
-
-	
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton butContracteaza;
     private javax.swing.JButton butDescarcaMaterial;
@@ -840,6 +836,19 @@ public class FrameStudMain extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     
+    public void setAnnouncement(ListModel model) {
+        listAnunturi.setModel(model);
+    }
+    public  void  setTemeListCursuri(ComboBoxModel model){
+        temeListCursuri.setModel(model);
+    }
 
-    
+    public  void setNameStudent(String fullname){
+        labelNumeStudent.setText(fullname);
+    }
+    public  void setUsernameStudent(String username){
+        labelUserStudent.setText(username);
+    }
+
+
 }
