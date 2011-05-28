@@ -260,7 +260,7 @@ public class FacultyRepository implements Repository<Faculty>{
 								}
 							}
 							s.setContract(contract);
-							g.addStudent(s);
+                            g.addStudent(s);
 						}
 						sp.addGroup(g);
 					}
