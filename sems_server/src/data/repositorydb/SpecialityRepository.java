@@ -5,6 +5,8 @@ package data.repositorydb;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import business.model.Faculty;
 import business.model.Specialty;
 
 import data.repositoryinterface.Repository;
@@ -15,10 +17,21 @@ import data.repositoryinterface.Repository;
  */
 public class SpecialityRepository implements Repository<Specialty>{
 	
-	private List<Specialty> l;
-	
-	public SpecialityRepository(){
+    private List<Specialty> l;
+    private FacultyRepository facultys = FacultyRepository.getInstance();
+
+    private static final SpecialityRepository specialitys = new SpecialityRepository();
+
+    public static SpecialityRepository getInstance(){
+        return  specialitys;
+    }
+	private SpecialityRepository(){
 		l = new ArrayList<Specialty>();
+        for(Faculty faculty:facultys.getAll()){
+            for(Specialty specialty:faculty.getSpecialties()){
+                l.add(specialty);
+            }
+        }
 	}
 
 	/**

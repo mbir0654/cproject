@@ -3,6 +3,8 @@ package data.repositorydb;
 import java.util.ArrayList;
 import java.util.List;
 import business.model.Course;
+import business.model.Faculty;
+import business.model.Specialty;
 import data.repositoryinterface.Repository;
 
 /**
@@ -12,9 +14,20 @@ import data.repositoryinterface.Repository;
 public class CourseRepository implements Repository<Course>{
 	
 	private List<Course> l;
-	
+    private SpecialityRepository specialitys = SpecialityRepository.getInstance();
+
+    private static final CourseRepository courses = new CourseRepository();
+
+    public static  CourseRepository getInstance(){
+        return  courses;
+    }
 	public CourseRepository(){
 		l = new ArrayList<Course>();
+         for(Specialty specialty:specialitys.getAll()){
+            for(Course course:specialty.getCourses()){
+                l.add(course);
+            }
+        }
 	}
 
 	/**
