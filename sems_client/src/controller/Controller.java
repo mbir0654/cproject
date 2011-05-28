@@ -9,6 +9,7 @@ import business.model.Student;
 import business.model.User;
 
 import javax.naming.event.NamingExceptionEvent;
+import javax.sound.sampled.Control;
 import javax.swing.JFrame;
 
 import java.math.BigInteger;
@@ -76,10 +77,10 @@ public class Controller {
                 loginFrame.setVisible(false);
             }
             else if(user instanceof Professor) {
-                this.loginProf(loginFrame,(Professor) user);
+                ControllerProfesor controllerProfesor = new ControllerProfesor((Professor) user, RMIUtil.getProfService());
+                controllerProfesor.openProfesorFrame();
                 loginFrame.setVisible(false);
             }
-
             else if(user instanceof Student) {
                 ControllerStudent controllerStudent = new ControllerStudent((Student) user, RMIUtil.getStudentService());
                 controllerStudent.openStudentFrame();
@@ -95,20 +96,6 @@ public class Controller {
         }
     }
 
-	/**
-	 * @param f este referinta spre fereastra afectata de metoda
-	 */
-	public void loginProf(JFrame f, Professor P){
-        u = new Professor(P);
-        ControllerProfesor cp = new ControllerProfesor((Professor) u, RMIUtil.getProfService());
-        JFrame profFrame = new FrameProfMain(cp);
-        profFrame.setVisible(true);
-        profFrame.setResizable(false);
-        profFrame.setTitle("SEMS :: Profesor");
-        //f.setVisible(false); //lasa linia asta comentata!!!
-	}
-
-	
 	public User login(String username, String password) throws NoSuchAlgorithmException{
             MessageDigest m = MessageDigest.getInstance("MD5");
             byte[] data = password.getBytes();

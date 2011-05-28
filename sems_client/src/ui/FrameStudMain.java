@@ -835,7 +835,7 @@ public class FrameStudMain extends javax.swing.JFrame {
     private javax.swing.JComboBox temeListCursuri;
     // End of variables declaration//GEN-END:variables
 
-    
+    //by bsk
     public void setAnnouncement(ListModel model) {
         listAnunturi.setModel(model);
     }

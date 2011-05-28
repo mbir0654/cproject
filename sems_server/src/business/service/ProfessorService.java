@@ -19,21 +19,29 @@ final class ProfessorService implements InterfaceProfessorService {
     private ProfessorRepository professors = ProfessorRepository.getInstance();
 
     public List<Course> getCourses(Professor professor){
+        System.out.println("Get cursuri pt profesor: " + professor + ": " + professor.getCourses());
         return  professor.getCourses();
     }
 
     public List<Group> getGroups(Professor professor){
+        System.out.println("Get grupe pt profesor: " + professor + ": " + professor.getGroups());
         return  professor.getGroups();
     }
 
     public  List<Announcement> getAnnouncements(Professor professor){
+        System.out.println("Get anunturi pt profesor: " + professor + ": " + professor.getAnnouncements());
         return professor.getAnnouncements();
     }
 
     public  List<Student> getStudentsFromGroup(Group group){
+        System.out.println("Get studenti din grupa: " + group + ": " + group.getStudents());
         return  group.getStudents();
     }
 
+    public void addAnnouncement(Professor professor,Announcement announcement){
+        System.out.println("Adaugam anunt: " + announcement + " pentru profesor: " + professor);
+        professor.addAnnouncement(announcement);
+    }
 
     public void exitSystem() {
         //To change body of implemented methods use File | Settings | File Templates.

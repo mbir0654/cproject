@@ -18,7 +18,7 @@ import java.util.List;
 
 /**
  *
- * @author snoopy
+ * @author bsk
  */
 public class ControllerStudent {
     private final Student student;

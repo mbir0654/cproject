@@ -15,9 +15,11 @@ public interface InterfaceProfessorService {
 
     public List<Group> getGroups(Professor professor);
 
-    public  List<Announcement> getAnnouncements(Professor professor);
+    public List<Announcement> getAnnouncements(Professor professor);
 
-    public  List<Student> getStudentsFromGroup(Group group);
+    public List<Student> getStudentsFromGroup(Group group);
+
+    public void addAnnouncement(Professor professor,Announcement announcement);
 
 	public void exitSystem();
 	public void mannageAnnouncements();
