@@ -14,10 +14,11 @@ import java.util.List;
 
 
 /**
- * @author myh
+ * @author bsk
  *
  */
 final class StudentService implements InterfaceStudentService{
+
 
     public String hello() {
         return "greetings, from student";
@@ -64,6 +65,10 @@ final class StudentService implements InterfaceStudentService{
             }
         }
         return grades;
+    }
+
+    public void sendHomeWork() {
+        //To change body of implemented methods use File | Settings | File Templates.
     }
 
 }
