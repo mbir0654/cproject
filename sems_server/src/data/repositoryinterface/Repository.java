@@ -37,7 +37,7 @@ public interface Repository<T>{
 	/**
 	 * mai vedem noi ce face asta :D
 	 */
-	public void update();
+	public void update(T item);
 	
 	/**
 	 * sterge din colectie obiectul indicat

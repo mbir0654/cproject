@@ -1,8 +1,9 @@
 package business.model;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class AssignmentSolution {
+public class AssignmentSolution implements Serializable {
 	private Assignment assignment;
 	private String solution = "";
 	private Date date = null;
@@ -21,10 +22,16 @@ public class AssignmentSolution {
 	 * @param s este Studentul care a adaugat rezolvarea
 	 * 
 	 * @param a este tema pentru care se creeaza rezolvarea
+	 * 
+	 * @param d este data la care a fost adaugata rezolvarea
+	 * 
+	 * @param sol este rezolvarea temei
 	 */
-	public AssignmentSolution(Student s, Assignment a) {
-		s = new Student(s);
-		assignment = new Assignment(a);
+	public AssignmentSolution(Student s, Assignment a, Date d, String sol) {
+		this.author = s;
+		this.assignment = a;
+		this.date = d;
+		this.solution = sol;
 	}
 	
 	/**
@@ -88,5 +95,13 @@ public class AssignmentSolution {
 	 */
 	public Assignment getAssignment() {
 		return assignment;
+	}
+	
+	/**
+	 * 
+	 */
+	@Override
+	public String toString() {
+		return solution+" "+author;
 	}
 }

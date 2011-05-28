@@ -13,16 +13,20 @@ import business.model.Student;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.DefaultListModel;
 import javax.swing.table.*;
+
+import business.serviceinterface.InterfaceStudentService;
 import ui.*;
 /**
  *
  * @author snoopy
  */
 public class ControllerStudent {
-        private final Student s;
+    private final Student s;
+    private final InterfaceStudentService studentService;
 
-    public ControllerStudent(Student s) {
+    public ControllerStudent(Student s, InterfaceStudentService service) {
         this.s = s;
+        studentService = service;
     }
 
         /*
@@ -30,7 +34,7 @@ public class ControllerStudent {
          */
          public void openMainFrame() {
              
-            frameStudMain mainFrame = new frameStudMain(this);
+            FrameStudMain mainFrame = new FrameStudMain(this);
             mainFrame.setVisible(true);
             mainFrame.setTitle("SEMS :: Student " + s.getFirstName()+" "+s.getLastName());
             mainFrame.setResizable(false);
@@ -50,82 +54,78 @@ public class ControllerStudent {
          }
 
 	public void openContracts(){
-		frameStudContracte contract = new frameStudContracte(this);
-                contract.setTitle("SEMS :: Contracte");
-                contract.setResizable(false);
-                contract.getButContracteaza().setEnabled(false);
-                contract.getPanouInfoCurs().setVisible(false);
-                contract.setVisible(true);
+		FrameStudContracte contract = new FrameStudContracte(this);
+        contract.setTitle("SEMS :: Contracte");
+        contract.setResizable(false);
+        contract.getButContracteaza().setEnabled(false);
+        contract.getPanouInfoCurs().setVisible(false);
+        contract.setModal(true);
+        contract.setVisible(true);
 	}
         
-	public void openAssignments(frameStudMain main){
+	public void openAssignments(FrameStudMain main){
                  /*
                  * Incarcam lista de teme pentru cursul selectat din mainFrame
 //                 */
-                DefaultListModel dlm = new DefaultListModel();
-                Course c = (Course) main.getListCursuri().getSelectedValue();
-                    for(Assignment a : c.getAssignments()) {
-                        dlm.addElement(a);
-                    }
-                dlm.addElement("TEST");
 
-
-		frameStudTeme teme = new frameStudTeme(this);
-                teme.getListTeme().setModel(dlm);
-                teme.setVisible(true);
-                teme.setTitle("SEMS :: Teme");
-                teme.setResizable(false);
-                teme.getLabelInfoTeme().setVisible(false);
-                teme.getTemaDetalii().setEditable(false);
-                teme.getLabelCursSelectat().setText(c.getName());
-
+        DefaultListModel dlm = new DefaultListModel();
+        Course c = (Course) main.getListCursuri().getSelectedValue();
+        for(Assignment a : c.getAssignments()) {
+            dlm.addElement(a);
+        }
+        dlm.addElement("TEST");
+		FrameStudTeme teme = new FrameStudTeme(this);
+        teme.setModal(true);
+        teme.getListTeme().setModel(dlm);
+        teme.setTitle("SEMS :: Teme");
+        teme.setResizable(false);
+        teme.getLabelInfoTeme().setVisible(false);
+        teme.getTemaDetalii().setEditable(false);
+        teme.getLabelCursSelectat().setText(c.getName());
+        teme.setVisible(true);
 	}
         
-        public void openCourseComponents(frameStudMain main){
+    public void openCourseComponents(FrameStudMain main){
 
-                Course c = (Course) main.getListCursuri().getSelectedValue();
+        Course c = (Course) main.getListCursuri().getSelectedValue();
                 
 
-		frameStudMaterialeCurs materiale = new frameStudMaterialeCurs(this);
-                materiale.setVisible(true);
-                materiale.setTitle("SEMS :: Materiale");
-                materiale.setResizable(false);
-                materiale.getMaterialText().setEditable(false);
-                materiale.getMaterialInfo().setVisible(false);
-                materiale.getLabelCursSelected().setText(c.getName());
+		FrameStudMaterialeCurs materiale = new FrameStudMaterialeCurs(this);
+        materiale.setModal(true);
+        materiale.setTitle("SEMS :: Materiale");
+        materiale.setResizable(false);
+        materiale.getMaterialText().setEditable(false);
+        materiale.getLabelCursSelected().setText(c.getName());
+        materiale.getMaterialInfo().setVisible(false);
+        materiale.setVisible(true);
 	}
 
         /*
          * Metoda folosita pentru a deschide frame-ul de note al studentului
          */
-        public void openGrades(frameStudMain main) {
-
-                Course selectedCourse = (Course) main.getListCursuri().getSelectedValue();
-
-                
-		frameStudNote note = new frameStudNote(this);
-                note.setVisible(true);
-                note.setTitle("SEMS :: Note");
-                note.setResizable(false);
-                // afisam informatia pentru cursul selectat
-
-                            // populam lista de cursuri la care e inscris studentul
-            DefaultComboBoxModel dlm = new DefaultComboBoxModel();
-            for(Course c : s.getContract().getCourses())
-                dlm.addElement(c);
-
-
-            note.getComboCursuri().setSelectedItem(selectedCourse);
-            note.getComboCursuri().setModel(dlm);
+    public void openGrades(FrameStudMain main) {
+        Course selectedCourse = (Course) main.getListCursuri().getSelectedValue();
+		FrameStudNote note = new FrameStudNote(this);
+        note.setTitle("SEMS :: Note");
+        note.setResizable(false);
+        // afisam informatia pentru cursul selectat
+        // populam lista de cursuri la care e inscris studentul
+        DefaultComboBoxModel dlm = new DefaultComboBoxModel();
+        for(Course c : s.getContract().getCourses())
+            dlm.addElement(c);
+        note.getComboCursuri().setSelectedItem(selectedCourse);
+        note.getComboCursuri().setModel(dlm);
+        note.setModal(true);
+        note.setVisible(true);
 	}
         /*
          * Metoda folosita pentru a repopula tabelul de note al unui student
          * in functie de cursul selectat.
          */
-         public void getGradeInfo(frameStudNote f, Course selectedCourse) {
+         public void getGradeInfo(FrameStudNote f, Course selectedCourse) {
              DefaultTableModel dtm = new DefaultTableModel();
              for(Exam e : selectedCourse.getExams()) {
-                 for(Grade g : e.getGrade()) {
+                 for(Grade g : e.getGrades()) {
                       // de completat
                  }
              }
@@ -135,17 +135,17 @@ public class ControllerStudent {
          *  Metoda folosita pentru a activa/deactiva butoanele la
          *  selectarea unui curs in frame-ul principal al studentului.
          */
-	public void setStudMainButtons(boolean var, frameStudMain f) {
+	public void setStudMainButtons(boolean var, FrameStudMain f) {
                 f.getButTrimiteTeme().setEnabled(var);
                 f.getButMaterialeCurs().setEnabled(var);
                 f.getButNote().setEnabled(var);
         }
 
         /*
-         * Metode folosite in frame-ul frameStudContracte
+         * Metode folosite in frame-ul FrameStudContracte
          */
           
-    	public void enableContractButtons(frameStudContracte f){
+    	public void enableContractButtons(FrameStudContracte f){
 		f.getButContracteaza().setEnabled(true);
 	//	f.getPanouInfoCurs().setEnabled(true);
                 f.getPanouInfoCurs().setVisible(true);
@@ -154,7 +154,7 @@ public class ControllerStudent {
         /**
          *  Seteaza informatiile despre un curs, o data la selectarea acestuia
          */
-       public void getContractInfo(frameStudContracte f) {
+       public void getContractInfo(FrameStudContracte f) {
                 int selectedContractIndex = f.getListCursuri().getSelectedIndex();
                 f.getLabelDenumire().setText("Denumire");
                 f.getLabelCod().setText("cod223");
@@ -165,9 +165,9 @@ public class ControllerStudent {
         }
 
         /**
-         *  Metode folosite in frame-ul frameStudTeme
+         *  Metode folosite in frame-ul FrameStudTeme
          */
-        public void enableAssignmentActions(frameStudTeme f){
+        public void enableAssignmentActions(FrameStudTeme f){
 		f.getLabelInfoTeme().setVisible(true);
                 f.getLabelTemaCurs().setText("nume curs");
                 f.getLabelTemaData().setText("12/04/2011");
@@ -182,22 +182,22 @@ public class ControllerStudent {
 
 
         /**
-         * Metode folosite in frame-ul frameStudMaterialeCurs
+         * Metode folosite in frame-ul FrameStudMaterialeCurs
          */
-        public void showComponentInfo(frameStudMaterialeCurs f){
+        public void showComponentInfo(FrameStudMaterialeCurs f){
 		f.getMaterialInfo().setVisible(true);
                 f.getLabelMaterialText().setText("TEXTUL materialului");
                 f.getLabelTitlu().setText("Titlu materialului");
                 
 	}
         /**
-         * Metode folosite in frame-ul frameStudNote
+         * Metode folosite in frame-ul FrameStudNote
          */
-        public void enableTestList(frameStudNote f){
+        public void enableTestList(FrameStudNote f){
 		//f.getListTeste().setVisible(true);
 	}
 
-        public void enableTestInfo(frameStudNote f){
+        public void enableTestInfo(FrameStudNote f){
 		//f.getInfoTest().setVisible(true);
              //   f.getLabelTitlu().setText("TITLU");
             //    f.getLabelData().setText("12/23/2322");
@@ -205,9 +205,9 @@ public class ControllerStudent {
 	}
 
         /**
-         * Metode folosite in frame-ul frameStudMain
+         * Metode folosite in frame-ul FrameStudMain
          */
-        public void loadAnnounces(frameStudMain f) {
+        public void loadAnnounces(FrameStudMain f) {
             DefaultListModel dlm = new DefaultListModel();
             dlm.addElement("TEST");
             for(Course c : s.getContract().getCourses()) {
@@ -217,7 +217,7 @@ public class ControllerStudent {
             }
             f.getListAnunturi().setModel(dlm);
         }
-        public void showMainAnnounce(frameStudMain f) {
+        public void showMainAnnounce(FrameStudMain f) {
             
             f.getLabelAnuntCurs().setText("Titlu anunt");
             f.getLabelAnuntProf().setText("Bufny");
@@ -225,7 +225,7 @@ public class ControllerStudent {
             f.getLabelAnuntTitlu().setText("Titlu anuntului");
         }
 
-        public void loadCursuri(frameStudMain f){
+        public void loadCursuri(FrameStudMain f){
             DefaultListModel dlm = new DefaultListModel();
             dlm.addElement("TEST");
             for (Course  c : s.getContract().getCourses()){

@@ -7,10 +7,40 @@
 	<bean id="appService" class="business.service.AppService">
 	</bean>
 
-	<bean class="org.springframework.remoting.rmi.RmiServiceExporter">
+    <bean id="studentService" class="business.service.StudentService">
+    </bean>
+
+    <bean id="professorService" class="business.service.ProfessorService">
+    </bean>
+
+    <bean id="administratorService" class="business.service.AdministratorService">
+    </bean>
+
+    <bean class="org.springframework.remoting.rmi.RmiServiceExporter">
 		<property name="serviceName" value="AppService" />
 		<property name="service" ref="appService" />
-		<property name="serviceInterface" value="service.InterfaceAppService" />
+		<property name="serviceInterface" value="business.serviceinterface.InterfaceAppService" />
+		<property name="registryPort" value="1188" />
+	</bean>
+
+    <bean class="org.springframework.remoting.rmi.RmiServiceExporter">
+		<property name="serviceName" value="StudentService" />
+		<property name="service" ref="studentService" />
+		<property name="serviceInterface" value="business.serviceinterface.InterfaceStudentService" />
+		<property name="registryPort" value="1188" />
+	</bean>
+
+    <bean class="org.springframework.remoting.rmi.RmiServiceExporter">
+		<property name="serviceName" value="ProfessorService" />
+		<property name="service" ref="professorService" />
+		<property name="serviceInterface" value="business.serviceinterface.InterfaceProfessorService" />
+		<property name="registryPort" value="1188" />
+	</bean>
+
+    <bean class="org.springframework.remoting.rmi.RmiServiceExporter">
+		<property name="serviceName" value="AdministratorService" />
+		<property name="service" ref="administratorService" />
+		<property name="serviceInterface" value="business.serviceinterface.InterfaceAdministratorService" />
 		<property name="registryPort" value="1188" />
 	</bean>
 

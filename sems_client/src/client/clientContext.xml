@@ -4,13 +4,32 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans
          http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-	<bean id="semsClient" class="client.SemsClient">
+	<bean id="semsClient" class="client.RMIUtil">
 		<property name="appService" ref="appService" />
+        <property name="studentService" ref="studentService" />
+        <property name="adminService" ref="administratorService" />
+        <property name="profService" ref="professorService" />
+
 	</bean>
 
 	<bean id="appService" class="org.springframework.remoting.rmi.RmiProxyFactoryBean">
 		<property name="serviceUrl" value="rmi://localhost:1188/AppService" />
-		<property name="serviceInterface" value="service.InterfaceAppService" />
+		<property name="serviceInterface" value="business.serviceinterface.InterfaceAppService" />
 	</bean>
+
+    <bean id="studentService" class="org.springframework.remoting.rmi.RmiProxyFactoryBean">
+        <property name="serviceUrl" value="rmi://localhost:1188/StudentService" />
+        <property name="serviceInterface" value="business.serviceinterface.InterfaceStudentService" />
+    </bean>
+
+    <bean id="administratorService" class="org.springframework.remoting.rmi.RmiProxyFactoryBean">
+        <property name="serviceUrl" value="rmi://localhost:1188/AdministratorService" />
+        <property name="serviceInterface" value="business.serviceinterface.InterfaceAdministratorService" />
+    </bean>
+
+    <bean id="professorService" class="org.springframework.remoting.rmi.RmiProxyFactoryBean">
+        <property name="serviceUrl" value="rmi://localhost:1188/ProfessorService" />
+        <property name="serviceInterface" value="business.serviceinterface.InterfaceProfessorService" />
+    </bean>
 
 </beans>

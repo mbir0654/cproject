@@ -1,9 +1,9 @@
 package business.model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Faculty {
-	private String university = "";
+public class Faculty implements Serializable {
 	private String name = "";
 	private String address = "";
 	private ArrayList<Specialty> specialties = new ArrayList<Specialty>();
@@ -23,30 +23,16 @@ public class Faculty {
 	 * 	 	   cu dea data ca parametru
 	 */
 	public boolean equals(Faculty f){
-		if(this.university == f.getUniversity() &&
-		   this.name == f.getName() &&
+		if(this.name == f.getName() &&
 		   this.address == f.getAddress())
 			return true;
 		return false;
 	}
-
-	/**
-	 * @param university va fi Univestiatea de care apartine facultatea
-	 */
-	public void setUniversity(String university) {
-		this.university = university;
-	}
-
-	/**
-	 * @return Univestiatea de care apartine facultatea
-	 */
-	public String getUniversity() {
-		return university;
-	}
-
+	
 	/**
 	 * @param name va fi numele facultatii
-	 */
+	 */		// TODO Auto-generated method stub
+
 	public void setName(String name) {
 		this.name = name;
 	}
@@ -73,16 +59,25 @@ public class Faculty {
 	}
 
 	/**
-	 * @param specialties ca fi lista cu specialitatile facultatii
+	 * @param specialtie este specialitatea ce va fi adaugata in lista cu 
+	 * 		specializarile facultatii
 	 */
-	public void setSpecialties(ArrayList<Specialty> specialties) {
-		this.specialties = specialties;
+	public void addSpecialty(Specialty specialty) {
+		specialties.add(specialty);
 	}
 
 	/**
-	 * @return lista cu specialitatile facultatii
+	 * @return lista cu specializarile facultatii
 	 */
 	public ArrayList<Specialty> getSpecialties() {
 		return specialties;
+	}
+	
+	/**
+	 * @return
+	 */
+	@Override
+	public String toString() {
+		return name+" "+address;
 	}
 }

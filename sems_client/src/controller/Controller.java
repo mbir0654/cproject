@@ -10,9 +10,10 @@ import business.model.User;
 import javax.swing.JFrame;
 
 import java.math.BigInteger;
-import java.nio.charset.Charset;
 import java.security.*;
 
+import business.serviceinterface.InterfaceAppService;
+import client.RMIUtil;
 import ui.*;
 //import business.service.AppService;
 
@@ -23,62 +24,104 @@ import ui.*;
  *
  */
 public class Controller {
-	
-	private User u;
-	
 	@SuppressWarnings("unused")
-//	private AppService apps;
+
+	private User u;
+	private FrameLogin loginFrame;
+	private InterfaceAppService apps;
 	
 	/**
 	 * Constructorul implicit. 
 	 * <p>atributul privat este referinta 
 	 * spre clasa cu serviciile aplicatiei</p>
-	 * @see AppService#getInstance() 
 	 */
-	public Controller(){
-//		apps = AppService.getInstance();
+
+    /**
+     *
+     * @param service - serviciul utilizat de controller
+     */
+
+	public Controller(InterfaceAppService service){
+        apps = service;
 	}
 	
+	
+
+    public void openLoginFrame() {
+        loginFrame = new FrameLogin(this);
+        loginFrame.setTitle("SEMS:: Login");
+        loginFrame.setName("Login");
+        loginFrame.setResizable(false);
+        //loginFrame.pack(); //daca faci pack, nu se mai vede labelul de eroare :-??
+        loginFrame.setVisible(true);
+    }
+	
+    /**
+     * @see InterfaceAppService#ValidateUser(String, String)
+     * 
+     * @param u este username-ul
+     * @param p este parola 
+     * @return referinta la user daca exista in baza de date
+     */
 	public User ValidateUser(String u, String p){
-		return null;
+            System.out.println(apps.ValidateUser(u, p));
+            return apps.ValidateUser(u, p);
 	}
 	
-        /*
-         * Checking the login username and password to know what to open
-         */
-    public void checkLogin(frameLogin f) {
-            String inputUser = f.getInputUser().getText();
+    /**
+    * Checking the login username and password to know what to open
+    */
+    public void checkLogin() {
+    	String inputUser = loginFrame.getInputUser().getText();
+        String inputPassword = String.copyValueOf(
+        		loginFrame.getInputPass().getPassword());
+        User user;
+	try {
+            user = login(inputUser, inputPassword);
             /*
              * Trimite username-ul si parola in format MD5
              * spre verificare la server
             */
-            User U=new Student();
-             System.out.println(U.getClass().toString());
-            if(U.getClass().toString().contains("Administrator"))
-                this.loginAdmin(f, (Administrator) U);
-            else if(U.getClass().toString().contains("Professor"))
-                this.loginProf(f,(Professor) U);
-            else if(U.getClass().toString().contains("Student"))
-                this.loginStudent(f,(Student) U);
-
+            if(user instanceof Administrator) {
+                this.loginAdmin(loginFrame, (Administrator) user);
+                loginFrame.setVisible(false);
+            }
+            else if(user instanceof Professor) {
+                this.loginProf(loginFrame,(Professor) user);
+                loginFrame.setVisible(false);
+            }
+            else if(user instanceof Student) {
+                this.loginStudent(loginFrame,(Student) user);
+                loginFrame.setVisible(false);
+            }
+            else {
+            	loginFrame.getInfoText().setText("User sau parola gresite!!!");
+            	loginFrame.getInfoText().setVisible(true);
+            }
+			} catch (NoSuchAlgorithmException e) {
+				System.out.println(e.getMessage());
+				e.printStackTrace();
+			}      
         }
 
 	public void loginAdmin(JFrame f,Administrator adm){
-            u = new Administrator(adm);
-            ControllerAdmin ca = new ControllerAdmin((Administrator) u);
-		JFrame admin = new frameAdminMain(ca);
-        admin.setVisible(true);
-        admin.setTitle("SEMS :: Administrator");
-        admin.setResizable(false);
+        u = new Administrator(adm);
+        ControllerAdmin ca = new ControllerAdmin((Administrator) u, RMIUtil.getAdminService());
+		JFrame adminFrame = new FrameAdminMain(ca);
+        adminFrame.setTitle("SEMS :: Administrator");
+        adminFrame.setResizable(false);
+        adminFrame.setVisible(true);
         //f.setVisible(false); //lasa linia asta comentata!!!
 	}
+	
 	/**
 	 * @param f este referinta spre fereastra afectata de metoda
 	 */
 	public void loginStudent(JFrame f,Student stud){
-            u = new Student(stud);
-            ControllerStudent cs = new ControllerStudent((Student)u);
-            cs.openMainFrame();
+        u = new Student(stud);
+        ControllerStudent cs = new ControllerStudent((Student) u, RMIUtil.getStudentService());
+        cs.openMainFrame();
+
 	}
 
         
@@ -86,27 +129,25 @@ public class Controller {
 	 * @param f este referinta spre fereastra afectata de metoda
 	 */
 	public void loginProf(JFrame f, Professor P){
-            u = new Professor(P);
-            ControllerProfesor cp = new ControllerProfesor((Professor) u);
-            JFrame prof = new frameProfMain(cp);
-            prof.setVisible(true);
-            prof.setTitle("SEMS :: Profesor");
-            prof.setResizable(false);
-            //f.setVisible(false); //lasa linia asta comentata!!!
+        u = new Professor(P);
+        ControllerProfesor cp = new ControllerProfesor((Professor) u, RMIUtil.getProfService());
+        JFrame profFrame = new FrameProfMain(cp);
+        profFrame.setVisible(true);
+        profFrame.setResizable(false);
+        profFrame.setTitle("SEMS :: Profesor");
+        //f.setVisible(false); //lasa linia asta comentata!!!
 	}
 	
 	
 	public User login(String username, String password) throws NoSuchAlgorithmException{
-	    
-		MessageDigest m = MessageDigest.getInstance("MD5");
-        byte[] data = password.getBytes(); 
-        m.update(data,0,data.length);
-        BigInteger i = new BigInteger(1,m.digest());
-        String pas = String.format("%1$032X", i);
-	
-		u = ValidateUser(username, pas);
-		
-		return u;
+            MessageDigest m = MessageDigest.getInstance("MD5");
+            byte[] data = password.getBytes();
+            m.update(data,0,data.length);
+            BigInteger i = new BigInteger(1,m.digest());
+            String pas = String.format("%1$032X", i);
+            System.out.println(pas);
+            u = ValidateUser(username, pas);
+            return u;
 	}
 
 

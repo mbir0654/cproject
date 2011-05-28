@@ -1,5 +1,6 @@
 package business.model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -8,7 +9,7 @@ import java.util.List;
  * @author otniel
  *
  */
-public class Contract {
+public class Contract implements Serializable {
 	private List<Course> courses;
 	private Student student;
 	
@@ -22,9 +23,17 @@ public class Contract {
 	/**
 	 * @param courses va fi lista de cursuri contractate
 	 */
-	public void setCourses(List<Course> courses) {
-		this.courses.clear();
-		this.courses.addAll(courses);
+	public void addCourse(Course course) {
+		courses.add(course);
+	}
+	
+	
+	/**
+	 * 
+	 * @param c este cursul care va fi scos din contract
+	 */
+	public void removeCourse(Course c){
+		courses.remove(c);
 	}
 
 	/**

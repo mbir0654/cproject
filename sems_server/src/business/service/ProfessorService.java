@@ -1,11 +1,17 @@
 package business.service;
 
 import business.model.Professor;
+import business.serviceinterface.InterfaceProfessorService;
+
 /**
  * @author myh
  *
  */
-final class ProfessorService {
+final class ProfessorService implements InterfaceProfessorService {
+    public String hello() {
+        return "hello, from prof";
+    }
+
 	@SuppressWarnings("unused")
 	private Professor p;
 	

@@ -1,8 +1,9 @@
 package business.model;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class Announcement {
+public class Announcement implements Serializable {
 	private String announcement = "";
     private String subject = "";
 	private Professor prof;
@@ -13,17 +14,24 @@ public class Announcement {
 	/**
 	 * Constructor parametrizat
 	 * 
-	 * @param a este textul anuntului
+	 * @param msg este textul anuntului
 	 * 
-	 * @param p este profesorul care a facut anuntul
+	 * @param subj este titlul anuntului
+	 * 
+	 * @param d este data anuntului
+	 * 
+	 * @param c este cursul pentru care s-a facut anuntul
 	 */
-	public Announcement(String msg, String subj, Professor p) {
-		setAnnouncement(msg);
-                this.subject=subj;
-                setProf(p);
-                this.date= new Date();
+	public Announcement(String msg, String subj, Date d, Course c) {
+		this.announcement = msg;
+        this.subject=subj;
+        this.date = d;
+        course = c;
 	}
 	
+	/**
+	 * constructor implicit;
+	 */
 	public Announcement() {
 		this.date = new Date();
 	}
@@ -84,19 +92,34 @@ public class Announcement {
 		return course;
 	}
 
-    public Date getData() {
+    /**
+     * @return data la care a fost facut anuntul
+     */
+	public Date getData() {
         return date;
     }
 
-    public String getSubiect() {
+    /**
+     * 
+     * @return titlul anuntului
+     */
+	public String getSubiect() {
         return subject;
     }
-    @Override
-    public String toString() {
-        return this.subject;
-    }
-
+    
+	/**
+	 * 
+	 * @param d este noua data a anuntului
+	 */
     public void setData(Date d) {
         this.date=d;
+    }
+    
+    /**
+     * @return un string cu titlul anuntului si data la care a fost facut
+     */
+    @Override
+    public String toString() {
+        return this.subject+" - "+this.date;
     }
 }

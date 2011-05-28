@@ -1,10 +1,12 @@
 package business.model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Specialty {
+public class Specialty implements Serializable {
 	private List<Course> courses;
+	private List<Group> groups;
 	private String name;
 	private int numberOfYears;
 	private Faculty faculty;
@@ -14,6 +16,7 @@ public class Specialty {
 	 */
 	public Specialty(){
 		courses = new ArrayList<Course>();
+		groups = new ArrayList<Group>();
 		name = "";
 		numberOfYears = 3;
 	}
@@ -33,11 +36,11 @@ public class Specialty {
 	}
 	
 	/**
-	 * @param courses va fi noua lista care contine cursurile care se predau
-	 *        in cadrul acestei specializari
+	 * @param course este cursul care se adauga in lista care contine cursurile
+	 * 				care se predau in cadrul acestei specializari
 	 */
-	public void setCourses(ArrayList<Course> courses) {
-		this.courses = courses;
+	public void addCourse(Course course) {
+		courses.add(course);
 	}
 	/**
 	 * @return lista care contine cursurile care se predau in cadrul
@@ -83,5 +86,28 @@ public class Specialty {
 	 */
 	public Faculty getFaculty() {
 		return faculty;
+	}
+	
+	/**
+	 * 
+	 * @param groups
+	 */
+	public void addGroup(Group group) {
+		groups.add(group);
+	}
+	
+	/**
+	 * 
+	 */
+	public List<Group> getGroups() {
+		return groups;
+	}
+	
+	/**
+	 * returneaza un string cu denumirea specializarii
+	 */
+	@Override
+	public String toString() {
+		return name;
 	}
 }

@@ -3,6 +3,7 @@
  */
 package business.model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,57 +11,82 @@ import java.util.List;
  * @author CLJ
  *
  */
-public class Group {
-	private List<Student> student;
+public class Group implements Serializable {
+	private List<Student> students;
 	private String group;
 	private Specialty specialty;
 
-        public Group() {
-            group="";
-            student = new ArrayList<Student>();
-        }
-        public Group(String gr) {
-            this.group=gr;
-            student=new ArrayList<Student>();
-        }
+	/**
+	 * Constructor implicit
+	 */
+    public Group() {
+    	group="";
+        students = new ArrayList<Student>();
+    }
+    
+    /**
+     * Constructor parametrizat
+     * @param gr
+     */
+    public Group(String gr) {
+    	this.group=gr;
+        students=new ArrayList<Student>();
+    }
+        
 	/**
 	 * @param student the student to set
 	 */
-	public void addStudent(Student s) {
-		this.student.add(s);
+	public void addStudent(Student student) {
+		this.students.add(student);
 	}
+	
 	/**
 	 * @return the student
 	 */
-	public List<Student> getStudent() {
-		return student;
+	public List<Student> getStudents() {
+		return students;
 	}
+	
 	/**
 	 * @param group the group to set
 	 */
-	public void setGroup(String group) {
+	public void setGroupName(String group) {
 		this.group = group;
 	}
+	
 	/**
 	 * @return the group
 	 */
-	public String getGroup() {
+	public String getGroupName() {
 		return group;
 	}
+	
 	/**
 	 * @param specialty the specialty to set
 	 */
 	public void setSpecialty(Specialty specialty) {
 		this.specialty = specialty;
 	}
+	
 	/**
 	 * @return the specialty
 	 */
 	public Specialty getSpecialty() {
 		return specialty;
 	}
-        public int getStudentNr() {
-            return this.student.size();
-        }
+    
+	/**
+	 * 
+	 * @return numarul de studenti din grupa
+	 */
+	public int getStudentNr() {
+        return this.students.size();
+    }
+	
+	
+	@Override
+	public String toString() {
+		return group+" "+specialty;
+	}
 
 }

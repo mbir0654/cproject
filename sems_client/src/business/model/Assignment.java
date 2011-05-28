@@ -1,21 +1,40 @@
 package business.model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class Assignment {
+public class Assignment implements Serializable {
 	private String name = "";
+	private String text = "";
 	private Date deadline;
 	private ArrayList<AssignmentSolution> solutions;
 	private Course course;
-	//private List<Student> studentList;
 	
 	/**
 	 * Constructorul implicit
 	 */
 	public Assignment() {
 		solutions = new ArrayList<AssignmentSolution>();	
+	}
+	
+	/**
+	 * Constructorul parametrizat
+	 * 
+	 * @param n este denumirea temei 
+	 * 
+	 * @param t este enuntul temei
+	 * 
+	 * @param d este data limita de predare a temei
+	 * 
+	 * @param c este cursul pt care e data tema
+	 */
+	public Assignment(String n, String t, Date d, Course c) {
+		name = n;
+		text = t;
+		deadline = d;
+		course = c;
 	}
 	
 	/**
@@ -26,8 +45,10 @@ public class Assignment {
 	public Assignment(Assignment a){
 		solutions = new ArrayList<AssignmentSolution>();
 		solutions.addAll(a.getSolutions());
-		name = a.getName();
-		deadline = a.getDeadline();
+		name = a.name;
+		deadline = a.deadline;
+		text = a.text;
+		course = a.course;
 	}
 	
 	/**
@@ -90,5 +111,13 @@ public class Assignment {
 	 */
 	public Course getCourse() {
 		return course;
+	}
+	
+	/**
+	 * @return un string cu denumirea cursului, titlul temei si 
+	 */
+	 @Override
+	public String toString() {
+		return course.getName()+" "+name+" "+deadline;
 	}
 }

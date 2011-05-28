@@ -1,9 +1,10 @@
 package business.model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 
-public class Exam {
+public class Exam implements Serializable {
 	private Date date;
 	private String type;
 	private ArrayList<Grade> grades;
@@ -22,30 +23,20 @@ public class Exam {
 	/**
 	 * Constructorul parametrizat
 	 * 
-	 * @param d este ...
-	 * @param t este ...
-	 * @param n este ...
+	 * @param d este data la care se da examenul
+	 * @param t este tipul examenului
+	 * @param c este cursul la care se da examenul
 	 */
-	public Exam(Date d, String t, Grade n) {
+	public Exam(Date d, String t, Course c) {
+		grades = new ArrayList<Grade>();
 		date = d;
 		type = t;
-		grades.add(n);
+		course = c;
 	}
 	
 	/**
 	 * 
-	 * @param d este ...
-	 * @param t este ...
-	 */
-	public Exam(Date d, String t) {
-		date = d;
-		type = t;
-		grades = null;
-	}
-	
-	/**
-	 * 
-	 * @param d este ...
+	 * @param d este data examenului
 	 */
 	public void setData(Date d) {
 		date = d;
@@ -53,7 +44,7 @@ public class Exam {
 	
 	/**
 	 * 
-	 * @param t este ...  
+	 * @param t este tipul examenului 
 	 */
 	public void setTip(String t) {
 		type = t;
@@ -61,7 +52,7 @@ public class Exam {
 	
 	/**
 	 * 
-	 * @return ...
+	 * @return data la care se da examenul
 	 */
 	public Date getData() {
 		return date;
@@ -69,7 +60,7 @@ public class Exam {
 	
 	/**
 	 * 
-	 * @return ...
+	 * @return ripul examenului
 	 */
 	public String getType() {
 		return type;
@@ -77,7 +68,7 @@ public class Exam {
 	
 	/**
 	 * 
-	 * @param n este ...
+	 * @param n este nota care se adauga la acest examen
 	 */
 	public void addGrade(Grade n) {
 		grades.add(n);
@@ -85,29 +76,31 @@ public class Exam {
 	
 	/**
 	 * 
-	 * @return ...
+	 * @return o lista cu rezultatele acestui examen
 	 */
-	public ArrayList<Grade> getGrade() {
+	public ArrayList<Grade> getGrades() {
 		return grades;
 	}
 
 	/**
-	 * @param course the course to set
+	 * @param seteaza cursul pt care se da examen
 	 */
 	public void setCourse(Course course) {
 		this.course = course;
 	}
 
 	/**
-	 * @return the course
+	 * @return cursul la care se da examen
 	 */
 	public Course getCourse() {
 		return course;
 	}
-
-    public ArrayList<Grade> getGrades() {
-        return grades;
-    }
-        
 	
+	/**
+	 * @return un string continand cursul si data
+	 */
+	@Override
+	public String toString() {
+		return course+" "+type+" "+date;
+	}
 }

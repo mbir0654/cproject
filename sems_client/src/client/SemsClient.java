@@ -1,34 +1,24 @@
 package client;
 
-import business.serviceinterface.InterfaceAppService;
-
-import com.sun.org.apache.bcel.internal.util.ClassPath;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
+import controller.Controller;
+import javax.swing.UIManager;
 
 /**
  * Created by IntelliJ IDEA.
  * User: myh
- * Date: 5/23/11
- * Time: 11:24 PM
+ * Date: 5/26/11
+ * Time: 5:40 PM
  * To change this template use File | Settings | File Templates.
  */
 public class SemsClient {
     public static void main(String[] args) {
-        ApplicationContext factory = new ClassPathXmlApplicationContext(
-                "classpath:client/clientContext.xml");
-        SemsClient app = (SemsClient) factory.getBean("semsClient");
-        app.run();
+        try {
+            UIManager.setLookAndFeel("javax.swing.plaf.nimbus.NimbusLookAndFeel");
+        } catch (Exception e){
+            System.out.println("Cannot set feel and look");
+        }
+        RMIUtil.init();
+        Controller loginController = new Controller(RMIUtil.getAppService());
+        loginController.openLoginFrame();
     }
-
-    public void run() {
-
-    }
-
-    private InterfaceAppService appService;
-
-    public void setAppService(InterfaceAppService service) {
-        this.appService = service;
-    }
-
 }

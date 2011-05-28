@@ -1,5 +1,6 @@
 package business.model;
 
+import java.io.Serializable;
 import java.util.*;
 
 	/**
@@ -7,15 +8,23 @@ import java.util.*;
 	 * @author byskis
 	 *
 	 */
-public class Course {
+public class Course implements Serializable {
+	
 	private ArrayList<Exam> exams;
 	private ArrayList<Announcement> announcements;
 	private ArrayList<Assignment> assignments;
-	private String name;
-	private int numberOfCredits;
-	private ArrayList<MaterialCurs> materialeDeCurs;
+	private ArrayList<CourseMaterial> materialeDeCurs;
 	private List<Professor> profesori;
+	private String name = "";
+	private int numberOfCredits = 0;
 	private Specialty specializare;
+	private int semestrul = 0;
+	private String cod = "";
+	/**
+	 * tipul cursului, care poate fi <B>OBLIGATORIU</B>,<B>FACULTATIV</B> sau
+	 * <B>OPTIONAL</B>
+	 */
+	private String tip = "";
 	
 	/**
 	 * Constructorul implicit
@@ -24,9 +33,7 @@ public class Course {
 		exams = new ArrayList<Exam>();
 		announcements = new ArrayList<Announcement>();
 		assignments = new ArrayList<Assignment>();
-		materialeDeCurs = new ArrayList<MaterialCurs>();
-		name = "";
-		numberOfCredits = 0;
+		materialeDeCurs = new ArrayList<CourseMaterial>();
 		profesori = new ArrayList<Professor>();
 		specializare = new Specialty();
 	}
@@ -42,6 +49,10 @@ public class Course {
         materialeDeCurs = c.materialeDeCurs;
         name=c.name;
         numberOfCredits=c.numberOfCredits;
+        cod = c.cod;
+        specializare = c.specializare;
+        tip = c.tip;
+        semestrul = c.semestrul;
     }
 	
 	/**
@@ -52,9 +63,9 @@ public class Course {
 	 */
 	public Course(String n, int nC) {
 		name = n;
-                exams = new ArrayList<Exam>();
+        exams = new ArrayList<Exam>();
 		announcements = new ArrayList<Announcement>();
-                assignments = new ArrayList<Assignment>();
+        assignments = new ArrayList<Assignment>();
 		numberOfCredits = nC;
 	}
 
@@ -68,9 +79,7 @@ public class Course {
 	 * @return true daca cele 2 cursuri sunt identice
 	 */
 	public boolean equals(Course c){
-		if(name.equalsIgnoreCase(c.getName()) &&
-		   numberOfCredits == c.getNumberOfCredits() &&
-		   c.specializare.equals(c.specializare))
+		if(cod.equalsIgnoreCase(c.cod))
 			return true;
 		return false;
 	}
@@ -179,7 +188,7 @@ public class Course {
 	/**
 	 * @param materialeDeCurs este noua lista cu materiale de curs
 	 */
-	public void setMaterialeDeCurs(ArrayList<MaterialCurs> materialeDeCurs) {
+	public void setMaterialeDeCurs(ArrayList<CourseMaterial> materialeDeCurs) {
 		this.materialeDeCurs = materialeDeCurs;
 	}
 	
@@ -188,14 +197,14 @@ public class Course {
 	 * 
 	 * @param mc este materialul de adaugat in lista
 	 */
-	public void addMaterialCurs(MaterialCurs mc){
+	public void addMaterialCurs(CourseMaterial mc){
 		materialeDeCurs.add(mc);
 	}
 	
 	/**
 	 * @return lista cu materialele aferente cursului
 	 */
-	public ArrayList<MaterialCurs> getMaterialeDeCurs() {
+	public ArrayList<CourseMaterial> getMaterialeDeCurs() {
 		return materialeDeCurs;
 	}
 	
@@ -216,9 +225,84 @@ public class Course {
 	}
 	
 	/**
-	 * creaza un String din nume si numar de credite
+	 * 
+	 * @return codul de identificare a cursului
+	 */
+	public String getCod() {
+		return cod;
+	}
+	
+	/**
+	 * 
+	 * @param cod ul de identificare
+	 * compus din abrevierea cursului si a
+	 * specializarii 
+	 */
+	public void setCod(String cod) {
+		this.cod = cod;
+	}
+	
+	/**
+	 * 
+	 * @return tipul cursului
+	 */
+	public String getTip() {
+		return tip;
+	}
+	
+	/**
+	 * 
+	 * @param tip este tipul cursului:
+	 * obligatoriu, facultativ, optional
+	 */
+	public void setTip(String tip) {
+		this.tip = tip;
+	}
+	
+	/**
+	 * 
+	 * @return specializarea asociata cursului
+	 */
+	public Specialty getSpecializare() {
+		return specializare;
+	}
+	
+	/**
+	 * 
+	 * @param specializare este specializarea asociata cursului
+	 */
+	public void setSpecializare(Specialty specializare) {
+		this.specializare = specializare;
+	}
+	
+	/**
+	 * 
+	 * @return lista de profesori care predau la acest curs
+	 */
+	public List<Professor> getProfesori() {
+		return profesori;
+	}
+	
+	/**
+	 * 
+	 * @return semestrul in care se preda cursul.
+	 */
+	public int getSemestrul() {
+		return semestrul;
+	}
+	
+	/**
+	 * 
+	 * @param semestrul va fi semestrul in care se preda cursul
+	 */
+	public void setSemestrul(int semestrul) {
+		this.semestrul = semestrul;
+	}
+	
+	/**
+	 * creaza un String din nume specializare si numar de credite
 	 */
     public String toString() {
-        return this.name+" "+this.numberOfCredits;
+        return name+" "+numberOfCredits+" "+specializare;
     }
 }

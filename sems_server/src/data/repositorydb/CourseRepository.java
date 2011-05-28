@@ -37,7 +37,7 @@ public class CourseRepository implements Repository<Course>{
 	}
 
 	/**
-	 * @see data.repositoryinterface.Repository#find(java.lang.String)
+	 * @see data.repositoryinterface.Repository#findByName(java.lang.String)
 	 */
 	@Override
 	public Course findByName(String name) {
@@ -52,7 +52,7 @@ public class CourseRepository implements Repository<Course>{
 	 * @see data.repositoryinterface.Repository#update(java.lang.Object)
 	 */
 	@Override
-	public void update() {
+	public void update(Course item) {
 		// TODO Auto-generated method stub
 		
 	}

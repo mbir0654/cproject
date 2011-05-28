@@ -19,6 +19,7 @@ public class Student extends User {
 	private Specialty specialty;
 	private Group group;
 	private int year = 1;
+
 	
 	/**
 	 * Constructorul implicit
@@ -38,6 +39,7 @@ public class Student extends User {
 	 */
 	public Student(Student s){
 		super(s);
+
 		nrMat = s.nrMat;
 		contract = s.contract;
 		solutions = s.solutions;
@@ -143,9 +145,11 @@ public class Student extends User {
 	 *
 	 * @param year este anul in care va fi inmatriculat studentul
 	 */
-  public void  setYear(int year){
-      this.year = year;
-  }
+        public void  setYear(int year){
+            this.year = year;
+        }
+	
+
 	
 	/**
 	 * 
@@ -187,12 +191,13 @@ public class Student extends User {
 		return getFirstName()+" "+getLastName()+" - "+ specialty.toString();
 	}
 
+
 	public ArrayList<DbObject> toDbObjectStud(){
-      DbObject db1 = new DbObject("personalCode",cnp);
-      DbObject db2 = new DbObject("userName",userName);
-      ArrayList<DbObject> list = new ArrayList<DbObject>();
-      list.add(db1); list.add(db2);
-      return list;
+            DbObject db1 = new DbObject("personalCode",cnp);
+            DbObject db2 = new DbObject("userName",userName);
+            ArrayList<DbObject> list = new ArrayList<DbObject>();
+            list.add(db1); list.add(db2);
+            return list;
 
 	}
 

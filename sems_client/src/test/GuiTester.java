@@ -4,8 +4,11 @@
 package test;
 
 import javax.swing.*;
+
+import client.RMIUtil;
 /*import java.awt.*;
 import java.awt.event.*;*/
+import controller.Controller;
 import ui.*;
 
 /**
@@ -14,7 +17,17 @@ import ui.*;
  */
 
 public class GuiTester {
-	
+	/**
+	 * 
+	 * Date de incercare!!!!
+	 * 
+	 * admin - Username: adi Password: pass
+	 * 
+	 * student - Username: alex Password: pass
+	 * 
+	 * profesor - username: bobby Password pass 
+	 * 
+	 */
 	
 	
 	/**
@@ -37,12 +50,9 @@ public class GuiTester {
         catch (IllegalAccessException e) {
            // handle exception
         }
-        
-        JFrame loginFrame = new frameLogin();
-        loginFrame.setVisible(true);
-        loginFrame.setTitle("SEMS:: Login");
-        loginFrame.setName("Login");
-        loginFrame.setResizable(false);
+
+        Controller controllerLogin = new Controller(RMIUtil.getAppService());
+        controllerLogin.openLoginFrame();
     }
 }
 

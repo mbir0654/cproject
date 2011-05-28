@@ -1,12 +1,12 @@
 package business.model;
 
-import java.util.Date;
+import java.io.Serializable;
 
-public class Grade {
+
+public class Grade implements Serializable {
 	private int grade = 0;
-	private Date date = null;
 	private Exam exam;
-        private Student stud;
+    private Student stud;
 	
 	/**
 	 * Constructor de copiere
@@ -15,8 +15,7 @@ public class Grade {
 	 */
 	public Grade(Grade n){
 		grade = n.grade;
-		date = n.date;
-                stud = n.stud;
+		stud = n.stud;
 	}
 	
 	/**
@@ -24,23 +23,14 @@ public class Grade {
 	 * 
 	 * @param n este nota propriu-zisa
 	 * 
-	 * @param d este data la care s-a acordat nota respectiva
-	 */
-	public Grade(int n, Date d){
-		grade = n;
-		date = d;
-	}
-	
-	/**
-	 * Constructor parametrizat
+	 * @param s este studentul caruia i se acorda nota
 	 * 
-	 * data este setata la null
-	 * 
-	 * @param n este nota care se acorda
+	 * @param s este examenul la care se acorad nota
 	 */
-	public Grade(int n){
+	public Grade(int n, Student s, Exam e){
 		grade = n;
-		
+		stud = s;
+		exam = e;
 	}
 	
 	/**
@@ -53,28 +43,12 @@ public class Grade {
 	
 	/**
 	 * 
-	 * @param d va fi noua data
-	 */
-	public void setDate(Date d){
-		date = d;
-	}
-	
-	/**
-	 * 
 	 * @return valoarea notei
 	 */
 	public int getGrade(){
 		return grade;
 	}
 	
-	/**
-	 * 
-	 * @return data la care a fost acordata nota
-	 */
-	public Date getDate(){
-		return date;
-	}
-
 	/**
 	 * @param exam the exam to set
 	 */
@@ -89,19 +63,27 @@ public class Grade {
 		return exam;
 	}
 
-        /**
-         * 
-         * @param stud va fi noul student asociat notei
-         */
-        public void setStud(Student stud) {
-            this.stud = stud;
-        }
+    /**
+    * 
+    * @param stud va fi noul student asociat notei
+    */
+    public void setStud(Student stud) {
+    	this.stud = stud;
+	}
 
-        /**
-         *
-         * @return studentul asociat notei
-         */
-        public Student getStud() {
-            return stud;
-        }
+	/**
+    *
+    * @return studentul asociat notei
+    */
+    public Student getStud() {
+    	return stud;
+	}
+    
+    /**
+     * @return un string continand cursul, tipul, studentul si nota
+     */
+    @Override
+    public String toString() {
+    	return stud+" "+grade;
+    }
 }

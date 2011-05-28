@@ -10,3 +10,9 @@ sems_server/bin/*
 *.ipr
 *.iws
 */out/*
+*META*
+sems_server/src/data/dbutil/*
+*JavaProject1*
+*JavaProject2*
+sems_server/*.mf
+sems_client/*.mf
