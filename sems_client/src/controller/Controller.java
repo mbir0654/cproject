@@ -7,6 +7,8 @@ import business.model.Administrator;
 import business.model.Professor;
 import business.model.Student;
 import business.model.User;
+
+import javax.naming.event.NamingExceptionEvent;
 import javax.swing.JFrame;
 
 import java.math.BigInteger;
@@ -77,8 +79,10 @@ public class Controller {
                 this.loginProf(loginFrame,(Professor) user);
                 loginFrame.setVisible(false);
             }
+
             else if(user instanceof Student) {
-                this.loginStudent(loginFrame,(Student) user);
+                ControllerStudent controllerStudent = new ControllerStudent((Student) user, RMIUtil.getStudentService());
+                controllerStudent.openStudentFrame();
                 loginFrame.setVisible(false);
             }
             else {
@@ -91,17 +95,6 @@ public class Controller {
         }
     }
 
-	/**
-	 * @param f este referinta spre fereastra afectata de metoda
-	 */
-	public void loginStudent(JFrame f,Student stud){
-        u = new Student(stud);
-        ControllerStudent cs = new ControllerStudent((Student) u, RMIUtil.getStudentService());
-        cs.openMainFrame();
-
-	}
-
-        
 	/**
 	 * @param f este referinta spre fereastra afectata de metoda
 	 */

@@ -113,11 +113,12 @@ public class FrameStudMain extends javax.swing.JFrame {
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
 
         listAnunturi.setForeground(new java.awt.Color(0, 51, 102));
-        listAnunturi.setModel(new javax.swing.AbstractListModel() {
+        /*listAnunturi.setModel(new javax.swing.AbstractListModel() {
             String[] strings = { "Anunt test 1 (Prof. Dan Stirb)", "In gura presei (Prof. Mircea Badea)", "Etc Etc (Dr. Ing. Mihai Gugu)" };
             public int getSize() { return strings.length; }
             public Object getElementAt(int i) { return strings[i]; }
         });
+        */
         listAnunturi.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         listAnunturi.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
             public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
@@ -775,7 +776,9 @@ public class FrameStudMain extends javax.swing.JFrame {
     /**
 	 * @param butNote the butNote to set
 	 */
-	
+	  public void setAnnouncement(ListModel model) {
+        listAnunturi.setModel(model);
+    }
 
 
 	
