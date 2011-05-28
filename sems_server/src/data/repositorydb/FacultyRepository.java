@@ -157,7 +157,7 @@ public class FacultyRepository implements Repository<Faculty>{
 							/*
 							 * extragem lista de rezolvari pentru fiecare tema
 							 */
-							String sfa = "call solutions_for_assig("+asId+")";
+							String sfa = "call solutions_for_assign("+asId+")";
 							ResultSet rs8 =dbu.getDate(sfa);
 							/*
 							 * cat timp exista rezolvari, construim obiectele 

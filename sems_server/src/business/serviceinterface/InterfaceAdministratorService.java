@@ -1,4 +1,9 @@
 package business.serviceinterface;
+
+import business.model.*;
+
+import java.util.*;
+
 /**
  * @author biskis
  * 	
@@ -16,4 +21,6 @@ public interface InterfaceAdministratorService {
 	public void manageAdministrators();
 	public void approveContracts();
 	public void generateReports();
+    public List<Administrator> getAdministrators();
+    public List<Faculty> getFaculties();
 }

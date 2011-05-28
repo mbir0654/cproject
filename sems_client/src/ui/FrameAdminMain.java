@@ -2009,6 +2009,7 @@ public class FrameAdminMain extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_inputInmatFacultateItemStateChanged
 
+
     private void butFacultaAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butFacultaAddActionPerformed
 
         // TODO add your handling code here:
@@ -2087,6 +2088,9 @@ public class FrameAdminMain extends javax.swing.JFrame {
     */
 
 
+    public void setFaculties(ListModel model) {
+        listFacultati.setModel(model);
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton butAdminAdd;
     private javax.swing.JButton butAdminDel;
