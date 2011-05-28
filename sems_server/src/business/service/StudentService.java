@@ -66,37 +66,7 @@ final class StudentService implements InterfaceStudentService{
         }
         return grades;
     }
-    
-    public void viewCourses() {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
 
-    public void viewAnnouncements() {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
-
-    public void makeContract() {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
-
-    public void viewAvailableCourses() {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
-
-    public void viewMatterials() {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
-
-    public void viewGrades() {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
-
-    public void sendHomeWork() {
-        throw new UnsupportedOperationException("Not supported yet.");
-
-        //To change body of implemented methods use File | Settings | File Templates.
-
-    }
 
     public void viewCourses() {
         throw new UnsupportedOperationException("Not supported yet.");
