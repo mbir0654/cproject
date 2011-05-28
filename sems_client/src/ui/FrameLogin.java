@@ -114,13 +114,20 @@ public class FrameLogin extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void butLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butLoginActionPerformed
+    private void butLoginActionPerformed(java.awt.event.ActionEvent evt) {
+        //GEN-FIRST:event_butLoginActionPerformed
 
 
         c.checkLogin();
 }//GEN-LAST:event_butLoginActionPerformed
 
 
+    private void inputUserActionPerformed(java.awt.event.ActionEvent evt) {
+        c.checkLogin();
+    }
+    private void inputPassActionPerformed(java.awt.event.ActionEvent evt) {
+        c.checkLogin();
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton butLogin;
     private javax.swing.JLabel infoText;
