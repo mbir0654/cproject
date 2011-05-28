@@ -1060,11 +1060,10 @@ public class FrameAdminMain extends javax.swing.JFrame {
         // TODO add your handling code here:
 }//GEN-LAST:event_listFacultatiValueChanged
 
-    /**
-    * @param args the command line arguments
-    */
 
-
+    public void setFaculties(ListModel model) {
+        listFacultati.setModel(model);
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton butAdminAdd;
     private javax.swing.JButton butAdminDel;

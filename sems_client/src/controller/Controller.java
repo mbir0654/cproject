@@ -83,7 +83,8 @@ public class Controller {
              * spre verificare la server
             */
             if(user instanceof Administrator) {
-                this.loginAdmin(loginFrame, (Administrator) user);
+                ControllerAdmin controllerAdmin = new ControllerAdmin((Administrator) user, RMIUtil.getAdminService());
+                controllerAdmin.openAdminFrame();
                 loginFrame.setVisible(false);
             }
             else if(user instanceof Professor) {
@@ -104,16 +105,7 @@ public class Controller {
 			}      
         }
 
-	public void loginAdmin(JFrame f,Administrator adm){
-        u = new Administrator(adm);
-        ControllerAdmin ca = new ControllerAdmin((Administrator) u, RMIUtil.getAdminService());
-		JFrame adminFrame = new FrameAdminMain(ca);
-        adminFrame.setTitle("SEMS :: Administrator");
-        adminFrame.setResizable(false);
-        adminFrame.setVisible(true);
-        //f.setVisible(false); //lasa linia asta comentata!!!
-	}
-	
+
 	/**
 	 * @param f este referinta spre fereastra afectata de metoda
 	 */
