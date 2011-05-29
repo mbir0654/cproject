@@ -105,6 +105,7 @@ public class FacultyRepository implements Repository<Faculty>{
 							int exId = rs4.getInt(1);
 							Exam e = new Exam(rs4.getDate(2),
 									rs4.getString(3),c);
+                                                        e.setCourse(c);
 							/*
 							 * extragem notele acordate la un examen 
 							 */

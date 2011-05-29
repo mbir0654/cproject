@@ -54,6 +54,13 @@ public class ProfessorRepository implements Repository<Professor> {
                     g.addStudent(null);
                     p.addGroup(g);
                 }
+                String cft = "call courses_for_teacher('"+p.getUserName()+"')";
+                ResultSet rs2 = dbu.getDate(cft);
+                while(rs2.next()){
+                    Course c = new Course();
+                    c.setCod(rs2.getString(1));
+                    p.addCourse(c);
+                }
                 l.add(p);
             }
         } catch (SQLException e) {

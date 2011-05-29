@@ -62,11 +62,11 @@ public class Course implements Serializable {
 	 * @param nC este numarul de credite
 	 */
 	public Course(String n, int nC) {
-		name = n;
-        exams = new ArrayList<Exam>();
-		announcements = new ArrayList<Announcement>();
-        assignments = new ArrayList<Assignment>();
-		numberOfCredits = nC;
+            name = n;
+            exams = new ArrayList<Exam>();
+            announcements = new ArrayList<Announcement>();
+            assignments = new ArrayList<Assignment>();
+            numberOfCredits = nC;
 	}
 
 
@@ -123,6 +123,19 @@ public class Course implements Serializable {
 	public void addExam(Exam e) {
 		exams.add(e);
 	}
+
+    public void setAnnouncements(ArrayList<Announcement> announcements) {
+        this.announcements = announcements;
+    }
+
+    public void setAssignments(ArrayList<Assignment> assignments) {
+        this.assignments = assignments;
+    }
+
+    public void setExams(ArrayList<Exam> exams) {
+        this.exams = exams;
+    }
+        
 	
 	/**
 	 * 
@@ -303,6 +316,6 @@ public class Course implements Serializable {
 	 * creaza un String din nume specializare si numar de credite
 	 */
     public String toString() {
-        return name+" "+numberOfCredits+" "+specializare;
+        return name+" "+numberOfCredits+" "+exams;
     }
 }

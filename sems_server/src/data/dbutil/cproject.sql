@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50508
 File Encoding         : 65001
 
-Date: 2011-05-28 16:05:27
+Date: 2011-05-29 03:34:50
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -336,7 +336,7 @@ CREATE TABLE `students` (
   `personalCode` varchar(255) NOT NULL,
   `year` int(11) NOT NULL,
   `serialNumber` int(11) NOT NULL,
-  PRIMARY KEY (`studentId`),
+  PRIMARY KEY (`studentId`,`serialNumber`,`personalCode`),
   KEY `userName` (`userName`) USING BTREE,
   CONSTRAINT `students_fk1` FOREIGN KEY (`userName`) REFERENCES `users` (`userName`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
@@ -344,10 +344,10 @@ CREATE TABLE `students` (
 -- ----------------------------
 -- Records of students
 -- ----------------------------
-INSERT INTO `students` VALUES ('2', 'alex', '1880607123454', '0', '0');
-INSERT INTO `students` VALUES ('3', 'andu', '1880607123454', '0', '0');
-INSERT INTO `students` VALUES ('4', 'mishu', '1880607123454', '0', '0');
-INSERT INTO `students` VALUES ('5', 'ovi', '1880607123454', '0', '0');
+INSERT INTO `students` VALUES ('2', 'alex', '1880607123454', '1', '10680');
+INSERT INTO `students` VALUES ('3', 'andu', '1880607123454', '1', '10681');
+INSERT INTO `students` VALUES ('4', 'mishu', '1880607123454', '1', '10682');
+INSERT INTO `students` VALUES ('5', 'ovi', '1880607123454', '1', '10683');
 
 -- ----------------------------
 -- Table structure for `students_specializations`
@@ -357,9 +357,7 @@ CREATE TABLE `students_specializations` (
   `ssId` int(11) NOT NULL AUTO_INCREMENT,
   `studentId` int(11) NOT NULL,
   `spId` int(11) NOT NULL,
-  `serialNumber` int(11) NOT NULL,
   `groupId` int(11) NOT NULL,
-  `year` int(11) NOT NULL DEFAULT '2',
   PRIMARY KEY (`ssId`),
   KEY `spId` (`spId`),
   KEY `studentId` (`studentId`),
@@ -372,10 +370,10 @@ CREATE TABLE `students_specializations` (
 -- ----------------------------
 -- Records of students_specializations
 -- ----------------------------
-INSERT INTO `students_specializations` VALUES ('2', '2', '2', '10680', '1', '2');
-INSERT INTO `students_specializations` VALUES ('3', '3', '2', '10681', '1', '2');
-INSERT INTO `students_specializations` VALUES ('4', '4', '2', '10682', '1', '2');
-INSERT INTO `students_specializations` VALUES ('5', '5', '2', '10684', '1', '2');
+INSERT INTO `students_specializations` VALUES ('2', '2', '2', '1');
+INSERT INTO `students_specializations` VALUES ('3', '3', '2', '1');
+INSERT INTO `students_specializations` VALUES ('4', '4', '2', '1');
+INSERT INTO `students_specializations` VALUES ('5', '5', '2', '1');
 
 -- ----------------------------
 -- Table structure for `teachers`
@@ -506,6 +504,22 @@ END
 DELIMITER ;
 
 -- ----------------------------
+-- Procedure structure for `courses_for_teacher`
+-- ----------------------------
+DROP PROCEDURE IF EXISTS `courses_for_teacher`;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `courses_for_teacher`(IN param10 VARCHAR(255))
+BEGIN
+	select sc.courseCode 
+	from specializations_courses sc inner join teachers_spec ts  on sc.csId = ts.csId
+	inner join teachers t on ts.teacherId = t.teacherId
+	inner join users u on u.userName = t.userName
+	where u.username = param10;
+END
+;;
+DELIMITER ;
+
+-- ----------------------------
 -- Procedure structure for `grades_for_exam`
 -- ----------------------------
 DROP PROCEDURE IF EXISTS `grades_for_exam`;
@@ -576,8 +590,8 @@ DROP PROCEDURE IF EXISTS `students_for_group`;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `students_for_group`(IN param8 INT)
 BEGIN
-	select c.contractId,ss.ssId,ss.studentId,ss.serialNumber,
-				 s.personalCode,u.firstName,u.lastName,u.password,u.userName from
+	select c.contractId,ss.ssId,ss.studentId,s.serialNumber,
+				 s.personalCode,u.userName,s.year from
 	groups g inner join students_specializations ss on g.spId=ss.spId
 	inner join students s on ss.studentId=s.studentId 
 	inner join users u on s.userName=u.userName 

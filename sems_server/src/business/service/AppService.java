@@ -32,6 +32,7 @@ public class AppService implements InterfaceAppService {
 	private Repository<Student> studRepo;
         private Repository<Faculty> facultyReposiitory;
         private Repository<Group> groupRepo;
+        private Repository<Course> courseRepo;
 	
 	/**
 	 *  constuctor privat pentru singleton
@@ -40,8 +41,9 @@ public class AppService implements InterfaceAppService {
 		adminRepo = AdministratorRepository.getInstance();
 		profRepo = ProfessorRepository.getInstance();
 		studRepo = StudentRepository.getInstance();
-                facultyReposiitory = FacultyRepository.getInstance();
                 groupRepo = GroupRepository.getInstance();
+                courseRepo = CourseRepository.getInstance();
+                facultyReposiitory = FacultyRepository.getInstance();
 
 	}
 	

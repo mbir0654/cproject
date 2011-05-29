@@ -36,7 +36,7 @@ public class GroupRepository implements Repository<Group>{
                     if(grp.getGroupName().equals(grr.getGroupName())){
                         grp.setSpecialty(grr.getSpecialty());
                     }
-                System.out.println(p);}
+            }
         }
     }
 
@@ -64,8 +64,4 @@ public class GroupRepository implements Repository<Group>{
     public void delete(Group item) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
-    private static void link(){
-        
-    }
-
 }

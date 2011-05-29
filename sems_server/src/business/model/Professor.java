@@ -66,6 +66,14 @@ public class Professor extends User{
             return (ArrayList<Group>) groups;
     }
 
+    public void setGroups(List<Group> groups) {
+        this.groups = groups;
+    }
+
+    public void setCourses(List<Course> courses) {
+        this.courses = courses;
+    }
+
 
     /**
      * 
@@ -74,6 +82,9 @@ public class Professor extends User{
 	public List<Course> getCourses() {
         return courses;
     }
+        public void addCourse(Course course){
+            courses.add(course);
+        }
 
     /**
      * 
