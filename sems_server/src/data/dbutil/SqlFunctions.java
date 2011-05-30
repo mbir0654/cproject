@@ -63,18 +63,20 @@ public abstract class SqlFunctions{
      * contrar
      * @throws SQLException
      */
-    public static boolean update(String tableName, List<DbObject> data, String where) throws SQLException {
-            String f = "";
+    public static boolean update(String tableName, List<DbObject> data,
+            String where) throws SQLException {
+            //String f = "";
             String ff = "";
             for (DbObject dbo : data) {
                 if (!ff.equals("")) {
                     ff += ", ";
                 }
+                ff += dbo.getField()+" = '"+dbo.getValue()+"'";
             }
-            String s = "update " + tableName + f + "where" + where;
+            String s = "update " + tableName +" set "+ ff + " where " + where;
             DbUtil dbu = new DbUtil();
-            //if(dbu.makeUpdate(s) > 0)
-            //  return true;
+            if(dbu.makeUpdate(s) > 0)
+                return true;
         return false;
     }
 

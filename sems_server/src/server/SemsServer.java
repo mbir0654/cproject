@@ -22,8 +22,7 @@ public class SemsServer {
         a.setLastName("Nicola");
         a.setUserName("oti");
         a.setPassword("1a1dc91c907325c69271ddf0c944bc72");
-        AdministratorRepository.getInstance().add(a);
-        
+        AdministratorRepository.getInstance().delete(a);
         ResultSet rs = new DbUtil().getDate("select* from users");
         while(rs.next())
             System.out.println(rs.getString(1));
