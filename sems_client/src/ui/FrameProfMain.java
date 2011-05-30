@@ -15,6 +15,7 @@ import javax.swing.*;
 import business.model.Announcement;
 import business.model.Course;
 import controller.ControllerProfesor;
+import java.io.File;
 
 /**
  *
@@ -734,6 +735,7 @@ public class FrameProfMain extends javax.swing.JFrame {
             public int getSize() { return strings.length; }
             public Object getElementAt(int i) { return strings[i]; }
         });
+        temeListTeme.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_INTERVAL_SELECTION);
         temeListTeme.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
             public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
                 temeListTemeValueChanged(evt);
@@ -1327,6 +1329,14 @@ public class FrameProfMain extends javax.swing.JFrame {
 
     private void materialeButAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_materialeButAddActionPerformed
         // nu stim inca
+        final JFileChooser fc = new JFileChooser();
+        int returnVal = fc.showOpenDialog(this);
+        if(returnVal == JFileChooser.APPROVE_OPTION) {
+          // de rezolvat.
+            File f = fc.getSelectedFile();
+            String numeFis = f.getName();
+
+        }
     }//GEN-LAST:event_materialeButAddActionPerformed
 
     private void materialeButDelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_materialeButDelActionPerformed
