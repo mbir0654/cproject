@@ -928,7 +928,7 @@
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Component id="butRenunta" min="-2" pref="114" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="jButton1" pref="120" max="32767" attributes="0"/>
+                                  <Component id="butAdaugaCursLaContract" pref="120" max="32767" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
                               </Group>
                           </Group>
@@ -948,7 +948,7 @@
                           <Component id="jScrollPane7" min="-2" pref="127" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="jButton1" max="32767" attributes="1"/>
+                              <Component id="butAdaugaCursLaContract" max="32767" attributes="1"/>
                               <Component id="butRenunta" max="32767" attributes="1"/>
                               <Component id="butContracteaza" alignment="0" pref="44" max="32767" attributes="1"/>
                           </Group>
@@ -994,10 +994,30 @@
                         </Property>
                         <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                           <Table columnCount="4" rowCount="4">
-                            <Column editable="true" title="Cod" type="java.lang.Object"/>
-                            <Column editable="true" title="Nume" type="java.lang.Object"/>
-                            <Column editable="true" title="Nr. Credite" type="java.lang.Object"/>
-                            <Column editable="true" title="Semestru" type="java.lang.Object"/>
+                            <Column editable="false" title="Cod" type="java.lang.Object">
+                              <Data value="111"/>
+                              <Data value="222"/>
+                              <Data value="333"/>
+                              <Data value="444"/>
+                            </Column>
+                            <Column editable="false" title="Nume" type="java.lang.Object">
+                              <Data value="test"/>
+                              <Data value="abc"/>
+                              <Data value="def"/>
+                              <Data value="ghi"/>
+                            </Column>
+                            <Column editable="false" title="Nr. Credite" type="java.lang.Object">
+                              <Data value="2"/>
+                              <Data value="1"/>
+                              <Data value="5"/>
+                              <Data value="null"/>
+                            </Column>
+                            <Column editable="false" title="Semestru" type="java.lang.Object">
+                              <Data value="3"/>
+                              <Data value="2"/>
+                              <Data value="1"/>
+                              <Data value="4"/>
+                            </Column>
                           </Table>
                         </Property>
                         <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
@@ -1034,6 +1054,10 @@
                           <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
                         </Property>
                       </Properties>
+                      <Events>
+                        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="tableCursuriContractateMouseClicked"/>
+                        <EventHandler event="vetoableChange" listener="java.beans.VetoableChangeListener" parameters="java.beans.PropertyChangeEvent" handler="tableCursuriContractateVetoableChange"/>
+                      </Events>
                     </Component>
                   </SubComponents>
                 </Container>
@@ -1051,10 +1075,10 @@
                         </Property>
                         <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                           <Table columnCount="4" rowCount="4">
-                            <Column editable="true" title="Cod" type="java.lang.Object"/>
-                            <Column editable="true" title="Nume" type="java.lang.Object"/>
-                            <Column editable="true" title="Nr. Credite" type="java.lang.Object"/>
-                            <Column editable="true" title="Semestru" type="java.lang.Object"/>
+                            <Column editable="false" title="Cod" type="java.lang.Object"/>
+                            <Column editable="false" title="Nume" type="java.lang.Object"/>
+                            <Column editable="false" title="Nr. Credite" type="java.lang.Object"/>
+                            <Column editable="false" title="Semestru" type="java.lang.Object"/>
                           </Table>
                         </Property>
                         <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
@@ -1113,13 +1137,16 @@
                     <Property name="text" type="java.lang.String" value="Renunta"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JButton" name="jButton1">
+                <Component class="javax.swing.JButton" name="butAdaugaCursLaContract">
                   <Properties>
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="66" green="33" red="0" type="rgb"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="Adauga"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="butAdaugaCursLaContractActionPerformed"/>
+                  </Events>
                 </Component>
               </SubComponents>
             </Container>

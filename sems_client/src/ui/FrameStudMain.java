@@ -34,6 +34,9 @@ public class FrameStudMain extends javax.swing.JFrame {
         panouInfoTema.setVisible(false);
         panouAnunt.setVisible(false);
         butIncarcaTema.setEnabled(false);
+        butAdaugaCursLaContract.setEnabled(false);
+        butContracteaza.setEnabled(false);
+        butContracteaza.setEnabled(false);
         }
 
     
@@ -93,7 +96,7 @@ public class FrameStudMain extends javax.swing.JFrame {
         tabelCursuriDisponibile = new javax.swing.JTable();
         butContracteaza = new javax.swing.JButton();
         butRenunta = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        butAdaugaCursLaContract = new javax.swing.JButton();
         labelStud = new javax.swing.JLabel();
         semsIco = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
@@ -534,17 +537,35 @@ public class FrameStudMain extends javax.swing.JFrame {
         tableCursuriContractate.setForeground(new java.awt.Color(0, 51, 102));
         tableCursuriContractate.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {"111", "test", "2", "3"},
+                {"222", "abc", "1", "2"},
+                {"333", "def", "5", "1"},
+                {"444", "ghi", null, "4"}
             },
             new String [] {
                 "Cod", "Nume", "Nr. Credite", "Semestru"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         tableCursuriContractate.setGridColor(new java.awt.Color(0, 102, 153));
         tableCursuriContractate.setSelectionBackground(new java.awt.Color(0, 102, 153));
+        tableCursuriContractate.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tableCursuriContractateMouseClicked(evt);
+            }
+        });
+        tableCursuriContractate.addVetoableChangeListener(new java.beans.VetoableChangeListener() {
+            public void vetoableChange(java.beans.PropertyChangeEvent evt)throws java.beans.PropertyVetoException {
+                tableCursuriContractateVetoableChange(evt);
+            }
+        });
         jScrollPane6.setViewportView(tableCursuriContractate);
         tableCursuriContractate.getColumnModel().getColumn(0).setMinWidth(50);
         tableCursuriContractate.getColumnModel().getColumn(0).setPreferredWidth(50);
@@ -567,7 +588,15 @@ public class FrameStudMain extends javax.swing.JFrame {
             new String [] {
                 "Cod", "Nume", "Nr. Credite", "Semestru"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         tabelCursuriDisponibile.setGridColor(new java.awt.Color(0, 102, 153));
         tabelCursuriDisponibile.setSelectionBackground(new java.awt.Color(0, 102, 153));
         jScrollPane7.setViewportView(tabelCursuriDisponibile);
@@ -592,8 +621,13 @@ public class FrameStudMain extends javax.swing.JFrame {
         butRenunta.setForeground(new java.awt.Color(0, 51, 102));
         butRenunta.setText("Renunta");
 
-        jButton1.setForeground(new java.awt.Color(0, 51, 102));
-        jButton1.setText("Adauga");
+        butAdaugaCursLaContract.setForeground(new java.awt.Color(0, 51, 102));
+        butAdaugaCursLaContract.setText("Adauga");
+        butAdaugaCursLaContract.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                butAdaugaCursLaContractActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
@@ -619,7 +653,7 @@ public class FrameStudMain extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(butRenunta, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
+                        .addComponent(butAdaugaCursLaContract, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
                         .addContainerGap())))
         );
         jPanel6Layout.setVerticalGroup(
@@ -635,7 +669,7 @@ public class FrameStudMain extends javax.swing.JFrame {
                 .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(butAdaugaCursLaContract, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(butRenunta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(butContracteaza, javax.swing.GroupLayout.DEFAULT_SIZE, 44, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -818,13 +852,37 @@ public class FrameStudMain extends javax.swing.JFrame {
     }//GEN-LAST:event_temeListCursuriItemStateChanged
 
     private void butContracteazaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butContracteazaActionPerformed
-
+        // Se salveaza modificarile, si se lanseaza un
+        // DialogMsg cu mesaj corespunzator.
+        butContracteaza.setEnabled(false);
+        butRenunta.setEnabled(false);
 
     }//GEN-LAST:event_butContracteazaActionPerformed
 
     private void jLabel23MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel23MouseClicked
         // Se deschide dialogul DialogChangePassword
 }//GEN-LAST:event_jLabel23MouseClicked
+
+    private void tableCursuriContractateVetoableChange(java.beans.PropertyChangeEvent evt)throws java.beans.PropertyVetoException {//GEN-FIRST:event_tableCursuriContractateVetoableChange
+        // la un curs selectat, sa se dea enable la butonu Adauga
+        //
+        butAdaugaCursLaContract.setEnabled(true);
+        
+    }//GEN-LAST:event_tableCursuriContractateVetoableChange
+
+    private void butAdaugaCursLaContractActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butAdaugaCursLaContractActionPerformed
+        // Adaugam cursul selectat din tableCursuriContractate, in cursuri
+        // disponibile (tabelCursuriDisponibile) , stergem din tableCursuriContractate cursu
+        // selectat
+        butAdaugaCursLaContract.setEnabled(false);
+        butRenunta.setEnabled(true);
+        butContracteaza.setEnabled(true);
+    }//GEN-LAST:event_butAdaugaCursLaContractActionPerformed
+
+    private void tableCursuriContractateMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableCursuriContractateMouseClicked
+       
+        butAdaugaCursLaContract.setEnabled(true);
+    }//GEN-LAST:event_tableCursuriContractateMouseClicked
 
 
 
@@ -834,11 +892,11 @@ public class FrameStudMain extends javax.swing.JFrame {
     */
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton butAdaugaCursLaContract;
     private javax.swing.JButton butContracteaza;
     private javax.swing.JButton butDescarcaMaterial;
     private javax.swing.JButton butIncarcaTema;
     private javax.swing.JButton butRenunta;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
