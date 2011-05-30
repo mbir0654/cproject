@@ -36,7 +36,7 @@ public class AnnouncementRepository implements Repository<Announcement>{
     }
 
     public void add(Announcement item) {
-        //To change body of implemented methods use File | Settings | File Templates.
+        l.add(item);
     }
 
     public List<Announcement> getAll() {

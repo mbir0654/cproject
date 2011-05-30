@@ -5,15 +5,14 @@
 
 package controller;
 import business.model.*;
-
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
+import java.text.*;
 import java.util.List;
-
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.DefaultListModel;
-
+import javax.swing.table.DefaultTableModel;
 import business.serviceinterface.InterfaceProfessorService;
+import com.sun.rowset.internal.Row;
+import java.util.Calendar;
 import ui.*;
 /**
  *
@@ -34,6 +33,7 @@ public class ControllerProfesor {
         profesorFrame.setUserName(professor.getUserName());
         profesorFrame.setFullName(professor.getFirstName() + " " + professor.getLastName());
         loadAnnouncements();
+        loadAddAnnouncements();
         profesorFrame.setVisible(true);
     }
 
@@ -46,33 +46,44 @@ public class ControllerProfesor {
         profesorFrame.setAnnouncements(model);
     }
 
-    public void loadCourses_combo(){
+    public  void loadComboListCursuri(){
         List<Course> courses = professorService.getCourses(professor);
         DefaultComboBoxModel model = new DefaultComboBoxModel();
         for(Course course:courses){
             model.addElement(course);
         }
-        profesorFrame.setAnuntAddCurs(model);
+        profesorFrame.setComboListCurs(model);
     }
 
-	public void addAnnouncement(){
+    public void loadAddAnnouncements(){
+        loadComboListCursuri();
+        Calendar currentDate = Calendar.getInstance();
+        SimpleDateFormat formatter=
+        new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+        String dateNow = formatter.format(currentDate.getTime());
+        profesorFrame.setAnuntAddData(dateNow);
+    }
+
+    public void addAnnouncement(){
         Announcement announcement = new Announcement();
         announcement.setAnnouncement(profesorFrame.getAnuntAddMesaj());
         announcement.setCourse(profesorFrame.getAnuntAddCurs());
-        try {
-			announcement.setData(new SimpleDateFormat().parse(profesorFrame.getAnuntAddData()));
-		} catch (ParseException e) {
-			System.out.println("Data e in format incorect");
-			//Afiseaza un mesaj de eroare intr-un label sau altceva
-			e.printStackTrace();
-		}
+        announcement.setData(Calendar.getInstance().getTime());
         announcement.setSubject(profesorFrame.getAnuntAddTitlu());
         professor.addAnnouncement(announcement);
         professorService.addAnnouncement(professor, announcement);
+        loadAnnouncements();
     }
 
-    /*public void deleteAnnouncement(Announcement an){
+    public void deleteAnnouncement(Announcement announcement){
+       professorService.deleteAnnouncemnt(announcement);
+    }
 
-    } */
-   
+    public void loadCatalogByCurs(Course course){
+        List<Student> students = professorService.getStudentsByCourse(course);
+        DefaultTableModel model = new DefaultTableModel();
+        for(Student student:students){
+            model.addRow(new Object [] {student.getFirstName() + " " + student.getLastName(), "aiz", 5});
+        }
+    }
 }

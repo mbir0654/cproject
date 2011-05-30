@@ -1218,8 +1218,8 @@ public class FrameProfMain extends javax.swing.JFrame {
     }//GEN-LAST:event_listAnunturiValueChanged
 
     private void butAddAnuntActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butAddAnuntActionPerformed
-        controllerProfesor.loadCourses_combo();
-        butAddAnunt.setEnabled(false);
+        controllerProfesor.addAnnouncement();
+        //butAddAnunt.setEnabled(false);
     }//GEN-LAST:event_butAddAnuntActionPerformed
 
     private void catalogListCursuriCursItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_catalogListCursuriCursItemStateChanged
@@ -1449,9 +1449,24 @@ public class FrameProfMain extends javax.swing.JFrame {
         labelAnuntCurs.setText(announcement.getCourse().getName());
         labelAnuntText.setText(announcement.getAnnouncement());
     }
+    public void deleteAnnouncement(){
+        Announcement announcement = (Announcement) listAnunturi.getSelectedValue();
+        controllerProfesor.deleteAnnouncement(announcement);
+    }
+    public  void setComboListCurs(DefaultComboBoxModel model){
+        anuntAddCurs.setModel(model);
+        catalogListCursuriCurs.setModel(model);
+        catalogListCursuriGrupa.setModel(model);
+        evaluariListCursuri.setModel(model);
+        temeListCursuri.setModel(model);
+        materialeListCursuri.setModel(model);
+    }
+    /*
     public  void setAnuntAddCurs(DefaultComboBoxModel model){
         anuntAddCurs.setModel(model);
     }
+    */
+
     public String getAnuntAddTitlu(){
         return anuntAddTitlu.getText();
     }
@@ -1463,6 +1478,10 @@ public class FrameProfMain extends javax.swing.JFrame {
     }
     public String getAnuntAddData(){
         return anuntAddData.getText();
+    }
+
+    public void setAnuntAddData(String data){
+        anuntAddData.setText(data);
     }
 
 }

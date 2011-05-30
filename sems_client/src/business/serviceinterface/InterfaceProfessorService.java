@@ -21,6 +21,10 @@ public interface InterfaceProfessorService {
 
     public void addAnnouncement(Professor professor,Announcement announcement);
 
+    public void deleteAnnouncemnt(Announcement announcement);
+    public List<Student> getStudentsByCourse(Course course);
+
+
 	public void exitSystem();
 	public void mannageAnnouncements();
 	public void viewCourses();
