@@ -68,6 +68,7 @@ public class ProfessorRepository implements Repository<Professor> {
                 }
                 l.add(p);
             }
+            dbu.close();
         } catch (SQLException e) {
             System.err.println(e.getMessage());
             e.printStackTrace();
@@ -83,8 +84,10 @@ public class ProfessorRepository implements Repository<Professor> {
     	List<DbObject> data1 = ((User) item).toDbObjectList();
     	List<DbObject> data2 = item.toDbObjectList();
         try {
-        	SqlFunctions.insert("users", data1);
-            SqlFunctions.insert("teachers", data2);
+            DbUtil dbu = new DbUtil();
+            SqlFunctions.insert("users", data1,dbu);
+            SqlFunctions.insert("teachers", data2, dbu);
+            dbu.close();
         } catch (SQLException e) {
             System.err.println(e.getMessage());
             e.printStackTrace();

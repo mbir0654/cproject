@@ -21,7 +21,7 @@ public abstract class SqlFunctions{
      * contrar
      * @throws SQLException
      */
-    public static boolean insert(String tableName, List<DbObject> data) throws SQLException{
+    public static boolean insert(String tableName, List<DbObject> data, DbUtil dbu) throws SQLException{
         try {
             String f = "";
             String v = "";
@@ -40,7 +40,8 @@ public abstract class SqlFunctions{
             f += ff;
             v += vv;
             String s = "insert into " + tableName + "(" + f + ") values(" + v + ")";
-            DbUtil dbu = new DbUtil();
+            //DbUtil dbu = new DbUtil();
+            System.out.println(s);
             if (dbu.makeUpdate(s) > 0) {
                 return true;
             }

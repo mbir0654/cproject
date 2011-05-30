@@ -39,6 +39,7 @@ public class StudentRepository implements Repository<Student>{
 				s.setPassword(rs.getString("password"));
 				l.add(s);
 			}
+                        dbu.close();
 		} catch (SQLException e) {
 			System.err.println(e.getMessage());
 			e.printStackTrace();
@@ -56,14 +57,16 @@ public class StudentRepository implements Repository<Student>{
 	public void add(Student item) {
 		l.add(item);
 		try {
-			List<DbObject> data1 = item.toDbObjectList();
-			List<DbObject> data2 = item.toDbObjectListStud();
-			List<DbObject> data3 = item.toDbObjectListSS();
-			List<DbObject> data4 = item.toDbObjectListContract();
-			SqlFunctions.insert("users", data1);
-			SqlFunctions.insert("students", data2);
-			SqlFunctions.insert("students_specializations", data3);
-			SqlFunctions.insert("contracts", data4);
+                    DbUtil dbu = new DbUtil();
+                    List<DbObject> data1 = item.toDbObjectList();
+                    List<DbObject> data2 = item.toDbObjectListStud();
+                    List<DbObject> data3 = item.toDbObjectListSS();
+                    List<DbObject> data4 = item.toDbObjectListContract();
+                    SqlFunctions.insert("users", data1,dbu);
+                    //SqlFunctions.insert("students", data2,dbu);
+                    //SqlFunctions.insert("students_specializations", data3,dbu);
+                    //SqlFunctions.insert("contracts", data4,dbu);
+                    dbu.close();
 		} catch (SQLException e) {
 			System.err.println(e.getMessage());
 			e.printStackTrace();

@@ -67,4 +67,9 @@ public class DbUtil {
         int rasp = st.executeUpdate(str);
         return rasp;
     }
+
+    public void close() throws SQLException{
+        con.close();
+    }
+
 }
