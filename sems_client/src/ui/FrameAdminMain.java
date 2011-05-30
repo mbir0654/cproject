@@ -118,22 +118,6 @@ public class FrameAdminMain extends javax.swing.JFrame {
         jScrollPane3 = new javax.swing.JScrollPane();
         listFacultati = new javax.swing.JList();
         panouInfoFaculta = new javax.swing.JTabbedPane();
-        jPanel12 = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        listCursuri = new javax.swing.JList();
-        panouCursuriBut = new javax.swing.JPanel();
-        butCursuriAdd = new javax.swing.JButton();
-        butCursuriMod = new javax.swing.JButton();
-        butCursuriDel = new javax.swing.JButton();
-        butCursuriAloca = new javax.swing.JButton();
-        jPanel13 = new javax.swing.JPanel();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        listProfesori = new javax.swing.JList();
-        jPanel18 = new javax.swing.JPanel();
-        butProfAdd = new javax.swing.JButton();
-        butProfMod = new javax.swing.JButton();
-        butProfDel = new javax.swing.JButton();
-        butProfAloca = new javax.swing.JButton();
         jPanel14 = new javax.swing.JPanel();
         jScrollPane5 = new javax.swing.JScrollPane();
         listSpecializari = new javax.swing.JList();
@@ -150,6 +134,22 @@ public class FrameAdminMain extends javax.swing.JFrame {
         butAddGrupa = new javax.swing.JButton();
         butAddStudentLaGrupa = new javax.swing.JButton();
         butTransferaStudent = new javax.swing.JButton();
+        jPanel12 = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        listCursuri = new javax.swing.JList();
+        panouCursuriBut = new javax.swing.JPanel();
+        butCursuriAdd = new javax.swing.JButton();
+        butCursuriMod = new javax.swing.JButton();
+        butCursuriDel = new javax.swing.JButton();
+        butCursuriAloca = new javax.swing.JButton();
+        jPanel13 = new javax.swing.JPanel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        listProfesori = new javax.swing.JList();
+        jPanel18 = new javax.swing.JPanel();
+        butProfAdd = new javax.swing.JButton();
+        butProfMod = new javax.swing.JButton();
+        butProfDel = new javax.swing.JButton();
+        butProfAloca = new javax.swing.JButton();
         jPanel16 = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
@@ -247,17 +247,17 @@ public class FrameAdminMain extends javax.swing.JFrame {
         jPanel5.setBackground(new java.awt.Color(242, 239, 239));
         jPanel5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 102, 153)));
 
-        tabGlobal.setBackground(new java.awt.Color(0, 0, 0));
+        tabGlobal.setBackground(new java.awt.Color(255, 255, 255));
         tabGlobal.setForeground(new java.awt.Color(0, 51, 102));
         tabGlobal.setTabPlacement(javax.swing.JTabbedPane.LEFT);
         tabGlobal.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        tabGlobal.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        tabGlobal.setFont(new java.awt.Font("Tahoma", 1, 11));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
         panouResurse.setForeground(new java.awt.Color(0, 102, 153));
         panouResurse.setTabPlacement(javax.swing.JTabbedPane.RIGHT);
-        panouResurse.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        panouResurse.setFont(new java.awt.Font("Tahoma", 0, 12));
 
         jPanel6.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -530,6 +530,192 @@ public class FrameAdminMain extends javax.swing.JFrame {
 
         panouInfoFaculta.setForeground(new java.awt.Color(0, 102, 153));
 
+        jPanel14.setBackground(new java.awt.Color(255, 255, 255));
+
+        listSpecializari.setForeground(new java.awt.Color(0, 51, 102));
+        listSpecializari.setModel(new javax.swing.AbstractListModel() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            public int getSize() { return strings.length; }
+            public Object getElementAt(int i) { return strings[i]; }
+        });
+        listSpecializari.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
+            public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
+                listSpecializariValueChanged(evt);
+            }
+        });
+        jScrollPane5.setViewportView(listSpecializari);
+
+        jPanel19.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel19.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
+
+        butSpecAdd.setForeground(new java.awt.Color(0, 51, 153));
+        butSpecAdd.setText("Adauga");
+        butSpecAdd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                butSpecAddActionPerformed(evt);
+            }
+        });
+
+        butSpecMod.setForeground(new java.awt.Color(0, 51, 153));
+        butSpecMod.setText("Modifica");
+        butSpecMod.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                butSpecModActionPerformed(evt);
+            }
+        });
+
+        butSpecDel.setForeground(new java.awt.Color(0, 51, 153));
+        butSpecDel.setText("Sterge");
+        butSpecDel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                butSpecDelActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel19Layout = new javax.swing.GroupLayout(jPanel19);
+        jPanel19.setLayout(jPanel19Layout);
+        jPanel19Layout.setHorizontalGroup(
+            jPanel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel19Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(butSpecAdd, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(butSpecMod, javax.swing.GroupLayout.DEFAULT_SIZE, 112, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 66, Short.MAX_VALUE)
+                .addComponent(butSpecDel, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+        jPanel19Layout.setVerticalGroup(
+            jPanel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel19Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel19Layout.createSequentialGroup()
+                        .addComponent(butSpecAdd)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(butSpecMod))
+                    .addComponent(butSpecDel))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout jPanel14Layout = new javax.swing.GroupLayout(jPanel14);
+        jPanel14.setLayout(jPanel14Layout);
+        jPanel14Layout.setHorizontalGroup(
+            jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel14Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 302, Short.MAX_VALUE)
+                    .addComponent(jPanel19, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
+        );
+        jPanel14Layout.setVerticalGroup(
+            jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel14Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel19, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(55, Short.MAX_VALUE))
+        );
+
+        panouInfoFaculta.addTab("   Specializari   ", jPanel14);
+
+        jPanel15.setBackground(new java.awt.Color(255, 255, 255));
+
+        jLabel7.setForeground(new java.awt.Color(0, 51, 102));
+        jLabel7.setText("Grupe");
+
+        listGrupe.setForeground(new java.awt.Color(0, 51, 102));
+        listGrupe.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Grupa 69", "Grupa 666" }));
+        listGrupe.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                listGrupeItemStateChanged(evt);
+            }
+        });
+
+        jLabel11.setForeground(new java.awt.Color(0, 51, 102));
+        jLabel11.setText("Studenti");
+
+        listGrupeStudenti.setForeground(new java.awt.Color(0, 51, 102));
+        listGrupeStudenti.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        listGrupeStudenti.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
+            public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
+                listGrupeStudentiValueChanged(evt);
+            }
+        });
+        jScrollPane6.setViewportView(listGrupeStudenti);
+
+        butAddGrupa.setForeground(new java.awt.Color(0, 51, 153));
+        butAddGrupa.setText("Adauga grupa");
+        butAddGrupa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                butAddGrupaActionPerformed(evt);
+            }
+        });
+
+        butAddStudentLaGrupa.setForeground(new java.awt.Color(0, 51, 153));
+        butAddStudentLaGrupa.setText("Adauga student");
+        butAddStudentLaGrupa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                butAddStudentLaGrupaActionPerformed(evt);
+            }
+        });
+
+        butTransferaStudent.setForeground(new java.awt.Color(0, 51, 153));
+        butTransferaStudent.setText("Transfera student");
+        butTransferaStudent.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                butTransferaStudentActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel15Layout = new javax.swing.GroupLayout(jPanel15);
+        jPanel15.setLayout(jPanel15Layout);
+        jPanel15Layout.setHorizontalGroup(
+            jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel15Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel15Layout.createSequentialGroup()
+                        .addComponent(jLabel7)
+                        .addGap(28, 28, 28)
+                        .addComponent(listGrupe, 0, 245, Short.MAX_VALUE))
+                    .addGroup(jPanel15Layout.createSequentialGroup()
+                        .addComponent(jLabel11)
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 244, Short.MAX_VALUE)
+                            .addGroup(jPanel15Layout.createSequentialGroup()
+                                .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(butAddStudentLaGrupa, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(butTransferaStudent, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
+                                .addComponent(butAddGrupa)))))
+                .addContainerGap())
+        );
+        jPanel15Layout.setVerticalGroup(
+            jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel15Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel7)
+                    .addComponent(listGrupe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel11)
+                    .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(11, 11, 11)
+                .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(butAddStudentLaGrupa)
+                    .addComponent(butAddGrupa))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(butTransferaStudent)
+                .addContainerGap(27, Short.MAX_VALUE))
+        );
+
+        panouInfoFaculta.addTab("  Grupe  ", jPanel15);
+
         jPanel12.setBackground(new java.awt.Color(255, 255, 255));
 
         listCursuri.setForeground(new java.awt.Color(0, 51, 102));
@@ -737,192 +923,6 @@ public class FrameAdminMain extends javax.swing.JFrame {
         );
 
         panouInfoFaculta.addTab("   Profesori   ", jPanel13);
-
-        jPanel14.setBackground(new java.awt.Color(255, 255, 255));
-
-        listSpecializari.setForeground(new java.awt.Color(0, 51, 102));
-        listSpecializari.setModel(new javax.swing.AbstractListModel() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public Object getElementAt(int i) { return strings[i]; }
-        });
-        listSpecializari.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
-            public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
-                listSpecializariValueChanged(evt);
-            }
-        });
-        jScrollPane5.setViewportView(listSpecializari);
-
-        jPanel19.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel19.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
-
-        butSpecAdd.setForeground(new java.awt.Color(0, 51, 153));
-        butSpecAdd.setText("Adauga");
-        butSpecAdd.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                butSpecAddActionPerformed(evt);
-            }
-        });
-
-        butSpecMod.setForeground(new java.awt.Color(0, 51, 153));
-        butSpecMod.setText("Modifica");
-        butSpecMod.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                butSpecModActionPerformed(evt);
-            }
-        });
-
-        butSpecDel.setForeground(new java.awt.Color(0, 51, 153));
-        butSpecDel.setText("Sterge");
-        butSpecDel.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                butSpecDelActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel19Layout = new javax.swing.GroupLayout(jPanel19);
-        jPanel19.setLayout(jPanel19Layout);
-        jPanel19Layout.setHorizontalGroup(
-            jPanel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel19Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(butSpecAdd, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(butSpecMod, javax.swing.GroupLayout.DEFAULT_SIZE, 112, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 66, Short.MAX_VALUE)
-                .addComponent(butSpecDel, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
-        jPanel19Layout.setVerticalGroup(
-            jPanel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel19Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel19Layout.createSequentialGroup()
-                        .addComponent(butSpecAdd)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(butSpecMod))
-                    .addComponent(butSpecDel))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        javax.swing.GroupLayout jPanel14Layout = new javax.swing.GroupLayout(jPanel14);
-        jPanel14.setLayout(jPanel14Layout);
-        jPanel14Layout.setHorizontalGroup(
-            jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel14Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 302, Short.MAX_VALUE)
-                    .addComponent(jPanel19, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
-        );
-        jPanel14Layout.setVerticalGroup(
-            jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel14Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel19, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(55, Short.MAX_VALUE))
-        );
-
-        panouInfoFaculta.addTab("   Specializari   ", jPanel14);
-
-        jPanel15.setBackground(new java.awt.Color(255, 255, 255));
-
-        jLabel7.setForeground(new java.awt.Color(0, 51, 102));
-        jLabel7.setText("Grupe");
-
-        listGrupe.setForeground(new java.awt.Color(0, 51, 102));
-        listGrupe.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Grupa 69", "Grupa 666" }));
-        listGrupe.addItemListener(new java.awt.event.ItemListener() {
-            public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                listGrupeItemStateChanged(evt);
-            }
-        });
-
-        jLabel11.setForeground(new java.awt.Color(0, 51, 102));
-        jLabel11.setText("Studenti");
-
-        listGrupeStudenti.setForeground(new java.awt.Color(0, 51, 102));
-        listGrupeStudenti.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
-        listGrupeStudenti.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
-            public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
-                listGrupeStudentiValueChanged(evt);
-            }
-        });
-        jScrollPane6.setViewportView(listGrupeStudenti);
-
-        butAddGrupa.setForeground(new java.awt.Color(0, 51, 153));
-        butAddGrupa.setText("Adauga grupa");
-        butAddGrupa.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                butAddGrupaActionPerformed(evt);
-            }
-        });
-
-        butAddStudentLaGrupa.setForeground(new java.awt.Color(0, 51, 153));
-        butAddStudentLaGrupa.setText("Adauga student");
-        butAddStudentLaGrupa.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                butAddStudentLaGrupaActionPerformed(evt);
-            }
-        });
-
-        butTransferaStudent.setForeground(new java.awt.Color(0, 51, 153));
-        butTransferaStudent.setText("Transfera student");
-        butTransferaStudent.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                butTransferaStudentActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel15Layout = new javax.swing.GroupLayout(jPanel15);
-        jPanel15.setLayout(jPanel15Layout);
-        jPanel15Layout.setHorizontalGroup(
-            jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel15Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel15Layout.createSequentialGroup()
-                        .addComponent(jLabel7)
-                        .addGap(28, 28, 28)
-                        .addComponent(listGrupe, 0, 245, Short.MAX_VALUE))
-                    .addGroup(jPanel15Layout.createSequentialGroup()
-                        .addComponent(jLabel11)
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 244, Short.MAX_VALUE)
-                            .addGroup(jPanel15Layout.createSequentialGroup()
-                                .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(butAddStudentLaGrupa, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(butTransferaStudent, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
-                                .addComponent(butAddGrupa)))))
-                .addContainerGap())
-        );
-        jPanel15Layout.setVerticalGroup(
-            jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel15Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7)
-                    .addComponent(listGrupe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel11)
-                    .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(11, 11, 11)
-                .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(butAddStudentLaGrupa)
-                    .addComponent(butAddGrupa))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(butTransferaStudent)
-                .addContainerGap(27, Short.MAX_VALUE))
-        );
-
-        panouInfoFaculta.addTab("  Grupe  ", jPanel15);
 
         jPanel16.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -1824,11 +1824,11 @@ public class FrameAdminMain extends javax.swing.JFrame {
         labelNumeAdmin.setForeground(new java.awt.Color(0, 102, 153));
         labelNumeAdmin.setText("numeAdministrator");
 
-        labelUserAdmin.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        labelUserAdmin.setFont(new java.awt.Font("Tahoma", 1, 11));
         labelUserAdmin.setForeground(new java.awt.Color(0, 102, 153));
         labelUserAdmin.setText("[username]");
 
-        jLabel12.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel12.setFont(new java.awt.Font("Tahoma", 1, 11));
         jLabel12.setForeground(new java.awt.Color(0, 102, 153));
         jLabel12.setText("[schimba parola]");
         jLabel12.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -2190,9 +2190,6 @@ public class FrameAdminMain extends javax.swing.JFrame {
         // Se deschide dialogul DialogChangePassword
     }//GEN-LAST:event_jLabel12MouseClicked
 
-    /**
-    * @param args the command line arguments
-    */
 
 
 
@@ -2374,4 +2371,19 @@ public class FrameAdminMain extends javax.swing.JFrame {
     public void setListCursuri(ListModel model) {
         listCursuri.setModel(model);
     }
+
+    //by bsk
+
+    public void setComboListFacultati(ComboBoxModel model){
+        inputGenDupaCursFacultate.setModel(model);
+        inputGenDupaStudFacultate.setModel(model);
+        inputRaportProfFaculta.setModel(model);
+        inputRaportStudFaculta.setModel(model);
+        inputInmatFacultate.setModel(model);
+    }
+
+    public void setInmatriculeazaStudentSpecialties(ComboBoxModel model){
+
+    }
+
 }
