@@ -21,7 +21,7 @@ public abstract class SqlFunctions{
      * contrar
      * @throws SQLException
      */
-    public static boolean insert(String tableName, List<DbObject> data){
+    public static boolean insert(String tableName, List<DbObject> data) throws SQLException{
         try {
             String f = "";
             String v = "";
@@ -39,17 +39,14 @@ public abstract class SqlFunctions{
             }
             f += ff;
             v += vv;
-            String s = "insert into x " + tableName + "(" + f + ") values(" + v + ")";
+            String s = "insert into " + tableName + "(" + f + ") values(" + v + ")";
             DbUtil dbu = new DbUtil();
-            System.out.println(s);
             if (dbu.makeUpdate(s) > 0) {
                 return true;
             }
             
         } catch (com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException ex) {
-            
-        }catch(SQLException ex){
-            System.out.println(ex.getMessage());
+            System.out.println("obiectul exista deja in baza de date");
         }
         return false;
     }
@@ -66,8 +63,7 @@ public abstract class SqlFunctions{
      * contrar
      * @throws SQLException
      */
-    public static boolean update(String tableName, List<DbObject> data, String where) {
-        try {
+    public static boolean update(String tableName, List<DbObject> data, String where) throws SQLException {
             String f = "";
             String ff = "";
             for (DbObject dbo : data) {
@@ -79,11 +75,6 @@ public abstract class SqlFunctions{
             DbUtil dbu = new DbUtil();
             //if(dbu.makeUpdate(s) > 0)
             //  return true;
-            
-        } catch (SQLException ex) {
-            if(ex instanceof com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException)
-                ;
-        }
         return false;
     }
 

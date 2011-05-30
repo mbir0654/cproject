@@ -11,6 +11,7 @@ sems_server/bin/*
 *.iws
 */out/*
 *META*
+sems_server/src/data/dbutil/*.mbw
 *JavaProject1*
 *JavaProject2*
 sems_server/*.mf
