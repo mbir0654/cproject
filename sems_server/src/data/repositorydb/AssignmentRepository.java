@@ -4,6 +4,7 @@ import business.model.Assignment;
 import business.model.Course;
 import data.repositoryinterface.Repository;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -14,7 +15,7 @@ import java.util.List;
  * To change this template use File | Settings | File Templates.
  */
 public class AssignmentRepository implements Repository<Assignment>{
-    private List<Assignment> l;
+    private List<Assignment> l = new ArrayList<Assignment>();
     private CourseRepository courses = CourseRepository.getInstance();
 
     private static final AssignmentRepository assigments = new AssignmentRepository();
@@ -33,7 +34,7 @@ public class AssignmentRepository implements Repository<Assignment>{
     }
 
     public List<Assignment> getAll() {
-        return null;  //To change body of implemented methods use File | Settings | File Templates.
+        return l;  //To change body of implemented methods use File | Settings | File Templates.
     }
 
     public Assignment findByName(String name) {

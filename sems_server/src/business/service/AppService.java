@@ -11,8 +11,6 @@ import data.repositorydb.*;
 import data.repositoryinterface.Repository;
 import business.model.*;
 import business.serviceinterface.InterfaceAppService;
-import data.repositorydb.GroupRepository;
-import data.repositorydb.SpecialityRepository;
 
 /**
  * @author BSK
@@ -30,9 +28,14 @@ public class AppService implements InterfaceAppService {
 	private Repository<Administrator> adminRepo;
 	private Repository<Professor> profRepo;
 	private Repository<Student> studRepo;
-        private Repository<Faculty> facultyReposiitory;
-        private Repository<Group> groupRepo;
-        private Repository<Course> courseRepo;
+    @SuppressWarnings("unused")
+	private Repository<Faculty> facultyReposiitory;
+    @SuppressWarnings("unused")
+	private Repository<Group> groupRepo;
+    @SuppressWarnings("unused")
+	private Repository<Course> courseRepo;
+    @SuppressWarnings("unused")
+	private Repository<Announcement> announcementRepo;
 	
 	/**
 	 *  constuctor privat pentru singleton
@@ -41,10 +44,10 @@ public class AppService implements InterfaceAppService {
 		adminRepo = AdministratorRepository.getInstance();
 		profRepo = ProfessorRepository.getInstance();
 		studRepo = StudentRepository.getInstance();
-                groupRepo = GroupRepository.getInstance();
-                courseRepo = CourseRepository.getInstance();
-                facultyReposiitory = FacultyRepository.getInstance();
-
+		facultyReposiitory = FacultyRepository.getInstance();
+        groupRepo = GroupRepository.getInstance();
+        courseRepo = CourseRepository.getInstance();
+        announcementRepo = AnnouncementRepository.getInstance();
 	}
 	
 	/**
@@ -74,7 +77,6 @@ public class AppService implements InterfaceAppService {
 			ResultSet rs = db.getDate(sql);
 			rs.next();
 		    if(rs.getRow() == 1){
-		    	
 		    	String userName = rs.getString(1);
 		    	String rol = rs.getString(2);
 		    	User u =  null;
@@ -89,7 +91,6 @@ public class AppService implements InterfaceAppService {
 		    	return u;
 		    }
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return null;

@@ -21,7 +21,7 @@ public class FrameAdminMain extends javax.swing.JFrame {
     private ControllerAdmin controllerAdmin;
     /** Creates new form FrameAdminMain */
     public FrameAdminMain(ControllerAdmin adm) {
-        this.controllerAdmin =adm;
+        this.controllerAdmin = adm;
         initComponents();
 
         butCursuriAloca.setEnabled(false);
@@ -2077,7 +2077,6 @@ public class FrameAdminMain extends javax.swing.JFrame {
     }//GEN-LAST:event_inputRaportStudSpecItemStateChanged
 
     private void inputInmatFacultateItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_inputInmatFacultateItemStateChanged
-
         inputInmatSpecializare.setVisible(true);
         labelInmatSpec.setVisible(true);
         // TODO add your handling code here:

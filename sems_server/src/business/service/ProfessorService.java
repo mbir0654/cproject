@@ -24,7 +24,8 @@ final class ProfessorService implements InterfaceProfessorService {
         return "hello, from prof";
     }
 
-    private ProfessorRepository professors = ProfessorRepository.getInstance();
+    @SuppressWarnings("unused")
+	private ProfessorRepository professors = ProfessorRepository.getInstance();
 
     public List<Course> getCourses(Professor professor){
         System.out.println("Get cursuri pt profesor: " + professor + ": " + professor.getCourses());

@@ -8,7 +8,7 @@ public class Professor extends User{
     private List<Group> groups;
     private List<Course> courses;
     private List<Announcement> announcements;
-    private int id;
+    private String title;
 
     /**
     * Constructorul implicit
@@ -33,7 +33,7 @@ public class Professor extends User{
         groups=p.getGroups();
         courses=p.getCourses();
         announcements=p.getAnnouncements();
-        id = p.id;
+        title = p.title;
     }
 
     /**
@@ -76,7 +76,7 @@ public class Professor extends User{
 
 
     /**
-     * 
+     *
      * @return lista de cursuri predate de acest profesor
      */
 	public List<Course> getCourses() {
@@ -87,41 +87,40 @@ public class Professor extends User{
         }
 
     /**
-     * 
+     *
      * @return lista de anunturi facute de acest profesor
      */
 	public List<Announcement> getAnnouncements() {
         return this.announcements;
     }
-	
+
 	/**
-	 * 
+	 *
 	 * @param a este anuntul pe care il adauga profesorul
 	 */
     public void addAnnouncement(Announcement a) {
         this.announcements.add(a);
     }
-    
-    /**
-     * 
-     * @return id studentului in baza de date
-     */
-    public int getId() {
-		return id;
+
+
+    public String getTitle() {
+		return title;
 	}
-    
-    /**
-     * 
-     * @param id este noul identificator
-     */
-    public void setId(int id) {
-		this.id = id;
+
+
+    public void setTitle(String title) {
+		this.title = title;
 	}
 
     @Override
     public String toString() {
-        return super.toString()+" "+groups+" "+courses;
+        return title+". "+super.toString();
     }
 
-} 
+    @Override
+    public List<DbObject> toDbObjectList() {
+    	return null;
+    }
 
+
+}

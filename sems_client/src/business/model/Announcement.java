@@ -9,38 +9,45 @@ public class Announcement implements Serializable {
 	private Professor prof;
 	private Course course;
     private Date date;
-	
-	
+
+
 	/**
 	 * Constructor parametrizat
-	 * 
+	 *
 	 * @param msg este textul anuntului
-	 * 
+	 *
 	 * @param subj este titlul anuntului
-	 * 
+	 *
 	 * @param d este data anuntului
-	 * 
+	 *
 	 * @param c este cursul pentru care s-a facut anuntul
 	 */
 	public Announcement(String msg, String subj, Date d, Course c) {
 		this.announcement = msg;
         this.subject=subj;
         this.date = d;
-        course = c;
+        this.course = c;
 	}
-	
+
 	/**
 	 * constructor implicit;
 	 */
 	public Announcement() {
 		this.date = new Date();
 	}
-	
+
+	public Announcement(Announcement a){
+		this.announcement = a.announcement;
+        this.subject = a.subject;
+        this.date = a.date;
+        this.course = a.course;
+	}
+
 	/**
 	 * Verifica daca 2 anunturi sunt identice
-	 * 
+	 *
 	 * @param a este anuntul cu care comparam
-	 * 
+	 *
 	 * @return true daca anuntul curent este identic cu cel
 	 * 		   dat ca parametru
 	 */
@@ -55,6 +62,20 @@ public class Announcement implements Serializable {
 	 */
 	public void setAnnouncement(String announcement) {
 		this.announcement = announcement;
+	}
+
+	public Date getDate() {
+		return date;
+	}
+
+
+	public void setDate(Date date) {
+		this.date = date;
+	}
+
+
+	public String getSubject() {
+		return subject;
 	}
 
 	/**
@@ -72,10 +93,10 @@ public class Announcement implements Serializable {
 	}
 
 	/**
-	 * @return numele profesorului care a facut anuntul
+	 * @return profesorul care a facut anuntul
 	 */
-	public String getProf() {
-		return prof.getFirstName()+" "+prof.getLastName();
+	public Professor getProf() {
+		return prof;
 	}
 
 	/**
@@ -100,7 +121,7 @@ public class Announcement implements Serializable {
     }
 
     /**
-	 * 
+	 *
 	 * @param d este noua data a anuntului
 	 */
     public void setData(Date d) {
@@ -127,6 +148,6 @@ public class Announcement implements Serializable {
      */
     @Override
     public String toString() {
-        return this.subject+" - "+this.date;
+        return subject+" - "+date;
     }
 }

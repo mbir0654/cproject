@@ -5,20 +5,14 @@
 
 package controller;
 import business.model.*;
-
-import java.security.KeyStore;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
+import java.text.*;
 import java.util.List;
-
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.DefaultListModel;
 import javax.swing.table.DefaultTableModel;
-
 import business.serviceinterface.InterfaceProfessorService;
 import com.sun.rowset.internal.Row;
+import java.util.Calendar;
 import ui.*;
 /**
  *
@@ -63,7 +57,6 @@ public class ControllerProfesor {
 
     public void loadAddAnnouncements(){
         loadComboListCursuri();
-        //data
         Calendar currentDate = Calendar.getInstance();
         SimpleDateFormat formatter=
         new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
@@ -75,7 +68,7 @@ public class ControllerProfesor {
         Announcement announcement = new Announcement();
         announcement.setAnnouncement(profesorFrame.getAnuntAddMesaj());
         announcement.setCourse(profesorFrame.getAnuntAddCurs());
-        announcement.setData(new Date(profesorFrame.getAnuntAddData()));
+        announcement.setData(Calendar.getInstance().getTime());
         announcement.setSubject(profesorFrame.getAnuntAddTitlu());
         professor.addAnnouncement(announcement);
         professorService.addAnnouncement(professor, announcement);

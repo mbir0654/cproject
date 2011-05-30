@@ -3,22 +3,17 @@
  */
 package controller;
 
+import java.math.BigInteger;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+
+import ui.FrameLogin;
 import business.model.Administrator;
 import business.model.Professor;
 import business.model.Student;
 import business.model.User;
-
-import javax.naming.event.NamingExceptionEvent;
-import javax.sound.sampled.Control;
-import javax.swing.JFrame;
-
-import java.math.BigInteger;
-import java.security.*;
-
 import business.serviceinterface.InterfaceAppService;
 import client.RMIUtil;
-import ui.*;
-//import business.service.AppService;
 
 /**
  * Aceasta clasa se va ocupa exclusiv de contolul ferestrelor si va face parte
@@ -27,8 +22,6 @@ import ui.*;
  *
  */
 public class Controller {
-	@SuppressWarnings("unused")
-
 	private User u;
 	private FrameLogin loginFrame;
 	private InterfaceAppService apps;
@@ -63,7 +56,7 @@ public class Controller {
     public void checkLogin() {
     	String inputUser = loginFrame.getInputUser().getText();
         String inputPassword = String.copyValueOf(
-        		loginFrame.getInputPass().getPassword());
+		loginFrame.getInputPass().getPassword());
         User user;
         try {
             user = login(inputUser, inputPassword);
@@ -96,7 +89,7 @@ public class Controller {
         }
     }
 
-	public User login(String username, String password) throws NoSuchAlgorithmException{
+	private User login(String username, String password) throws NoSuchAlgorithmException{
             MessageDigest m = MessageDigest.getInstance("MD5");
             byte[] data = password.getBytes();
             m.update(data,0,data.length);

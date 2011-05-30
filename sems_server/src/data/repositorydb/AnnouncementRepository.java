@@ -1,40 +1,46 @@
 package data.repositorydb;
 
-import business.model.Announcement;
-import business.model.Course;
+import business.model.*;
 import data.repositoryinterface.Repository;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by IntelliJ IDEA.
- * User: BSK
- * Date: 5/28/11
- * Time: 1:01 PM
- * To change this template use File | Settings | File Templates.
+ * @author bsk
  */
 public class AnnouncementRepository implements Repository<Announcement>{
-    private List<Announcement> l;
+    
+	private List<Announcement> l;
     private CourseRepository courses = CourseRepository.getInstance();
-
+    @SuppressWarnings("unused")
+	private ProfessorRepository pr = ProfessorRepository.getInstance(); 
+    
     private static final AnnouncementRepository announcements = new AnnouncementRepository();
-
+    
     public  static AnnouncementRepository getInstance(){
         return  announcements;
     }
     private AnnouncementRepository(){
-        for(Course course:courses.getAll()){
-            for(Announcement announcement:course.getAnnouncements())
-                l.add(announcement);
+    	l = new ArrayList<Announcement>();
+        for(Course course : courses.getAll()){
+        	l.addAll(course.getAnnouncements());
+        	/*for(Professor p : pr.getAll())
+                for(Announcement pAnn : p.getAnnouncements()){
+                    for(Announcement cAnn : course.getAnnouncements())
+                        if(pAnn.getProf().equals(cAnn.getProf())){
+                            pAnn = new Announcement(cAnn);
+                        }
+                }*/
         }
     }
 
     public void add(Announcement item) {
-        //To change body of implemented methods use File | Settings | File Templates.
+        l.add(item);
     }
 
     public List<Announcement> getAll() {
-        return null;  //To change body of implemented methods use File | Settings | File Templates.
+        return l;
     }
 
     public Announcement findByName(String name) {
