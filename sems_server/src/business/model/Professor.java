@@ -3,12 +3,14 @@ package business.model;
 import java.util.ArrayList;
 import java.util.List;
 
+import data.dbutil.DbObject;
+
 
 public class Professor extends User{
     private List<Group> groups;
     private List<Course> courses;
     private List<Announcement> announcements;
-    private int id;
+    private String title;
 
     /**
     * Constructorul implicit
@@ -33,7 +35,7 @@ public class Professor extends User{
         groups=p.getGroups();
         courses=p.getCourses();
         announcements=p.getAnnouncements();
-        id = p.id;
+        title = p.title;
     }
 
     /**
@@ -102,26 +104,30 @@ public class Professor extends User{
         this.announcements.add(a);
     }
     
-    /**
-     * 
-     * @return id studentului in baza de date
-     */
-    public int getId() {
-		return id;
+    
+    public String getTitle() {
+		return title;
 	}
     
-    /**
-     * 
-     * @param id este noul identificator
-     */
-    public void setId(int id) {
-		this.id = id;
+    
+    public void setTitle(String title) {
+		this.title = title;
 	}
 
     @Override
     public String toString() {
-        return super.toString()+" "+groups+" "+courses;
+        return title+". "+super.toString();
     }
-
+    
+    @Override
+    public List<DbObject> toDbObjectList() {
+    	DbObject db1 = new DbObject("userName",userName);
+    	DbObject db2 = new DbObject("teacherTitle",title);
+    	List<DbObject> l = new ArrayList<DbObject>();
+    	l.add(db1); l.add(db2);
+    	return l;
+    }
+    
+    
 } 
 

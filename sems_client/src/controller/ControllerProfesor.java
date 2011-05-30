@@ -4,12 +4,10 @@
  */
 
 package controller;
-import business.model.Announcement;
-import business.model.Course;
-import business.model.Group;
-import business.model.Professor;
+import business.model.*;
 
-import java.util.Date;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.List;
 
 import javax.swing.DefaultComboBoxModel;
@@ -57,11 +55,17 @@ public class ControllerProfesor {
         profesorFrame.setAnuntAddCurs(model);
     }
 
-    public void addAnnouncement(){
+	public void addAnnouncement(){
         Announcement announcement = new Announcement();
         announcement.setAnnouncement(profesorFrame.getAnuntAddMesaj());
         announcement.setCourse(profesorFrame.getAnuntAddCurs());
-        announcement.setData(new Date(profesorFrame.getAnuntAddData()));
+        try {
+			announcement.setData(new SimpleDateFormat().parse(profesorFrame.getAnuntAddData()));
+		} catch (ParseException e) {
+			System.out.println("Data e in format incorect");
+			//Afiseaza un mesaj de eroare intr-un label sau altceva
+			e.printStackTrace();
+		}
         announcement.setSubject(profesorFrame.getAnuntAddTitlu());
         professor.addAnnouncement(announcement);
         professorService.addAnnouncement(professor, announcement);

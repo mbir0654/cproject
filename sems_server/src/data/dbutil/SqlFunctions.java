@@ -1,8 +1,7 @@
 package data.dbutil;
 
-import business.model.DbObject;
 import java.sql.SQLException;
-import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -19,7 +18,7 @@ public abstract class SqlFunctions{
      * contrar
      * @throws SQLException
      */
-    public static boolean insert(String tableName, ArrayList<DbObject> data)
+    public static boolean insert(String tableName, List<DbObject> data)
                                    throws SQLException{
         String f = "", v = "";
         for(DbObject dbo : data){
@@ -47,7 +46,7 @@ public abstract class SqlFunctions{
      * contrar
      * @throws SQLException
      */
-    public static boolean update(String tableName, ArrayList<DbObject> data,
+    public static boolean update(String tableName, List<DbObject> data,
                                 String where) throws SQLException{
         String f = "";
         for(DbObject dbo : data){

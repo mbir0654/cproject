@@ -2,7 +2,7 @@
 package business.model;
 
 import java.io.Serializable;
-import java.util.ArrayList;
+import java.util.List;
 
 /**
  * 
@@ -36,7 +36,7 @@ public class Administrator extends User {
 	}
 	
 	@Override
-	public ArrayList<DbObject> toDbObjectList(){
+	public List<DbObject> toDbObjectList(){
             return super.toDbObjectList();
 	}
 

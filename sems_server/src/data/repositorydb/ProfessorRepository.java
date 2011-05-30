@@ -5,7 +5,9 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import business.model.*;
+import data.dbutil.DbObject;
 import data.dbutil.DbUtil;
+import data.dbutil.SqlFunctions;
 import data.repositoryinterface.Repository;
 
 /**
@@ -38,14 +40,17 @@ public class ProfessorRepository implements Repository<Professor> {
         Professor p;
         try {
             DbUtil dbu = new DbUtil();
-            String str = "select * from users where role = 'prof'";
+            String str = "select u.*,t.teacherTitle from users u inner join " +
+            		"teachers t on u.userName = t.userName" +
+            		" where u.role = 'prof'";
             ResultSet rs = dbu.getDate(str);
             while (rs.next()){
                 p = new Professor();
-                p.setFirstName(rs.getString("firstName"));
-                p.setLastName(rs.getString("lastName"));
-                p.setUserName(rs.getString("userName"));
-                p.setPassword(rs.getString("password"));
+                p.setFirstName(rs.getString(1));
+                p.setLastName(rs.getString(2));
+                p.setUserName(rs.getString(3));
+                p.setPassword(rs.getString(4));
+                p.setTitle(rs.getString(5));
                 String gft = "call groups_for_teacher('"+p.getUserName()+"')";
                 ResultSet rs1 = dbu.getDate(gft);
                 while(rs1.next()){
@@ -74,18 +79,16 @@ public class ProfessorRepository implements Repository<Professor> {
      */
     @Override
     public void add(Professor item) {
-            l.add(item);
-            DbUtil dbu;
-            try {
-                    dbu = new DbUtil();
-                    String str = "insert into users values('"+item.getFirstName()+"','"+
-                    item.getLastName()+"','"+item.getUserName()+"','"+item.getPassword()+
-                    "','prof')";
-                    dbu.makeUpdate(str);
-            } catch (SQLException e) {
-                    System.err.println(e.getMessage());
-                    e.printStackTrace();
-            }
+    	l.add(item);
+    	List<DbObject> data1 = ((User) item).toDbObjectList();
+    	List<DbObject> data2 = item.toDbObjectList();
+        try {
+        	SqlFunctions.insert("users", data1);
+            SqlFunctions.insert("teachers", data2);
+        } catch (SQLException e) {
+            System.err.println(e.getMessage());
+            e.printStackTrace();
+        }
     }
 
     /**
@@ -93,7 +96,7 @@ public class ProfessorRepository implements Repository<Professor> {
      */
     @Override
     public List<Professor> getAll() {
-            return l;
+        return l;
     }
 
     /**
@@ -101,11 +104,11 @@ public class ProfessorRepository implements Repository<Professor> {
      */
     @Override
     public Professor findByName(String name) {
-            for(Professor p : l){
-                    if(p.getUserName().equalsIgnoreCase(name))
-                            return p;
-            }
-            return null;
+        for(Professor p : l){
+            if(p.getUserName().equalsIgnoreCase(name))
+                return p;
+        }
+        return null;
     }
 
     /**
@@ -113,17 +116,17 @@ public class ProfessorRepository implements Repository<Professor> {
      */
     @Override
     public void update(Professor item) {
-            String updater = "UPDATE users SET fisrtName="+item.getFirstName()+
-            ", lastName="+item.getLastName()+", password = '"+item.getPassword()+
-            "' WHERE userName='"+item.getUserName()+"'";
-            DbUtil dbu;
-            try {
-                    dbu = new DbUtil();
-                    dbu.makeUpdate(updater);
-            } catch (SQLException e) {
-                    System.err.println(e.getMessage());
-                    e.printStackTrace();
-            }
+    	List<DbObject> data1 = ((User) item).toDbObjectList();
+    	List<DbObject> data2 = item.toDbObjectList();
+        try {
+            SqlFunctions.update("users", data1, "userName = '"
+        		+item.getUserName()+"'");
+            SqlFunctions.update("teachers", data2, "userName = '"
+        		+item.getUserName()+"'");
+        } catch (SQLException e) {
+            System.err.println(e.getMessage());
+            e.printStackTrace();
+        }
     }
 
     /**
@@ -131,16 +134,14 @@ public class ProfessorRepository implements Repository<Professor> {
      */
     @Override
     public void delete(Professor item) {
-            l.remove(item);
-            DbUtil dbu;
-            try {
-                    dbu = new DbUtil();
-                    String str  = "delete from users where userName = '"+item.getUserName()+"'";
-                    dbu.makeUpdate(str);
-            } catch (SQLException e) {
-                    System.err.println(e.getMessage());
-                    e.printStackTrace();
-            }
+    	l.remove(item);
+        try {
+            SqlFunctions.delete("users", "userName = '"
+        		+item.getUserName()+"'");
+        } catch (SQLException e) {
+            System.err.println(e.getMessage());
+            e.printStackTrace();
+        }
     }
 
 }

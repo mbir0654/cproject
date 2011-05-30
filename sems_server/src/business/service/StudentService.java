@@ -5,10 +5,8 @@ package business.service;
 
 import business.model.*;
 import business.serviceinterface.InterfaceStudentService;
-import data.repositorydb.CourseRepository;
-import data.repositorydb.StudentRepository;
-import sun.rmi.runtime.NewThreadAction;
-
+import data.repositorydb.*;
+//import sun.rmi.runtime.NewThreadAction;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -28,6 +26,7 @@ final class StudentService implements InterfaceStudentService{
 	 * The student for which we offer the services.
 	 */
 	
+	@SuppressWarnings("unused")
 	private StudentRepository studentRepository = StudentRepository.getInstance();
 
     public List<Course> getCourses(Student student){

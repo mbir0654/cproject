@@ -3,23 +3,30 @@ import java.util.*;
 
 /**
  * Let us implement all source code in English.
- * 
+ * <br />
  * Exemplu de indentare si de comentare a claselor si metodelor proiect.
- * 
+ * <br />
+ * <br />
  * Obligatoriu de folosit!!
- * 
+ * <br />
  * Acest comentariu deserveste clasa din acest fisier.
- * 
+ * <br />
  * Aici apare descrierea clasei
- * 
+ * <br />
  * A se avea in vedere:
+ * <br />
  * - acolada apare la sfarsitul randului
+ * <br />
  * - pe rand nou, tabul este de 4 spatii
+ * <br />
  * - cuvintele si simbolurile sunt despartite de spatii
+ * <br />
  * - linia are maxim 80 de caractere, indiferent ca e vorba de cod sau comment
+ * <br />
  * - numele metodelor incepe cu litera mica
+ * <br />
  * - al doilea cuvant din denumiri incepe cu litera mare
- * 
+ * <br />
  * taguri: 
  * 
  * @author nume_autor
@@ -47,7 +54,7 @@ public class SourceCodeSample {
 	
 	/**
 	 * Comentariu care deserveste metoda de mai jos - descrierea metodei
-	 * 
+	 * <br />
 	 * taguri pentru metoda:
 	 *  
 	 * @param args Descrierea parametrului cu numele args. In cazul de fata

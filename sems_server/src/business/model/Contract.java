@@ -12,11 +12,13 @@ import java.util.List;
 public class Contract implements Serializable {
 	private List<Course> courses;
 	private Student student;
+	//private Integer cId;
 	
 	/**
 	 * Constructorul implcit
 	 */
-	public Contract(){
+	public Contract(Student s){
+		student = s; 
 		courses = new ArrayList<Course>();
 	}
 
@@ -56,6 +58,22 @@ public class Contract implements Serializable {
 	public Student getStudent() {
 		return student;
 	}
+	
+	/**
+	 * 
+	 * @param cId 
+	 *//*
+	public void setcId(Integer cId) {
+		this.cId = cId;
+	}
+	
+	*//**
+	 * 
+	 * @return
+	 *//*
+	public Integer getcId() {
+		return cId;
+	}*/
 
     @Override
     public String toString(){

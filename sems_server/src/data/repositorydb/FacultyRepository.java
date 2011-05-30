@@ -90,6 +90,7 @@ public class FacultyRepository implements Repository<Faculty>{
 						c.setCod(rs3.getString(3));
 						c.setTip(rs3.getString(4));
 						c.setNumberOfCredits(rs3.getInt(5));
+						c.setSemestrul(rs3.getInt(6));
 						/*
 						 *extragem lista de examene pentru un curs,
 						 * din baza de date 
@@ -242,8 +243,7 @@ public class FacultyRepository implements Repository<Faculty>{
 							 */
 							String cfc = "call courses_for_contract("
 								+cId+")";
-							Contract contract = new Contract();
-							contract.setStudent(s);
+							Contract contract = new Contract(s);
 							ResultSet rs11 = dbu.getDate(cfc);
 							/*
 							 * cat timp exista cursuri, le adaugam in lista

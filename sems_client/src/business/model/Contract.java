@@ -16,8 +16,9 @@ public class Contract implements Serializable {
 	/**
 	 * Constructorul implcit
 	 */
-	public Contract(){
-		courses = new ArrayList<Course>();
+	public Contract(Student s){
+            courses = new ArrayList<Course>();
+            student = s;
 	}
 
 	/**
