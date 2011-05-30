@@ -1,7 +1,11 @@
 package business.model;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import data.dbutil.DbObject;
+import data.dbutil.DbUtil;
 
 /**
  * 
@@ -15,19 +19,20 @@ public class Student extends User {
 	private String nrMat;
 	private Contract contract;
 	private List<AssignmentSolution> solutions;
-	//private List<Assignment> assignments;
 	private Specialty specialty;
 	private Group group;
-	private final int id = 0;
+	private Integer year = 0;
+
 	
 	/**
 	 * Constructorul implicit
 	 */
 	public Student(){
 		nrMat = "";
-		contract = new Contract();
+		cnp = "";
+		group = new Group(); 
+		contract = new Contract(this);
 		solutions = new ArrayList<AssignmentSolution>();
-		//assignments = new ArrayList<Assignment>();
 		specialty = new Specialty();
 	}
 	
@@ -38,11 +43,11 @@ public class Student extends User {
 	 */
 	public Student(Student s){
 		super(s);
-		nrMat = s.getNrMat();
-		contract = s.getContract();
-		solutions = s.getSolutions();
-		//assignments = s.getAssignments();
-		specialty = s.getSpecialty();
+		nrMat = s.nrMat;
+		contract = s.contract;
+		solutions = s.solutions;
+		specialty = s.specialty;
+		year = s.year;
 	}
 	
 	/**
@@ -103,20 +108,6 @@ public class Student extends User {
 	}
 
 	/**
-	 * @param assignment este noua tema atribuita studentului
-	 */
-	/*public void addAssignment(Assignment assignment) {
-		this.assignments.add(assignment);
-	}*/
-
-	/**
-	 * @return lista cu teme pentru studentul curent
-	 */
-	/*public List<Assignment> getAssignments() {
-		return assignments;
-	}*/
-
-	/**
 	 * @param specialty va fi noua specialitate a studentului
 	 */
 	public void setSpecialty(Specialty specialty) {
@@ -146,11 +137,21 @@ public class Student extends User {
 	
 	/**
 	 * 
-	 * @return id-ul studentului din baza de date
+	 * @return anul in care este inmatriculat studentul
 	 */
-	public int getId() {
-		return id;
+	public int getYear() {
+		return year;
 	}
+	
+	/**
+	 *
+	 * @param year este anul in care va fi inmatriculat studentul
+	 */
+    public void  setYear(int year){
+        this.year = year;
+    }
+	
+
 	
 	/**
 	 * 
@@ -189,7 +190,66 @@ public class Student extends User {
 	 */
 	@Override
 	public String toString() {
-		return getFirstName()+" "+getLastName()+" - "+ specialty.toString();
+		return super.toString()+" "+group;
 	}
 
+    @Override
+    public List<DbObject> toDbObjectList() {
+        List<DbObject> l= new ArrayList<DbObject>();
+        l.addAll(super.toDbObjectList());
+        DbObject db = new DbObject("role", "student");
+        l.add(db);
+        return l;
+    }
+
+
+
+
+
+	public List<DbObject> toDbObjectListStud(){
+        DbObject db1 = new DbObject("personalCode",cnp);
+        DbObject db2 = new DbObject("userName",userName);
+        DbObject db3 = new DbObject("serialNumber",nrMat);
+        DbObject db4 = new DbObject("year",year.toString());
+        List<DbObject> list = new ArrayList<DbObject>();
+        list.add(db1); list.add(db2); list.add(db3); list.add(db4);
+        return list;
+	}
+	
+	public List<DbObject> toDbObjectListSS() throws SQLException{
+		List<DbObject> l = new ArrayList<DbObject>();
+		ResultSet rs;
+                DbUtil dbu = new DbUtil();
+		Integer grid = 0, spid = 0, stid = 0;
+		while((rs = dbu.getDate("select groupId from groups where name='"+group.getGroupName()+"' limit 1")).next())
+			grid = rs.getInt(1);
+		while((rs = dbu.getDate("select spId from specializations where spName='"+specialty.getName()+"' limit 1")).next())
+			spid = rs.getInt(1);
+		while((rs = dbu.getDate("select studentId from students where userName='"+userName+"' limit 1")).next())
+			stid = rs.getInt(1);
+		DbObject db1 = new DbObject("groupId",grid.toString());
+		DbObject db2 = new DbObject("spId",spid.toString());
+		DbObject db3 = new DbObject("studentId",stid.toString());
+		l.add(db1); l.add(db2); l.add(db3);
+                dbu.close();
+		return l;
+	}
+	
+	public List<DbObject> toDbObjectListContract() throws SQLException{
+		List<DbObject> l = new ArrayList<DbObject>();
+		Integer ssid = 0, spid = 0;
+		ResultSet rs;
+                DbUtil dbu = new DbUtil();
+		while((rs = dbu.getDate("select ssid from students_" +
+				"specializations where studentId in(select studentId from" +
+				" students where userName='"+userName+"') limit 1")).next())
+			ssid = rs.getInt(1);
+		while((rs = dbu.getDate("select spId from specializations where spName='"+specialty.getName()+"' limit 1")).next())
+			spid = rs.getInt(1);
+		DbObject db1 = new DbObject("ssId", ssid.toString());
+		DbObject db2 = new DbObject("spId", spid.toString());
+		l.add(db1);l.add(db2);
+                dbu.close();
+		return l;
+	}
 } 

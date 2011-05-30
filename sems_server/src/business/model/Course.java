@@ -1,7 +1,10 @@
 package business.model;
 
+import data.dbutil.DbObject;
 import java.io.Serializable;
+import java.sql.*;
 import java.util.*;
+import data.dbutil.*;
 
 	/**
 	 * 
@@ -16,9 +19,9 @@ public class Course implements Serializable {
 	private ArrayList<CourseMaterial> materialeDeCurs;
 	private List<Professor> profesori;
 	private String name = "";
-	private int numberOfCredits = 0;
+	private Integer numberOfCredits = 0;
 	private Specialty specializare;
-	private int semestrul = 0;
+	private Integer semestrul = 0;
 	private String cod = "";
 	/**
 	 * tipul cursului, care poate fi <B>OBLIGATORIU</B>,<B>FACULTATIV</B> sau
@@ -62,11 +65,11 @@ public class Course implements Serializable {
 	 * @param nC este numarul de credite
 	 */
 	public Course(String n, int nC) {
-		name = n;
-        exams = new ArrayList<Exam>();
-		announcements = new ArrayList<Announcement>();
-        assignments = new ArrayList<Assignment>();
-		numberOfCredits = nC;
+            name = n;
+            exams = new ArrayList<Exam>();
+            announcements = new ArrayList<Announcement>();
+            assignments = new ArrayList<Assignment>();
+            numberOfCredits = nC;
 	}
 
 
@@ -123,6 +126,19 @@ public class Course implements Serializable {
 	public void addExam(Exam e) {
 		exams.add(e);
 	}
+
+    public void setAnnouncements(ArrayList<Announcement> announcements) {
+        this.announcements = announcements;
+    }
+
+    public void setAssignments(ArrayList<Assignment> assignments) {
+        this.assignments = assignments;
+    }
+
+    public void setExams(ArrayList<Exam> exams) {
+        this.exams = exams;
+    }
+        
 	
 	/**
 	 * 
@@ -132,9 +148,9 @@ public class Course implements Serializable {
 		announcements.add(a);
 	}
 
-        public ArrayList<Announcement> getAnnouncements() {
-            return announcements;
-        }
+    public ArrayList<Announcement> getAnnouncements() {
+        return announcements;
+    }
 
 	
 	/**
@@ -220,7 +236,7 @@ public class Course implements Serializable {
 	 * 
 	 * @return lista de profesori care predau la acest curs
 	 */
-	public List<Professor> getProfesors(){
+	public List<Professor> getProfessors(){
 		return profesori;
 	}
 	
@@ -277,14 +293,6 @@ public class Course implements Serializable {
 	
 	/**
 	 * 
-	 * @return lista de profesori care predau la acest curs
-	 */
-	public List<Professor> getProfesori() {
-		return profesori;
-	}
-	
-	/**
-	 * 
 	 * @return semestrul in care se preda cursul.
 	 */
 	public int getSemestrul() {
@@ -303,6 +311,47 @@ public class Course implements Serializable {
 	 * creaza un String din nume specializare si numar de credite
 	 */
     public String toString() {
-        return name+" "+numberOfCredits+" "+specializare;
+        return name+" "+numberOfCredits+" "+exams;
+    }
+    
+    public List<DbObject> toDbObjectList(){
+    	List<DbObject> l = new ArrayList<DbObject>();
+    	DbObject db1 = new DbObject("courseName", name);
+    	l.add(db1);
+    	return l;
+    }
+    
+    
+    public List<DbObject> toDbObjectListCS() throws SQLException{
+    	List<DbObject> l = new ArrayList<DbObject>();
+    	Integer spid = 0;
+    	ResultSet rs;
+    	DbObject db1 = new DbObject("courseCode", cod);
+    	DbObject db2 = new DbObject("courseType", tip);
+    	DbObject db3 = new DbObject("courseCredits", 
+    			numberOfCredits.toString());
+    	DbObject db4 = new DbObject("semester", semestrul.toString());
+    	while((rs = new DbUtil().getDate("select spId from specializations" +
+    			" where spName='"+specializare.getName()+"' limit 1")).next())
+    		spid = rs.getInt(1);
+    	DbObject db5 = new DbObject("spId", spid.toString());
+    	l.add(db1);l.add(db2);l.add(db3);l.add(db4);l.add(db5);
+    	return l;
+    }
+    
+    public List<DbObject> toDbObjectListTC(Professor p) throws SQLException{
+		List<DbObject> l = new ArrayList<DbObject>();
+		Integer tcid = 0,csid = 0;
+		ResultSet rs;
+		while((rs = new DbUtil().getDate("select teacherId from teachers " +
+				"where userName = '"+p.getUserName()+"' limit 1")).next())
+			tcid = rs.getInt(1);
+		DbObject db1 = new DbObject("teacherId", tcid.toString());
+		while((rs = new DbUtil().getDate("select csId from specializations_" +
+				"courses where courseCode = '"+cod+"' limit 1")).next())
+			csid = rs.getInt(1);
+		DbObject db2 = new DbObject("csId", csid.toString());
+		l.add(db1); l.add(db2);
+    	return l;
     }
 }

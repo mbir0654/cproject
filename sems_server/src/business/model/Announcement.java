@@ -26,7 +26,7 @@ public class Announcement implements Serializable {
 		this.announcement = msg;
         this.subject=subj;
         this.date = d;
-        course = c;
+        this.course = c;
 	}
 	
 	/**
@@ -34,6 +34,13 @@ public class Announcement implements Serializable {
 	 */
 	public Announcement() {
 		this.date = new Date();
+	}
+	
+	public Announcement(Announcement a){
+		this.announcement = a.announcement;
+        this.subject = a.subject;
+        this.date = a.date;
+        this.course = a.course;
 	}
 	
 	/**
@@ -56,6 +63,20 @@ public class Announcement implements Serializable {
 	public void setAnnouncement(String announcement) {
 		this.announcement = announcement;
 	}
+	
+	public Date getDate() {
+		return date;
+	}
+	
+	
+	public void setDate(Date date) {
+		this.date = date;
+	}
+	
+	
+	public String getSubject() {
+		return subject;
+	}
 
 	/**
 	 * @return the textul anuntului
@@ -72,10 +93,10 @@ public class Announcement implements Serializable {
 	}
 
 	/**
-	 * @return numele profesorului care a facut anuntul
+	 * @return profesorul care a facut anuntul
 	 */
-	public String getProf() {
-		return prof.getFirstName()+" "+prof.getLastName();
+	public Professor getProf() {
+		return prof;
 	}
 
 	/**
@@ -100,26 +121,33 @@ public class Announcement implements Serializable {
     }
 
     /**
-     * 
-     * @return titlul anuntului
-     */
-	public String getSubiect() {
-        return subject;
-    }
-    
-	/**
 	 * 
 	 * @param d este noua data a anuntului
 	 */
     public void setData(Date d) {
         this.date=d;
     }
-    
+
+    /**
+     * setez subiectul anuntului
+     * @param subject
+     */
+    public void  setSubject(String subject){
+        this.subject = subject;
+    }
+    /**
+     *
+     * @return titlul anuntului
+     */
+	public String getSubiect() {
+        return subject;
+    }
+
     /**
      * @return un string cu titlul anuntului si data la care a fost facut
      */
     @Override
     public String toString() {
-        return this.subject+" - "+this.date;
+        return subject+" - "+date;
     }
 }

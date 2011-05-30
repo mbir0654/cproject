@@ -101,6 +101,6 @@ public class Exam implements Serializable {
 	 */
 	@Override
 	public String toString() {
-		return course+" "+type+" "+date;
+		return type+" "+date;
 	}
 }

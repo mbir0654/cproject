@@ -86,7 +86,7 @@ public class Group implements Serializable {
 	
 	@Override
 	public String toString() {
-		return group+" "+specialty;
+		return group+" - "+specialty;
 	}
 
 }

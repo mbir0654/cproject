@@ -10,26 +10,33 @@
  */
 
 package ui;
-import java.awt.Color;
 import javax.swing.*;
 import controller.*;
+import java.io.File;
 
 
 /**
  *
  * @author snoopy
- * <p>updated by othniel to controller</p>
+ * <p>updated by snoopy to controller</p>
  */
 public class FrameStudMain extends javax.swing.JFrame {
-	private ControllerStudent c;
+	private ControllerStudent controllerStudent;
 
     /** Creates new form FrameStudMain */
     public FrameStudMain(ControllerStudent cs) {
-        this.c=cs;
+        this.controllerStudent =cs;
         initComponents();
-        c.setStudMainButtons(false, this);
-        c.loadCursuri(this);
-        c.loadAnnounces(this);
+
+        panouMaterial.setVisible(false);
+        tabelExamene.setVisible(false);
+        panouTeme.setVisible(false);
+        panouInfoTema.setVisible(false);
+        panouAnunt.setVisible(false);
+        butIncarcaTema.setEnabled(false);
+        butAdaugaCursLaContract.setEnabled(false);
+        butContracteaza.setEnabled(false);
+        butContracteaza.setEnabled(false);
         }
 
     
@@ -42,82 +49,77 @@ public class FrameStudMain extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        welcome = new javax.swing.JPanel();
-        panouCursuriInscris = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        listCursuri = new javax.swing.JList();
-        panouAnunturi = new javax.swing.JPanel();
-        jSeparator1 = new javax.swing.JSeparator();
-        labelAnuntTitlu = new javax.swing.JLabel();
-        labelAnuntProf = new javax.swing.JLabel();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        labelAnuntText = new javax.swing.JTextArea();
-        titluAnunturi = new javax.swing.JLabel();
+        jPanel5 = new javax.swing.JPanel();
+        tabGlobal = new javax.swing.JTabbedPane();
+        jPanel4 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         listAnunturi = new javax.swing.JList();
+        panouAnunt = new javax.swing.JPanel();
         labelAnuntCurs = new javax.swing.JLabel();
-        jPanel4 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
-        butMaterialeCurs = new javax.swing.JButton();
-        butNote = new javax.swing.JButton();
-        butTrimiteTeme = new javax.swing.JButton();
-        butLogout = new javax.swing.JButton();
+        labelAnuntProf = new javax.swing.JLabel();
+        labelAnuntTitlu = new javax.swing.JLabel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        labelAnuntText = new javax.swing.JTextArea();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel3 = new javax.swing.JLabel();
+        temeListCursuri = new javax.swing.JComboBox();
+        panouTeme = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        temeList = new javax.swing.JList();
+        panouInfoTema = new javax.swing.JPanel();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        temaInfo = new javax.swing.JTextArea();
+        temaTitlu = new javax.swing.JLabel();
+        labelTermen = new javax.swing.JLabel();
+        labelIncarcat = new javax.swing.JLabel();
+        temaDataIncarcare = new javax.swing.JLabel();
+        temaDeadline = new javax.swing.JLabel();
+        butIncarcaTema = new javax.swing.JButton();
+        jPanel3 = new javax.swing.JPanel();
+        jLabel7 = new javax.swing.JLabel();
+        noteListCursuri = new javax.swing.JComboBox();
+        jScrollPane12 = new javax.swing.JScrollPane();
+        tabelExamene = new javax.swing.JTable();
+        jPanel7 = new javax.swing.JPanel();
+        jLabel8 = new javax.swing.JLabel();
+        materialeListCursuri = new javax.swing.JComboBox();
+        panouMaterial = new javax.swing.JPanel();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        materialeList = new javax.swing.JList();
+        butDescarcaMaterial = new javax.swing.JButton();
+        jPanel6 = new javax.swing.JPanel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jScrollPane6 = new javax.swing.JScrollPane();
+        tableCursuriContractate = new javax.swing.JTable();
+        jScrollPane7 = new javax.swing.JScrollPane();
+        tabelCursuriDisponibile = new javax.swing.JTable();
+        butContracteaza = new javax.swing.JButton();
+        butRenunta = new javax.swing.JButton();
+        butAdaugaCursLaContract = new javax.swing.JButton();
+        labelStud = new javax.swing.JLabel();
+        semsIco = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        labelNumeStudent = new javax.swing.JLabel();
+        labelUserStudent = new javax.swing.JLabel();
+        jLabel23 = new javax.swing.JLabel();
+        showHelpAboutButton = new javax.swing.JButton();
 
-        welcome.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Welcome to SEMS", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 12), new java.awt.Color(51, 51, 255))); // NOI18N
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        panouCursuriInscris.setBorder(javax.swing.BorderFactory.createTitledBorder("Cursuri la care sunteti inscris"));
+        jPanel5.setBackground(new java.awt.Color(242, 241, 241));
+        jPanel5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 102, 153)));
 
-        listCursuri.setModel(new javax.swing.AbstractListModel() {
-            String[] strings = { "Analiza matematica", "Algebra", "Arhitectura Calculatoarelor", "Baze de date", "Proiect colectiv" };
-            public int getSize() { return strings.length; }
-            public Object getElementAt(int i) { return strings[i]; }
-        });
-        listCursuri.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
-        listCursuri.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
-            public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
-                listCursuriValueChanged(evt);
-            }
-        });
-        jScrollPane1.setViewportView(listCursuri);
+        tabGlobal.setBackground(new java.awt.Color(153, 204, 255));
+        tabGlobal.setForeground(new java.awt.Color(0, 51, 102));
+        tabGlobal.setTabPlacement(javax.swing.JTabbedPane.LEFT);
+        tabGlobal.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        tabGlobal.setFont(new java.awt.Font("Tahoma", 1, 11));
 
-        javax.swing.GroupLayout panouCursuriInscrisLayout = new javax.swing.GroupLayout(panouCursuriInscris);
-        panouCursuriInscris.setLayout(panouCursuriInscrisLayout);
-        panouCursuriInscrisLayout.setHorizontalGroup(
-            panouCursuriInscrisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panouCursuriInscrisLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 161, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-        panouCursuriInscrisLayout.setVerticalGroup(
-            panouCursuriInscrisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panouCursuriInscrisLayout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
+        jPanel4.setBackground(new java.awt.Color(255, 255, 255));
 
-        panouAnunturi.setBorder(javax.swing.BorderFactory.createTitledBorder("Anunturi"));
-
-        labelAnuntTitlu.setFont(new java.awt.Font("Tahoma", 1, 12));
-        labelAnuntTitlu.setText("Anunt test 1");
-
-        labelAnuntProf.setText("Prof. Mircea Badea");
-
-        labelAnuntText.setColumns(20);
-        labelAnuntText.setFont(new java.awt.Font("Arial", 0, 10));
-        labelAnuntText.setRows(5);
-        labelAnuntText.setText("aeq wqkjenljkqw njlkeqw\n eqwjkne qwlkjnej kqwe \nqw ejkqwnlkje qnwkenkqw \n eqw");
-        labelAnuntText.setEnabled(false);
-        jScrollPane3.setViewportView(labelAnuntText);
-
-        titluAnunturi.setFont(new java.awt.Font("Tahoma", 1, 11));
-        titluAnunturi.setText("Titlul anuntului");
-
-        listAnunturi.setModel(new javax.swing.AbstractListModel() {
-            String[] strings = { "Anunt test 1 (Prof. Dan Stirb)", "In gura presei (Prof. Mircea Badea)", "Etc Etc (Dr. Ing. Mihai Gugu)" };
-            public int getSize() { return strings.length; }
-            public Object getElementAt(int i) { return strings[i]; }
-        });
+        listAnunturi.setForeground(new java.awt.Color(0, 51, 102));
         listAnunturi.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         listAnunturi.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
             public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
@@ -126,140 +128,659 @@ public class FrameStudMain extends javax.swing.JFrame {
         });
         jScrollPane2.setViewportView(listAnunturi);
 
+        panouAnunt.setBackground(new java.awt.Color(255, 255, 255));
+        panouAnunt.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Detalii anunt", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(0, 51, 102))); // NOI18N
+
         labelAnuntCurs.setFont(new java.awt.Font("Tahoma", 1, 12));
+        labelAnuntCurs.setForeground(new java.awt.Color(0, 51, 102));
         labelAnuntCurs.setText("Baze de date");
 
-        javax.swing.GroupLayout panouAnunturiLayout = new javax.swing.GroupLayout(panouAnunturi);
-        panouAnunturi.setLayout(panouAnunturiLayout);
-        panouAnunturiLayout.setHorizontalGroup(
-            panouAnunturiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panouAnunturiLayout.createSequentialGroup()
-                .addGroup(panouAnunturiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panouAnunturiLayout.createSequentialGroup()
+        labelAnuntProf.setForeground(new java.awt.Color(0, 51, 102));
+        labelAnuntProf.setText("Prof. Mircea Badea");
+
+        labelAnuntTitlu.setFont(new java.awt.Font("Tahoma", 1, 12));
+        labelAnuntTitlu.setForeground(new java.awt.Color(0, 51, 102));
+        labelAnuntTitlu.setText("Anunt test 1");
+
+        labelAnuntText.setColumns(20);
+        labelAnuntText.setFont(new java.awt.Font("Arial", 0, 11));
+        labelAnuntText.setForeground(new java.awt.Color(0, 102, 153));
+        labelAnuntText.setRows(5);
+        labelAnuntText.setCaretColor(new java.awt.Color(0, 102, 153));
+        labelAnuntText.setDisabledTextColor(new java.awt.Color(0, 102, 153));
+        labelAnuntText.setEnabled(false);
+        jScrollPane3.setViewportView(labelAnuntText);
+
+        javax.swing.GroupLayout panouAnuntLayout = new javax.swing.GroupLayout(panouAnunt);
+        panouAnunt.setLayout(panouAnuntLayout);
+        panouAnuntLayout.setHorizontalGroup(
+            panouAnuntLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panouAnuntLayout.createSequentialGroup()
+                .addGroup(panouAnuntLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panouAnuntLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addGroup(panouAnunturiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 338, Short.MAX_VALUE)
-                            .addComponent(titluAnunturi)
-                            .addComponent(jSeparator1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 338, Short.MAX_VALUE)
-                            .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 338, Short.MAX_VALUE)))
-                    .addGroup(panouAnunturiLayout.createSequentialGroup()
+                        .addGroup(panouAnuntLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(labelAnuntCurs)
+                            .addComponent(labelAnuntProf)))
+                    .addGroup(panouAnuntLayout.createSequentialGroup()
                         .addGap(115, 115, 115)
                         .addComponent(labelAnuntTitlu))
-                    .addGroup(panouAnunturiLayout.createSequentialGroup()
+                    .addGroup(panouAnuntLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(labelAnuntCurs))
-                    .addGroup(panouAnunturiLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(labelAnuntProf)))
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 333, Short.MAX_VALUE)))
                 .addContainerGap())
         );
-        panouAnunturiLayout.setVerticalGroup(
-            panouAnunturiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panouAnunturiLayout.createSequentialGroup()
-                .addComponent(titluAnunturi)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        panouAnuntLayout.setVerticalGroup(
+            panouAnuntLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panouAnuntLayout.createSequentialGroup()
                 .addComponent(labelAnuntCurs)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(labelAnuntProf)
-                .addGap(11, 11, 11)
+                .addGap(4, 4, 4)
                 .addComponent(labelAnuntTitlu)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-
-        jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder("Optiuni"));
-
-        jButton1.setText("Completeaza contract");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-
-        butMaterialeCurs.setText("Materiale de curs");
-        butMaterialeCurs.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                butMaterialeCursActionPerformed(evt);
-            }
-        });
-
-        butNote.setText("Note");
-        butNote.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                butNoteActionPerformed(evt);
-            }
-        });
-
-        butTrimiteTeme.setText("Trimite teme");
-        butTrimiteTeme.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                butTrimiteTemeActionPerformed(evt);
-            }
-        });
-
-        butLogout.setText("Delogare");
-        butLogout.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                butLogoutActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                .addGap(25, 25, 25)
+                .addContainerGap()
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(butLogout, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 137, Short.MAX_VALUE)
-                    .addComponent(butNote, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 137, Short.MAX_VALUE)
-                    .addComponent(butMaterialeCurs, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 137, Short.MAX_VALUE)
-                    .addComponent(butTrimiteTeme, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 137, Short.MAX_VALUE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(19, 19, 19))
+                    .addComponent(panouAnunt, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 365, Short.MAX_VALUE))
+                .addContainerGap())
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addComponent(jButton1)
+                .addContainerGap()
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(butTrimiteTeme)
+                .addComponent(panouAnunt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(31, Short.MAX_VALUE))
+        );
+
+        tabGlobal.addTab("Anunturi                ", new javax.swing.ImageIcon(getClass().getResource("/icons/buton.PNG")), jPanel4); // NOI18N
+
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 12));
+        jLabel3.setForeground(new java.awt.Color(0, 102, 153));
+        jLabel3.setText("Selectati curs");
+
+        temeListCursuri.setForeground(new java.awt.Color(0, 102, 153));
+        temeListCursuri.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        temeListCursuri.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                temeListCursuriItemStateChanged(evt);
+            }
+        });
+
+        panouTeme.setBackground(new java.awt.Color(255, 255, 255));
+        panouTeme.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Teme curente", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(0, 51, 102))); // NOI18N
+
+        temeList.setForeground(new java.awt.Color(0, 102, 153));
+        temeList.setModel(new javax.swing.AbstractListModel() {
+            String[] strings = { "Nume [deadline]" };
+            public int getSize() { return strings.length; }
+            public Object getElementAt(int i) { return strings[i]; }
+        });
+        temeList.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        temeList.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
+            public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
+                temeListValueChanged(evt);
+            }
+        });
+        jScrollPane1.setViewportView(temeList);
+
+        panouInfoTema.setBackground(new java.awt.Color(255, 255, 255));
+        panouInfoTema.setForeground(new java.awt.Color(255, 255, 255));
+
+        temaInfo.setColumns(20);
+        temaInfo.setFont(new java.awt.Font("Arial", 0, 11));
+        temaInfo.setForeground(new java.awt.Color(0, 102, 153));
+        temaInfo.setRows(5);
+        temaInfo.setText("Informatiile despre o tema");
+        temaInfo.setCaretColor(new java.awt.Color(0, 102, 153));
+        temaInfo.setDisabledTextColor(new java.awt.Color(0, 102, 153));
+        temaInfo.setEnabled(false);
+        jScrollPane4.setViewportView(temaInfo);
+
+        temaTitlu.setFont(new java.awt.Font("Tahoma", 1, 11));
+        temaTitlu.setForeground(new java.awt.Color(0, 51, 102));
+        temaTitlu.setText("Nume [deadline]");
+
+        labelTermen.setFont(new java.awt.Font("Tahoma", 1, 11));
+        labelTermen.setForeground(new java.awt.Color(0, 51, 102));
+        labelTermen.setText("Termen de predare:");
+
+        labelIncarcat.setFont(new java.awt.Font("Tahoma", 1, 11));
+        labelIncarcat.setForeground(new java.awt.Color(0, 51, 102));
+        labelIncarcat.setText("Incarcat in data de");
+
+        temaDataIncarcare.setForeground(new java.awt.Color(0, 102, 153));
+        temaDataIncarcare.setText("dataIncarcare");
+
+        temaDeadline.setForeground(new java.awt.Color(0, 102, 153));
+        temaDeadline.setText("deadline");
+
+        butIncarcaTema.setForeground(new java.awt.Color(0, 51, 102));
+        butIncarcaTema.setText("Incarca rezolvare");
+        butIncarcaTema.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                butIncarcaTemaActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout panouInfoTemaLayout = new javax.swing.GroupLayout(panouInfoTema);
+        panouInfoTema.setLayout(panouInfoTemaLayout);
+        panouInfoTemaLayout.setHorizontalGroup(
+            panouInfoTemaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panouInfoTemaLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(panouInfoTemaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 333, Short.MAX_VALUE)
+                    .addGroup(panouInfoTemaLayout.createSequentialGroup()
+                        .addGroup(panouInfoTemaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(panouInfoTemaLayout.createSequentialGroup()
+                                .addGroup(panouInfoTemaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(labelTermen)
+                                    .addComponent(labelIncarcat))
+                                .addGap(18, 18, 18)
+                                .addGroup(panouInfoTemaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(temaDeadline)
+                                    .addComponent(temaDataIncarcare))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE)
+                                .addComponent(butIncarcaTema))
+                            .addComponent(temaTitlu))
+                        .addContainerGap())))
+        );
+        panouInfoTemaLayout.setVerticalGroup(
+            panouInfoTemaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panouInfoTemaLayout.createSequentialGroup()
+                .addComponent(temaTitlu)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(butMaterialeCurs)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(butNote)
+                .addGroup(panouInfoTemaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panouInfoTemaLayout.createSequentialGroup()
+                        .addGroup(panouInfoTemaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(labelTermen)
+                            .addComponent(temaDeadline))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(panouInfoTemaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(labelIncarcat)
+                            .addComponent(temaDataIncarcare)))
+                    .addComponent(butIncarcaTema, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
+        );
+
+        javax.swing.GroupLayout panouTemeLayout = new javax.swing.GroupLayout(panouTeme);
+        panouTeme.setLayout(panouTemeLayout);
+        panouTemeLayout.setHorizontalGroup(
+            panouTemeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panouTemeLayout.createSequentialGroup()
+                .addGroup(panouTemeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(panouInfoTema, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(panouTemeLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 333, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
+        panouTemeLayout.setVerticalGroup(
+            panouTemeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panouTemeLayout.createSequentialGroup()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(panouInfoTema, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(panouTeme, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(temeListCursuri, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(temeListCursuri, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(butLogout)
+                .addComponent(panouTeme, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(52, Short.MAX_VALUE))
+        );
+
+        tabGlobal.addTab("Teme                     ", new javax.swing.ImageIcon(getClass().getResource("/icons/buton.PNG")), jPanel1); // NOI18N
+
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
+
+        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 12));
+        jLabel7.setForeground(new java.awt.Color(0, 102, 153));
+        jLabel7.setText("Selectati curs");
+
+        noteListCursuri.setForeground(new java.awt.Color(0, 102, 153));
+        noteListCursuri.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        noteListCursuri.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                noteListCursuriItemStateChanged(evt);
+            }
+        });
+
+        tabelExamene.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
+            },
+            new String [] {
+                "Data", "Tip examinare", "Nota obtinuta"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Object.class, java.lang.Object.class, java.lang.Integer.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane12.setViewportView(tabelExamene);
+        tabelExamene.getColumnModel().getColumn(2).setMinWidth(90);
+        tabelExamene.getColumnModel().getColumn(2).setPreferredWidth(90);
+        tabelExamene.getColumnModel().getColumn(2).setMaxWidth(90);
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(jLabel7)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(noteListCursuri, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane12, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 365, Short.MAX_VALUE))
+                .addContainerGap())
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel7)
+                    .addComponent(noteListCursuri, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane12, javax.swing.GroupLayout.DEFAULT_SIZE, 154, Short.MAX_VALUE)
+                .addGap(175, 175, 175))
+        );
+
+        tabGlobal.addTab("Note si examene ", new javax.swing.ImageIcon(getClass().getResource("/icons/buton.PNG")), jPanel3); // NOI18N
+
+        jPanel7.setBackground(new java.awt.Color(255, 255, 255));
+
+        jLabel8.setFont(new java.awt.Font("Tahoma", 1, 12));
+        jLabel8.setForeground(new java.awt.Color(0, 102, 153));
+        jLabel8.setText("Selectati curs");
+
+        materialeListCursuri.setForeground(new java.awt.Color(0, 102, 153));
+        materialeListCursuri.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        materialeListCursuri.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                materialeListCursuriItemStateChanged(evt);
+            }
+        });
+
+        panouMaterial.setBackground(new java.awt.Color(255, 255, 255));
+        panouMaterial.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Materiale de curs", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(0, 51, 102))); // NOI18N
+
+        materialeList.setForeground(new java.awt.Color(0, 51, 102));
+        materialeList.setModel(new javax.swing.AbstractListModel() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            public int getSize() { return strings.length; }
+            public Object getElementAt(int i) { return strings[i]; }
+        });
+        jScrollPane5.setViewportView(materialeList);
+
+        butDescarcaMaterial.setForeground(new java.awt.Color(0, 51, 102));
+        butDescarcaMaterial.setText("Descarca material");
+        butDescarcaMaterial.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                butDescarcaMaterialActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout panouMaterialLayout = new javax.swing.GroupLayout(panouMaterial);
+        panouMaterial.setLayout(panouMaterialLayout);
+        panouMaterialLayout.setHorizontalGroup(
+            panouMaterialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panouMaterialLayout.createSequentialGroup()
+                .addGroup(panouMaterialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(panouMaterialLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 316, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panouMaterialLayout.createSequentialGroup()
+                        .addGap(209, 209, 209)
+                        .addComponent(butDescarcaMaterial)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        panouMaterialLayout.setVerticalGroup(
+            panouMaterialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panouMaterialLayout.createSequentialGroup()
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(butDescarcaMaterial, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        javax.swing.GroupLayout welcomeLayout = new javax.swing.GroupLayout(welcome);
-        welcome.setLayout(welcomeLayout);
-        welcomeLayout.setHorizontalGroup(
-            welcomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(welcomeLayout.createSequentialGroup()
+        javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
+        jPanel7.setLayout(jPanel7Layout);
+        jPanel7Layout.setHorizontalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel7Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(welcomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(panouCursuriInscris, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(panouMaterial, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addComponent(jLabel8)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(materialeListCursuri, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(27, Short.MAX_VALUE))
+        );
+        jPanel7Layout.setVerticalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel7Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel8)
+                    .addComponent(materialeListCursuri, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(panouMaterial, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(143, Short.MAX_VALUE))
+        );
+
+        tabGlobal.addTab("Materiale de curs", new javax.swing.ImageIcon(getClass().getResource("/icons/buton.PNG")), jPanel7); // NOI18N
+
+        jPanel6.setBackground(new java.awt.Color(255, 255, 255));
+
+        jLabel9.setFont(new java.awt.Font("Tahoma", 1, 12));
+        jLabel9.setForeground(new java.awt.Color(0, 102, 153));
+        jLabel9.setText("Cursuri contractate");
+
+        jLabel10.setFont(new java.awt.Font("Tahoma", 1, 12));
+        jLabel10.setForeground(new java.awt.Color(0, 102, 153));
+        jLabel10.setText("Cursuri disponibile");
+
+        tableCursuriContractate.setForeground(new java.awt.Color(0, 51, 102));
+        tableCursuriContractate.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {"111", "test", "2", "3"},
+                {"222", "abc", "1", "2"},
+                {"333", "def", "5", "1"},
+                {"444", "ghi", null, "4"}
+            },
+            new String [] {
+                "Cod", "Nume", "Nr. Credite", "Semestru"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        tableCursuriContractate.setGridColor(new java.awt.Color(0, 102, 153));
+        tableCursuriContractate.setSelectionBackground(new java.awt.Color(0, 102, 153));
+        tableCursuriContractate.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tableCursuriContractateMouseClicked(evt);
+            }
+        });
+        tableCursuriContractate.addVetoableChangeListener(new java.beans.VetoableChangeListener() {
+            public void vetoableChange(java.beans.PropertyChangeEvent evt)throws java.beans.PropertyVetoException {
+                tableCursuriContractateVetoableChange(evt);
+            }
+        });
+        jScrollPane6.setViewportView(tableCursuriContractate);
+        tableCursuriContractate.getColumnModel().getColumn(0).setMinWidth(50);
+        tableCursuriContractate.getColumnModel().getColumn(0).setPreferredWidth(50);
+        tableCursuriContractate.getColumnModel().getColumn(0).setMaxWidth(50);
+        tableCursuriContractate.getColumnModel().getColumn(2).setMinWidth(70);
+        tableCursuriContractate.getColumnModel().getColumn(2).setPreferredWidth(70);
+        tableCursuriContractate.getColumnModel().getColumn(2).setMaxWidth(70);
+        tableCursuriContractate.getColumnModel().getColumn(3).setMinWidth(70);
+        tableCursuriContractate.getColumnModel().getColumn(3).setPreferredWidth(70);
+        tableCursuriContractate.getColumnModel().getColumn(3).setMaxWidth(70);
+
+        tabelCursuriDisponibile.setForeground(new java.awt.Color(0, 51, 102));
+        tabelCursuriDisponibile.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Cod", "Nume", "Nr. Credite", "Semestru"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        tabelCursuriDisponibile.setGridColor(new java.awt.Color(0, 102, 153));
+        tabelCursuriDisponibile.setSelectionBackground(new java.awt.Color(0, 102, 153));
+        jScrollPane7.setViewportView(tabelCursuriDisponibile);
+        tabelCursuriDisponibile.getColumnModel().getColumn(0).setMinWidth(50);
+        tabelCursuriDisponibile.getColumnModel().getColumn(0).setPreferredWidth(50);
+        tabelCursuriDisponibile.getColumnModel().getColumn(0).setMaxWidth(50);
+        tabelCursuriDisponibile.getColumnModel().getColumn(2).setMinWidth(70);
+        tabelCursuriDisponibile.getColumnModel().getColumn(2).setPreferredWidth(70);
+        tabelCursuriDisponibile.getColumnModel().getColumn(2).setMaxWidth(70);
+        tabelCursuriDisponibile.getColumnModel().getColumn(3).setMinWidth(70);
+        tabelCursuriDisponibile.getColumnModel().getColumn(3).setPreferredWidth(70);
+        tabelCursuriDisponibile.getColumnModel().getColumn(3).setMaxWidth(70);
+
+        butContracteaza.setForeground(new java.awt.Color(0, 51, 102));
+        butContracteaza.setText("Contracteaza");
+        butContracteaza.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                butContracteazaActionPerformed(evt);
+            }
+        });
+
+        butRenunta.setForeground(new java.awt.Color(0, 51, 102));
+        butRenunta.setText("Renunta");
+
+        butAdaugaCursLaContract.setForeground(new java.awt.Color(0, 51, 102));
+        butAdaugaCursLaContract.setText("Adauga");
+        butAdaugaCursLaContract.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                butAdaugaCursLaContractActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
+        jPanel6.setLayout(jPanel6Layout);
+        jPanel6Layout.setHorizontalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addComponent(jLabel9)
+                        .addGap(247, 247, 247))
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 365, Short.MAX_VALUE)
+                        .addContainerGap())
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addComponent(jLabel10)
+                        .addContainerGap(263, Short.MAX_VALUE))
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addComponent(jScrollPane7, javax.swing.GroupLayout.DEFAULT_SIZE, 365, Short.MAX_VALUE)
+                        .addContainerGap())
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addComponent(butContracteaza, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(butRenunta, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(butAdaugaCursLaContract, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
+                        .addContainerGap())))
+        );
+        jPanel6Layout.setVerticalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel9)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel10)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(butAdaugaCursLaContract, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(butRenunta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(butContracteaza, javax.swing.GroupLayout.DEFAULT_SIZE, 44, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        tabGlobal.addTab("Contracte              ", new javax.swing.ImageIcon(getClass().getResource("/icons/buton.PNG")), jPanel6); // NOI18N
+
+        labelStud.setFont(new java.awt.Font("Tahoma", 3, 12));
+        labelStud.setForeground(new java.awt.Color(0, 102, 153));
+        labelStud.setText(" student");
+
+        semsIco.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/sems_mic.png"))); // NOI18N
+
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
+        jPanel2.setForeground(new java.awt.Color(204, 204, 204));
+
+        jLabel1.setForeground(new java.awt.Color(0, 102, 153));
+        jLabel1.setText("welcome,");
+
+        labelNumeStudent.setForeground(new java.awt.Color(0, 102, 153));
+        labelNumeStudent.setText("numeStudent");
+
+        labelUserStudent.setFont(new java.awt.Font("Tahoma", 1, 11));
+        labelUserStudent.setForeground(new java.awt.Color(0, 102, 153));
+        labelUserStudent.setText("[username]");
+
+        jLabel23.setFont(new java.awt.Font("Tahoma", 1, 11));
+        jLabel23.setForeground(new java.awt.Color(0, 102, 153));
+        jLabel23.setText("[schimba parola]");
+        jLabel23.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel23MouseClicked(evt);
+            }
+        });
+
+        showHelpAboutButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/windows-info.png"))); // NOI18N
+        showHelpAboutButton.setContentAreaFilled(false);
+        showHelpAboutButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        showHelpAboutButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                showHelpAboutButtonActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(labelNumeStudent))
+                    .addComponent(labelUserStudent))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel23)
                 .addGap(18, 18, 18)
-                .addComponent(panouAnunturi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(showHelpAboutButton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel1)
+                            .addComponent(labelNumeStudent))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(labelUserStudent)
+                            .addComponent(jLabel23)))
+                    .addComponent(showHelpAboutButton))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(tabGlobal, javax.swing.GroupLayout.PREFERRED_SIZE, 518, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(jPanel5Layout.createSequentialGroup()
+                                .addGap(19, 19, 19)
+                                .addComponent(labelStud, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(semsIco, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(42, 42, 42)))
                 .addContainerGap())
         );
-        welcomeLayout.setVerticalGroup(
-            welcomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(welcomeLayout.createSequentialGroup()
-                .addGroup(welcomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(welcomeLayout.createSequentialGroup()
-                        .addComponent(panouCursuriInscris, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addComponent(semsIco, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(panouAnunturi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(labelStud))
+                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(tabGlobal, javax.swing.GroupLayout.PREFERRED_SIZE, 376, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -267,147 +788,194 @@ public class FrameStudMain extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(welcome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(welcome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void listCursuriValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_listCursuriValueChanged
-        c.setStudMainButtons(true, this);
-    }//GEN-LAST:event_listCursuriValueChanged
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-    	c.openContracts();
-    }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void butTrimiteTemeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butTrimiteTemeActionPerformed
-    	c.openAssignments(this);
-    }//GEN-LAST:event_butTrimiteTemeActionPerformed
-
-    private void butMaterialeCursActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butMaterialeCursActionPerformed
-    	c.openCourseComponents(this);
-    }//GEN-LAST:event_butMaterialeCursActionPerformed
-
-    private void butNoteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butNoteActionPerformed
-    	c.openGrades(this);
-    }//GEN-LAST:event_butNoteActionPerformed
-
-    private void butLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butLogoutActionPerformed
-        this.dispose();
-    }//GEN-LAST:event_butLogoutActionPerformed
-
     private void listAnunturiValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_listAnunturiValueChanged
 
-        c.showMainAnnounce(this);
+        panouAnunt.setVisible(true);
         // TODO add your handling code here:
-    }//GEN-LAST:event_listAnunturiValueChanged
+}//GEN-LAST:event_listAnunturiValueChanged
+
+    private void temeListValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_temeListValueChanged
+        // Se seteaza informatiile din panouInfoTema.
+        // adica: temaTitlu, temaInfo, temaDeadline, temaDataIncarcare (daca ii
+        // cazu)
+        // In caz ca data de incarcare nu exista( nu s-o uploadat nimic,) butonu
+        // butIncarcaTema sa se faca enabled.
+        butIncarcaTema.setEnabled(true);
+        panouInfoTema.setVisible(true);
+}//GEN-LAST:event_temeListValueChanged
+
+    private void butIncarcaTemaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butIncarcaTemaActionPerformed
+        
+        final JFileChooser fc = new JFileChooser();
+        int returnVal = fc.showOpenDialog(this);
+        if(returnVal == JFileChooser.APPROVE_OPTION) {
+          // de rezolvat.
+            File f = fc.getSelectedFile();
+            String numeFis = f.getName();
+
+        }
+
+    }//GEN-LAST:event_butIncarcaTemaActionPerformed
+
+    private void butDescarcaMaterialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butDescarcaMaterialActionPerformed
+        // save file pt material
+        final JFileChooser fc = new JFileChooser();
+        int returnVal = fc.showSaveDialog(this);
+        if(returnVal == JFileChooser.APPROVE_OPTION) {
+          // de rezolvat.
+            File f = fc.getSelectedFile();
+            String numeFis = f.getName();
+
+        }
+
+    }//GEN-LAST:event_butDescarcaMaterialActionPerformed
+
+    private void materialeListCursuriItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_materialeListCursuriItemStateChanged
+
+        panouMaterial.setVisible(true);
+        // TODO add your handling code here:
+    }//GEN-LAST:event_materialeListCursuriItemStateChanged
+
+    private void noteListCursuriItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_noteListCursuriItemStateChanged
+
+        tabelExamene.setVisible(true);
+        // TODO add your handling code here:
+    }//GEN-LAST:event_noteListCursuriItemStateChanged
+
+    private void temeListCursuriItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_temeListCursuriItemStateChanged
+
+        panouTeme.setVisible(true);
+        // TODO add your handling code here:
+    }//GEN-LAST:event_temeListCursuriItemStateChanged
+
+    private void butContracteazaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butContracteazaActionPerformed
+        // Se salveaza modificarile, si se lanseaza un
+        // DialogMsg cu mesaj corespunzator.
+        butContracteaza.setEnabled(false);
+        butRenunta.setEnabled(false);
+
+    }//GEN-LAST:event_butContracteazaActionPerformed
+
+    private void jLabel23MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel23MouseClicked
+        // Se deschide dialogul DialogChangePassword
+}//GEN-LAST:event_jLabel23MouseClicked
+
+    private void tableCursuriContractateVetoableChange(java.beans.PropertyChangeEvent evt)throws java.beans.PropertyVetoException {//GEN-FIRST:event_tableCursuriContractateVetoableChange
+        // la un curs selectat, sa se dea enable la butonu Adauga
+        //
+        butAdaugaCursLaContract.setEnabled(true);
+        
+    }//GEN-LAST:event_tableCursuriContractateVetoableChange
+
+    private void butAdaugaCursLaContractActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butAdaugaCursLaContractActionPerformed
+        // Adaugam cursul selectat din tableCursuriContractate, in cursuri
+        // disponibile (tabelCursuriDisponibile) , stergem din tableCursuriContractate cursu
+        // selectat
+        butAdaugaCursLaContract.setEnabled(false);
+        butRenunta.setEnabled(true);
+        butContracteaza.setEnabled(true);
+    }//GEN-LAST:event_butAdaugaCursLaContractActionPerformed
+
+    private void tableCursuriContractateMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableCursuriContractateMouseClicked
+       
+        butAdaugaCursLaContract.setEnabled(true);
+    }//GEN-LAST:event_tableCursuriContractateMouseClicked
+
+    private void showHelpAboutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showHelpAboutButtonActionPerformed
+        FrameHelpAbout helpAboutDialog = new FrameHelpAbout();
+        helpAboutDialog.show();
+}//GEN-LAST:event_showHelpAboutButtonActionPerformed
+
+
 
 
     /**
-	 * @param butNote the butNote to set
-	 */
-	public void setButNote(javax.swing.JButton butNote) {
-		this.butNote = butNote;
-	}
-
-
-	/**
-	 * @return the butNote
-	 */
-	public javax.swing.JButton getButNote() {
-		return butNote;
-	}
-
-
-	/**
-	 * @param butMaterialeCurs the butMaterialeCurs to set
-	 */
-	public void setButMaterialeCurs(javax.swing.JButton butMaterialeCurs) {
-		this.butMaterialeCurs = butMaterialeCurs;
-	}
-
-
-	/**
-	 * @return the butMaterialeCurs
-	 */
-	public javax.swing.JButton getButMaterialeCurs() {
-		return butMaterialeCurs;
-	}
-
-
-	/**
-	 * @param butTrimiteTeme the butTrimiteTeme to set
-	 */
-	public void setButTrimiteTeme(javax.swing.JButton butTrimiteTeme) {
-		this.butTrimiteTeme = butTrimiteTeme;
-	}
-
-
-	/**
-	 * @return the butTrimiteTeme
-	 */
-	public javax.swing.JButton getButTrimiteTeme() {
-		return butTrimiteTeme;
-	}
-
+    * @param butNote the butNote to set
+    */
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton butLogout;
-    private javax.swing.JButton butMaterialeCurs;
-    private javax.swing.JButton butNote;
-    private javax.swing.JButton butTrimiteTeme;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton butAdaugaCursLaContract;
+    private javax.swing.JButton butContracteaza;
+    private javax.swing.JButton butDescarcaMaterial;
+    private javax.swing.JButton butIncarcaTema;
+    private javax.swing.JButton butRenunta;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
+    private javax.swing.JPanel jPanel7;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane12;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JScrollPane jScrollPane6;
+    private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JLabel labelAnuntCurs;
     private javax.swing.JLabel labelAnuntProf;
     private javax.swing.JTextArea labelAnuntText;
     private javax.swing.JLabel labelAnuntTitlu;
+    private javax.swing.JLabel labelIncarcat;
+    private javax.swing.JLabel labelNumeStudent;
+    private javax.swing.JLabel labelStud;
+    private javax.swing.JLabel labelTermen;
+    private javax.swing.JLabel labelUserStudent;
     private javax.swing.JList listAnunturi;
-    private javax.swing.JList listCursuri;
-    private javax.swing.JPanel panouAnunturi;
-    private javax.swing.JPanel panouCursuriInscris;
-    private javax.swing.JLabel titluAnunturi;
-    private javax.swing.JPanel welcome;
+    private javax.swing.JList materialeList;
+    private javax.swing.JComboBox materialeListCursuri;
+    private javax.swing.JComboBox noteListCursuri;
+    private javax.swing.JPanel panouAnunt;
+    private javax.swing.JPanel panouInfoTema;
+    private javax.swing.JPanel panouMaterial;
+    private javax.swing.JPanel panouTeme;
+    private javax.swing.JLabel semsIco;
+    private javax.swing.JButton showHelpAboutButton;
+    private javax.swing.JTabbedPane tabGlobal;
+    private javax.swing.JTable tabelCursuriDisponibile;
+    private javax.swing.JTable tabelExamene;
+    private javax.swing.JTable tableCursuriContractate;
+    private javax.swing.JLabel temaDataIncarcare;
+    private javax.swing.JLabel temaDeadline;
+    private javax.swing.JTextArea temaInfo;
+    private javax.swing.JLabel temaTitlu;
+    private javax.swing.JList temeList;
+    private javax.swing.JComboBox temeListCursuri;
     // End of variables declaration//GEN-END:variables
 
-    public JList getListCursuri() {
-        return listCursuri;
+    //by bsk
+    public void setAnnouncement(ListModel model) {
+        listAnunturi.setModel(model);
+    }
+    public  void  setTemeListCursuri(ComboBoxModel model){
+        temeListCursuri.setModel(model);
     }
 
-    public JList getListAnunturi() {
-        return listAnunturi;
+    public  void setNameStudent(String fullname){
+        labelNumeStudent.setText(fullname);
+    }
+    public  void setUsernameStudent(String username){
+        labelUserStudent.setText(username);
     }
 
-    public JLabel getLabelAnuntCurs() {
-        return labelAnuntCurs;
-    }
 
-    public JLabel getLabelAnuntProf() {
-        return labelAnuntProf;
-    }
-
-    public JTextArea getLabelAnuntText() {
-        return labelAnuntText;
-    }
-
-    public JLabel getLabelAnuntTitlu() {
-        return labelAnuntTitlu;
-    }
-
-    
 }

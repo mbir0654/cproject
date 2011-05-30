@@ -1,33 +1,35 @@
 /**
- * 
+ *
  */
 package business.model;
 
 import java.io.Serializable;
+import java.util.List;
+import java.util.ArrayList;
 
 	/**
-	 * 
+	 *
 	 * @author otniel
 	 *
 	 */
 public abstract class User implements Serializable {
-	
-	private String firstName = "";
-	private String lastName = "";
-	private String userName = "";
-	private String password = "";
-	
+
+	protected String firstName = "";
+	protected String lastName = "";
+	protected String userName = "";
+	protected String password = "";
+
 	/**
 	 * Constructorul implicit
-	 * 
+	 *
 	 * <p>Initializeaza <b>firstName, lastName, userName</b> si <b>password</b></p>
 	 */
 	public User(){
 	}
-	
+
 	/**
 	 * Constructorul de copiere
-	 * 
+	 *
 	 * @param u este userul care va fi duplicat
 	 */
 	public User(User u){
@@ -36,23 +38,23 @@ public abstract class User implements Serializable {
 		userName = u.getUserName();
 		password = u.getPassword();
 	}
-	
+
 	/**
 	 * Verifica daca doi useri sunt identici
-	 * 
+	 *
 	 * @param u
-	 * 
+	 *
 	 * @return
 	 */
 	public boolean equals(User u){
-		if(firstName.equals(u.getFirstName()) && 
+		if(firstName.equals(u.getFirstName()) &&
 		   lastName.equalsIgnoreCase(u.getLastName()) &&
 		   userName.equalsIgnoreCase(u.getUserName()) &&
 		   password.equalsIgnoreCase(u.getPassword()))
 			return true;
 		return false;
 	}
-	
+
 	/**
 	 * @param firstName va fi prenumele <b>USer</b>ului
 	 */
@@ -84,7 +86,7 @@ public abstract class User implements Serializable {
 		this.userName = userName;
 	}
 	/**
-	 * @return identificatorul <b>USer</b>ului
+	 * @return identificatorul <b>User</b>ului
 	 */
 	public String getUserName() {
 		return userName;
@@ -101,8 +103,13 @@ public abstract class User implements Serializable {
 	public String getPassword() {
 		return password;
 	}
-	
+
+    @Override
 	public String toString() {
 		return this.firstName+" "+this.lastName;
+	}
+
+	public List<DbObject> toDbObjectList(){
+            return null;
 	}
 }

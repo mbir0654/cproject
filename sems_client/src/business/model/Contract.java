@@ -16,12 +16,13 @@ public class Contract implements Serializable {
 	/**
 	 * Constructorul implcit
 	 */
-	public Contract(){
-		courses = new ArrayList<Course>();
+	public Contract(Student s){
+            courses = new ArrayList<Course>();
+            student = s;
 	}
 
 	/**
-	 * @param courses va fi lista de cursuri contractate
+	 * @param course va fi lista de cursuri contractate
 	 */
 	public void addCourse(Course course) {
 		courses.add(course);
@@ -55,5 +56,10 @@ public class Contract implements Serializable {
 	 */
 	public Student getStudent() {
 		return student;
-	}	
+	}
+
+    @Override
+    public String toString(){
+        return courses + " " + student;
+    }
 }

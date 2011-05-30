@@ -2,10 +2,11 @@ package data.repositorydb;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 import business.model.*;
+import data.dbutil.DbObject;
 import data.dbutil.DbUtil;
+import data.dbutil.SqlFunctions;
 import data.repositoryinterface.Repository;
 
 /**
@@ -46,6 +47,7 @@ public class AdministratorRepository implements Repository<Administrator>{
 				a.setPassword(rs.getString("password"));
 				l.add(a);
 			}
+                        dbu.close();
 		} catch (SQLException e) {
 			System.err.println(e.getMessage());
 			e.printStackTrace();
@@ -53,18 +55,16 @@ public class AdministratorRepository implements Repository<Administrator>{
 	}
 
 	/**
-	 * @see data.repositoryinterface.Repository#add(java.lang.Object)
+	 * 
 	 */
 	@Override
 	public void add(Administrator item) {
 		l.add(item);
-		DbUtil dbu;
+		List<DbObject> data = item.toDbObjectList();
 		try {
-			dbu = new DbUtil();
-			String str = "insert into users values('"+item.getFirstName()+"','"+
-			item.getLastName()+"','"+item.getUserName()+"','"+item.getPassword()+
-			"','admin')";
-			dbu.makeUpdate(str);
+                    DbUtil dbu= new DbUtil();
+                    SqlFunctions.insert("users", data,dbu);
+                    dbu.close();
 		} catch (SQLException e) {
 			System.err.println(e.getMessage());
 			e.printStackTrace();
@@ -72,7 +72,7 @@ public class AdministratorRepository implements Repository<Administrator>{
 	}
 
 	/**
-	 * @see data.repositoryinterface.Repository#getAll()
+	 * 
 	 */
 	@Override
 	public List<Administrator> getAll() {
@@ -80,29 +80,26 @@ public class AdministratorRepository implements Repository<Administrator>{
 	}
 
 	/**
-	 * @see data.repositoryinterface.Repository#findByName(java.lang.String)
+	 * 
 	 */
 	@Override
 	public Administrator findByName(String name) {
 		for (Administrator a : l){
-			if(a.getUserName().equals(name));
-			return a;
+			if(a.getUserName().equals(name))
+			    return a;
 		}
 		return null;
 	}
 
 	/**
-	 * @see data.repositoryinterface.Repository#update(java.lang.Object)
+	 * 
 	 */
 	@Override
 	public void update(Administrator item) {
-		String updater = "UPDATE users SET fisrtName="+item.getFirstName()+
-		", lastName="+item.getLastName()+", password = '"+item.getPassword()+
-		"' WHERE userName='"+item.getUserName()+"'";
-		DbUtil dbu;
+		List<DbObject> data = item.toDbObjectList();
 		try {
-			dbu = new DbUtil();
-			dbu.makeUpdate(updater);
+			SqlFunctions.update("users", data, "userName = '"
+					+item.getUserName()+"'");
 		} catch (SQLException e) {
 			System.err.println(e.getMessage());
 			e.printStackTrace();
@@ -110,16 +107,13 @@ public class AdministratorRepository implements Repository<Administrator>{
 	}
 
 	/**
-	 * @see data.repositoryinterface.Repository#delete(java.lang.Object)
+	 * 
 	 */
 	@Override
 	public void delete(Administrator item) {
 		l.remove(item);
-		DbUtil dbu;
 		try {
-			dbu = new DbUtil();
-			String str  = "delete from users where userName = "+item.getUserName();
-			dbu.makeUpdate(str);
+			SqlFunctions.delete("users", "userName = '"+item.getUserName()+"'");
 		} catch (SQLException e) {
 			System.err.println(e.getMessage());
 			e.printStackTrace();

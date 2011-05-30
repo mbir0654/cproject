@@ -31,7 +31,6 @@ public class FacultyRepository implements Repository<Faculty>{
 	public static FacultyRepository getInstance(){
 		return theFaculties;
 	}
-	
 	/**
 	 * Constructor implicit. Initializeaza facultatile din baza de date
 	 * 	impreuna cu toate legaturile campurilor din ele
@@ -91,6 +90,7 @@ public class FacultyRepository implements Repository<Faculty>{
 						c.setCod(rs3.getString(3));
 						c.setTip(rs3.getString(4));
 						c.setNumberOfCredits(rs3.getInt(5));
+						c.setSemestrul(rs3.getInt(6));
 						/*
 						 *extragem lista de examene pentru un curs,
 						 * din baza de date 
@@ -106,6 +106,7 @@ public class FacultyRepository implements Repository<Faculty>{
 							int exId = rs4.getInt(1);
 							Exam e = new Exam(rs4.getDate(2),
 									rs4.getString(3),c);
+                                                        e.setCourse(c);
 							/*
 							 * extragem notele acordate la un examen 
 							 */
@@ -151,13 +152,13 @@ public class FacultyRepository implements Repository<Faculty>{
 						 * si le adaugam in lista
 						 */
 						while(rs7.next()){
-							int asId = rs.getInt(1);
+							int asId = rs7.getInt(1);
 							Assignment a = new Assignment(rs7.getString(5),
 									rs7.getString(3),rs7.getDate(4),c);
 							/*
 							 * extragem lista de rezolvari pentru fiecare tema
 							 */
-							String sfa = "call solutions_for_assig("+asId+")";
+							String sfa = "call solutions_for_assign("+asId+")";
 							ResultSet rs8 =dbu.getDate(sfa);
 							/*
 							 * cat timp exista rezolvari, construim obiectele 
@@ -230,14 +231,11 @@ public class FacultyRepository implements Repository<Faculty>{
 						 */
 						while(rs10.next()){
 							int cId = rs10.getInt(1);
-							Student s = new Student();
+							Student s = sr.findByName(rs10.getString(6));
 							s.setGroup(g);
 							s.setNrMat(rs10.getString(4));
 							s.setCnp(rs10.getString(5));
-							s.setFirstName(rs10.getString(6));
-							s.setLastName(rs10.getString(7));
-							s.setPassword(rs10.getString(8));
-							s.setUserName(rs10.getString(9));
+                                                        s.setYear(rs10.getInt(7));
 							s.setSpecialty(sp);
 							/*
 							 * extragem cursurile pentru contractul
@@ -245,8 +243,7 @@ public class FacultyRepository implements Repository<Faculty>{
 							 */
 							String cfc = "call courses_for_contract("
 								+cId+")";
-							Contract contract = new Contract();
-							contract.setStudent(s);
+							Contract contract = new Contract(s);
 							ResultSet rs11 = dbu.getDate(cfc);
 							/*
 							 * cat timp exista cursuri, le adaugam in lista
@@ -260,7 +257,7 @@ public class FacultyRepository implements Repository<Faculty>{
 								}
 							}
 							s.setContract(contract);
-							g.addStudent(s);
+                                                        g.addStudent(s);
 						}
 						sp.addGroup(g);
 					}
@@ -268,6 +265,7 @@ public class FacultyRepository implements Repository<Faculty>{
 				}
 				l.add(f);
 			}
+                        dbu.close();
 		} catch (SQLException e) {
 			System.err.println(e.getMessage());
 			e.printStackTrace();

@@ -9,7 +9,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import business.model.*;
+import data.dbutil.DbObject;
 import data.dbutil.DbUtil;
+import data.dbutil.SqlFunctions;
 import data.repositoryinterface.*;
 
 /**
@@ -37,6 +39,7 @@ public class StudentRepository implements Repository<Student>{
 				s.setPassword(rs.getString("password"));
 				l.add(s);
 			}
+                        dbu.close();
 		} catch (SQLException e) {
 			System.err.println(e.getMessage());
 			e.printStackTrace();
@@ -52,14 +55,18 @@ public class StudentRepository implements Repository<Student>{
 	 */
 	@Override
 	public void add(Student item) {
-		l.add(item);		
-		DbUtil dbu;
+		l.add(item);
 		try {
-			dbu = new DbUtil();
-			String str = "insert into users values('"+item.getFirstName()+"','"+
-			item.getLastName()+"','"+item.getUserName()+"','"+item.getPassword()+
-			"','stud')";
-			dbu.makeUpdate(str);
+                    DbUtil dbu = new DbUtil();
+                    List<DbObject> data1 = item.toDbObjectList();
+                    List<DbObject> data2 = item.toDbObjectListStud();
+                    List<DbObject> data3 = item.toDbObjectListSS();
+                    List<DbObject> data4 = item.toDbObjectListContract();
+                    SqlFunctions.insert("users", data1,dbu);
+                    //SqlFunctions.insert("students", data2,dbu);
+                    //SqlFunctions.insert("students_specializations", data3,dbu);
+                    //SqlFunctions.insert("contracts", data4,dbu);
+                    dbu.close();
 		} catch (SQLException e) {
 			System.err.println(e.getMessage());
 			e.printStackTrace();
@@ -93,8 +100,18 @@ public class StudentRepository implements Repository<Student>{
 	 */
 	@Override
 	public void update(Student item) {
-		// TODO Auto-generated method stub
-		
+		try {
+			List<DbObject> data1 = item.toDbObjectList();
+			List<DbObject> data2 = item.toDbObjectListStud();
+			//List<DbObject> data3 = item.toDbObjectListSS();
+			//List<DbObject> data4 = item.toDbObjectListContract();
+			SqlFunctions.update("users", data1, "userName = '"+item.getUserName()+"'");
+			SqlFunctions.update("students", data2, "userName = '"+item.getUserName()+"'");
+			//SqlFunctions.update("students_specializations", data3, "spId  = "+data3.get(1).getValue());
+		} catch (SQLException e) {
+			System.err.println(e.getMessage());
+			e.printStackTrace();
+		}
 	}
 
 	/**
@@ -103,11 +120,8 @@ public class StudentRepository implements Repository<Student>{
 	@Override
 	public void delete(Student item) {
 		l.remove(item);
-		DbUtil dbu;
 		try {
-			dbu = new DbUtil();
-			String str  = "delete from users where userName = "+item.getUserName();
-			dbu.makeUpdate(str);
+			SqlFunctions.delete("users", "userName = '"+item.getUserName()+"'");
 		} catch (SQLException e) {
 			System.err.println(e.getMessage());
 			e.printStackTrace();

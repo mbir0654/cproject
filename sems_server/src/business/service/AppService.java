@@ -7,10 +7,7 @@ import java.sql.SQLException;
 import java.util.*;
 
 import data.dbutil.DbUtil;
-import data.repositorydb.AdministratorRepository;
-import data.repositorydb.FacultyRepository;
-import data.repositorydb.ProfessorRepository;
-import data.repositorydb.StudentRepository;
+import data.repositorydb.*;
 import data.repositoryinterface.Repository;
 import business.model.*;
 import business.serviceinterface.InterfaceAppService;
@@ -31,6 +28,14 @@ public class AppService implements InterfaceAppService {
 	private Repository<Administrator> adminRepo;
 	private Repository<Professor> profRepo;
 	private Repository<Student> studRepo;
+    @SuppressWarnings("unused")
+	private Repository<Faculty> facultyReposiitory;
+    @SuppressWarnings("unused")
+	private Repository<Group> groupRepo;
+    @SuppressWarnings("unused")
+	private Repository<Course> courseRepo;
+    @SuppressWarnings("unused")
+	private Repository<Announcement> announcementRepo;
 	
 	/**
 	 *  constuctor privat pentru singleton
@@ -39,6 +44,10 @@ public class AppService implements InterfaceAppService {
 		adminRepo = AdministratorRepository.getInstance();
 		profRepo = ProfessorRepository.getInstance();
 		studRepo = StudentRepository.getInstance();
+		facultyReposiitory = FacultyRepository.getInstance();
+        groupRepo = GroupRepository.getInstance();
+        courseRepo = CourseRepository.getInstance();
+        announcementRepo = AnnouncementRepository.getInstance();
 	}
 	
 	/**
@@ -68,7 +77,6 @@ public class AppService implements InterfaceAppService {
 			ResultSet rs = db.getDate(sql);
 			rs.next();
 		    if(rs.getRow() == 1){
-		    	
 		    	String userName = rs.getString(1);
 		    	String rol = rs.getString(2);
 		    	User u =  null;
@@ -78,12 +86,11 @@ public class AppService implements InterfaceAppService {
 		    		u = profRepo.findByName(userName);
 		    	} else if (rol.equals("stud")){
 		    		u = studRepo.findByName(userName);
-		    	}
-		    	System.out.println(u);
+                }
+                System.out.println(u);
 		    	return u;
 		    }
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return null;

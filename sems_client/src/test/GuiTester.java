@@ -4,12 +4,8 @@
 package test;
 
 import javax.swing.*;
-
 import client.RMIUtil;
-/*import java.awt.*;
-import java.awt.event.*;*/
 import controller.Controller;
-import ui.*;
 
 /**
  * @author otniel
