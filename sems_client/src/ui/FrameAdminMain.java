@@ -2079,7 +2079,9 @@ public class FrameAdminMain extends javax.swing.JFrame {
     private void inputInmatFacultateItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_inputInmatFacultateItemStateChanged
         inputInmatSpecializare.setVisible(true);
         labelInmatSpec.setVisible(true);
-        // TODO add your handling code here:
+
+        controllerAdmin.loadInmatriculeazaStudentSpecialties((Faculty) inputInmatFacultate.getSelectedItem());
+
     }//GEN-LAST:event_inputInmatFacultateItemStateChanged
 
 
@@ -2383,6 +2385,13 @@ public class FrameAdminMain extends javax.swing.JFrame {
     }
 
     public void setInmatriculeazaStudentSpecialties(ComboBoxModel model){
+        inputInmatSpecializare.setModel(model);
+    }
+
+    public void setInmatriculeazaStudentAnStudiu(ComboBoxModel model){
+        inputInmatAnStudiu.setModel(model);
+    }
+    public  void setInmatriculeazaStudentGrupe(ComboBoxModel model){
 
     }
 
