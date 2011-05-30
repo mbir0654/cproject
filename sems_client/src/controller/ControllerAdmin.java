@@ -7,10 +7,12 @@ package controller;
 import business.model.*;
 
 import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
 
 import business.serviceinterface.InterfaceAdministratorService;
 import ui.*;
 
+import java.security.KeyStore;
 import java.util.List;
 
 /**
@@ -66,6 +68,105 @@ public class ControllerAdmin {
         }
         adminMain.setSpecialties(model);
     }
+
+    public DefaultComboBoxModel loadSpecialties_combo(Faculty faculty){
+        DefaultComboBoxModel model = new DefaultComboBoxModel();
+        model.addElement(null);
+        if(faculty != null){
+            List<Specialty> specialties = faculty.getSpecialties();
+            for (Specialty s:specialties) {
+                model.addElement(s);
+            }
+        }
+        return model;
+    }
+
+    public DefaultComboBoxModel loadGrupe_combo(Specialty specialty){
+        DefaultComboBoxModel model = new DefaultComboBoxModel();
+        model.addElement(null);
+        if(specialty != null){
+            List<Group> groups = specialty.getGroups();
+            for (Group group:groups){
+                model.addElement(group);
+            }
+        }
+        return model;
+    }
+
+    public DefaultComboBoxModel loadStudenti_combo(Specialty specialty){
+        DefaultComboBoxModel model = new DefaultComboBoxModel();
+        model.addElement(null);
+        if(specialty != null){
+            List<Group> groups = specialty.getGroups();
+            for (Group group:groups){
+                List<Student> students = group.getStudents();
+                for(Student s:students){
+                    model.addElement(s);
+                }
+            }
+        }
+        return model;
+    }
+
+    public DefaultComboBoxModel loadCursuri_combo(Specialty specialty){
+        DefaultComboBoxModel model = new DefaultComboBoxModel();
+        model.addElement(null);
+        if(specialty != null){
+            List<Course> courses = specialty.getCourses();
+            for (Course course:courses){
+                model.addElement(course);
+
+            }
+        }
+        return model;
+    }
+    public DefaultComboBoxModel loadStudentByGrupa_combo(Group group){
+        DefaultComboBoxModel model = new DefaultComboBoxModel();
+        model.addElement(null);
+        if(group != null){
+            List<Student> students = group.getStudents();
+            for(Student s:students){
+                model.addElement(s);
+            }
+        }
+        return model;
+    }
+
+    public DefaultTableModel  loadTable_genDupaStud(Student student){
+        DefaultTableModel model = new DefaultTableModel(
+                new Object [][] {} ,
+                new String [] { "Curs", "Credite", "Nota finala" }
+            ){
+                boolean[] canEdit = new boolean [] {
+                    false, false, false
+                };
+
+                public boolean isCellEditable(int rowIndex, int columnIndex) {
+                    return canEdit [columnIndex];
+                }
+            };
+
+        if(student != null){
+            List<Course> courses = student.getContract().getCourses();
+            for(Course course:courses){
+                Integer nota_finala = null;
+                for(Exam exam:course.getExams()){
+                    if(exam.getCourse().equals(course)){
+                        for(Grade grade:exam.getGrades()){
+                            if(grade.getStud().equals(student))
+                                nota_finala = grade.getGrade();
+                        }
+                    }
+                }
+                Object [] obj = new Object [] {course.getName(), course.getNumberOfCredits(), nota_finala };
+                System.out.println("Obj: " + course.getName() +  course.getNumberOfCredits() + nota_finala );
+                model.addRow(obj);
+            }
+        }
+        return model;
+    }
+
+
 
     public void loadInmatriculeazaStudentSpecialties(Faculty faculty){
         if(faculty!= null){

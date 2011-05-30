@@ -1256,7 +1256,7 @@ public class FrameAdminMain extends javax.swing.JFrame {
                     .addComponent(labelStudStud))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-
+        /*
         tableCatalogDupaStudent.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
@@ -1276,6 +1276,7 @@ public class FrameAdminMain extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        */
         tableCatalogDupaStudent.setGridColor(new java.awt.Color(0, 102, 153));
         jScrollPane11.setViewportView(tableCatalogDupaStudent);
         tableCatalogDupaStudent.getColumnModel().getColumn(0).setMinWidth(50);
@@ -1997,17 +1998,21 @@ public class FrameAdminMain extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_butResImportaMouseExited
 
+
+
+
     private void inputGenDupaCursFacultateItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_inputGenDupaCursFacultateItemStateChanged
-        // se populeaza inputGenDupaCursSpecialzare 
+        inputGenDupaCursSpecializare.setModel(controllerAdmin.loadSpecialties_combo((Faculty) inputGenDupaStudFacultate.getSelectedItem()));
         labelSpec.setVisible(true);
         inputGenDupaCursSpecializare.setVisible(true);
     }//GEN-LAST:event_inputGenDupaCursFacultateItemStateChanged
 
     private void inputGenDupaCursSpecializareItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_inputGenDupaCursSpecializareItemStateChanged
+        inputGenDupaCursCurs.setModel(controllerAdmin.loadCursuri_combo((Specialty) inputGenDupaCursSpecializare.getSelectedItem()));
         // se populeaza inputGenDupaCursCurs
         labelCurs.setVisible(true);
         inputGenDupaCursCurs.setVisible(true);
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_inputGenDupaCursSpecializareItemStateChanged
 
     private void inputGenDupaCursCursItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_inputGenDupaCursCursItemStateChanged
@@ -2015,44 +2020,48 @@ public class FrameAdminMain extends javax.swing.JFrame {
         tableCatalogDupaCurs.setVisible(true);
     }//GEN-LAST:event_inputGenDupaCursCursItemStateChanged
 
-    private void inputGenDupaStudFacultateItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_inputGenDupaStudFacultateItemStateChanged
+//aici cred ca o uitat ceva
 
+    private void inputGenDupaStudFacultateItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_inputGenDupaStudFacultateItemStateChanged
+        inputGenDupaStudSpecializare.setModel(controllerAdmin.loadSpecialties_combo((Faculty) inputGenDupaStudFacultate.getSelectedItem()));
         labelStudSpec.setVisible(true);
         inputGenDupaStudSpecializare.setVisible(true);
     }//GEN-LAST:event_inputGenDupaStudFacultateItemStateChanged
 
     private void inputGenDupaStudSpecializareItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_inputGenDupaStudSpecializareItemStateChanged
-
+        inputGenDupaStudGrupa.setModel(controllerAdmin.loadGrupe_combo((Specialty) inputGenDupaCursSpecializare.getSelectedItem()));
         labelStudGrupa.setVisible(true);
         inputGenDupaStudGrupa.setVisible(true);
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_inputGenDupaStudSpecializareItemStateChanged
 
     private void inputGenDupaStudGrupaItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_inputGenDupaStudGrupaItemStateChanged
-
+        inputGenDupaStudStudent.setModel(controllerAdmin.loadStudentByGrupa_combo((Group) inputGenDupaStudGrupa.getSelectedItem()));
         labelStudStud.setVisible(true);
         inputGenDupaStudStudent.setVisible(true);
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_inputGenDupaStudGrupaItemStateChanged
 
     private void inputGenDupaStudStudentItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_inputGenDupaStudStudentItemStateChanged
+        //load tabel
+        tableCatalogDupaStudent.setModel(controllerAdmin.loadTable_genDupaStud((Student) inputGenDupaStudStudent.getSelectedItem()));
 
         tableCatalogDupaStudent.setVisible(true);
         // TODO add your handling code here:
     }//GEN-LAST:event_inputGenDupaStudStudentItemStateChanged
 
     private void inputRaportProfFacultaItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_inputRaportProfFacultaItemStateChanged
-
+        inputRaportProfSpec.setModel(controllerAdmin.loadSpecialties_combo((Faculty) inputGenDupaStudFacultate.getSelectedItem()));
         inputRaportProfSpec.setVisible(true);
         labelProfAlocSpec.setVisible(true);
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_inputRaportProfFacultaItemStateChanged
 
     private void inputRaportProfSpecItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_inputRaportProfSpecItemStateChanged
-
+        inputRaportProfCurs.setModel(controllerAdmin.loadCursuri_combo((Specialty) inputGenDupaCursSpecializare.getSelectedItem()));
         labelProfAlocCurs.setVisible(true);
         inputRaportProfCurs.setVisible(true);
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_inputRaportProfSpecItemStateChanged
 
     private void inputRaportProfCursItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_inputRaportProfCursItemStateChanged
@@ -2062,10 +2071,10 @@ public class FrameAdminMain extends javax.swing.JFrame {
     }//GEN-LAST:event_inputRaportProfCursItemStateChanged
 
     private void inputRaportStudFacultaItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_inputRaportStudFacultaItemStateChanged
-
+        inputRaportStudSpec.setModel(controllerAdmin.loadSpecialties_combo((Faculty) inputGenDupaStudFacultate.getSelectedItem()));
         labelStudAlocSpec.setVisible(true);
         inputRaportStudSpec.setVisible(true);
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_inputRaportStudFacultaItemStateChanged
 
     private void inputRaportStudStudItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_inputRaportStudStudItemStateChanged
@@ -2075,13 +2084,14 @@ public class FrameAdminMain extends javax.swing.JFrame {
     }//GEN-LAST:event_inputRaportStudStudItemStateChanged
 
     private void inputRaportStudSpecItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_inputRaportStudSpecItemStateChanged
-
+        inputRaportStudStud.setModel(controllerAdmin.loadStudenti_combo((Specialty) inputGenDupaCursSpecializare.getSelectedItem()));
         inputRaportStudStud.setVisible(true);
         labelStudAlocStud.setVisible(true);
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_inputRaportStudSpecItemStateChanged
 
     private void inputInmatFacultateItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_inputInmatFacultateItemStateChanged
+        inputInmatSpecializare.setModel(controllerAdmin.loadSpecialties_combo((Faculty) inputGenDupaStudFacultate.getSelectedItem()));
         inputInmatSpecializare.setVisible(true);
         labelInmatSpec.setVisible(true);
 
