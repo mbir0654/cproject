@@ -20,6 +20,9 @@ public interface InterfaceProfessorService {
     public  List<Student> getStudentsFromGroup(Group group);
 
     public void addAnnouncement(Professor professor,Announcement announcement);
+    public void deleteAnnouncemnt(Announcement announcement);
+    public List<Student> getStudentsByCourse(Course course);
+
 
 	public void exitSystem();
 	public void mannageAnnouncements();
