@@ -5,7 +5,8 @@
 
 package controller;
 import business.model.Administrator;
-import javax.swing.DefaultListModel;
+
+import javax.swing.*;
 
 import business.model.Course;
 import business.model.Faculty;
@@ -41,10 +42,14 @@ public class ControllerAdmin {
     public void loadFaculties() {
         List<Faculty> faculties = administratorService.getFaculties();
         DefaultListModel model = new DefaultListModel();
+        DefaultComboBoxModel modelCombo = new DefaultComboBoxModel();
+        modelCombo.addElement(null);
         for (Faculty f:faculties) {
             model.addElement(f);
+            modelCombo.addElement(f);
         }
         adminMain.setFaculties(model);
+        adminMain.setComboListFacultati(modelCombo);
     }
 
     public void loadAdministrators() {
@@ -65,6 +70,14 @@ public class ControllerAdmin {
         adminMain.setSpecialties(model);
     }
 
+    public void loadInmatriculeazaStudentSpecialties(Faculty faculty){
+        List<Specialty> specialties = faculty.getSpecialties();
+        DefaultComboBoxModel model = new DefaultComboBoxModel();
+        for(Specialty specialty:specialties){
+            model.addElement(specialties);
+        }
+        adminMain.setInmatriculeazaStudentSpecialties(model);
+    }
     public void loadCourses(Faculty faculty) {
         List<Specialty> specialties = faculty.getSpecialties();
         DefaultListModel model = new DefaultListModel();
