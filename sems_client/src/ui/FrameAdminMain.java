@@ -2190,9 +2190,6 @@ public class FrameAdminMain extends javax.swing.JFrame {
         // Se deschide dialogul DialogChangePassword
     }//GEN-LAST:event_jLabel12MouseClicked
 
-    /**
-    * @param args the command line arguments
-    */
 
 
 
@@ -2374,4 +2371,19 @@ public class FrameAdminMain extends javax.swing.JFrame {
     public void setListCursuri(ListModel model) {
         listCursuri.setModel(model);
     }
+
+    //by bsk
+
+    public void setComboListFacultati(ComboBoxModel model){
+        inputGenDupaCursFacultate.setModel(model);
+        inputGenDupaStudFacultate.setModel(model);
+        inputRaportProfFaculta.setModel(model);
+        inputRaportStudFaculta.setModel(model);
+        inputInmatFacultate.setModel(model);
+    }
+
+    public void setInmatriculeazaStudentSpecialties(ComboBoxModel model){
+
+    }
+
 }
