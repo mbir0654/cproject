@@ -1,7 +1,10 @@
 package data.dbutil;
 
 import java.sql.SQLException;
+import java.util.Iterator;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -18,19 +21,33 @@ public abstract class SqlFunctions{
      * contrar
      * @throws SQLException
      */
-    public static boolean insert(String tableName, List<DbObject> data)
-                                   throws SQLException{
-        String f = "", v = "";
-        for(DbObject dbo : data){
-            f += dbo.getField();
-            v += "'"+dbo.getValue()+"'";
-            if(data.iterator().hasNext())
-                f += ",";
+    public static boolean insert(String tableName, List<DbObject> data) throws SQLException{
+        try {
+            String f = "";
+            String v = "";
+            String ff = "";
+            String vv = "";
+            for (DbObject dbo : data) {
+                if (!ff.equals("")) {
+                    ff += ",";
+                }
+                ff += dbo.getField();
+                if (!vv.equals("")) {
+                    vv += ",";
+                }
+                vv += "'" + dbo.getValue() + "'";
+            }
+            f += ff;
+            v += vv;
+            String s = "insert into " + tableName + "(" + f + ") values(" + v + ")";
+            DbUtil dbu = new DbUtil();
+            if (dbu.makeUpdate(s) > 0) {
+                return true;
+            }
+            
+        } catch (com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException ex) {
+            System.out.println("obiectul exista deja in baza de date");
         }
-        String s = "insert into table"+tableName+"("+f+") values("+v+")";
-        DbUtil dbu = new DbUtil();
-        if(dbu.makeUpdate(s) > 0)
-            return true;
         return false;
     }
 
@@ -46,18 +63,18 @@ public abstract class SqlFunctions{
      * contrar
      * @throws SQLException
      */
-    public static boolean update(String tableName, List<DbObject> data,
-                                String where) throws SQLException{
-        String f = "";
-        for(DbObject dbo : data){
-            f += dbo.getField()+" = "+dbo.getValue();
-            if(data.iterator().hasNext())
-                f += ", ";
-        }
-        String s = "update table "+tableName+f+"where"+where;
-        DbUtil dbu = new DbUtil();
-        if(dbu.makeUpdate(s) > 0)
-            return true;
+    public static boolean update(String tableName, List<DbObject> data, String where) throws SQLException {
+            String f = "";
+            String ff = "";
+            for (DbObject dbo : data) {
+                if (!ff.equals("")) {
+                    ff += ", ";
+                }
+            }
+            String s = "update " + tableName + f + "where" + where;
+            DbUtil dbu = new DbUtil();
+            //if(dbu.makeUpdate(s) > 0)
+            //  return true;
         return false;
     }
 
