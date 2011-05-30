@@ -72,6 +72,9 @@ public class FrameAdminMain extends javax.swing.JFrame {
         inputInmatSpecializare.setVisible(false);
         butTransferaStudent.setEnabled(false);
         infoText.setVisible(false);
+        listGrupeStudenti.setEnabled(false);
+        butAddStudentLaGrupa.setEnabled(false);
+        butTransferaStudent.setEnabled(false);
     }
 
     /** This method is called from within the constructor to
@@ -235,6 +238,7 @@ public class FrameAdminMain extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         labelNumeAdmin = new javax.swing.JLabel();
         labelUserAdmin = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("SEMS :: Administrare");
@@ -243,11 +247,11 @@ public class FrameAdminMain extends javax.swing.JFrame {
         jPanel5.setBackground(new java.awt.Color(242, 239, 239));
         jPanel5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 102, 153)));
 
-        tabGlobal.setBackground(new java.awt.Color(153, 204, 255));
+        tabGlobal.setBackground(new java.awt.Color(0, 0, 0));
         tabGlobal.setForeground(new java.awt.Color(0, 51, 102));
         tabGlobal.setTabPlacement(javax.swing.JTabbedPane.LEFT);
         tabGlobal.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        tabGlobal.setFont(new java.awt.Font("Tahoma", 1, 11));
+        tabGlobal.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -504,7 +508,7 @@ public class FrameAdminMain extends javax.swing.JFrame {
                     .addComponent(jScrollPane4, javax.swing.GroupLayout.Alignment.LEADING))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(panouAddAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(103, Short.MAX_VALUE))
+                .addContainerGap(119, Short.MAX_VALUE))
         );
 
         panouAdmin.addTab("Administratori", jPanel8);
@@ -625,10 +629,10 @@ public class FrameAdminMain extends javax.swing.JFrame {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(panouCursuriBut, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(39, Short.MAX_VALUE))
+                .addContainerGap(55, Short.MAX_VALUE))
         );
 
-        panouInfoFaculta.addTab("Cursuri", jPanel12);
+        panouInfoFaculta.addTab("   Cursuri   ", jPanel12);
 
         jPanel13.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -729,10 +733,10 @@ public class FrameAdminMain extends javax.swing.JFrame {
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel18, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(39, Short.MAX_VALUE))
+                .addContainerGap(55, Short.MAX_VALUE))
         );
 
-        panouInfoFaculta.addTab("Profesori", jPanel13);
+        panouInfoFaculta.addTab("   Profesori   ", jPanel13);
 
         jPanel14.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -820,10 +824,10 @@ public class FrameAdminMain extends javax.swing.JFrame {
                 .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel19, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(39, Short.MAX_VALUE))
+                .addContainerGap(55, Short.MAX_VALUE))
         );
 
-        panouInfoFaculta.addTab("Specializari", jPanel14);
+        panouInfoFaculta.addTab("   Specializari   ", jPanel14);
 
         jPanel15.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -842,11 +846,6 @@ public class FrameAdminMain extends javax.swing.JFrame {
         jLabel11.setText("Studenti");
 
         listGrupeStudenti.setForeground(new java.awt.Color(0, 51, 102));
-        listGrupeStudenti.setModel(new javax.swing.AbstractListModel() {
-            String[] strings = { "Mihut Bogdan", "Angelina Jolie" };
-            public int getSize() { return strings.length; }
-            public Object getElementAt(int i) { return strings[i]; }
-        });
         listGrupeStudenti.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         listGrupeStudenti.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
             public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
@@ -920,10 +919,10 @@ public class FrameAdminMain extends javax.swing.JFrame {
                     .addComponent(butAddGrupa))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(butTransferaStudent)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(27, Short.MAX_VALUE))
         );
 
-        panouInfoFaculta.addTab("Grupe", jPanel15);
+        panouInfoFaculta.addTab("  Grupe  ", jPanel15);
 
         jPanel16.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -986,7 +985,7 @@ public class FrameAdminMain extends javax.swing.JFrame {
                 .addComponent(butFacultaAdd)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(infoText)
-                .addContainerGap(68, Short.MAX_VALUE))
+                .addContainerGap(84, Short.MAX_VALUE))
         );
 
         panouInfoFaculta.addTab("Adauga", jPanel16);
@@ -1008,7 +1007,7 @@ public class FrameAdminMain extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(panouInfoFaculta)
+                .addComponent(panouInfoFaculta, javax.swing.GroupLayout.DEFAULT_SIZE, 265, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -1161,7 +1160,7 @@ public class FrameAdminMain extends javax.swing.JFrame {
             .addGroup(jPanel23Layout.createSequentialGroup()
                 .addComponent(panouGenDupaCurs, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane10, javax.swing.GroupLayout.DEFAULT_SIZE, 286, Short.MAX_VALUE))
+                .addComponent(jScrollPane10, javax.swing.GroupLayout.DEFAULT_SIZE, 302, Short.MAX_VALUE))
         );
 
         tabRapCatalog.addTab("Genereaza dupa curs", jPanel23);
@@ -1300,7 +1299,7 @@ public class FrameAdminMain extends javax.swing.JFrame {
             .addGroup(jPanel24Layout.createSequentialGroup()
                 .addComponent(panouGenDupaStudent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane11, javax.swing.GroupLayout.DEFAULT_SIZE, 255, Short.MAX_VALUE))
+                .addComponent(jScrollPane11, javax.swing.GroupLayout.DEFAULT_SIZE, 271, Short.MAX_VALUE))
         );
 
         tabRapCatalog.addTab("Genereaza dupa student", jPanel24);
@@ -1315,7 +1314,7 @@ public class FrameAdminMain extends javax.swing.JFrame {
             jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel20Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(tabRapCatalog, javax.swing.GroupLayout.DEFAULT_SIZE, 426, Short.MAX_VALUE))
+                .addComponent(tabRapCatalog, javax.swing.GroupLayout.DEFAULT_SIZE, 442, Short.MAX_VALUE))
         );
 
         tabRapoarte.addTab("Catalog de note", jPanel20);
@@ -1422,7 +1421,7 @@ public class FrameAdminMain extends javax.swing.JFrame {
                 .addComponent(jPanel27, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(151, Short.MAX_VALUE))
+                .addContainerGap(167, Short.MAX_VALUE))
         );
 
         tableRaportStud.addTab("pentru Profesori", jPanel26);
@@ -1546,7 +1545,7 @@ public class FrameAdminMain extends javax.swing.JFrame {
             .addGroup(jPanel28Layout.createSequentialGroup()
                 .addComponent(jPanel29, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane12, javax.swing.GroupLayout.DEFAULT_SIZE, 270, Short.MAX_VALUE)
+                .addComponent(jScrollPane12, javax.swing.GroupLayout.DEFAULT_SIZE, 286, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -1562,7 +1561,7 @@ public class FrameAdminMain extends javax.swing.JFrame {
             jPanel21Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel21Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(tableRaportStud, javax.swing.GroupLayout.DEFAULT_SIZE, 426, Short.MAX_VALUE))
+                .addComponent(tableRaportStud, javax.swing.GroupLayout.DEFAULT_SIZE, 442, Short.MAX_VALUE))
         );
 
         tabRapoarte.addTab("Raport de alocari", jPanel21);
@@ -1580,7 +1579,7 @@ public class FrameAdminMain extends javax.swing.JFrame {
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(tabRapoarte, javax.swing.GroupLayout.DEFAULT_SIZE, 465, Short.MAX_VALUE)
+                .addComponent(tabRapoarte, javax.swing.GroupLayout.DEFAULT_SIZE, 481, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -1802,7 +1801,7 @@ public class FrameAdminMain extends javax.swing.JFrame {
                 .addComponent(panouDateCont, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(butInmatriculeaza, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(34, Short.MAX_VALUE))
+                .addContainerGap(50, Short.MAX_VALUE))
         );
 
         tabGlobal.addTab("Inmatriculeaza student", new javax.swing.ImageIcon(getClass().getResource("/icons/inmatStud.png")), jPanel4); // NOI18N
@@ -1825,9 +1824,18 @@ public class FrameAdminMain extends javax.swing.JFrame {
         labelNumeAdmin.setForeground(new java.awt.Color(0, 102, 153));
         labelNumeAdmin.setText("numeAdministrator");
 
-        labelUserAdmin.setFont(new java.awt.Font("Tahoma", 1, 11));
+        labelUserAdmin.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         labelUserAdmin.setForeground(new java.awt.Color(0, 102, 153));
         labelUserAdmin.setText("[username]");
+
+        jLabel12.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(0, 102, 153));
+        jLabel12.setText("[schimba parola]");
+        jLabel12.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel12MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -1835,13 +1843,16 @@ public class FrameAdminMain extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(labelNumeAdmin))
-                    .addComponent(labelUserAdmin))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 68, Short.MAX_VALUE)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(labelUserAdmin)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel12)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 65, Short.MAX_VALUE)
                 .addComponent(jLabel2)
                 .addContainerGap())
         );
@@ -1856,7 +1867,9 @@ public class FrameAdminMain extends javax.swing.JFrame {
                             .addComponent(jLabel1)
                             .addComponent(labelNumeAdmin))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(labelUserAdmin)))
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(labelUserAdmin)
+                            .addComponent(jLabel12))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -1874,9 +1887,9 @@ public class FrameAdminMain extends javax.swing.JFrame {
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(labelAdmin, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(semsIco, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(233, 233, 233)
-                        .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addContainerGap(59, Short.MAX_VALUE))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 208, Short.MAX_VALUE)
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(59, 59, 59))))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2145,7 +2158,8 @@ public class FrameAdminMain extends javax.swing.JFrame {
     }//GEN-LAST:event_butAdminModActionPerformed
 
     private void butInmatriculeazaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butInmatriculeazaActionPerformed
-        // TODO add your handling code here:
+        // se adauga studentul, si se deschide un DialogMsg, cu un mesaj
+        // corespunzator.
     }//GEN-LAST:event_butInmatriculeazaActionPerformed
 
 
@@ -2158,19 +2172,24 @@ public class FrameAdminMain extends javax.swing.JFrame {
     }//GEN-LAST:event_butAddGrupaActionPerformed
 
     private void butTransferaStudentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butTransferaStudentActionPerformed
-        // TODO add your handling code here:
+        // se deschide DialogTransferStudent
     }//GEN-LAST:event_butTransferaStudentActionPerformed
 
     private void listGrupeItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_listGrupeItemStateChanged
         // se populeaza listGrupeStudenti.
         listGrupeStudenti.setEnabled(true);
+        butAddStudentLaGrupa.setEnabled(true);
         
     }//GEN-LAST:event_listGrupeItemStateChanged
 
     private void listGrupeStudentiValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_listGrupeStudentiValueChanged
-       
+        
         butTransferaStudent.setEnabled(true);
     }//GEN-LAST:event_listGrupeStudentiValueChanged
+
+    private void jLabel12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel12MouseClicked
+        // Se deschide dialogul DialogChangePassword
+    }//GEN-LAST:event_jLabel12MouseClicked
 
     /**
     * @param args the command line arguments
@@ -2245,6 +2264,7 @@ public class FrameAdminMain extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel2;

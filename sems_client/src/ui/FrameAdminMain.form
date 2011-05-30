@@ -65,9 +65,9 @@
                               <Component id="labelAdmin" alignment="0" max="32767" attributes="0"/>
                               <Component id="semsIco" alignment="0" min="-2" pref="100" max="-2" attributes="1"/>
                           </Group>
-                          <EmptySpace min="-2" pref="233" max="-2" attributes="0"/>
-                          <Component id="jPanel2" max="32767" attributes="0"/>
-                          <EmptySpace pref="59" max="32767" attributes="0"/>
+                          <EmptySpace pref="208" max="32767" attributes="0"/>
+                          <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="59" max="-2" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -96,7 +96,7 @@
         <Container class="javax.swing.JTabbedPane" name="tabGlobal">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="ff" green="cc" red="99" type="rgb"/>
+              <Color blue="0" green="0" red="0" type="rgb"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="66" green="33" red="0" type="rgb"/>
@@ -348,7 +348,7 @@
                                   </Group>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Component id="panouAddAdmin" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace pref="103" max="32767" attributes="0"/>
+                                  <EmptySpace pref="119" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                         </DimensionLayout>
@@ -619,7 +619,7 @@
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Component id="jScrollPane3" min="-2" pref="97" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="panouInfoFaculta" max="32767" attributes="0"/>
+                                  <Component id="panouInfoFaculta" pref="265" max="32767" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
                               </Group>
                           </Group>
@@ -669,8 +669,8 @@
                               </Properties>
                               <Constraints>
                                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
-                                  <JTabbedPaneConstraints tabName="Cursuri">
-                                    <Property name="tabTitle" type="java.lang.String" value="Cursuri"/>
+                                  <JTabbedPaneConstraints tabName="   Cursuri   ">
+                                    <Property name="tabTitle" type="java.lang.String" value="   Cursuri   "/>
                                   </JTabbedPaneConstraints>
                                 </Constraint>
                               </Constraints>
@@ -695,7 +695,7 @@
                                           <Component id="jScrollPane1" min="-2" pref="89" max="-2" attributes="0"/>
                                           <EmptySpace max="-2" attributes="0"/>
                                           <Component id="panouCursuriBut" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace pref="39" max="32767" attributes="0"/>
+                                          <EmptySpace pref="55" max="32767" attributes="0"/>
                                       </Group>
                                   </Group>
                                 </DimensionLayout>
@@ -839,8 +839,8 @@
                               </Properties>
                               <Constraints>
                                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
-                                  <JTabbedPaneConstraints tabName="Profesori">
-                                    <Property name="tabTitle" type="java.lang.String" value="Profesori"/>
+                                  <JTabbedPaneConstraints tabName="   Profesori   ">
+                                    <Property name="tabTitle" type="java.lang.String" value="   Profesori   "/>
                                   </JTabbedPaneConstraints>
                                 </Constraint>
                               </Constraints>
@@ -865,7 +865,7 @@
                                           <Component id="jScrollPane2" min="-2" pref="89" max="-2" attributes="0"/>
                                           <EmptySpace max="-2" attributes="0"/>
                                           <Component id="jPanel18" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace pref="39" max="32767" attributes="0"/>
+                                          <EmptySpace pref="55" max="32767" attributes="0"/>
                                       </Group>
                                   </Group>
                                 </DimensionLayout>
@@ -1009,8 +1009,8 @@
                               </Properties>
                               <Constraints>
                                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
-                                  <JTabbedPaneConstraints tabName="Specializari">
-                                    <Property name="tabTitle" type="java.lang.String" value="Specializari"/>
+                                  <JTabbedPaneConstraints tabName="   Specializari   ">
+                                    <Property name="tabTitle" type="java.lang.String" value="   Specializari   "/>
                                   </JTabbedPaneConstraints>
                                 </Constraint>
                               </Constraints>
@@ -1035,7 +1035,7 @@
                                           <Component id="jScrollPane5" min="-2" pref="89" max="-2" attributes="0"/>
                                           <EmptySpace max="-2" attributes="0"/>
                                           <Component id="jPanel19" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace pref="39" max="32767" attributes="0"/>
+                                          <EmptySpace pref="55" max="32767" attributes="0"/>
                                       </Group>
                                   </Group>
                                 </DimensionLayout>
@@ -1161,8 +1161,8 @@
                               </Properties>
                               <Constraints>
                                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
-                                  <JTabbedPaneConstraints tabName="Grupe">
-                                    <Property name="tabTitle" type="java.lang.String" value="Grupe"/>
+                                  <JTabbedPaneConstraints tabName="  Grupe  ">
+                                    <Property name="tabTitle" type="java.lang.String" value="  Grupe  "/>
                                   </JTabbedPaneConstraints>
                                 </Constraint>
                               </Constraints>
@@ -1218,7 +1218,7 @@
                                           </Group>
                                           <EmptySpace max="-2" attributes="0"/>
                                           <Component id="butTransferaStudent" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace max="32767" attributes="0"/>
+                                          <EmptySpace pref="27" max="32767" attributes="0"/>
                                       </Group>
                                   </Group>
                                 </DimensionLayout>
@@ -1269,10 +1269,7 @@
                                           <Color blue="66" green="33" red="0" type="rgb"/>
                                         </Property>
                                         <Property name="model" type="javax.swing.ListModel" editor="org.netbeans.modules.form.editors2.ListModelEditor">
-                                          <StringArray count="2">
-                                            <StringItem index="0" value="Mihut Bogdan"/>
-                                            <StringItem index="1" value="Angelina Jolie"/>
-                                          </StringArray>
+                                          <StringArray count="0"/>
                                         </Property>
                                         <Property name="selectionMode" type="int" value="0"/>
                                       </Properties>
@@ -1373,7 +1370,7 @@
                                           <Component id="butFacultaAdd" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                           <Component id="infoText" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace pref="68" max="32767" attributes="0"/>
+                                          <EmptySpace pref="84" max="32767" attributes="0"/>
                                       </Group>
                                   </Group>
                                 </DimensionLayout>
@@ -1480,7 +1477,7 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="tabRapoarte" pref="465" max="32767" attributes="0"/>
+                          <Component id="tabRapoarte" pref="481" max="32767" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -1520,7 +1517,7 @@
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="tabRapCatalog" pref="426" max="32767" attributes="0"/>
+                                  <Component id="tabRapCatalog" pref="442" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                         </DimensionLayout>
@@ -1567,7 +1564,7 @@
                                       <Group type="102" alignment="0" attributes="0">
                                           <Component id="panouGenDupaCurs" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="jScrollPane10" pref="286" max="32767" attributes="0"/>
+                                          <Component id="jScrollPane10" pref="302" max="32767" attributes="0"/>
                                       </Group>
                                   </Group>
                                 </DimensionLayout>
@@ -1787,7 +1784,7 @@
                                       <Group type="102" alignment="0" attributes="0">
                                           <Component id="panouGenDupaStudent" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="jScrollPane11" pref="255" max="32767" attributes="0"/>
+                                          <Component id="jScrollPane11" pref="271" max="32767" attributes="0"/>
                                       </Group>
                                   </Group>
                                 </DimensionLayout>
@@ -2039,7 +2036,7 @@
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="tableRaportStud" pref="426" max="32767" attributes="0"/>
+                                  <Component id="tableRaportStud" pref="442" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                         </DimensionLayout>
@@ -2087,7 +2084,7 @@
                                           <Component id="jPanel27" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                           <Component id="jScrollPane8" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace pref="151" max="32767" attributes="0"/>
+                                          <EmptySpace pref="167" max="32767" attributes="0"/>
                                       </Group>
                                   </Group>
                                 </DimensionLayout>
@@ -2290,7 +2287,7 @@
                                       <Group type="102" alignment="0" attributes="0">
                                           <Component id="jPanel29" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                          <Component id="jScrollPane12" pref="270" max="32767" attributes="0"/>
+                                          <Component id="jScrollPane12" pref="286" max="32767" attributes="0"/>
                                           <EmptySpace max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
@@ -2546,7 +2543,7 @@
                           <Component id="panouDateCont" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" min="-2" max="-2" attributes="0"/>
                           <Component id="butInmatriculeaza" min="-2" pref="47" max="-2" attributes="0"/>
-                          <EmptySpace pref="34" max="32767" attributes="0"/>
+                          <EmptySpace pref="50" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -2974,15 +2971,19 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="1" attributes="0">
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Group type="102" attributes="0">
                               <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="labelNumeAdmin" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <Component id="labelUserAdmin" min="-2" max="-2" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="1">
+                              <Component id="labelUserAdmin" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
+                              <Component id="jLabel12" min="-2" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
-                      <EmptySpace pref="68" max="32767" attributes="0"/>
+                      <EmptySpace pref="65" max="32767" attributes="0"/>
                       <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
@@ -3000,7 +3001,10 @@
                                   <Component id="labelNumeAdmin" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="labelUserAdmin" min="-2" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="labelUserAdmin" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabel12" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
                       </Group>
                       <EmptySpace max="32767" attributes="0"/>
@@ -3042,6 +3046,20 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="[username]"/>
               </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabel12">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Tahoma" size="11" style="1"/>
+                </Property>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="99" green="66" red="0" type="rgb"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="[schimba parola]"/>
+              </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jLabel12MouseClicked"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>
