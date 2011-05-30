@@ -265,6 +265,7 @@ public class FacultyRepository implements Repository<Faculty>{
 				}
 				l.add(f);
 			}
+                        dbu.close();
 		} catch (SQLException e) {
 			System.err.println(e.getMessage());
 			e.printStackTrace();

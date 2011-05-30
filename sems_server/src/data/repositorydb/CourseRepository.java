@@ -54,13 +54,14 @@ public class CourseRepository implements Repository<Course>{
 		l.add(item);
 		List<DbObject> data1 = item.toDbObjectList();
 		try {
-			List<DbObject> data2 = item.toDbObjectListCS();
-			SqlFunctions.insert("courses", data1);
-			SqlFunctions.insert("specializations_courses", data2);
-			for(Professor p : item.getProfessors()){
-				List<DbObject> data3 = item.toDbObjectListTC(p);
-				SqlFunctions.insert("teachers_spec", data3);
-			}
+                    DbUtil dbu = new DbUtil();
+                    List<DbObject> data2 = item.toDbObjectListCS();
+                    SqlFunctions.insert("courses", data1,dbu);
+                    SqlFunctions.insert("specializations_courses", data2,dbu);
+                    for(Professor p : item.getProfessors()){
+                        List<DbObject> data3 = item.toDbObjectListTC(p);
+                        SqlFunctions.insert("teachers_spec", data3,dbu);
+                    }
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

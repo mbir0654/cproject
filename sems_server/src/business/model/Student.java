@@ -193,6 +193,18 @@ public class Student extends User {
 		return super.toString()+" "+group;
 	}
 
+    @Override
+    public List<DbObject> toDbObjectList() {
+        List<DbObject> l= new ArrayList<DbObject>();
+        l.addAll(super.toDbObjectList());
+        DbObject db = new DbObject("role", "student");
+        l.add(db);
+        return l;
+    }
+
+
+
+
 
 	public List<DbObject> toDbObjectListStud(){
         DbObject db1 = new DbObject("personalCode",cnp);
@@ -207,17 +219,19 @@ public class Student extends User {
 	public List<DbObject> toDbObjectListSS() throws SQLException{
 		List<DbObject> l = new ArrayList<DbObject>();
 		ResultSet rs;
+                DbUtil dbu = new DbUtil();
 		Integer grid = 0, spid = 0, stid = 0;
-		while((rs = new DbUtil().getDate("select groupId from groups where name='"+group.getGroupName()+"' limit 1")).next())
+		while((rs = dbu.getDate("select groupId from groups where name='"+group.getGroupName()+"' limit 1")).next())
 			grid = rs.getInt(1);
-		while((rs = new DbUtil().getDate("select spId from specializations where spName='"+specialty.getName()+"' limit 1")).next())
+		while((rs = dbu.getDate("select spId from specializations where spName='"+specialty.getName()+"' limit 1")).next())
 			spid = rs.getInt(1);
-		while((rs = new DbUtil().getDate("select studentId from students where userName='"+userName+"' limit 1")).next())
+		while((rs = dbu.getDate("select studentId from students where userName='"+userName+"' limit 1")).next())
 			stid = rs.getInt(1);
 		DbObject db1 = new DbObject("groupId",grid.toString());
 		DbObject db2 = new DbObject("spId",spid.toString());
 		DbObject db3 = new DbObject("studentId",stid.toString());
 		l.add(db1); l.add(db2); l.add(db3);
+                dbu.close();
 		return l;
 	}
 	
@@ -225,15 +239,17 @@ public class Student extends User {
 		List<DbObject> l = new ArrayList<DbObject>();
 		Integer ssid = 0, spid = 0;
 		ResultSet rs;
-		while((rs = new DbUtil().getDate("select ssid from students_" +
+                DbUtil dbu = new DbUtil();
+		while((rs = dbu.getDate("select ssid from students_" +
 				"specializations where studentId in(select studentId from" +
 				" students where userName='"+userName+"') limit 1")).next())
 			ssid = rs.getInt(1);
-		while((rs = new DbUtil().getDate("select spId from specializations where spName='"+specialty.getName()+"' limit 1")).next())
+		while((rs = dbu.getDate("select spId from specializations where spName='"+specialty.getName()+"' limit 1")).next())
 			spid = rs.getInt(1);
 		DbObject db1 = new DbObject("ssId", ssid.toString());
 		DbObject db2 = new DbObject("spId", spid.toString());
 		l.add(db1);l.add(db2);
+                dbu.close();
 		return l;
 	}
 } 
