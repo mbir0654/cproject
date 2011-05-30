@@ -2,8 +2,13 @@ package business.service;
 
 import business.model.*;
 import business.serviceinterface.InterfaceProfessorService;
+import data.repositorydb.AnnouncementRepository;
+import data.repositorydb.FacultyRepository;
 import data.repositorydb.ProfessorRepository;
+import data.repositorydb.StudentRepository;
+import data.repositoryinterface.Repository;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -11,6 +16,9 @@ import java.util.List;
  *
  */
 final class ProfessorService implements InterfaceProfessorService {
+
+//    private Repository<Announcement> announcementRepository = AnnouncementRepository.getInstance();
+    private Repository<Student> studentRepository = StudentRepository.getInstance();
 
     public String hello() {
         return "hello, from prof";
@@ -41,6 +49,20 @@ final class ProfessorService implements InterfaceProfessorService {
     public void addAnnouncement(Professor professor,Announcement announcement){
         System.out.println("Adaugam anunt: " + announcement + " pentru profesor: " + professor);
         professor.addAnnouncement(announcement);
+        System.out.println("Anunturi curente:" + professor.getAnnouncements().toString());
+    }
+
+    public void deleteAnnouncemnt(Announcement announcement){
+        //announcementRepository.delete(announcement);
+    }
+
+    public List<Student> getStudentsByCourse(Course course){
+        List<Student> students = new ArrayList<Student>();
+        for(Student student:students){
+            if(student.getContract().getCourses().contains(course))
+                students.add(student);
+        }
+        return students;
     }
 
     public void exitSystem() {
