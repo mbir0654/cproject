@@ -43,7 +43,7 @@ public class Controller {
 
     public void openLoginFrame() {
         loginFrame = new FrameLogin(this);
-        loginFrame.setTitle("SEMS:: Login");
+        loginFrame.setTitle("Login - SEMS");
         loginFrame.setName("Login");
         loginFrame.setResizable(false);
         //loginFrame.pack(); //daca faci pack, nu se mai vede labelul de eroare :-??

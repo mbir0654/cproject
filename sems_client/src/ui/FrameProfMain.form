@@ -1286,6 +1286,7 @@
                                 <StringItem index="1" value="Titlu tema 2"/>
                               </StringArray>
                             </Property>
+                            <Property name="selectionMode" type="int" value="1"/>
                           </Properties>
                           <Events>
                             <EventHandler event="valueChanged" listener="javax.swing.event.ListSelectionListener" parameters="javax.swing.event.ListSelectionEvent" handler="temeListTemeValueChanged"/>

@@ -86,7 +86,7 @@
                       <Component id="jPanel2" min="-2" pref="51" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Component id="tabGlobal" max="32767" attributes="0"/>
+                  <Component id="tabGlobal" pref="508" max="32767" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
@@ -2512,20 +2512,17 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" alignment="1" attributes="0">
-                                  <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
+                              <Group type="102" attributes="0">
+                                  <EmptySpace min="43" pref="43" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="panouDateFacultate" alignment="0" max="32767" attributes="0"/>
                                       <Component id="panouDatePersonale" alignment="0" max="32767" attributes="1"/>
+                                      <Component id="panouDateCont" alignment="1" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                               <Group type="102" alignment="1" attributes="0">
                                   <EmptySpace pref="336" max="32767" attributes="0"/>
                                   <Component id="butInmatriculeaza" min="-2" pref="116" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" alignment="1" attributes="0">
-                                  <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
-                                  <Component id="panouDateCont" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
@@ -2538,12 +2535,12 @@
                           <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
                           <Component id="panouDatePersonale" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="panouDateFacultate" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" max="-2" attributes="0"/>
+                          <Component id="panouDateFacultate" max="32767" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
                           <Component id="panouDateCont" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace type="unrelated" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
                           <Component id="butInmatriculeaza" min="-2" pref="47" max="-2" attributes="0"/>
-                          <EmptySpace pref="50" max="32767" attributes="0"/>
+                          <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -2675,17 +2672,17 @@
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="labelInmatSpec" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLabel23" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel32" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLabel33" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLabel35" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabel32" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="inputInmatNrMat" min="-2" pref="71" max="-2" attributes="0"/>
-                                  <Component id="inputInmatAnStudiu" min="-2" max="-2" attributes="0"/>
                                   <Component id="inputInmatFacultate" alignment="0" pref="295" max="32767" attributes="1"/>
                                   <Component id="inputInmatSpecializare" alignment="0" pref="295" max="32767" attributes="1"/>
-                                  <Component id="inputInmatAnStudiu1" alignment="0" min="-2" pref="130" max="-2" attributes="0"/>
+                                  <Component id="inputInmatGrupa" alignment="0" min="-2" pref="130" max="-2" attributes="0"/>
+                                  <Component id="inputInmatAnStudiu" min="-2" max="-2" attributes="0"/>
+                                  <Component id="inputInmatNrMat" alignment="0" min="-2" pref="71" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                           </Group>
@@ -2703,11 +2700,6 @@
                                   <Component id="inputInmatSpecializare" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="labelInmatSpec" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="inputInmatNrMat" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel32" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
                               <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="inputInmatAnStudiu" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -2715,8 +2707,13 @@
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="inputInmatGrupa" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLabel35" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="inputInmatAnStudiu1" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="inputInmatNrMat" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabel32" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="32767" attributes="0"/>
                           </Group>
@@ -2780,6 +2777,9 @@
                           </StringArray>
                         </Property>
                       </Properties>
+                      <Events>
+                        <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="inputInmatSpecializareItemStateChanged"/>
+                      </Events>
                     </Component>
                     <Component class="javax.swing.JTextField" name="inputInmatNrMat">
                       <Properties>
@@ -2819,7 +2819,7 @@
                         <Property name="text" type="java.lang.String" value="Grupa"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JComboBox" name="inputInmatAnStudiu1">
+                    <Component class="javax.swing.JComboBox" name="inputInmatGrupa">
                       <Properties>
                         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                           <Color blue="99" green="66" red="0" type="rgb"/>
