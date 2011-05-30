@@ -110,4 +110,9 @@ public final class AdministratorService implements InterfaceAdministratorService
     public List<Faculty> getFaculties() {
         return facultyRepo.getAll();
     }
+    //by bsk
+    public void addStudent(Student student){
+        studRepo.add(student);
+        System.out.println("Adaugam un student nou" + student);
+    }
 }

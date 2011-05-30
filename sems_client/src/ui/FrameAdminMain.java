@@ -237,10 +237,10 @@ public class FrameAdminMain extends javax.swing.JFrame {
         semsIco = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
         labelNumeAdmin = new javax.swing.JLabel();
         labelUserAdmin = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
+        showHelpAboutButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("SEMS :: Administrare");
@@ -1824,8 +1824,6 @@ public class FrameAdminMain extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(0, 102, 153));
         jLabel1.setText("welcome,");
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/windows-info.png"))); // NOI18N
-
         labelNumeAdmin.setForeground(new java.awt.Color(0, 102, 153));
         labelNumeAdmin.setText("numeAdministrator");
 
@@ -1839,6 +1837,15 @@ public class FrameAdminMain extends javax.swing.JFrame {
         jLabel12.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel12MouseClicked(evt);
+            }
+        });
+
+        showHelpAboutButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/windows-info.png"))); // NOI18N
+        showHelpAboutButton.setContentAreaFilled(false);
+        showHelpAboutButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        showHelpAboutButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                showHelpAboutButtonActionPerformed(evt);
             }
         });
 
@@ -1857,17 +1864,19 @@ public class FrameAdminMain extends javax.swing.JFrame {
                         .addComponent(labelUserAdmin)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel12)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 65, Short.MAX_VALUE)
-                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 71, Short.MAX_VALUE)
+                .addComponent(showHelpAboutButton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(showHelpAboutButton))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
+                        .addContainerGap()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel1)
                             .addComponent(labelNumeAdmin))
@@ -1875,7 +1884,7 @@ public class FrameAdminMain extends javax.swing.JFrame {
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(labelUserAdmin)
                             .addComponent(jLabel12))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
@@ -1892,7 +1901,7 @@ public class FrameAdminMain extends javax.swing.JFrame {
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(labelAdmin, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(semsIco, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 208, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 194, Short.MAX_VALUE)
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(59, 59, 59))))
         );
@@ -2172,6 +2181,8 @@ public class FrameAdminMain extends javax.swing.JFrame {
     }//GEN-LAST:event_butAdminModActionPerformed
 
     private void butInmatriculeazaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butInmatriculeazaActionPerformed
+        controllerAdmin.addInmatriculeazaStudent();
+
         // se adauga studentul, si se deschide un DialogMsg, cu un mesaj
         // corespunzator.
     }//GEN-LAST:event_butInmatriculeazaActionPerformed
@@ -2207,8 +2218,15 @@ public class FrameAdminMain extends javax.swing.JFrame {
 
     private void inputInmatSpecializareItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_inputInmatSpecializareItemStateChanged
         // Se incarca inputInmatAnStudiu si inputInmatGrupa
+        controllerAdmin.loadInmatriculeazaStudentAnStudiu((Specialty) inputInmatSpecializare.getSelectedItem());
+        controllerAdmin.loadInmatriculeazaStudentGrupa((Specialty) inputInmatSpecializare.getSelectedItem());
         inputInmatAnStudiu.setEnabled(true);
     }//GEN-LAST:event_inputInmatSpecializareItemStateChanged
+
+    private void showHelpAboutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showHelpAboutButtonActionPerformed
+        FrameHelpAbout helpAboutDialog = new FrameHelpAbout();
+        helpAboutDialog.show();
+    }//GEN-LAST:event_showHelpAboutButtonActionPerformed
 
 
 
@@ -2283,7 +2301,6 @@ public class FrameAdminMain extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel17;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
@@ -2369,6 +2386,7 @@ public class FrameAdminMain extends javax.swing.JFrame {
     private javax.swing.JTabbedPane panouInfoFaculta;
     private javax.swing.JTabbedPane panouResurse;
     private javax.swing.JLabel semsIco;
+    private javax.swing.JButton showHelpAboutButton;
     private javax.swing.JTabbedPane tabGlobal;
     private javax.swing.JTabbedPane tabRapCatalog;
     private javax.swing.JTabbedPane tabRapoarte;
@@ -2410,7 +2428,36 @@ public class FrameAdminMain extends javax.swing.JFrame {
         inputInmatAnStudiu.setModel(model);
     }
     public  void setInmatriculeazaStudentGrupe(ComboBoxModel model){
-
+        inputInmatGrupa.setModel(model);
     }
-
+    public String getInmatriculareStudentNume(){
+        return inputInmatNume.getText();
+    }
+    public String getInmatriculareStudentPrenume(){
+        return  inputInmatPrenume.getText();
+    }
+    public String getInmatriculareStudentCnp(){
+        return  inputInmatCnp.getText();
+    }
+    public String getInmatriculareStudentNrMat(){
+        return  inputInmatNrMat.getText();
+    }
+    public String getInmatriculareStudentUsername(){
+        return  inputInmatNumeCont.getText();
+    }
+    public String getInmatriculareStudentParola(){
+        return  inputInmatParolaCont.getText();
+    }
+    public Faculty getInmatriculareStudentFacultate(){
+        return (Faculty) inputInmatFacultate.getSelectedItem();
+    }
+    public Specialty getInmatriculareStudentSpecializare(){
+        return (Specialty) inputInmatSpecializare.getSelectedItem();
+    }
+    public Group getInmatriculareStudentGrupa(){
+        return (Group) inputInmatGrupa.getSelectedItem();
+    }
+    public int getInmatriculareStudentAnStudiu(){
+        return (Integer) inputInmatAnStudiu.getSelectedItem();
+    }
 }
