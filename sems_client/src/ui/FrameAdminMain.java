@@ -12,6 +12,7 @@
 package ui;
 import business.model.*;
 import controller.ControllerAdmin;
+import java.io.File;
 import javax.swing.*;
 /**
  *
@@ -75,6 +76,7 @@ public class FrameAdminMain extends javax.swing.JFrame {
         listGrupeStudenti.setEnabled(false);
         butAddStudentLaGrupa.setEnabled(false);
         butTransferaStudent.setEnabled(false);
+        inputInmatAnStudiu.setEnabled(false);
     }
 
     /** This method is called from within the constructor to
@@ -224,7 +226,7 @@ public class FrameAdminMain extends javax.swing.JFrame {
         jLabel33 = new javax.swing.JLabel();
         inputInmatAnStudiu = new javax.swing.JComboBox();
         jLabel35 = new javax.swing.JLabel();
-        inputInmatAnStudiu1 = new javax.swing.JComboBox();
+        inputInmatGrupa = new javax.swing.JComboBox();
         panouDateCont = new javax.swing.JPanel();
         jLabel25 = new javax.swing.JLabel();
         jLabel34 = new javax.swing.JLabel();
@@ -1661,6 +1663,11 @@ public class FrameAdminMain extends javax.swing.JFrame {
 
         inputInmatSpecializare.setForeground(new java.awt.Color(0, 102, 153));
         inputInmatSpecializare.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        inputInmatSpecializare.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                inputInmatSpecializareItemStateChanged(evt);
+            }
+        });
 
         inputInmatNrMat.setForeground(new java.awt.Color(0, 102, 153));
 
@@ -1673,8 +1680,8 @@ public class FrameAdminMain extends javax.swing.JFrame {
         jLabel35.setForeground(new java.awt.Color(0, 51, 102));
         jLabel35.setText("Grupa");
 
-        inputInmatAnStudiu1.setForeground(new java.awt.Color(0, 102, 153));
-        inputInmatAnStudiu1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Grupa 2", "Grupa 3" }));
+        inputInmatGrupa.setForeground(new java.awt.Color(0, 102, 153));
+        inputInmatGrupa.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Grupa 2", "Grupa 3" }));
 
         javax.swing.GroupLayout panouDateFacultateLayout = new javax.swing.GroupLayout(panouDateFacultate);
         panouDateFacultate.setLayout(panouDateFacultateLayout);
@@ -1685,16 +1692,16 @@ public class FrameAdminMain extends javax.swing.JFrame {
                 .addGroup(panouDateFacultateLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(labelInmatSpec)
                     .addComponent(jLabel23)
-                    .addComponent(jLabel32)
                     .addComponent(jLabel33)
-                    .addComponent(jLabel35))
+                    .addComponent(jLabel35)
+                    .addComponent(jLabel32))
                 .addGap(26, 26, 26)
                 .addGroup(panouDateFacultateLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(inputInmatNrMat, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(inputInmatAnStudiu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(inputInmatFacultate, 0, 295, Short.MAX_VALUE)
                     .addComponent(inputInmatSpecializare, 0, 295, Short.MAX_VALUE)
-                    .addComponent(inputInmatAnStudiu1, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(inputInmatGrupa, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(inputInmatAnStudiu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(inputInmatNrMat, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
         panouDateFacultateLayout.setVerticalGroup(
@@ -1707,18 +1714,18 @@ public class FrameAdminMain extends javax.swing.JFrame {
                 .addGroup(panouDateFacultateLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(inputInmatSpecializare, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(labelInmatSpec))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(panouDateFacultateLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(inputInmatNrMat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel32))
                 .addGap(8, 8, 8)
                 .addGroup(panouDateFacultateLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(inputInmatAnStudiu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel33))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(panouDateFacultateLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel35)
-                    .addComponent(inputInmatAnStudiu1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(inputInmatGrupa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel35))
+                .addGap(8, 8, 8)
+                .addGroup(panouDateFacultateLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(inputInmatNrMat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel32))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -1777,17 +1784,15 @@ public class FrameAdminMain extends javax.swing.JFrame {
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                    .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGap(43, 43, 43)
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(panouDateFacultate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(panouDatePersonale, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addComponent(panouDatePersonale, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(panouDateCont, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
                         .addContainerGap(336, Short.MAX_VALUE)
-                        .addComponent(butInmatriculeaza, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                        .addGap(43, 43, 43)
-                        .addComponent(panouDateCont, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addComponent(butInmatriculeaza, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         jPanel4Layout.setVerticalGroup(
@@ -1796,12 +1801,12 @@ public class FrameAdminMain extends javax.swing.JFrame {
                 .addGap(23, 23, 23)
                 .addComponent(panouDatePersonale, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(panouDateFacultate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(panouDateFacultate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(panouDateCont, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(butInmatriculeaza, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(50, Short.MAX_VALUE))
+                .addGap(53, 53, 53))
         );
 
         tabGlobal.addTab("Inmatriculeaza student", new javax.swing.ImageIcon(getClass().getResource("/icons/inmatStud.png")), jPanel4); // NOI18N
@@ -1902,7 +1907,7 @@ public class FrameAdminMain extends javax.swing.JFrame {
                         .addComponent(labelAdmin))
                     .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(tabGlobal)
+                .addComponent(tabGlobal, javax.swing.GroupLayout.DEFAULT_SIZE, 508, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -2144,6 +2149,14 @@ public class FrameAdminMain extends javax.swing.JFrame {
 
     private void butResImportaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butResImportaActionPerformed
         // se va importa baza de date
+        final JFileChooser fc = new JFileChooser();
+        int returnVal = fc.showOpenDialog(this);
+        if(returnVal == JFileChooser.APPROVE_OPTION) {
+          // de rezolvat.
+            File f = fc.getSelectedFile();
+            String numeFis = f.getName();
+
+        }
     }//GEN-LAST:event_butResImportaActionPerformed
 
     private void butAdminDelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butAdminDelActionPerformed
@@ -2189,6 +2202,11 @@ public class FrameAdminMain extends javax.swing.JFrame {
     private void jLabel12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel12MouseClicked
         // Se deschide dialogul DialogChangePassword
     }//GEN-LAST:event_jLabel12MouseClicked
+
+    private void inputInmatSpecializareItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_inputInmatSpecializareItemStateChanged
+        // Se incarca inputInmatAnStudiu si inputInmatGrupa
+        inputInmatAnStudiu.setEnabled(true);
+    }//GEN-LAST:event_inputInmatSpecializareItemStateChanged
 
 
 
@@ -2242,9 +2260,9 @@ public class FrameAdminMain extends javax.swing.JFrame {
     private javax.swing.JComboBox inputGenDupaStudSpecializare;
     private javax.swing.JComboBox inputGenDupaStudStudent;
     private javax.swing.JComboBox inputInmatAnStudiu;
-    private javax.swing.JComboBox inputInmatAnStudiu1;
     private javax.swing.JTextField inputInmatCnp;
     private javax.swing.JComboBox inputInmatFacultate;
+    private javax.swing.JComboBox inputInmatGrupa;
     private javax.swing.JTextField inputInmatNrMat;
     private javax.swing.JTextField inputInmatNume;
     private javax.swing.JTextField inputInmatNumeCont;
