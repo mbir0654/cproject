@@ -1681,7 +1681,7 @@ public class FrameAdminMain extends javax.swing.JFrame {
         jLabel35.setText("Grupa");
 
         inputInmatGrupa.setForeground(new java.awt.Color(0, 102, 153));
-        inputInmatGrupa.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Grupa 2", "Grupa 3" }));
+        //inputInmatGrupa.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Grupa 2", "Grupa 3" }));
 
         javax.swing.GroupLayout panouDateFacultateLayout = new javax.swing.GroupLayout(panouDateFacultate);
         panouDateFacultate.setLayout(panouDateFacultateLayout);
@@ -2172,6 +2172,8 @@ public class FrameAdminMain extends javax.swing.JFrame {
     }//GEN-LAST:event_butAdminModActionPerformed
 
     private void butInmatriculeazaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butInmatriculeazaActionPerformed
+        controllerAdmin.addInmatriculeazaStudent();
+
         // se adauga studentul, si se deschide un DialogMsg, cu un mesaj
         // corespunzator.
     }//GEN-LAST:event_butInmatriculeazaActionPerformed
@@ -2207,6 +2209,8 @@ public class FrameAdminMain extends javax.swing.JFrame {
 
     private void inputInmatSpecializareItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_inputInmatSpecializareItemStateChanged
         // Se incarca inputInmatAnStudiu si inputInmatGrupa
+        controllerAdmin.loadInmatriculeazaStudentAnStudiu((Specialty) inputInmatSpecializare.getSelectedItem());
+        controllerAdmin.loadInmatriculeazaStudentGrupa((Specialty) inputInmatSpecializare.getSelectedItem());
         inputInmatAnStudiu.setEnabled(true);
     }//GEN-LAST:event_inputInmatSpecializareItemStateChanged
 
@@ -2410,7 +2414,36 @@ public class FrameAdminMain extends javax.swing.JFrame {
         inputInmatAnStudiu.setModel(model);
     }
     public  void setInmatriculeazaStudentGrupe(ComboBoxModel model){
-
+        inputInmatGrupa.setModel(model);
     }
-
+    public String getInmatriculareStudentNume(){
+        return inputInmatNume.getText();
+    }
+    public String getInmatriculareStudentPrenume(){
+        return  inputInmatPrenume.getText();
+    }
+    public String getInmatriculareStudentCnp(){
+        return  inputInmatCnp.getText();
+    }
+    public String getInmatriculareStudentNrMat(){
+        return  inputInmatNrMat.getText();
+    }
+    public String getInmatriculareStudentUsername(){
+        return  inputInmatNumeCont.getText();
+    }
+    public String getInmatriculareStudentParola(){
+        return  inputInmatParolaCont.getText();
+    }
+    public Faculty getInmatriculareStudentFacultate(){
+        return (Faculty) inputInmatFacultate.getSelectedItem();
+    }
+    public Specialty getInmatriculareStudentSpecializare(){
+        return (Specialty) inputInmatSpecializare.getSelectedItem();
+    }
+    public Group getInmatriculareStudentGrupa(){
+        return (Group) inputInmatGrupa.getSelectedItem();
+    }
+    public int getInmatriculareStudentAnStudiu(){
+        return (Integer) inputInmatAnStudiu.getSelectedItem();
+    }
 }
