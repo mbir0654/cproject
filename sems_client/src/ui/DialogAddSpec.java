@@ -53,6 +53,7 @@ public class DialogAddSpec extends javax.swing.JDialog {
         jLabel3.setForeground(new java.awt.Color(0, 0, 102));
         jLabel3.setText("Numar de ani");
 
+        inputNrDeAni.setForeground(new java.awt.Color(0, 153, 204));
         inputNrDeAni.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "1", "2", "3", "4", "5", "6" }));
 
         butAdauga.setForeground(new java.awt.Color(0, 0, 102));

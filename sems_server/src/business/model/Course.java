@@ -1,5 +1,6 @@
 package business.model;
 
+import data.dbutil.DbObject;
 import java.io.Serializable;
 import java.sql.*;
 import java.util.*;
