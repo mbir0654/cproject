@@ -10,7 +10,7 @@
  */
 
 package ui;
-import business.model.Administrator;
+import business.model.*;
 import controller.ControllerAdmin;
 import javax.swing.*;
 /**
@@ -18,10 +18,10 @@ import javax.swing.*;
  * @author Snoopy
  */
 public class FrameAdminMain extends javax.swing.JFrame {
-    private ControllerAdmin c;
+    private ControllerAdmin controllerAdmin;
     /** Creates new form FrameAdminMain */
     public FrameAdminMain(ControllerAdmin adm) {
-        this.c=adm;
+        this.controllerAdmin =adm;
         initComponents();
 
         butCursuriAloca.setEnabled(false);
@@ -1895,10 +1895,10 @@ public class FrameAdminMain extends javax.swing.JFrame {
 }//GEN-LAST:event_listAdminValueChanged
 
     private void listFacultatiValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_listFacultatiValueChanged
-
+        controllerAdmin.loadSpecialties((Faculty)listFacultati.getSelectedValue());
         panouInfoFaculta.setVisible(true);
-        // TODO add your handling code here:
-}//GEN-LAST:event_listFacultatiValueChanged
+
+    }//GEN-LAST:event_listFacultatiValueChanged
 
     private void listCursuriValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_listCursuriValueChanged
 
@@ -2123,6 +2123,7 @@ public class FrameAdminMain extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_butInmatriculeazaActionPerformed
 
+
     private void butAddStudentLaGrupaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butAddStudentLaGrupaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_butAddStudentLaGrupaActionPerformed
@@ -2138,6 +2139,7 @@ public class FrameAdminMain extends javax.swing.JFrame {
     /**
     * @param args the command line arguments
     */
+
 
 
     public void setFaculties(ListModel model) {
@@ -2311,5 +2313,9 @@ public class FrameAdminMain extends javax.swing.JFrame {
 
     public void setLabelUserAdmin(Administrator admin) {
         labelUserAdmin.setText("[ "+admin.getUserName() + "]");
+    }
+
+    public void setListCursuri(ListModel model) {
+        listCursuri.setModel(model);
     }
 }

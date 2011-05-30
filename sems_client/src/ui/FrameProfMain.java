@@ -11,6 +11,9 @@
 
 package ui;
 import javax.swing.*;
+
+import business.model.Announcement;
+import business.model.Course;
 import controller.ControllerProfesor;
 
 /**
@@ -18,11 +21,11 @@ import controller.ControllerProfesor;
  * @author snoopy
  */
 public class FrameProfMain extends javax.swing.JFrame {
-    private ControllerProfesor c;
+    private ControllerProfesor controllerProfesor;
     /** Creates new form FrameProfMain */
     public FrameProfMain(ControllerProfesor cp) {
         initComponents();
-        this.c=cp;
+        this.controllerProfesor =cp;
 
         panouAnunt.setVisible(false);
         catalogListGrupa.setVisible(false);
@@ -79,6 +82,7 @@ public class FrameProfMain extends javax.swing.JFrame {
         butAddAnunt = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
         anuntAddData = new javax.swing.JTextField();
+
         jPanel1 = new javax.swing.JPanel();
         PanouCatalog = new javax.swing.JTabbedPane();
         jPanel3 = new javax.swing.JPanel();
@@ -173,11 +177,12 @@ public class FrameProfMain extends javax.swing.JFrame {
         jPanel8.setBackground(new java.awt.Color(255, 255, 255));
 
         listAnunturi.setForeground(new java.awt.Color(0, 51, 102));
-        listAnunturi.setModel(new javax.swing.AbstractListModel() {
+        /*listAnunturi.setModel(new javax.swing.AbstractListModel() {
             String[] strings = { "Anunt test 1 (Prof. Dan Stirb)", "In gura presei (Prof. Mircea Badea)", "Etc Etc (Dr. Ing. Mihai Gugu)" };
             public int getSize() { return strings.length; }
             public Object getElementAt(int i) { return strings[i]; }
         });
+        */
         listAnunturi.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         listAnunturi.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
             public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
@@ -191,17 +196,17 @@ public class FrameProfMain extends javax.swing.JFrame {
 
         labelAnuntCurs.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         labelAnuntCurs.setForeground(new java.awt.Color(0, 51, 102));
-        labelAnuntCurs.setText("Baze de date");
+        //labelAnuntCurs.setText("Baze de date");
 
         labelAnuntTitlu.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         labelAnuntTitlu.setForeground(new java.awt.Color(0, 51, 102));
-        labelAnuntTitlu.setText("Anunt test 1 [data]");
+        //labelAnuntTitlu.setText("Anunt test 1 [data]");
 
         labelAnuntText.setColumns(20);
         labelAnuntText.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         labelAnuntText.setForeground(new java.awt.Color(0, 102, 153));
         labelAnuntText.setRows(5);
-        labelAnuntText.setText("aeq wqkjenljkqw njlkeqw\n eqwjkne qwlkjnej kqwe \nqw ejkqwnlkje qnwkenkqw \n eqw");
+        //labelAnuntText.setText("aeq wqkjenljkqw njlkeqw\n eqwjkne qwlkjnej kqwe \nqw ejkqwnlkje qnwkenkqw \n eqw");
         labelAnuntText.setCaretColor(new java.awt.Color(0, 102, 153));
         labelAnuntText.setDisabledTextColor(new java.awt.Color(0, 102, 153));
         labelAnuntText.setEnabled(false);
@@ -1208,13 +1213,12 @@ public class FrameProfMain extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void listAnunturiValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_listAnunturiValueChanged
-
+        setAnnouncementDetail();
         panouAnunt.setVisible(true);
-        // TODO add your handling code here:
-}//GEN-LAST:event_listAnunturiValueChanged
+    }//GEN-LAST:event_listAnunturiValueChanged
 
     private void butAddAnuntActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butAddAnuntActionPerformed
-
+        controllerProfesor.loadCourses_combo();
         butAddAnunt.setEnabled(false);
     }//GEN-LAST:event_butAddAnuntActionPerformed
 
@@ -1428,4 +1432,37 @@ public class FrameProfMain extends javax.swing.JFrame {
     private javax.swing.JComboBox temeListCursuri;
     private javax.swing.JList temeListTeme;
     // End of variables declaration//GEN-END:variables
+
+    //by bsk
+    public  void setFullName(String fullName){
+        labelNumeProf.setText(fullName);
+    }
+    public  void setUserName(String userName){
+        labelUserProf.setText(userName);
+    }
+    public  void setAnnouncements(DefaultListModel model){
+        listAnunturi.setModel(model);
+    }
+    public void setAnnouncementDetail(){
+        Announcement announcement = (Announcement) listAnunturi.getSelectedValue();
+        labelAnuntTitlu.setText(announcement.getSubiect() + " [ " + announcement.getData().toString() + " ]");
+        labelAnuntCurs.setText(announcement.getCourse().getName());
+        labelAnuntText.setText(announcement.getAnnouncement());
+    }
+    public  void setAnuntAddCurs(DefaultComboBoxModel model){
+        anuntAddCurs.setModel(model);
+    }
+    public String getAnuntAddTitlu(){
+        return anuntAddTitlu.getText();
+    }
+    public Course getAnuntAddCurs(){
+        return (Course) anuntAddCurs.getSelectedItem();
+    }
+    public String getAnuntAddMesaj(){
+        return anuntAddMesaj.getText();
+    }
+    public String getAnuntAddData(){
+        return anuntAddData.getText();
+    }
+
 }

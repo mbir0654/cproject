@@ -111,3 +111,15 @@ BEGIN
 END$$
 DELIMITER ;
 
+-- cursuri pt un profesor
+DELIMITER $$
+DROP PROCEDURE IF EXISTS `pc221`.`courses_for_teacher`$$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `courses_for_teacher`(IN param10 VARCHAR(255))
+BEGIN
+	select sc.courseCode 
+	from specializations_courses sc inner join teachers_spec ts  on sc.csId = ts.csId
+	inner join teachers t on ts.teacherId = t.teacherId
+	inner join users u on u.userName = t.userName
+	where u.username = param10;
+END$$
+DELIMITER ;

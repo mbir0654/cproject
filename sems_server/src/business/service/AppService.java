@@ -7,13 +7,12 @@ import java.sql.SQLException;
 import java.util.*;
 
 import data.dbutil.DbUtil;
-import data.repositorydb.AdministratorRepository;
-import data.repositorydb.FacultyRepository;
-import data.repositorydb.ProfessorRepository;
-import data.repositorydb.StudentRepository;
+import data.repositorydb.*;
 import data.repositoryinterface.Repository;
 import business.model.*;
 import business.serviceinterface.InterfaceAppService;
+import data.repositorydb.GroupRepository;
+import data.repositorydb.SpecialityRepository;
 
 /**
  * @author BSK
@@ -31,6 +30,9 @@ public class AppService implements InterfaceAppService {
 	private Repository<Administrator> adminRepo;
 	private Repository<Professor> profRepo;
 	private Repository<Student> studRepo;
+        private Repository<Faculty> facultyReposiitory;
+        private Repository<Group> groupRepo;
+        private Repository<Course> courseRepo;
 	
 	/**
 	 *  constuctor privat pentru singleton
@@ -39,6 +41,10 @@ public class AppService implements InterfaceAppService {
 		adminRepo = AdministratorRepository.getInstance();
 		profRepo = ProfessorRepository.getInstance();
 		studRepo = StudentRepository.getInstance();
+                groupRepo = GroupRepository.getInstance();
+                courseRepo = CourseRepository.getInstance();
+                facultyReposiitory = FacultyRepository.getInstance();
+
 	}
 	
 	/**
@@ -78,8 +84,8 @@ public class AppService implements InterfaceAppService {
 		    		u = profRepo.findByName(userName);
 		    	} else if (rol.equals("stud")){
 		    		u = studRepo.findByName(userName);
-		    	}
-		    	System.out.println(u);
+                }
+                System.out.println(u);
 		    	return u;
 		    }
 		} catch (SQLException e) {

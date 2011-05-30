@@ -18,7 +18,7 @@ public class Student extends User {
 	//private List<Assignment> assignments;
 	private Specialty specialty;
 	private Group group;
-	private int year = 1;
+	private int year = 0;
 
 	
 	/**
@@ -188,7 +188,7 @@ public class Student extends User {
 	 */
 	@Override
 	public String toString() {
-		return getFirstName()+" "+getLastName()+" - "+ specialty.toString();
+		return firstName+" "+lastName;
 	}
 
 

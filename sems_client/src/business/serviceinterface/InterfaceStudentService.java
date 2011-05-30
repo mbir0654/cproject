@@ -18,5 +18,4 @@ public interface InterfaceStudentService {
     public List<Grade> getGrades(Course course);
 	public void sendHomeWork();
 
-
 }

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import business.model.Course;
 import business.model.Faculty;
+import business.model.Professor;
 import business.model.Specialty;
 import data.repositoryinterface.Repository;
 
@@ -12,23 +13,36 @@ import data.repositoryinterface.Repository;
  *
  */
 public class CourseRepository implements Repository<Course>{
-	
-	private List<Course> l;
+
+    private List<Course> l;
     private SpecialityRepository specialitys = SpecialityRepository.getInstance();
+    private static ProfessorRepository pr = ProfessorRepository.getInstance();
 
     private static final CourseRepository courses = new CourseRepository();
 
     public static  CourseRepository getInstance(){
         return  courses;
     }
-	public CourseRepository(){
-		l = new ArrayList<Course>();
-         for(Specialty specialty:specialitys.getAll()){
-            for(Course course:specialty.getCourses()){
-                l.add(course);
+	private CourseRepository(){
+            l = new ArrayList<Course>();
+            for(Specialty specialty:specialitys.getAll()){
+                l.addAll(specialty.getCourses());
+                for(Professor p : pr.getAll())
+                    for(Course pCourse : p.getCourses()){
+                        for(Course sCourse : specialty.getCourses())
+                            if(pCourse.getCod().equals(sCourse.getCod())){
+                                pCourse.setName(sCourse.getName());
+                                pCourse.setMaterialeDeCurs(sCourse.getMaterialeDeCurs());
+                                pCourse.setNumberOfCredits(sCourse.getNumberOfCredits());
+                                pCourse.setSemestrul(sCourse.getSemestrul());
+                                pCourse.setSpecializare(sCourse.getSpecializare());
+                                pCourse.setAnnouncements(sCourse.getAnnouncements());
+                                pCourse.setAssignments(sCourse.getAssignments());
+                                pCourse.setExams(sCourse.getExams());
+                            }
+                    }
             }
         }
-	}
 
 	/**
 	 * @see data.repositoryinterface.Repository#add(java.lang.Object)

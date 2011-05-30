@@ -1,5 +1,5 @@
 /**
- *
+ * 
  */
 package business.model;
 
@@ -7,28 +7,28 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 	/**
-	 *
+	 * 
 	 * @author otniel
 	 *
 	 */
 public abstract class User implements Serializable {
-
+	
 	protected String firstName = "";
 	protected String lastName = "";
 	protected String userName = "";
 	protected String password = "";
-
+	
 	/**
 	 * Constructorul implicit
-	 *
+	 * 
 	 * <p>Initializeaza <b>firstName, lastName, userName</b> si <b>password</b></p>
 	 */
 	public User(){
 	}
-
+	
 	/**
 	 * Constructorul de copiere
-	 *
+	 * 
 	 * @param u este userul care va fi duplicat
 	 */
 	public User(User u){
@@ -37,23 +37,23 @@ public abstract class User implements Serializable {
 		userName = u.getUserName();
 		password = u.getPassword();
 	}
-
+	
 	/**
 	 * Verifica daca doi useri sunt identici
-	 *
+	 * 
 	 * @param u
-	 *
+	 * 
 	 * @return
 	 */
 	public boolean equals(User u){
-		if(firstName.equals(u.getFirstName()) &&
+		if(firstName.equals(u.getFirstName()) && 
 		   lastName.equalsIgnoreCase(u.getLastName()) &&
 		   userName.equalsIgnoreCase(u.getUserName()) &&
 		   password.equalsIgnoreCase(u.getPassword()))
 			return true;
 		return false;
 	}
-
+	
 	/**
 	 * @param firstName va fi prenumele <b>USer</b>ului
 	 */
@@ -102,12 +102,12 @@ public abstract class User implements Serializable {
 	public String getPassword() {
 		return password;
 	}
-
+	
     @Override
 	public String toString() {
 		return this.firstName+" "+this.lastName;
 	}
-
+	
 	public ArrayList<DbObject> toDbObjectList(){
             DbObject db1 = new DbObject("firstName",firstName);
             DbObject db2 = new DbObject("lastName",lastName);
