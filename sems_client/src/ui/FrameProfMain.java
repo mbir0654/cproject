@@ -15,6 +15,7 @@ import javax.swing.*;
 import business.model.Announcement;
 import business.model.Course;
 import controller.ControllerProfesor;
+import java.io.File;
 
 /**
  *
@@ -35,8 +36,8 @@ public class FrameProfMain extends javax.swing.JFrame {
         tabelEvaluari.setVisible(false);
         butEvaluariNoteaza.setEnabled(false);
         panouInfoTeme.setVisible(false);
-        butTemeMod.setEnabled(false);
-        butTemeDel.setEnabled(false);
+        butModTeme.setEnabled(false);
+        butDelTeme.setEnabled(false);
 
         panouAlocaTema.setVisible(false);
         panouRezolvari.setVisible(false);
@@ -82,7 +83,6 @@ public class FrameProfMain extends javax.swing.JFrame {
         butAddAnunt = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
         anuntAddData = new javax.swing.JTextField();
-
         jPanel1 = new javax.swing.JPanel();
         PanouCatalog = new javax.swing.JTabbedPane();
         jPanel3 = new javax.swing.JPanel();
@@ -118,8 +118,8 @@ public class FrameProfMain extends javax.swing.JFrame {
         jLabel14 = new javax.swing.JLabel();
         jScrollPane9 = new javax.swing.JScrollPane();
         temeListTeme = new javax.swing.JList();
-        butTemeMod = new javax.swing.JButton();
-        butTemeDel = new javax.swing.JButton();
+        butModTeme = new javax.swing.JButton();
+        butDelTeme = new javax.swing.JButton();
         panouTeme = new javax.swing.JTabbedPane();
         panouAddTema = new javax.swing.JPanel();
         jLabel15 = new javax.swing.JLabel();
@@ -129,18 +129,18 @@ public class FrameProfMain extends javax.swing.JFrame {
         jLabel17 = new javax.swing.JLabel();
         jScrollPane10 = new javax.swing.JScrollPane();
         addTemaDesc = new javax.swing.JTextArea();
-        addTemaBut = new javax.swing.JButton();
+        butAddTema = new javax.swing.JButton();
         panouAlocaTema = new javax.swing.JPanel();
         jLabel18 = new javax.swing.JLabel();
         alocaTemaListGrupe = new javax.swing.JComboBox();
         jLabel19 = new javax.swing.JLabel();
         jScrollPane11 = new javax.swing.JScrollPane();
         alocaTemaListStud = new javax.swing.JList();
-        alocaTemaBut = new javax.swing.JButton();
+        butAlocaTema = new javax.swing.JButton();
         panouRezolvari = new javax.swing.JPanel();
         jLabel20 = new javax.swing.JLabel();
         temaRezolvariListStud = new javax.swing.JComboBox();
-        temaRezolvariDescarca = new javax.swing.JButton();
+        butDescarcaRezolvari = new javax.swing.JButton();
         jPanel14 = new javax.swing.JPanel();
         jLabel21 = new javax.swing.JLabel();
         materialeListCursuri = new javax.swing.JComboBox();
@@ -157,6 +157,7 @@ public class FrameProfMain extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         labelNumeProf = new javax.swing.JLabel();
         labelUserProf = new javax.swing.JLabel();
+        jLabel23 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -167,22 +168,23 @@ public class FrameProfMain extends javax.swing.JFrame {
         PanouGrupeStud.setForeground(new java.awt.Color(0, 51, 102));
         PanouGrupeStud.setTabPlacement(javax.swing.JTabbedPane.LEFT);
         PanouGrupeStud.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        PanouGrupeStud.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        PanouGrupeStud.setFont(new java.awt.Font("Tahoma", 1, 11));
+        PanouGrupeStud.setPreferredSize(new java.awt.Dimension(612, 34));
+        PanouGrupeStud.setRequestFocusEnabled(false);
 
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
 
         PanouAnunturi.setForeground(new java.awt.Color(0, 51, 102));
-        PanouAnunturi.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        PanouAnunturi.setFont(new java.awt.Font("Tahoma", 1, 11));
 
         jPanel8.setBackground(new java.awt.Color(255, 255, 255));
 
         listAnunturi.setForeground(new java.awt.Color(0, 51, 102));
-        /*listAnunturi.setModel(new javax.swing.AbstractListModel() {
+        listAnunturi.setModel(new javax.swing.AbstractListModel() {
             String[] strings = { "Anunt test 1 (Prof. Dan Stirb)", "In gura presei (Prof. Mircea Badea)", "Etc Etc (Dr. Ing. Mihai Gugu)" };
             public int getSize() { return strings.length; }
             public Object getElementAt(int i) { return strings[i]; }
         });
-        */
         listAnunturi.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         listAnunturi.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
             public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
@@ -194,19 +196,19 @@ public class FrameProfMain extends javax.swing.JFrame {
         panouAnunt.setBackground(new java.awt.Color(255, 255, 255));
         panouAnunt.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Detalii anunt", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(0, 51, 102))); // NOI18N
 
-        labelAnuntCurs.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        labelAnuntCurs.setFont(new java.awt.Font("Tahoma", 1, 12));
         labelAnuntCurs.setForeground(new java.awt.Color(0, 51, 102));
-        //labelAnuntCurs.setText("Baze de date");
+        labelAnuntCurs.setText("Baze de date");
 
-        labelAnuntTitlu.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        labelAnuntTitlu.setFont(new java.awt.Font("Tahoma", 1, 12));
         labelAnuntTitlu.setForeground(new java.awt.Color(0, 51, 102));
-        //labelAnuntTitlu.setText("Anunt test 1 [data]");
+        labelAnuntTitlu.setText("Anunt test 1 [data]");
 
         labelAnuntText.setColumns(20);
-        labelAnuntText.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        labelAnuntText.setFont(new java.awt.Font("Arial", 0, 11));
         labelAnuntText.setForeground(new java.awt.Color(0, 102, 153));
         labelAnuntText.setRows(5);
-        //labelAnuntText.setText("aeq wqkjenljkqw njlkeqw\n eqwjkne qwlkjnej kqwe \nqw ejkqwnlkje qnwkenkqw \n eqw");
+        labelAnuntText.setText("aeq wqkjenljkqw njlkeqw\n eqwjkne qwlkjnej kqwe \nqw ejkqwnlkje qnwkenkqw \n eqw");
         labelAnuntText.setCaretColor(new java.awt.Color(0, 102, 153));
         labelAnuntText.setDisabledTextColor(new java.awt.Color(0, 102, 153));
         labelAnuntText.setEnabled(false);
@@ -226,7 +228,7 @@ public class FrameProfMain extends javax.swing.JFrame {
                         .addComponent(labelAnuntCurs)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(labelAnuntTitlu))
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 329, Short.MAX_VALUE)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 319, Short.MAX_VALUE)
                     .addComponent(butAnuntDel, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addContainerGap())
         );
@@ -252,7 +254,7 @@ public class FrameProfMain extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(panouAnunt, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 361, Short.MAX_VALUE))
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 351, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel8Layout.setVerticalGroup(
@@ -268,21 +270,21 @@ public class FrameProfMain extends javax.swing.JFrame {
 
         jPanel9.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 11));
         jLabel4.setForeground(new java.awt.Color(0, 51, 102));
         jLabel4.setText("Titlu");
 
         anuntAddTitlu.setForeground(new java.awt.Color(0, 102, 153));
         anuntAddTitlu.setHorizontalAlignment(javax.swing.JTextField.TRAILING);
 
-        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 11));
         jLabel6.setForeground(new java.awt.Color(0, 51, 102));
         jLabel6.setText("Curs");
 
         anuntAddCurs.setForeground(new java.awt.Color(0, 102, 153));
         anuntAddCurs.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Cursuri" }));
 
-        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 11));
         jLabel5.setForeground(new java.awt.Color(0, 51, 102));
         jLabel5.setText("Mesaj");
 
@@ -299,7 +301,7 @@ public class FrameProfMain extends javax.swing.JFrame {
             }
         });
 
-        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 11));
         jLabel7.setForeground(new java.awt.Color(0, 51, 102));
         jLabel7.setText("Data");
 
@@ -326,9 +328,9 @@ public class FrameProfMain extends javax.swing.JFrame {
                         .addGap(25, 25, 25)
                         .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(anuntAddData, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(anuntAddCurs, 0, 204, Short.MAX_VALUE)
-                            .addComponent(anuntAddTitlu, javax.swing.GroupLayout.DEFAULT_SIZE, 204, Short.MAX_VALUE)
-                            .addComponent(jScrollPane8, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 204, Short.MAX_VALUE))))
+                            .addComponent(anuntAddCurs, 0, 194, Short.MAX_VALUE)
+                            .addComponent(anuntAddTitlu, javax.swing.GroupLayout.DEFAULT_SIZE, 194, Short.MAX_VALUE)
+                            .addComponent(jScrollPane8, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 194, Short.MAX_VALUE))))
                 .addGap(82, 82, 82))
         );
         jPanel9Layout.setVerticalGroup(
@@ -365,7 +367,7 @@ public class FrameProfMain extends javax.swing.JFrame {
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addComponent(PanouAnunturi, javax.swing.GroupLayout.PREFERRED_SIZE, 386, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(PanouAnunturi, javax.swing.GroupLayout.DEFAULT_SIZE, 376, Short.MAX_VALUE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
@@ -387,7 +389,7 @@ public class FrameProfMain extends javax.swing.JFrame {
             }
         });
 
-        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 12));
         jLabel3.setForeground(new java.awt.Color(0, 102, 153));
         jLabel3.setText("Selectati curs");
 
@@ -444,7 +446,7 @@ public class FrameProfMain extends javax.swing.JFrame {
 
         jPanel6.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel8.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel8.setFont(new java.awt.Font("Tahoma", 1, 12));
         jLabel8.setForeground(new java.awt.Color(0, 102, 153));
         jLabel8.setText("Selectati grupa");
 
@@ -482,7 +484,7 @@ public class FrameProfMain extends javax.swing.JFrame {
         tableCatalogByGrupa.getColumnModel().getColumn(2).setMaxWidth(60);
         tableCatalogByGrupa.getColumnModel().getColumn(2).setHeaderValue("Nota");
 
-        jLabel9.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel9.setFont(new java.awt.Font("Tahoma", 1, 12));
         jLabel9.setForeground(new java.awt.Color(0, 102, 153));
         jLabel9.setText("Selectati curs");
 
@@ -504,8 +506,7 @@ public class FrameProfMain extends javax.swing.JFrame {
                     .addGroup(jPanel6Layout.createSequentialGroup()
                         .addComponent(jLabel8)
                         .addGap(18, 18, 18)
-                        .addComponent(catalogListGrupa, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 1, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(catalogListGrupa, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel6Layout.createSequentialGroup()
                         .addComponent(jLabel9)
                         .addGap(31, 31, 31)
@@ -565,14 +566,15 @@ public class FrameProfMain extends javax.swing.JFrame {
         });
         jScrollPane7.setViewportView(evaluariListStudenti);
 
-        jLabel12.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel12.setFont(new java.awt.Font("Tahoma", 1, 12));
         jLabel12.setForeground(new java.awt.Color(0, 102, 153));
         jLabel12.setText("Studenti");
 
-        jLabel10.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel10.setFont(new java.awt.Font("Tahoma", 1, 11));
         jLabel10.setForeground(new java.awt.Color(0, 102, 153));
         jLabel10.setText("Nota:");
 
+        evaluariNota.setFont(new java.awt.Font("Tahoma", 1, 11));
         evaluariNota.setForeground(new java.awt.Color(0, 102, 153));
 
         butEvaluariNoteaza.setForeground(new java.awt.Color(0, 102, 153));
@@ -626,7 +628,7 @@ public class FrameProfMain extends javax.swing.JFrame {
         });
         jScrollPane6.setViewportView(jList2);
 
-        jLabel11.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel11.setFont(new java.awt.Font("Tahoma", 1, 12));
         jLabel11.setForeground(new java.awt.Color(0, 102, 153));
         jLabel11.setText("Selectati curs");
 
@@ -709,7 +711,7 @@ public class FrameProfMain extends javax.swing.JFrame {
 
         jPanel10.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel13.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel13.setFont(new java.awt.Font("Tahoma", 1, 12));
         jLabel13.setForeground(new java.awt.Color(0, 102, 153));
         jLabel13.setText("Selectati curs");
 
@@ -723,7 +725,7 @@ public class FrameProfMain extends javax.swing.JFrame {
 
         panouInfoTeme.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel14.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel14.setFont(new java.awt.Font("Tahoma", 1, 12));
         jLabel14.setForeground(new java.awt.Color(0, 102, 153));
         jLabel14.setText("Teme actuale");
 
@@ -733,6 +735,7 @@ public class FrameProfMain extends javax.swing.JFrame {
             public int getSize() { return strings.length; }
             public Object getElementAt(int i) { return strings[i]; }
         });
+        temeListTeme.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_INTERVAL_SELECTION);
         temeListTeme.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
             public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
                 temeListTemeValueChanged(evt);
@@ -740,39 +743,39 @@ public class FrameProfMain extends javax.swing.JFrame {
         });
         jScrollPane9.setViewportView(temeListTeme);
 
-        butTemeMod.setForeground(new java.awt.Color(0, 102, 153));
-        butTemeMod.setText("Modifica");
-        butTemeMod.addActionListener(new java.awt.event.ActionListener() {
+        butModTeme.setForeground(new java.awt.Color(0, 102, 153));
+        butModTeme.setText("Modifica");
+        butModTeme.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                butTemeModActionPerformed(evt);
+                butModTemeActionPerformed(evt);
             }
         });
 
-        butTemeDel.setForeground(new java.awt.Color(0, 102, 153));
-        butTemeDel.setText("Sterge");
-        butTemeDel.addActionListener(new java.awt.event.ActionListener() {
+        butDelTeme.setForeground(new java.awt.Color(0, 102, 153));
+        butDelTeme.setText("Sterge");
+        butDelTeme.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                butTemeDelActionPerformed(evt);
+                butDelTemeActionPerformed(evt);
             }
         });
 
         panouTeme.setForeground(new java.awt.Color(0, 51, 102));
-        panouTeme.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        panouTeme.setFont(new java.awt.Font("Tahoma", 1, 11));
 
         panouAddTema.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel15.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel15.setFont(new java.awt.Font("Tahoma", 0, 12));
         jLabel15.setForeground(new java.awt.Color(0, 102, 153));
         jLabel15.setText("Titlu");
 
-        jLabel16.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel16.setFont(new java.awt.Font("Tahoma", 0, 12));
         jLabel16.setForeground(new java.awt.Color(0, 102, 153));
         jLabel16.setText("Termen limita");
 
         addTemaTermen.setForeground(new java.awt.Color(0, 102, 153));
         addTemaTermen.setText("AAAA/LL/ZZ");
 
-        jLabel17.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel17.setFont(new java.awt.Font("Tahoma", 0, 12));
         jLabel17.setForeground(new java.awt.Color(0, 102, 153));
         jLabel17.setText("Descriere");
 
@@ -781,11 +784,11 @@ public class FrameProfMain extends javax.swing.JFrame {
         addTemaDesc.setRows(5);
         jScrollPane10.setViewportView(addTemaDesc);
 
-        addTemaBut.setForeground(new java.awt.Color(0, 102, 153));
-        addTemaBut.setText("Adauga");
-        addTemaBut.addActionListener(new java.awt.event.ActionListener() {
+        butAddTema.setForeground(new java.awt.Color(0, 102, 153));
+        butAddTema.setText("Adauga");
+        butAddTema.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                addTemaButActionPerformed(evt);
+                butAddTemaActionPerformed(evt);
             }
         });
 
@@ -801,7 +804,7 @@ public class FrameProfMain extends javax.swing.JFrame {
                     .addComponent(jLabel17))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, Short.MAX_VALUE)
                 .addGroup(panouAddTemaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(addTemaBut)
+                    .addComponent(butAddTema)
                     .addGroup(panouAddTemaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(addTemaTermen, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jScrollPane10, javax.swing.GroupLayout.DEFAULT_SIZE, 224, Short.MAX_VALUE)
@@ -824,7 +827,7 @@ public class FrameProfMain extends javax.swing.JFrame {
                     .addComponent(jLabel17)
                     .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(addTemaBut)
+                .addComponent(butAddTema)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -832,7 +835,7 @@ public class FrameProfMain extends javax.swing.JFrame {
 
         panouAlocaTema.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel18.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel18.setFont(new java.awt.Font("Tahoma", 0, 12));
         jLabel18.setForeground(new java.awt.Color(0, 102, 153));
         jLabel18.setText("Grupa destinatie");
 
@@ -844,7 +847,7 @@ public class FrameProfMain extends javax.swing.JFrame {
             }
         });
 
-        jLabel19.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel19.setFont(new java.awt.Font("Tahoma", 0, 12));
         jLabel19.setForeground(new java.awt.Color(0, 102, 153));
         jLabel19.setText("Studenti");
 
@@ -856,11 +859,11 @@ public class FrameProfMain extends javax.swing.JFrame {
         });
         jScrollPane11.setViewportView(alocaTemaListStud);
 
-        alocaTemaBut.setForeground(new java.awt.Color(0, 102, 153));
-        alocaTemaBut.setText("Aloca");
-        alocaTemaBut.addActionListener(new java.awt.event.ActionListener() {
+        butAlocaTema.setForeground(new java.awt.Color(0, 102, 153));
+        butAlocaTema.setText("Aloca");
+        butAlocaTema.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                alocaTemaButActionPerformed(evt);
+                butAlocaTemaActionPerformed(evt);
             }
         });
 
@@ -875,7 +878,7 @@ public class FrameProfMain extends javax.swing.JFrame {
                     .addComponent(jLabel19))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(panouAlocaTemaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(alocaTemaBut, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(butAlocaTema, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jScrollPane11, javax.swing.GroupLayout.DEFAULT_SIZE, 222, Short.MAX_VALUE)
                     .addComponent(alocaTemaListGrupe, 0, 222, Short.MAX_VALUE))
                 .addContainerGap())
@@ -892,7 +895,7 @@ public class FrameProfMain extends javax.swing.JFrame {
                     .addComponent(jLabel19)
                     .addComponent(jScrollPane11, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(alocaTemaBut)
+                .addComponent(butAlocaTema)
                 .addContainerGap(16, Short.MAX_VALUE))
         );
 
@@ -900,18 +903,18 @@ public class FrameProfMain extends javax.swing.JFrame {
 
         panouRezolvari.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel20.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel20.setFont(new java.awt.Font("Tahoma", 0, 12));
         jLabel20.setForeground(new java.awt.Color(0, 102, 153));
         jLabel20.setText("Student:");
 
         temaRezolvariListStud.setForeground(new java.awt.Color(0, 102, 153));
         temaRezolvariListStud.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Student 1", "Student 2", "Student 3" }));
 
-        temaRezolvariDescarca.setForeground(new java.awt.Color(0, 102, 153));
-        temaRezolvariDescarca.setText("Descarca");
-        temaRezolvariDescarca.addActionListener(new java.awt.event.ActionListener() {
+        butDescarcaRezolvari.setForeground(new java.awt.Color(0, 102, 153));
+        butDescarcaRezolvari.setText("Descarca");
+        butDescarcaRezolvari.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                temaRezolvariDescarcaActionPerformed(evt);
+                butDescarcaRezolvariActionPerformed(evt);
             }
         });
 
@@ -922,7 +925,7 @@ public class FrameProfMain extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panouRezolvariLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(panouRezolvariLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(temaRezolvariDescarca, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(butDescarcaRezolvari, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(panouRezolvariLayout.createSequentialGroup()
                         .addComponent(jLabel20)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -937,7 +940,7 @@ public class FrameProfMain extends javax.swing.JFrame {
                     .addComponent(jLabel20)
                     .addComponent(temaRezolvariListStud, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(temaRezolvariDescarca, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(butDescarcaRezolvari, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(125, Short.MAX_VALUE))
         );
 
@@ -954,8 +957,8 @@ public class FrameProfMain extends javax.swing.JFrame {
                         .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(panouInfoTemeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(butTemeDel, javax.swing.GroupLayout.DEFAULT_SIZE, 105, Short.MAX_VALUE)
-                            .addComponent(butTemeMod, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 105, Short.MAX_VALUE)))
+                            .addComponent(butDelTeme, javax.swing.GroupLayout.DEFAULT_SIZE, 105, Short.MAX_VALUE)
+                            .addComponent(butModTeme, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 105, Short.MAX_VALUE)))
                     .addComponent(jLabel14)
                     .addComponent(panouTeme))
                 .addContainerGap())
@@ -967,9 +970,9 @@ public class FrameProfMain extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(panouInfoTemeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(panouInfoTemeLayout.createSequentialGroup()
-                        .addComponent(butTemeMod, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(butModTeme, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(butTemeDel, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(butDelTeme, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jScrollPane9, 0, 0, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
                 .addComponent(panouTeme, javax.swing.GroupLayout.DEFAULT_SIZE, 227, Short.MAX_VALUE)
@@ -1006,7 +1009,7 @@ public class FrameProfMain extends javax.swing.JFrame {
 
         jPanel14.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel21.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel21.setFont(new java.awt.Font("Tahoma", 1, 12));
         jLabel21.setForeground(new java.awt.Color(0, 102, 153));
         jLabel21.setText("Selectati curs");
 
@@ -1020,7 +1023,7 @@ public class FrameProfMain extends javax.swing.JFrame {
 
         panouMaterial.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel22.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel22.setFont(new java.awt.Font("Tahoma", 1, 12));
         jLabel22.setForeground(new java.awt.Color(0, 102, 153));
         jLabel22.setText("Materiale actuale");
 
@@ -1112,7 +1115,7 @@ public class FrameProfMain extends javax.swing.JFrame {
 
         PanouGrupeStud.addTab("Materiale curs    ", new javax.swing.ImageIcon(getClass().getResource("/icons/buton.PNG")), jPanel14); // NOI18N
 
-        labelStud.setFont(new java.awt.Font("Tahoma", 3, 12)); // NOI18N
+        labelStud.setFont(new java.awt.Font("Tahoma", 3, 12));
         labelStud.setForeground(new java.awt.Color(0, 102, 153));
         labelStud.setText(" profesor");
 
@@ -1130,9 +1133,18 @@ public class FrameProfMain extends javax.swing.JFrame {
         labelNumeProf.setForeground(new java.awt.Color(0, 102, 153));
         labelNumeProf.setText("numeProf");
 
-        labelUserProf.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        labelUserProf.setFont(new java.awt.Font("Tahoma", 1, 11));
         labelUserProf.setForeground(new java.awt.Color(0, 102, 153));
         labelUserProf.setText("[username]");
+
+        jLabel23.setFont(new java.awt.Font("Tahoma", 1, 11));
+        jLabel23.setForeground(new java.awt.Color(0, 102, 153));
+        jLabel23.setText("[schimba parola]");
+        jLabel23.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel23MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -1146,9 +1158,11 @@ public class FrameProfMain extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(labelNumeProf))
                     .addComponent(labelUserProf))
-                .addGap(75, 75, 75)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel23)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
                 .addComponent(jLabel2)
-                .addContainerGap(20, Short.MAX_VALUE))
+                .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1161,7 +1175,9 @@ public class FrameProfMain extends javax.swing.JFrame {
                             .addComponent(jLabel1)
                             .addComponent(labelNumeProf))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(labelUserProf)))
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(labelUserProf)
+                            .addComponent(jLabel23))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -1172,14 +1188,14 @@ public class FrameProfMain extends javax.swing.JFrame {
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(PanouGrupeStud, javax.swing.GroupLayout.PREFERRED_SIZE, 518, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(PanouGrupeStud, javax.swing.GroupLayout.PREFERRED_SIZE, 518, Short.MAX_VALUE)
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(jPanel5Layout.createSequentialGroup()
                                 .addGap(19, 19, 19)
                                 .addComponent(labelStud, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addComponent(semsIco, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 182, Short.MAX_VALUE)
+                        .addGap(78, 78, 78)
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
@@ -1194,7 +1210,7 @@ public class FrameProfMain extends javax.swing.JFrame {
                         .addComponent(labelStud))
                     .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(PanouGrupeStud, javax.swing.GroupLayout.PREFERRED_SIZE, 409, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(PanouGrupeStud, javax.swing.GroupLayout.DEFAULT_SIZE, 409, Short.MAX_VALUE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -1202,11 +1218,11 @@ public class FrameProfMain extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -1254,13 +1270,15 @@ public class FrameProfMain extends javax.swing.JFrame {
     }//GEN-LAST:event_tabelEvaluariPropertyChange
 
     private void butEvaluariNoteazaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butEvaluariNoteazaActionPerformed
-
+        // se deschide DialogMsg  si se seteaza mesajul corespunzator.
+        // nota tre sa fie intre 1-10.
         butEvaluariNoteaza.setEnabled(false);
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_butEvaluariNoteazaActionPerformed
 
     private void evaluariListStudentiValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_evaluariListStudentiValueChanged
-
+        // O data ce profu a selectat un student,
+        evaluariNota.setText("nota");
         butEvaluariNoteaza.setEnabled(true);
         // TODO add your handling code here:
     }//GEN-LAST:event_evaluariListStudentiValueChanged
@@ -1275,26 +1293,29 @@ public class FrameProfMain extends javax.swing.JFrame {
 
         panouRezolvari.setVisible(true);
         panouAlocaTema.setVisible(true);
-        butTemeDel.setEnabled(true);
-        butTemeMod.setEnabled(true);
+        butDelTeme.setEnabled(true);
+        butModTeme.setEnabled(true);
         // TODO add your handling code here:
     }//GEN-LAST:event_temeListTemeValueChanged
 
-    private void butTemeModActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butTemeModActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_butTemeModActionPerformed
+    private void butModTemeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butModTemeActionPerformed
+        // se porneste DialogModifiTema si se introduc datele corespunzatoare
+        // in dialog, pentru tema respectiva.
+    }//GEN-LAST:event_butModTemeActionPerformed
 
-    private void butTemeDelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butTemeDelActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_butTemeDelActionPerformed
+    private void butDelTemeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butDelTemeActionPerformed
+        // Se porneste DialogConfirm, si se sterge tema selectata , daca totul
+        // e ok
+    }//GEN-LAST:event_butDelTemeActionPerformed
 
-    private void addTemaButActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addTemaButActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_addTemaButActionPerformed
+    private void butAddTemaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butAddTemaActionPerformed
+        // se adauga tema, si se deschide un DialogMsg, cu mesaj de succes.
+    }//GEN-LAST:event_butAddTemaActionPerformed
 
-    private void alocaTemaButActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_alocaTemaButActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_alocaTemaButActionPerformed
+    private void butAlocaTemaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butAlocaTemaActionPerformed
+        // Se aloca o tema unui sau mai multi studenti selectati.
+        // si se deschide un DialogMsg cu un mesaj de success.
+    }//GEN-LAST:event_butAlocaTemaActionPerformed
 
     private void alocaTemaListGrupeItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_alocaTemaListGrupeItemStateChanged
 
@@ -1302,16 +1323,24 @@ public class FrameProfMain extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_alocaTemaListGrupeItemStateChanged
 
-    private void temaRezolvariDescarcaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_temaRezolvariDescarcaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_temaRezolvariDescarcaActionPerformed
+    private void butDescarcaRezolvariActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butDescarcaRezolvariActionPerformed
+        // se face operatia de descarcare a unei teme.
+    }//GEN-LAST:event_butDescarcaRezolvariActionPerformed
 
     private void materialeButAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_materialeButAddActionPerformed
-        // TODO add your handling code here:
+        // nu stim inca
+        final JFileChooser fc = new JFileChooser();
+        int returnVal = fc.showOpenDialog(this);
+        if(returnVal == JFileChooser.APPROVE_OPTION) {
+          // de rezolvat.
+            File f = fc.getSelectedFile();
+            String numeFis = f.getName();
+
+        }
     }//GEN-LAST:event_materialeButAddActionPerformed
 
     private void materialeButDelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_materialeButDelActionPerformed
-        // TODO add your handling code here:
+        // nu stim inca
     }//GEN-LAST:event_materialeButDelActionPerformed
 
     private void materialeListCursuriItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_materialeListCursuriItemStateChanged
@@ -1327,6 +1356,10 @@ public class FrameProfMain extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_materialeListValueChanged
 
+    private void jLabel23MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel23MouseClicked
+        // Se deschide dialogul DialogChangePassword
+}//GEN-LAST:event_jLabel23MouseClicked
+
     /**
     * @param args the command line arguments
     */
@@ -1336,11 +1369,9 @@ public class FrameProfMain extends javax.swing.JFrame {
     private javax.swing.JTabbedPane PanouAnunturi;
     private javax.swing.JTabbedPane PanouCatalog;
     private javax.swing.JTabbedPane PanouGrupeStud;
-    private javax.swing.JButton addTemaBut;
     private javax.swing.JTextArea addTemaDesc;
     private javax.swing.JTextField addTemaTermen;
     private javax.swing.JTextField addTemaTitlu;
-    private javax.swing.JButton alocaTemaBut;
     private javax.swing.JComboBox alocaTemaListGrupe;
     private javax.swing.JList alocaTemaListStud;
     private javax.swing.JComboBox anuntAddCurs;
@@ -1348,10 +1379,13 @@ public class FrameProfMain extends javax.swing.JFrame {
     private javax.swing.JTextArea anuntAddMesaj;
     private javax.swing.JTextField anuntAddTitlu;
     private javax.swing.JButton butAddAnunt;
+    private javax.swing.JButton butAddTema;
+    private javax.swing.JButton butAlocaTema;
     private javax.swing.JButton butAnuntDel;
+    private javax.swing.JButton butDelTeme;
+    private javax.swing.JButton butDescarcaRezolvari;
     private javax.swing.JButton butEvaluariNoteaza;
-    private javax.swing.JButton butTemeDel;
-    private javax.swing.JButton butTemeMod;
+    private javax.swing.JButton butModTeme;
     private javax.swing.JComboBox catalogListCursuriCurs;
     private javax.swing.JComboBox catalogListCursuriGrupa;
     private javax.swing.JComboBox catalogListGrupa;
@@ -1373,6 +1407,7 @@ public class FrameProfMain extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -1427,7 +1462,6 @@ public class FrameProfMain extends javax.swing.JFrame {
     private javax.swing.JTable tabelEvaluari;
     private javax.swing.JTable tableCatalogByCurs;
     private javax.swing.JTable tableCatalogByGrupa;
-    private javax.swing.JButton temaRezolvariDescarca;
     private javax.swing.JComboBox temaRezolvariListStud;
     private javax.swing.JComboBox temeListCursuri;
     private javax.swing.JList temeListTeme;

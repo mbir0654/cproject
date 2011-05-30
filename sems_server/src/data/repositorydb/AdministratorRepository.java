@@ -110,7 +110,7 @@ public class AdministratorRepository implements Repository<Administrator>{
 	public void delete(Administrator item) {
 		l.remove(item);
 		try {
-			SqlFunctions.delete("users", "userName = "+item.getUserName());
+			SqlFunctions.delete("users", "userName = '"+item.getUserName()+"'");
 		} catch (SQLException e) {
 			System.err.println(e.getMessage());
 			e.printStackTrace();

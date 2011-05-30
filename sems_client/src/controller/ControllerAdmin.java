@@ -4,12 +4,10 @@
  */
 
 package controller;
-import business.model.Administrator;
-import javax.swing.DefaultListModel;
+import business.model.*;
 
-import business.model.Course;
-import business.model.Faculty;
-import business.model.Specialty;
+import javax.swing.*;
+
 import business.serviceinterface.InterfaceAdministratorService;
 import ui.*;
 
@@ -41,10 +39,14 @@ public class ControllerAdmin {
     public void loadFaculties() {
         List<Faculty> faculties = administratorService.getFaculties();
         DefaultListModel model = new DefaultListModel();
+        DefaultComboBoxModel modelCombo = new DefaultComboBoxModel();
+        modelCombo.addElement(null);
         for (Faculty f:faculties) {
             model.addElement(f);
+            modelCombo.addElement(f);
         }
         adminMain.setFaculties(model);
+        adminMain.setComboListFacultati(modelCombo);
     }
 
     public void loadAdministrators() {
@@ -65,6 +67,54 @@ public class ControllerAdmin {
         adminMain.setSpecialties(model);
     }
 
+    public void loadInmatriculeazaStudentSpecialties(Faculty faculty){
+        if(faculty!= null){
+            List<Specialty> specialties = faculty.getSpecialties();
+            System.out.println("Facultate: " + faculty + "Specializari: "+faculty.getSpecialties());
+            DefaultComboBoxModel model = new DefaultComboBoxModel();
+            model.addElement(null);
+            for(Specialty specialty:specialties){
+                model.addElement(specialty);
+            }
+            adminMain.setInmatriculeazaStudentSpecialties(model);
+        }
+    }
+    public void loadInmatriculeazaStudentAnStudiu(Specialty specialty){
+        if(specialty != null){
+            int nrofyears = specialty.getNumberOfYears();
+            DefaultComboBoxModel model = new DefaultComboBoxModel();
+            for(int i=1;i<=nrofyears;i++){
+                model.addElement(i);
+            }
+            adminMain.setInmatriculeazaStudentAnStudiu(model);
+        }
+    }
+    public void loadInmatriculeazaStudentGrupa(Specialty specialty){
+        if(specialty != null){
+            List<Group> groups = specialty.getGroups();
+            DefaultComboBoxModel model = new DefaultComboBoxModel();
+            for(Group group:groups){
+                model.addElement(group);
+            }
+            adminMain.setInmatriculeazaStudentGrupe(model);
+        }
+    }
+    public void addInmatriculeazaStudent(){
+        Student student = new Student();
+        student.setFirstName(adminMain.getInmatriculareStudentNume());
+        student.setLastName(adminMain.getInmatriculareStudentPrenume());
+        student.setCnp(adminMain.getInmatriculareStudentCnp());
+
+        student.setSpecialty(adminMain.getInmatriculareStudentSpecializare());
+        student.setYear(adminMain.getInmatriculareStudentAnStudiu());
+        student.setGroup(adminMain.getInmatriculareStudentGrupa());
+        student.setNrMat(adminMain.getInmatriculareStudentNrMat());
+
+        student.setUserName(adminMain.getInmatriculareStudentUsername());
+        student.setPassword(adminMain.getInmatriculareStudentParola());
+
+        administratorService.addStudent(student);
+    }
     public void loadCourses(Faculty faculty) {
         List<Specialty> specialties = faculty.getSpecialties();
         DefaultListModel model = new DefaultListModel();
