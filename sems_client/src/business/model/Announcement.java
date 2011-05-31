@@ -135,13 +135,6 @@ public class Announcement implements Serializable {
     public void  setSubject(String subject){
         this.subject = subject;
     }
-    /**
-     *
-     * @return titlul anuntului
-     */
-	public String getSubiect() {
-        return subject;
-    }
 
     /**
      * @return un string cu titlul anuntului si data la care a fost facut

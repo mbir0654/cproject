@@ -29,7 +29,9 @@ public class AssignmentSolution implements Serializable {
 	 */
 	public AssignmentSolution(Student s, Assignment a, Date d, String sol) {
 		this.author = s;
+                s.addSolution(this);
 		this.assignment = a;
+                a.addSolution(this);
 		this.date = d;
 		this.solution = sol;
 	}

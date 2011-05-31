@@ -1,11 +1,9 @@
 package server;
 
-import business.model.Administrator;
-import business.service.AppService;
-import data.dbutil.DbUtil;
-import data.repositorydb.AdministratorRepository;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import business.model.*;
+import data.repositorydb.*;
+import java.util.ArrayList;
+import java.util.List;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -13,18 +11,18 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  * @author myh
  */
 public class SemsServer {
-    public static void main(String args[]) throws SQLException {
+    public static void main(String args[]) {
         ApplicationContext factory = new ClassPathXmlApplicationContext(
                 "classpath:server/serverContext.xml");
-
-        Administrator a = new Administrator();
-        a.setFirstName("Otniel");
-        a.setLastName("Nicola");
-        a.setUserName("oti");
-        a.setPassword("1a1dc91c907325c69271ddf0c944bc72");
-        AdministratorRepository.getInstance().delete(a);
-        ResultSet rs = new DbUtil().getDate("select* from users");
-        while(rs.next())
-            System.out.println(rs.getString(1));
+        Student s = StudentRepository.getInstance().findByName("ovi");
+        List<Course> lc = new ArrayList<Course>(s.getContract().getCourses());
+        for(Course c : CourseRepository.getInstance().getAll()){
+            //for(Course cc : lc)
+                if(c.getSpecializare().equals(s.getSpecialty())){
+                     s.getContract().addCourse(c);
+            }
+        }
+        System.out.println(s.getContract());
+        StudentRepository.getInstance().update(s);
     }
 }

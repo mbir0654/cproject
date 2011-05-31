@@ -103,10 +103,10 @@ public class FrameStudMain extends javax.swing.JFrame {
         semsIco = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
         labelNumeStudent = new javax.swing.JLabel();
         labelUserStudent = new javax.swing.JLabel();
         jLabel23 = new javax.swing.JLabel();
+        showHelpAboutButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -145,7 +145,7 @@ public class FrameStudMain extends javax.swing.JFrame {
         labelAnuntTitlu.setText("Anunt test 1");
 
         labelAnuntText.setColumns(20);
-        labelAnuntText.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        labelAnuntText.setFont(new java.awt.Font("Arial", 0, 11));
         labelAnuntText.setForeground(new java.awt.Color(0, 102, 153));
         labelAnuntText.setRows(5);
         labelAnuntText.setCaretColor(new java.awt.Color(0, 102, 153));
@@ -243,7 +243,7 @@ public class FrameStudMain extends javax.swing.JFrame {
         panouInfoTema.setForeground(new java.awt.Color(255, 255, 255));
 
         temaInfo.setColumns(20);
-        temaInfo.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        temaInfo.setFont(new java.awt.Font("Arial", 0, 11));
         temaInfo.setForeground(new java.awt.Color(0, 102, 153));
         temaInfo.setRows(5);
         temaInfo.setText("Informatiile despre o tema");
@@ -252,7 +252,7 @@ public class FrameStudMain extends javax.swing.JFrame {
         temaInfo.setEnabled(false);
         jScrollPane4.setViewportView(temaInfo);
 
-        temaTitlu.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        temaTitlu.setFont(new java.awt.Font("Tahoma", 1, 11));
         temaTitlu.setForeground(new java.awt.Color(0, 51, 102));
         temaTitlu.setText("Nume [deadline]");
 
@@ -692,8 +692,6 @@ public class FrameStudMain extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(0, 102, 153));
         jLabel1.setText("welcome,");
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/windows-info.png"))); // NOI18N
-
         labelNumeStudent.setForeground(new java.awt.Color(0, 102, 153));
         labelNumeStudent.setText("numeStudent");
 
@@ -707,6 +705,15 @@ public class FrameStudMain extends javax.swing.JFrame {
         jLabel23.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel23MouseClicked(evt);
+            }
+        });
+
+        showHelpAboutButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/windows-info.png"))); // NOI18N
+        showHelpAboutButton.setContentAreaFilled(false);
+        showHelpAboutButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        showHelpAboutButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                showHelpAboutButtonActionPerformed(evt);
             }
         });
 
@@ -724,16 +731,15 @@ public class FrameStudMain extends javax.swing.JFrame {
                     .addComponent(labelUserStudent))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel23)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
-                .addComponent(jLabel2)
-                .addContainerGap())
+                .addGap(18, 18, 18)
+                .addComponent(showHelpAboutButton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel1)
@@ -741,7 +747,8 @@ public class FrameStudMain extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(labelUserStudent)
-                            .addComponent(jLabel23))))
+                            .addComponent(jLabel23)))
+                    .addComponent(showHelpAboutButton))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -886,6 +893,11 @@ public class FrameStudMain extends javax.swing.JFrame {
         butAdaugaCursLaContract.setEnabled(true);
     }//GEN-LAST:event_tableCursuriContractateMouseClicked
 
+    private void showHelpAboutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showHelpAboutButtonActionPerformed
+        FrameHelpAbout helpAboutDialog = new FrameHelpAbout();
+        helpAboutDialog.show();
+}//GEN-LAST:event_showHelpAboutButtonActionPerformed
+
 
 
 
@@ -901,7 +913,6 @@ public class FrameStudMain extends javax.swing.JFrame {
     private javax.swing.JButton butRenunta;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel7;
@@ -940,6 +951,7 @@ public class FrameStudMain extends javax.swing.JFrame {
     private javax.swing.JPanel panouMaterial;
     private javax.swing.JPanel panouTeme;
     private javax.swing.JLabel semsIco;
+    private javax.swing.JButton showHelpAboutButton;
     private javax.swing.JTabbedPane tabGlobal;
     private javax.swing.JTable tabelCursuriDisponibile;
     private javax.swing.JTable tabelExamene;

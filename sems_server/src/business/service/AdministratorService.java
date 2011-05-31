@@ -7,7 +7,6 @@ import data.repositorydb.StudentRepository;
 import business.model.*;
 import business.serviceinterface.InterfaceAdministratorService;
 import data.repositoryinterface.Repository;
-
 import java.util.List;
 
 
@@ -113,6 +112,7 @@ public final class AdministratorService implements InterfaceAdministratorService
     }
     //by bsk
     public void addStudent(Student student){
+        //md5- pasword
         studRepo.add(student);
         System.out.println("Adaugam un student nou" + student);
     }

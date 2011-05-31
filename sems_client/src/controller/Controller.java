@@ -26,13 +26,10 @@ public class Controller {
 	private FrameLogin loginFrame;
 	private InterfaceAppService apps;
 	
-	/**
-	 * Constructorul implicit. 
-	 * <p>atributul privat este referinta 
-	 * spre clasa cu serviciile aplicatiei</p>
-	 */
-
     /**
+     * Constructor parametrizat
+     * <p>atributul privat este referinta
+     * spre interfata cu serviciile aplicatiei</p>
      *
      * @param service - serviciul utilizat de controller
      */

@@ -14,6 +14,7 @@ public class SemsClient {
     public static void main(String[] args) {
         try {
             UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+                                        //getCrossPlatformLookAndFeelClassName()
         } catch (Exception e) {
             System.out.print(e.getMessage());
         }

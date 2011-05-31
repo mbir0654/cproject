@@ -47,6 +47,7 @@ public class AdministratorRepository implements Repository<Administrator>{
 				a.setPassword(rs.getString("password"));
 				l.add(a);
 			}
+                        dbu.close();
 		} catch (SQLException e) {
 			System.err.println(e.getMessage());
 			e.printStackTrace();
@@ -61,7 +62,9 @@ public class AdministratorRepository implements Repository<Administrator>{
 		l.add(item);
 		List<DbObject> data = item.toDbObjectList();
 		try {
-			SqlFunctions.insert("users", data);
+                    DbUtil dbu= new DbUtil();
+                    SqlFunctions.insert("users", data,dbu);
+                    dbu.close();
 		} catch (SQLException e) {
 			System.err.println(e.getMessage());
 			e.printStackTrace();

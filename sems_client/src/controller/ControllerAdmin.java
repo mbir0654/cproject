@@ -7,10 +7,15 @@ package controller;
 import business.model.*;
 
 import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
 
 import business.serviceinterface.InterfaceAdministratorService;
 import ui.*;
 
+import java.math.BigInteger;
+import java.security.KeyStore;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.List;
 
 /**
@@ -29,11 +34,11 @@ public class ControllerAdmin {
 
     public void openAdminFrame() {
         adminMain = new FrameAdminMain(this);
-        adminMain.setVisible(true);
         loadFaculties();
         loadAdministrators();
         adminMain.setLabelNumeAdmin(administrator);
         adminMain.setLabelUserAdmin(administrator);
+        adminMain.setVisible(true);
     }
 
     public void loadFaculties() {
@@ -111,7 +116,19 @@ public class ControllerAdmin {
         student.setNrMat(adminMain.getInmatriculareStudentNrMat());
 
         student.setUserName(adminMain.getInmatriculareStudentUsername());
-        student.setPassword(adminMain.getInmatriculareStudentParola());
+        //password
+        String password = adminMain.getInmatriculareStudentParola();
+        String pas = password;
+        try {
+            MessageDigest m = MessageDigest.getInstance("MD5");
+            byte[] data = password.getBytes();
+            m.update(data,0,data.length);
+            BigInteger i = new BigInteger(1,m.digest());
+            pas = String.format("%1$032X", i);
+        } catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
+        }
+        student.setPassword(pas);
 
         administratorService.addStudent(student);
     }
@@ -125,4 +142,174 @@ public class ControllerAdmin {
         }
         adminMain.setListCursuri(model);
     }
+
+    //gestiune rapoarte (chestia aia din mijloc)
+        //load Combo boxes
+        public DefaultComboBoxModel loadSpecialties_combo(Faculty faculty){
+            DefaultComboBoxModel model = new DefaultComboBoxModel();
+            model.addElement(null);
+            if(faculty != null){
+                List<Specialty> specialties = faculty.getSpecialties();
+                for (Specialty s:specialties) {
+                    model.addElement(s);
+                }
+            }
+            return model;
+        }
+        public DefaultComboBoxModel loadGrupe_combo(Specialty specialty){
+            DefaultComboBoxModel model = new DefaultComboBoxModel();
+            model.addElement(null);
+            if(specialty != null){
+                List<Group> groups = specialty.getGroups();
+                for (Group group:groups){
+                    model.addElement(group);
+                }
+            }
+            return model;
+        }
+        public DefaultComboBoxModel loadStudenti_combo(Specialty specialty){
+            DefaultComboBoxModel model = new DefaultComboBoxModel();
+            model.addElement(null);
+            if(specialty != null){
+                List<Group> groups = specialty.getGroups();
+                for (Group group:groups){
+                    List<Student> students = group.getStudents();
+                    for(Student s:students){
+                        model.addElement(s);
+                    }
+                }
+            }
+            return model;
+        }
+        public DefaultComboBoxModel loadCursuri_combo(Specialty specialty){
+            DefaultComboBoxModel model = new DefaultComboBoxModel();
+            model.addElement(null);
+            if(specialty != null){
+                List<Course> courses = specialty.getCourses();
+                for (Course course:courses){
+                    model.addElement(course);
+
+                }
+            }
+            return model;
+        }
+        public DefaultComboBoxModel loadStudentByGrupa_combo(Group group){
+            DefaultComboBoxModel model = new DefaultComboBoxModel();
+            model.addElement(null);
+            if(group != null){
+                List<Student> students = group.getStudents();
+                for(Student s:students){
+                    model.addElement(s);
+                }
+            }
+            return model;
+        }
+        //load lista
+        public DefaultListModel loadProfesori_genDupaCurs(Course course){
+            DefaultListModel model = new DefaultListModel();
+            if(course != null){
+                for(Professor professor:course.getProfessors()){
+                    model.addElement(professor);
+                }
+            }
+            return  model;
+        }
+        //load tabel
+        public DefaultTableModel loadTableCourse_genDupaStud(Student student){
+            DefaultTableModel model = new DefaultTableModel(
+                    new Object [][] {},
+                    new String [] {
+                        "COD", "Nume curs", "Nr. Credite", "Sem."
+                    }
+                ) {
+                    boolean[] canEdit = new boolean [] {
+                        false, false, false, false
+                    };
+
+                    public boolean isCellEditable(int rowIndex, int columnIndex) {
+                        return canEdit [columnIndex];
+                    }
+                };
+
+            if(student != null){
+                for(Course course:student.getContract().getCourses()){
+                    Object [] obj = new Object []
+                        {
+                            course.getCod(),
+                            course.getName(),
+                            course.getNumberOfCredits(),
+                            course.getSemestrul()
+                        };
+
+                    model.addRow(obj);
+                }
+            }
+            return model;
+        }
+        public DefaultTableModel  loadTable_genDupaStud(Student student){
+            DefaultTableModel model = new DefaultTableModel(
+                    new Object [][] {} ,
+                    new String [] { "Curs", "Credite", "Nota finala" }
+                ){
+                    boolean[] canEdit = new boolean [] {
+                        false, false, false
+                    };
+
+                    public boolean isCellEditable(int rowIndex, int columnIndex) {
+                        return canEdit [columnIndex];
+                    }
+                };
+
+            if(student != null){
+                List<Course> courses = student.getContract().getCourses();
+                for(Course course:courses){
+                    Integer nota_finala = null;
+                    for(Exam exam:course.getExams()){
+                        if(exam.getCourse().equals(course)){
+                            for(Grade grade:exam.getGrades()){
+                                if(grade.getStud().equals(student))
+                                    nota_finala = grade.getGrade();
+                            }
+                        }
+                    }
+                    Object [] obj = new Object [] {course.getName(), course.getNumberOfCredits(), nota_finala };
+                    System.out.println("Obj: " + course.getName() +  course.getNumberOfCredits() + nota_finala );
+                    model.addRow(obj);
+                }
+            }
+            return model;
+        }
+        public DefaultTableModel  loadTableNote_genDupaCurs(Course course){
+            DefaultTableModel model = new DefaultTableModel(
+                    new Object [][] {},
+                    new String [] {
+                        "Grupa", "Nume", "Nota finala"
+                    }
+                ) {
+                    boolean[] canEdit = new boolean [] {
+                        false, false, true
+                    };
+
+                    public boolean isCellEditable(int rowIndex, int columnIndex) {
+                        return canEdit [columnIndex];
+                    }
+                };
+
+            if(course != null){
+                for(Exam exam:course.getExams()){
+                    if(exam.getType().equals("final")){
+                        for(Grade grade:exam.getGrades()){
+                            Object [] obj = new Object [] {
+                                    grade.getStud().getGroup(),
+                                    grade.getStud().getFirstName() + " " + grade.getStud().getLastName(),
+                                    grade.getGrade()
+                                };
+                            model.addRow(obj);
+                        }
+                    }
+                }
+            }
+            return model;
+        }
+
 }

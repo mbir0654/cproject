@@ -122,5 +122,11 @@ public class Professor extends User{
     	return null;
     }
 
+    public List<DbObject> toDbObjectListTeachers(){
+        return null;
+    }
 
+    public List<DbObject>toDbObjectListTeachCourse(Course c) {
+        return null;
+    }
 }

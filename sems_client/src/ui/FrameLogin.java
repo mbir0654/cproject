@@ -167,7 +167,7 @@ public class FrameLogin extends javax.swing.JFrame {
     }//GEN-LAST:event_inputPassActionPerformed
 
     private void butLoginActionPerformed(java.awt.event.ActionEvent evt) {
-    	c.checkLogin();
+    c.checkLogin();
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel SEMS;
