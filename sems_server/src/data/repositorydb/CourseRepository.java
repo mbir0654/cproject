@@ -84,7 +84,7 @@ public class CourseRepository implements Repository<Course>{
 	@Override
 	public Course findByName(String name) {
 		for(Course c:l){
-			if(c.getName().equalsIgnoreCase(name))
+			if(c.getCod().equalsIgnoreCase(name))
 				return c;
 		}
 		return null;

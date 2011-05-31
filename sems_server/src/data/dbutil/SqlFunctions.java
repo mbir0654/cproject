@@ -83,8 +83,10 @@ public abstract class SqlFunctions{
             }
             String s = "update " + tableName +" set "+ ff + " where " + where;
             DbUtil dbu = new DbUtil();
-            if(dbu.makeUpdate(s) > 0)
+            if(dbu.makeUpdate(s) > 0){
+                dbu.close();
                 return true;
+            }dbu.close();
         }catch(MySQLIntegrityConstraintViolationException ex){
             System.out.println(ex.getMessage());
             throw new MySqlException();
@@ -104,7 +106,9 @@ public abstract class SqlFunctions{
                                 throws SQLException{
         DbUtil dbu = new DbUtil();
         if(dbu.makeUpdate("delete from "+tableName+" where "+where) > 0)
-            return true;
+        {dbu.close();
+            return true;}
+        dbu.close();
         return false;
     }
 }
