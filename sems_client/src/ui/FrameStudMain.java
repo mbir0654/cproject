@@ -844,7 +844,7 @@ public class FrameStudMain extends javax.swing.JFrame {
     }//GEN-LAST:event_butDescarcaMaterialActionPerformed
 
     private void materialeListCursuriItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_materialeListCursuriItemStateChanged
-        //
+        controllerStudent.loadListMaterialeCurs((Course)materialeListCursuri.getSelectedItem());
         panouMaterial.setVisible(true);
     }//GEN-LAST:event_materialeListCursuriItemStateChanged
 
