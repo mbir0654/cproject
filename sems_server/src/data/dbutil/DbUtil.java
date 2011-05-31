@@ -43,7 +43,6 @@ public class DbUtil {
      * @throws SQLException
      */
     public ResultSet getDate(String str) throws SQLException{
-
         ResultSet rs;
         Statement st = con.createStatement();
         rs = st.executeQuery(str);

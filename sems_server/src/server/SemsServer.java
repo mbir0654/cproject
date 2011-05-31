@@ -1,12 +1,7 @@
 package server;
 
 import business.model.*;
-import business.service.AppService;
-import data.dbutil.DbUtil;
 import data.repositorydb.*;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.List;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -14,28 +9,21 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  * @author myh
  */
 public class SemsServer {
-    public static void main(String args[]) throws SQLException {
+    public static void main(String args[]) {
         ApplicationContext factory = new ClassPathXmlApplicationContext(
                 "classpath:server/serverContext.xml");
-        List<Group> l = GroupRepository.getInstance().getAll();
-        Student a = new Student();
-        a.setFirstName("Otniel");
-        a.setLastName("Nicola");
-        a.setUserName("oti");
-        a.setPassword("1a1dc91c907325c69271ddf0c944bc72");
-        a.setCnp("1234567890");
-        a.setNrMat("10688");
-        a.setContract(new Contract(a));
-        System.out.println(a.getContract());
-        a.setYear(1);
-        a.setGroup(l.get(0));
-        l.get(0).addStudent(a);
-        a.setSpecialty(l.get(0).getSpecialty());
-        System.out.println(a);
-        //StudentRepository.getInstance().add(a);
-        ResultSet rs = new DbUtil().getDate("select* from users");
-        while(rs.next())
-            System.out.println(rs.getString(1));
-        System.out.println(ProfessorRepository.getInstance().getAll());
+        /*Professor p = new Professor();
+        p.setPassword("1a1dc91c907325c69271ddf0c944bc72");
+        p.setFirstName("Otniel");
+        p.setLastName("Nicola");
+        p.setUserName("oti");
+        p.setTitle("asistent");
+        p.addCourse(CourseRepository.getInstance().findByName("BMC-INFO"));
+        for(Announcement ann  : AnnouncementRepository.getInstance().getAll())
+        p.addAnnouncement(new Announcement(ann.getAnnouncement(),ann.getSubject(),ann.getData(),CourseRepository.getInstance().findByName("BMC-INFO")));
+        System.out.println(p.getAnnouncements());
+        p.setTitle("Prof. Doctor ");
+        p.addGroup(GroupRepository.getInstance().findByName("221"));
+        ProfessorRepository.getInstance().update(p);*/
     }
 }

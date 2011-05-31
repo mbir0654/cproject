@@ -9,7 +9,8 @@ public class Assignment implements Serializable {
 	private String name = "";
 	private String text = "";
 	private Date deadline;
-	private ArrayList<AssignmentSolution> solutions = new ArrayList<AssignmentSolution>();
+	private ArrayList<AssignmentSolution> solutions =
+                new ArrayList<AssignmentSolution>();
 	private Course course;
 	
 	/**
@@ -111,6 +112,24 @@ public class Assignment implements Serializable {
 	public Course getCourse() {
 		return course;
 	}
+
+        /**
+         * 
+         * @return textul anuntului
+         */
+        public String getText() {
+            return text;
+        }
+
+        /**
+         * 
+         * @param text va fi textul anuntului
+         */
+        public void setText(String text) {
+            this.text = text;
+        }
+
+
 	
 	/**
 	 * @return un string cu denumirea cursului, titlul temei si 

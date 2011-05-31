@@ -1,10 +1,10 @@
 package data.dbutil;
 
+
+
+import com.mysql.jdbc.exceptions.MySQLIntegrityConstraintViolationException;
 import java.sql.SQLException;
-import java.util.Iterator;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -40,14 +40,20 @@ public abstract class SqlFunctions{
             f += ff;
             v += vv;
             String s = "insert into " + tableName + "(" + f + ") values(" + v + ")";
-            //DbUtil dbu = new DbUtil();
             System.out.println(s);
             if (dbu.makeUpdate(s) > 0) {
+                System.out.println("inserare cu succes!");
                 return true;
             }
-            
-        } catch (com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException ex) {
-            System.out.println("obiectul exista deja in baza de date");
+
+        }
+        catch(MySQLIntegrityConstraintViolationException ex){
+            System.out.println(ex.getMessage());
+            throw new MySqlException();
+        }
+        catch (com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException ex) {
+        System.out.println("obiectul exista deja in baza de date");
+        throw new MySqlException();
         }
         return false;
     }
@@ -65,7 +71,8 @@ public abstract class SqlFunctions{
      * @throws SQLException
      */
     public static boolean update(String tableName, List<DbObject> data,
-            String where) throws SQLException {
+                             String where) throws SQLException {
+        try{
             //String f = "";
             String ff = "";
             for (DbObject dbo : data) {
@@ -76,8 +83,14 @@ public abstract class SqlFunctions{
             }
             String s = "update " + tableName +" set "+ ff + " where " + where;
             DbUtil dbu = new DbUtil();
-            if(dbu.makeUpdate(s) > 0)
+            if(dbu.makeUpdate(s) > 0){
+                dbu.close();
                 return true;
+            }dbu.close();
+        }catch(MySQLIntegrityConstraintViolationException ex){
+            System.out.println(ex.getMessage());
+            throw new MySqlException();
+        }
         return false;
     }
 
@@ -93,7 +106,9 @@ public abstract class SqlFunctions{
                                 throws SQLException{
         DbUtil dbu = new DbUtil();
         if(dbu.makeUpdate("delete from "+tableName+" where "+where) > 0)
-            return true;
+        {dbu.close();
+            return true;}
+        dbu.close();
         return false;
     }
-}  
+}

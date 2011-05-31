@@ -313,10 +313,7 @@ public class Course implements Serializable {
     }
 
     public List<DbObject> toDbObjectList(){
-    	List<DbObject> l = new ArrayList<DbObject>();
-    	DbObject db1 = new DbObject("courseName", name);
-    	l.add(db1);
-    	return l;
+    	return null;
     }
 
 

@@ -7,8 +7,11 @@ import java.util.List;
 import business.model.*;
 import data.dbutil.DbObject;
 import data.dbutil.DbUtil;
+import data.dbutil.MySqlException;
 import data.dbutil.SqlFunctions;
 import data.repositoryinterface.Repository;
+import java.io.DataOutput;
+import java.text.SimpleDateFormat;
 
 /**
  * @author otniel
@@ -81,8 +84,8 @@ public class ProfessorRepository implements Repository<Professor> {
     @Override
     public void add(Professor item) {
     	l.add(item);
-    	List<DbObject> data1 = ((User) item).toDbObjectList();
-    	List<DbObject> data2 = item.toDbObjectList();
+    	List<DbObject> data1 = item.toDbObjectList();
+    	List<DbObject> data2 = item.toDbObjectListTeachers();
         try {
             DbUtil dbu = new DbUtil();
             SqlFunctions.insert("users", data1,dbu);
@@ -119,14 +122,71 @@ public class ProfessorRepository implements Repository<Professor> {
      */
     @Override
     public void update(Professor item) {
-    	List<DbObject> data1 = ((User) item).toDbObjectList();
-    	List<DbObject> data2 = item.toDbObjectList();
+    	List<DbObject> data1 = item.toDbObjectList();
+    	List<DbObject> data2 = item.toDbObjectListTeachers();
         try {
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy/mm/dd");
+            DbUtil dbu = new DbUtil();
             SqlFunctions.update("users", data1, "userName = '"
         		+item.getUserName()+"'");
             SqlFunctions.update("teachers", data2, "userName = '"
         		+item.getUserName()+"'");
-        } catch (SQLException e) {
+            for(Course c : item.getCourses()){
+                List<DbObject> data3 = item.toDbObjectListTeachCourse(c);
+                SqlFunctions.delete("teachers_spec", "csId = "+data3.get(1).
+                        getValue()+" and teacherId ="+data3.get(0).getValue());
+                SqlFunctions.insert("teachers_spec", data3, dbu);
+                ResultSet rs1 = dbu.getDate("select tsId from teachers_spec" +
+                        " where teacherId = "+data3.get(0).getValue()+
+                        " and csId="+data3.get(1).getValue());
+                if(rs1.next()){
+                    Integer tsid = rs1.getInt(1);
+                    for(Group g : item.getGroups()){
+                        ResultSet rs2 = dbu.getDate("select groupId from groups"
+                                +" where name = "+g.getGroupName());
+                        if(rs2.next()){
+                            Integer grid = rs2.getInt(1);
+                            List<DbObject> data4 = new ArrayList<DbObject>();
+                            DbObject db1 = new DbObject("tsId",tsid.toString());
+                            DbObject db2 = new DbObject("groupId", grid.
+                                    toString());
+                            data4.add(db1);data4.add(db2);
+                            SqlFunctions.delete("teachers_groups", "groupId = "+
+                                  grid.toString()+" and tsId="+tsid.toString());
+                            SqlFunctions.insert("teachers_groups", data4, dbu);
+                        }
+                    }
+                }
+                for(Announcement ann : c.getAnnouncements()){
+                    List<DbObject> data5 = new ArrayList<DbObject>();
+                    ResultSet rs3 = dbu.getDate("select announcementId from" +
+                            " announcement a inner join teachers t on " +
+                            "a.teacherId = t.teacherId where userName ='"+
+                            item.getUserName()+"'");
+                    if(rs3.next()){
+                        Integer annid = rs3.getInt(1);
+                        DbObject db1 = new DbObject("announcementId", annid.
+                                toString());
+                        DbObject db2 = new DbObject("teacherId", data3.get(0).
+                                getValue());
+                        DbObject db3 = new DbObject("csId", data3.get(1).
+                                getValue());
+                        DbObject db4 = new DbObject("body", ann.
+                                getAnnouncement());
+                        DbObject db5 = new DbObject("date", sdf.format
+                                (ann.getData()));
+                        DbObject db6 = new DbObject("subject",ann.getSubject());
+                        data5.add(db1); data5.add(db2); data5.add(db3);
+                        data5.add(db4); data5.add(db5); data5.add(db6);
+                        SqlFunctions.delete("announcement", "announcementId = "+annid.toString());
+                        SqlFunctions.insert("announcement", data5, dbu);
+                    }
+                }
+            }
+            dbu.close();
+        } catch(MySqlException ex){
+            ex.getMessage();
+        }catch (SQLException e) {
             System.err.println(e.getMessage());
             e.printStackTrace();
         }

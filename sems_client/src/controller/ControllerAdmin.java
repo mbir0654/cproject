@@ -31,11 +31,11 @@ public class ControllerAdmin {
 
     public void openAdminFrame() {
         adminMain = new FrameAdminMain(this);
-        adminMain.setVisible(true);
         loadFaculties();
         loadAdministrators();
         adminMain.setLabelNumeAdmin(administrator);
         adminMain.setLabelUserAdmin(administrator);
+        adminMain.setVisible(true);
     }
 
     public void loadFaculties() {
