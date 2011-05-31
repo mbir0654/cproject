@@ -12,6 +12,8 @@
 package ui;
 import business.model.*;
 import controller.ControllerAdmin;
+
+import java.awt.*;
 import java.io.File;
 import javax.swing.*;
 /**
@@ -2070,6 +2072,7 @@ public class FrameAdminMain extends javax.swing.JFrame {
 
     private void butProfAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butProfAddActionPerformed
         // se deschide DialogAddProf
+        controllerAdmin.addProfessor();
     }//GEN-LAST:event_butProfAddActionPerformed
 
     private void butProfDelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butProfDelActionPerformed

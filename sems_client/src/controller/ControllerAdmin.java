@@ -393,4 +393,17 @@ public class ControllerAdmin {
         }
         return var_return;
     }
+
+    public void addProfessor() {
+        DialogAddProf dialog = new DialogAddProf(adminMain, true);
+        dialog.pack();
+        dialog.setVisible(true);
+        Professor prof = new Professor();
+        prof.setTitle(dialog.getTitlu());
+        prof.setFirstName(dialog.getPrenume());
+        prof.setLastName(dialog.getNume());
+        prof.setUserName(dialog.getUser());
+        prof.setPassword(dialog.getParola());
+        administratorService.addProfesor(prof);
+    }
 }
