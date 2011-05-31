@@ -11,6 +11,8 @@
 
 package ui;
 import javax.swing.*;
+import javax.swing.table.TableModel;
+
 import controller.*;
 import java.io.File;
 
@@ -204,7 +206,7 @@ public class FrameStudMain extends javax.swing.JFrame {
                 .addContainerGap(31, Short.MAX_VALUE))
         );
 
-        tabGlobal.addTab("Anunturi                ", new javax.swing.ImageIcon(getClass().getResource("/icons/buton.PNG")), jPanel4); // NOI18N
+        tabGlobal.addTab("Anunturi                ", new javax.swing.ImageIcon(getClass().getResource("/icons/buton.png")), jPanel4); // NOI18N
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -285,19 +287,19 @@ public class FrameStudMain extends javax.swing.JFrame {
                 .addGroup(panouInfoTemaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 333, Short.MAX_VALUE)
                     .addGroup(panouInfoTemaLayout.createSequentialGroup()
-                        .addGroup(panouInfoTemaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(panouInfoTemaLayout.createSequentialGroup()
-                                .addGroup(panouInfoTemaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(labelTermen)
-                                    .addComponent(labelIncarcat))
-                                .addGap(18, 18, 18)
-                                .addGroup(panouInfoTemaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(temaDeadline)
-                                    .addComponent(temaDataIncarcare))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE)
-                                .addComponent(butIncarcaTema))
-                            .addComponent(temaTitlu))
-                        .addContainerGap())))
+                            .addGroup(panouInfoTemaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(panouInfoTemaLayout.createSequentialGroup()
+                                            .addGroup(panouInfoTemaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addComponent(labelTermen)
+                                                    .addComponent(labelIncarcat))
+                                            .addGap(18, 18, 18)
+                                            .addGroup(panouInfoTemaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addComponent(temaDeadline)
+                                                    .addComponent(temaDataIncarcare))
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE)
+                                            .addComponent(butIncarcaTema))
+                                    .addComponent(temaTitlu))
+                            .addContainerGap())))
         );
         panouInfoTemaLayout.setVerticalGroup(
             panouInfoTemaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -365,7 +367,7 @@ public class FrameStudMain extends javax.swing.JFrame {
                 .addContainerGap(52, Short.MAX_VALUE))
         );
 
-        tabGlobal.addTab("Teme                     ", new javax.swing.ImageIcon(getClass().getResource("/icons/buton.PNG")), jPanel1); // NOI18N
+        tabGlobal.addTab("Teme                     ", new javax.swing.ImageIcon(getClass().getResource("/icons/buton.png")), jPanel1); // NOI18N
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -438,7 +440,7 @@ public class FrameStudMain extends javax.swing.JFrame {
                 .addGap(175, 175, 175))
         );
 
-        tabGlobal.addTab("Note si examene ", new javax.swing.ImageIcon(getClass().getResource("/icons/buton.PNG")), jPanel3); // NOI18N
+        tabGlobal.addTab("Note si examene ", new javax.swing.ImageIcon(getClass().getResource("/icons/buton.png")), jPanel3); // NOI18N
 
         jPanel7.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -522,7 +524,7 @@ public class FrameStudMain extends javax.swing.JFrame {
                 .addContainerGap(143, Short.MAX_VALUE))
         );
 
-        tabGlobal.addTab("Materiale de curs", new javax.swing.ImageIcon(getClass().getResource("/icons/buton.PNG")), jPanel7); // NOI18N
+        tabGlobal.addTab("Materiale de curs", new javax.swing.ImageIcon(getClass().getResource("/icons/buton.png")), jPanel7); // NOI18N
 
         jPanel6.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -675,7 +677,7 @@ public class FrameStudMain extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        tabGlobal.addTab("Contracte              ", new javax.swing.ImageIcon(getClass().getResource("/icons/buton.PNG")), jPanel6); // NOI18N
+        tabGlobal.addTab("Contracte              ", new javax.swing.ImageIcon(getClass().getResource("/icons/buton.png")), jPanel6); // NOI18N
 
         labelStud.setFont(new java.awt.Font("Tahoma", 3, 12));
         labelStud.setForeground(new java.awt.Color(0, 102, 153));
@@ -966,16 +968,30 @@ public class FrameStudMain extends javax.swing.JFrame {
     public void setAnnouncement(ListModel model) {
         listAnunturi.setModel(model);
     }
-    public  void  setTemeListCursuri(ComboBoxModel model){
+    public void setTemeListCursuri(ComboBoxModel model){
         temeListCursuri.setModel(model);
     }
 
-    public  void setNameStudent(String fullname){
+    public void setNameStudent(String fullname){
         labelNumeStudent.setText(fullname);
     }
-    public  void setUsernameStudent(String username){
+    public void setUsernameStudent(String username){
         labelUserStudent.setText(username);
     }
 
+    public void setNoteListCursuri(ComboBoxModel model) {
+        noteListCursuri.setModel(model);
+    }
 
+    public void setMaterialeListCursuri(ComboBoxModel model) {
+        materialeListCursuri.setModel(model);
+    }
+
+    public void setTabelExamene(TableModel model) {
+        tabelExamene.setModel(model);
+    }
+
+    public void setTableCursuriContractate(TableModel model) {
+        tableCursuriContractate.setModel(model);
+    }
 }
