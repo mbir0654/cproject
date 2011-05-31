@@ -1,9 +1,6 @@
 package business.service;
 
-import data.repositorydb.AdministratorRepository;
-import data.repositorydb.FacultyRepository;
-import data.repositorydb.ProfessorRepository;
-import data.repositorydb.StudentRepository;
+import data.repositorydb.*;
 import business.model.*;
 import business.serviceinterface.InterfaceAdministratorService;
 import data.repositoryinterface.Repository;
@@ -22,6 +19,7 @@ public final class AdministratorService implements InterfaceAdministratorService
 	private Repository<Student> studRepo = StudentRepository.getInstance();
 	private Repository<Faculty> facultyRepo = FacultyRepository.getInstance();
 	private Repository<Administrator> adminRepo = AdministratorRepository.getInstance();
+    private Repository<Course> courseRepo = CourseRepository.getInstance();
 
 	public String hello() {
         return "greetings, from admin";
@@ -116,4 +114,27 @@ public final class AdministratorService implements InterfaceAdministratorService
         studRepo.add(student);
         System.out.println("Adaugam un student nou" + student);
     }
+    public void addFaculty(Faculty faculty){
+        facultyRepo.add(faculty);
+        System.out.println("Am adaugat o noua facultate: " + faculty);
+    }
+    public void addAdministrator(Administrator administrator){
+        adminRepo.add(administrator);
+        System.out.println("Am adaugat un admin: " + administrator);
+    }
+    public void addProfesor(Professor professor){
+        profRepo.add(professor);
+        System.out.println("Am adaugat un prof:  " + professor);
+    }
+    public void deleteAdministrator(Administrator administrator){
+        System.out.println("Vom sterge adminul:" + administrator);
+        adminRepo.delete(administrator);
+    }
+    public void deleteCourse(Course course){
+        courseRepo.delete(course);
+    }
+    public void deleteProfessor(Professor professor){
+        profRepo.delete(professor);
+    }
+
 }

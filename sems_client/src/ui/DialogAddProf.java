@@ -71,11 +71,7 @@ public class DialogAddProf extends javax.swing.JDialog {
         jLabel6.setForeground(new java.awt.Color(0, 0, 102));
         jLabel6.setText("Titlu");
 
-        inputTitlu.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
-        inputUser.setText("jTextField1");
-
-        inputParola.setText("jTextField2");
+        inputTitlu.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "prof", "conf", "lect", "asist" }));
 
         butAdd.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         butAdd.setForeground(new java.awt.Color(0, 51, 102));
@@ -161,7 +157,7 @@ public class DialogAddProf extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void butAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butAddActionPerformed
-        // TODO add your handling code here:
+        this.setVisible(false);
     }//GEN-LAST:event_butAddActionPerformed
 
 
@@ -179,5 +175,24 @@ public class DialogAddProf extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
+    public String getNume() {
+        return inputNume.getText();
+    }
+
+    public String getPrenume() {
+        return inputPrenume.getText();
+    }
+
+    public String getParola() {
+        return inputPrenume.getText();
+    }
+
+    public String getUser() {
+        return inputUser.getText();
+    }
+
+    public String getTitlu() {
+        return inputTitlu.getSelectedItem().toString();
+    }
 
 }
