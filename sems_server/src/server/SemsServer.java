@@ -18,7 +18,7 @@ public class SemsServer {
     public static void main(String args[]) throws SQLException {
         ApplicationContext factory = new ClassPathXmlApplicationContext(
                 "classpath:server/serverContext.xml");
-        StudentRepository pr = StudentRepository.getInstance();
+        /*StudentRepository pr = StudentRepository.getInstance();
         List<Group> l = GroupRepository.getInstance().getAll();
         Student a = new Student();
         a.setFirstName("Otniel");
@@ -34,7 +34,7 @@ public class SemsServer {
         l.get(0).addStudent(a);
         a.setSpecialty(l.get(0).getSpecialty());
         System.out.println(a);
-        pr.add(a);
+        pr.add(a);*/
         //pr.delete(a);
         //ResultSet rs = new DbUtil().getDate("select* from users");
         //while(rs.next())
