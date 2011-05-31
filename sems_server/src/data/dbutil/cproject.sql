@@ -341,9 +341,8 @@ CREATE TABLE `solutions` (
   `ssId` int(11) NOT NULL,
   `solution` varchar(255) NOT NULL,
   `completed` date NOT NULL,
-  PRIMARY KEY (`assignmentId`,`ssId`),
+  PRIMARY KEY (`assignmentId`,`ssId`,`completed`),
   KEY `fk_solutions_1` (`ssId`),
-  CONSTRAINT `solutions_uk` UNIQUE (`assignmentId`,`ssId`),
   CONSTRAINT `fk_solutions_2` FOREIGN KEY (`assignmentId`) REFERENCES `assignments` (`assignmentId`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `fk_solutions_1` FOREIGN KEY (`ssId`) REFERENCES `students_specializations` (`ssId`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;

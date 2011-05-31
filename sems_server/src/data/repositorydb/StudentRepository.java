@@ -105,21 +105,46 @@ public class StudentRepository implements Repository<Student>{
 	 */
 	@Override
 	public void update(Student item) {
-		try {
-			List<DbObject> data1 = item.toDbObjectList();
-			List<DbObject> data2 = item.toDbObjectListStud();
-			List<DbObject> data3 = item.toDbObjectListSS();
-			List<DbObject> data4 = item.toDbObjectListContract();
-			SqlFunctions.update("users", data1, "userName = '"
-                                +item.getUserName()+"'");
-			SqlFunctions.update("students", data2, "userName = '"
-                                +item.getUserName()+"'");
-			SqlFunctions.update("students_specializations",data3,
-                        "spId  = "+data3.get(1).getValue());
-		} catch (SQLException e) {
-			System.err.println(e.getMessage());
-			e.printStackTrace();
-		}
+            try     {
+                DbUtil dbu =  new DbUtil();
+                List<DbObject> data1 = item.toDbObjectList();
+                List<DbObject> data2 = item.toDbObjectListStud();
+                //List<DbObject> data3 = item.toDbObjectListSS();
+                SqlFunctions.update("users", data1, "userName = '"
+                    +item.getUserName()+"'");
+                SqlFunctions.update("students", data2, "userName = '"
+                    +item.getUserName()+"'");
+                //SqlFunctions.update("students_specializations",data3,
+                //"spId  = "+data3.get(1).getValue());
+                for (Course c : item.getContract().getCourses()){
+                    List<DbObject> data4 = item.toDbObjectListContractCourses(c);
+                    try{
+                    SqlFunctions.insert("contracts_data", data4,dbu);
+                    }catch(MySqlException e){
+                        e.getMessage();
+                    }
+                    for(Assignment a : c.getAssignments()){
+                        ResultSet rs = dbu.getDate("SELECT assignmentId FROM assignments a where text = '"+a.getText()+"'");
+                        rs.next();
+                        Integer asid = rs.getInt(1);
+                        System.out.println(asid);
+                        for(AssignmentSolution as : item.getSolutions()){
+                            List<DbObject> data5 = item.toDbObjectListSolutions(c,as, asid);
+                            try{
+                                SqlFunctions.insert("solutions", data5, dbu);
+                                SqlFunctions.update("solutions",data5,"assignmentId = "
+                                    +asid+" and ssid = "+data5.get(0).getValue());
+                            }catch (MySqlException e){
+                                System.out.println(e.getMessage());
+                            }
+                        }
+                    }
+                }
+                dbu.close();
+            } catch (SQLException e) {
+                System.err.println(e.getMessage());
+                e.printStackTrace();
+            }
 	}
 
 	/**

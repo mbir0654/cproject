@@ -199,11 +199,16 @@ public class Student extends User {
     }
 
     public List<DbObject> toDbObjectListSS() throws SQLException{
-            
             return null;
-	}
+    }
 
     public List<DbObject> toDbObjectListContract() throws SQLException{
+        return null;
+    }
+    public List<DbObject> toDbObjectListContractCourses(Course c){
+        return null;
+    }
+    public List<DbObject> toDbObjectListSolutions(Course c, AssignmentSolution as, Integer assignid){
         return null;
     }
 }

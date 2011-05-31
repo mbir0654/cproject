@@ -9,24 +9,25 @@ public class Assignment implements Serializable {
 	private String name = "";
 	private String text = "";
 	private Date deadline;
-	private ArrayList<AssignmentSolution> solutions = new ArrayList<AssignmentSolution>();
+	private ArrayList<AssignmentSolution> solutions =
+                new ArrayList<AssignmentSolution>();
 	private Course course;
-	
+
 	/**
 	 * Constructorul implicit
 	 */
 	public Assignment() {
 	}
-	
+
 	/**
 	 * Constructorul parametrizat
-	 * 
-	 * @param n este denumirea temei 
-	 * 
+	 *
+	 * @param n este denumirea temei
+	 *
 	 * @param t este enuntul temei
-	 * 
+	 *
 	 * @param d este data limita de predare a temei
-	 * 
+	 *
 	 * @param c este cursul pt care e data tema
 	 */
 	public Assignment(String n, String t, Date d, Course c) {
@@ -35,10 +36,10 @@ public class Assignment implements Serializable {
 		deadline = d;
 		course = c;
 	}
-	
+
 	/**
 	 * Constructorul de copiere
-	 * 
+	 *
 	 * @param a este tema care trebuie duplicata
 	 */
 	public Assignment(Assignment a){
@@ -49,23 +50,23 @@ public class Assignment implements Serializable {
 		text = a.text;
 		course = a.course;
 	}
-	
+
 	/**
-	 * 
+	 *
 	 * @param r este rezolvarea care se adauga
 	 */
 	public void addSolution(AssignmentSolution r) {
 		solutions.add(r);
 	}
-	
+
 	/**
-	 * 
+	 *
 	 * @param r este rezolvarea care trebuie stearsa
 	 */
 	public void deleteSolution(AssignmentSolution r) {
 		solutions.remove(r);
 	}
-	
+
 	public List<AssignmentSolution> getSolutions(){
 		return solutions;
 	}
@@ -111,9 +112,27 @@ public class Assignment implements Serializable {
 	public Course getCourse() {
 		return course;
 	}
-	
+
+        /**
+         *
+         * @return textul anuntului
+         */
+        public String getText() {
+            return text;
+        }
+
+        /**
+         *
+         * @param text va fi textul anuntului
+         */
+        public void setText(String text) {
+            this.text = text;
+        }
+
+
+
 	/**
-	 * @return un string cu denumirea cursului, titlul temei si 
+	 * @return un string cu denumirea cursului, titlul temei si
 	 */
 	 @Override
 	public String toString() {
