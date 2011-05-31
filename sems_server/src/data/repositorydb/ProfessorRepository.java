@@ -82,13 +82,18 @@ public class ProfessorRepository implements Repository<Professor> {
      */
     @Override
     public void add(Professor item) {
-    	l.add(item);
     	List<DbObject> data1 = item.toDbObjectList();
     	List<DbObject> data2 = item.toDbObjectListTeachers();
         try {
             DbUtil dbu = new DbUtil();
-            SqlFunctions.insert("users", data1,dbu);
-            SqlFunctions.insert("teachers", data2, dbu);
+            if(SqlFunctions.insert("users", data1,dbu))
+                if(SqlFunctions.insert("teachers", data2, dbu)){
+                    for(Course c : item.getCourses()){
+                        List<DbObject> data3 = item.toDbObjectListTeachCourse(c);
+                        SqlFunctions.insert("teachers_spec", data3, dbu);
+                    }
+                    l.add(item);
+                }
             dbu.close();
         } catch (SQLException e) {
             System.err.println(e.getMessage());

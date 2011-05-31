@@ -30,12 +30,12 @@ public class GroupRepository implements Repository<Group>{
     private GroupRepository() {
         for(Specialty s : specRepo.getAll()){
             l.addAll(s.getGroups());
-        for(Professor p : pr.getAll())
-            for(Group grp : p.getGroups()){
-                for(Group grr : s.getGroups())
-                    if(grp.getGroupName().equals(grr.getGroupName())){
-                        grp.setSpecialty(grr.getSpecialty());
-                    }
+            for(Professor p : pr.getAll())
+                for(Group grp : p.getGroups()){
+                    for(Group grr : s.getGroups())
+                        if(grp.getGroupName().equals(grr.getGroupName())){
+                            grp.setSpecialty(grr.getSpecialty());
+                        }
             }
         }
     }
@@ -43,7 +43,7 @@ public class GroupRepository implements Repository<Group>{
 
 
     public void add(Group item) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        l.add(item);
     }
 
     public List<Group> getAll() {

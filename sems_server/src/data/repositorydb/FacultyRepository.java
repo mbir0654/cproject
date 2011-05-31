@@ -13,7 +13,10 @@ import java.util.List;
 import business.model.*;
 
 import data.dbutil.DbUtil;
+import data.dbutil.SqlFunctions;
 import data.repositoryinterface.Repository;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * @author otniel
@@ -58,6 +61,7 @@ public class FacultyRepository implements Repository<Faculty>{
                 f = new Faculty();
                 f.setName(rs.getString("facultyName"));
                 f.setAddress(rs.getString("address"));
+                f.setId(rs.getInt(1));
                 int fid = rs.getInt(1);
                 /*
                  * extragem din baza de date specializarile
@@ -280,7 +284,21 @@ public class FacultyRepository implements Repository<Faculty>{
 	 */
 	@Override
 	public void add(Faculty item) {
-		l.add(item);
+        try {
+            DbUtil dbu = new DbUtil();
+            if(SqlFunctions.insert("faculties", item.toDbObjectList(), dbu)){
+                ResultSet rs = dbu.getDate("select facultyId from faculties where " +
+                        "facultyName = '" + item.getName() + "' and address = '" +
+                        item.getAddress() + "'");
+                if(rs.next())
+                    item.setId(rs.getInt(1));
+                l.add(item);
+            }
+            dbu.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(FacultyRepository.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
 	}
 
 	/**
@@ -310,6 +328,12 @@ public class FacultyRepository implements Repository<Faculty>{
 	 */
 	@Override
 	public void update(Faculty item) {
+        try {
+            SqlFunctions.update("faculties", item.toDbObjectList(),
+                    "facultyId = " + item.getId());
+        } catch (SQLException ex) {
+            Logger.getLogger(FacultyRepository.class.getName()).log(Level.SEVERE, null, ex);
+        }
 	}
 
 	/**
@@ -318,7 +342,13 @@ public class FacultyRepository implements Repository<Faculty>{
 	 */
 	@Override
 	public void delete(Faculty item) {
-		l.remove(item);		
+        try {
+            if(SqlFunctions.delete("faculties", "facultyName = '" + item.getName()
+                    + "' and address = '" + item.getAddress() + "'"))
+                l.remove(item);
+        } catch (SQLException ex) {
+            Logger.getLogger(FacultyRepository.class.getName()).log(Level.SEVERE, null, ex);
+        }
 	}
 
 }
