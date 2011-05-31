@@ -16,11 +16,12 @@ import java.math.BigInteger;
 import java.security.KeyStore;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
  *
- * @author myh
+ * @author myh si bsk
  */
 public class ControllerAdmin {
     private final Administrator administrator;
@@ -41,98 +42,61 @@ public class ControllerAdmin {
         adminMain.setVisible(true);
     }
 
-    public void loadFaculties() {
-        List<Faculty> faculties = administratorService.getFaculties();
-        DefaultListModel model = new DefaultListModel();
-        DefaultComboBoxModel modelCombo = new DefaultComboBoxModel();
-        modelCombo.addElement(null);
-        for (Faculty f:faculties) {
-            model.addElement(f);
-            modelCombo.addElement(f);
-        }
-        adminMain.setFaculties(model);
-        adminMain.setComboListFacultati(modelCombo);
-    }
 
-    public void loadAdministrators() {
-        List<Administrator> administrators = administratorService.getAdministrators();
-        DefaultListModel model = new DefaultListModel();
-        for (Administrator a:administrators) {
-            model.addElement(a);
-        }
-        adminMain.setAdministrators(model);
-    }
-
-    public void loadSpecialties(Faculty faculty) {
-        List<Specialty> specialties = faculty.getSpecialties();
-        DefaultListModel model = new DefaultListModel();
-        for (Specialty s:specialties) {
-            model.addElement(s);
-        }
-        adminMain.setSpecialties(model);
-    }
-
-    public void loadInmatriculeazaStudentSpecialties(Faculty faculty){
-        if(faculty!= null){
-            List<Specialty> specialties = faculty.getSpecialties();
-            System.out.println("Facultate: " + faculty + "Specializari: "+faculty.getSpecialties());
-            DefaultComboBoxModel model = new DefaultComboBoxModel();
-            model.addElement(null);
-            for(Specialty specialty:specialties){
-                model.addElement(specialty);
+    //inmatriculeaza student
+        public void loadInmatriculeazaStudentSpecialties(Faculty faculty){
+            if(faculty!= null){
+                List<Specialty> specialties = faculty.getSpecialties();
+                System.out.println("Facultate: " + faculty + "Specializari: "+faculty.getSpecialties());
+                DefaultComboBoxModel model = new DefaultComboBoxModel();
+                model.addElement(null);
+                for(Specialty specialty:specialties){
+                    model.addElement(specialty);
+                }
+                adminMain.setInmatriculeazaStudentSpecialties(model);
             }
-            adminMain.setInmatriculeazaStudentSpecialties(model);
         }
-    }
-    public void loadInmatriculeazaStudentAnStudiu(Specialty specialty){
-        if(specialty != null){
-            int nrofyears = specialty.getNumberOfYears();
-            DefaultComboBoxModel model = new DefaultComboBoxModel();
-            for(int i=1;i<=nrofyears;i++){
-                model.addElement(i);
+        public void loadInmatriculeazaStudentAnStudiu(Specialty specialty){
+            if(specialty != null){
+                int nrofyears = specialty.getNumberOfYears();
+                DefaultComboBoxModel model = new DefaultComboBoxModel();
+                for(int i=1;i<=nrofyears;i++){
+                    model.addElement(i);
+                }
+                adminMain.setInmatriculeazaStudentAnStudiu(model);
             }
-            adminMain.setInmatriculeazaStudentAnStudiu(model);
         }
-    }
-    public void loadInmatriculeazaStudentGrupa(Specialty specialty){
-        if(specialty != null){
-            List<Group> groups = specialty.getGroups();
-            DefaultComboBoxModel model = new DefaultComboBoxModel();
-            for(Group group:groups){
-                model.addElement(group);
+        public void loadInmatriculeazaStudentGrupa(Specialty specialty){
+            if(specialty != null){
+                List<Group> groups = specialty.getGroups();
+                DefaultComboBoxModel model = new DefaultComboBoxModel();
+                for(Group group:groups){
+                    model.addElement(group);
+                }
+                adminMain.setInmatriculeazaStudentGrupe(model);
             }
-            adminMain.setInmatriculeazaStudentGrupe(model);
         }
-    }
-    public void addInmatriculeazaStudent(){
-        Student student = new Student();
-        student.setFirstName(adminMain.getInmatriculareStudentNume());
-        student.setLastName(adminMain.getInmatriculareStudentPrenume());
-        student.setCnp(adminMain.getInmatriculareStudentCnp());
+        public void addInmatriculeazaStudent(){
+            Student student = new Student();
+            student.setFirstName(adminMain.getInmatriculareStudentNume());
+            student.setLastName(adminMain.getInmatriculareStudentPrenume());
+            student.setCnp(adminMain.getInmatriculareStudentCnp());
 
-        student.setSpecialty(adminMain.getInmatriculareStudentSpecializare());
-        student.setYear(adminMain.getInmatriculareStudentAnStudiu());
-        student.setGroup(adminMain.getInmatriculareStudentGrupa());
-        student.setNrMat(adminMain.getInmatriculareStudentNrMat());
+            student.setSpecialty(adminMain.getInmatriculareStudentSpecializare());
+            student.setYear(adminMain.getInmatriculareStudentAnStudiu());
+            student.setGroup(adminMain.getInmatriculareStudentGrupa());
+            student.setNrMat(adminMain.getInmatriculareStudentNrMat());
 
-        student.setUserName(adminMain.getInmatriculareStudentUsername());
-        //password
-        String password = adminMain.getInmatriculareStudentParola();
-        String pas = password;
-        try {
-            MessageDigest m = MessageDigest.getInstance("MD5");
-            byte[] data = password.getBytes();
-            m.update(data,0,data.length);
-            BigInteger i = new BigInteger(1,m.digest());
-            pas = String.format("%1$032X", i);
-        } catch (NoSuchAlgorithmException e) {
-            e.printStackTrace();
+            student.setUserName(adminMain.getInmatriculareStudentUsername());
+            //password
+            String password = adminMain.getInmatriculareStudentParola();
+            student.setPassword(md5(password));
+
+            administratorService.addStudent(student);
         }
-        student.setPassword(pas);
 
-        administratorService.addStudent(student);
-    }
-    public void loadCourses(Faculty faculty) {
+    //prima pagina
+        public void loadCourses(Faculty faculty) {
         List<Specialty> specialties = faculty.getSpecialties();
         DefaultListModel model = new DefaultListModel();
         for (Specialty s:specialties) {
@@ -142,6 +106,110 @@ public class ControllerAdmin {
         }
         adminMain.setListCursuri(model);
     }
+
+        public DefaultComboBoxModel loadGrupeByFaculta_combo (Faculty faculty){
+            DefaultComboBoxModel model = new DefaultComboBoxModel();
+            model.addElement(null);
+            if(faculty != null){
+                for(Specialty specialty:faculty.getSpecialties()){
+                    for(Group group:specialty.getGroups()){
+                        model.addElement(group);
+                    }
+                }
+            }
+            return model;
+        }
+        public DefaultListModel loadStudentiByGrupa_list(Group group){
+            DefaultListModel model = new DefaultListModel();
+            model.addElement(null);
+            if(group != null){
+                List<Student> students = group.getStudents();
+                for(Student s:students){
+                    model.addElement(s);
+                }
+            }
+            return model;
+        }
+        public DefaultListModel loadCursuriByFaculta_list (Faculty faculty){
+            DefaultListModel model = new DefaultListModel();
+            model.addElement(null);
+            if(faculty != null){
+                for(Specialty specialty:faculty.getSpecialties()){
+                    for(Course course:specialty.getCourses()){
+                        model.addElement(course);
+                    }
+                }
+            }
+            return model;
+        }
+        public DefaultListModel loadProgesoriByFaculta_list (Faculty faculty){
+            DefaultListModel model = new DefaultListModel();
+            model.addElement(null);
+            if(faculty != null){
+                List<Professor> professors = new ArrayList<Professor>();
+                for(Specialty specialty:faculty.getSpecialties()){
+                    for(Course course:specialty.getCourses()){
+                        for(Professor professor:course.getProfessors()){
+                            if(!professors.contains(professor))
+                                professors.add(professor);
+                        }
+                    }
+                }
+                for(Professor professor:professors){
+                    model.addElement(professor);
+                }
+            }
+            return model;
+        }
+
+        public void loadFaculties() {
+            List<Faculty> faculties = administratorService.getFaculties();
+            DefaultListModel model = new DefaultListModel();
+            DefaultComboBoxModel modelCombo = new DefaultComboBoxModel();
+            modelCombo.addElement(null);
+            for (Faculty f:faculties) {
+                model.addElement(f);
+                modelCombo.addElement(f);
+            }
+            adminMain.setFaculties(model);
+            adminMain.setComboListFacultati(modelCombo);
+        }
+        public void loadAdministrators() {
+            List<Administrator> administrators = administratorService.getAdministrators();
+            DefaultListModel model = new DefaultListModel();
+            for (Administrator a:administrators) {
+                model.addElement(a);
+            }
+            adminMain.setAdministrators(model);
+        }
+        public void loadSpecialties(Faculty faculty) {
+            DefaultListModel model = new DefaultListModel();
+            if(faculty != null){
+                if(!faculty.getSpecialties().isEmpty()){
+                    List<Specialty> specialties = faculty.getSpecialties();
+                    for (Specialty s:specialties) {
+                        model.addElement(s);
+                    }
+                }
+            }
+            adminMain.setSpecialties(model);
+        }
+
+        //adauga
+        public void addFaculty(){
+            Faculty faculty = new Faculty();
+            faculty.setName(adminMain.getAddFacultyName());
+            faculty.setAddress(adminMain.getAddFacultyAdress());
+            administratorService.addFaculty(faculty);
+        }
+        public void addAdministrator(){
+            Administrator administrator = new Administrator();
+            administrator.setLastName(adminMain.getAddAdminLastName());
+            administrator.setFirstName(adminMain.getAddAdminLastName());
+            administrator.setUserName(adminMain.getAddAdminUsername());
+            administrator.setPassword(md5(adminMain.getAddAdminPassword()));
+            administratorService.addAdministrator(administrator);
+        }
 
     //gestiune rapoarte (chestia aia din mijloc)
         //load Combo boxes
@@ -312,4 +380,17 @@ public class ControllerAdmin {
             return model;
         }
 
+    public String md5(String var){
+        String var_return = "";
+        try {
+            MessageDigest m = MessageDigest.getInstance("MD5");
+            byte[] data = var.getBytes();
+            m.update(data,0,data.length);
+            BigInteger i = new BigInteger(1,m.digest());
+            var_return = String.format("%1$032X", i);
+        } catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
+        }
+        return var_return;
+    }
 }

@@ -1875,6 +1875,9 @@ public class FrameAdminMain extends javax.swing.JFrame {
     private void listFacultatiValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_listFacultatiValueChanged
 
         // se va popula panoul panouInfoFacultate cu toate detaliile.
+        listGrupe.setModel(controllerAdmin.loadGrupeByFaculta_combo((Faculty) listFacultati.getSelectedValue()));
+        listCursuri.setModel(controllerAdmin.loadCursuriByFaculta_list((Faculty) listFacultati.getSelectedValue()));
+        listProfesori.setModel(controllerAdmin.loadProgesoriByFaculta_list((Faculty) listFacultati.getSelectedValue()));
         controllerAdmin.loadSpecialties((Faculty)listFacultati.getSelectedValue());
         panouInfoFaculta.setVisible(true);
 
@@ -2040,6 +2043,8 @@ public class FrameAdminMain extends javax.swing.JFrame {
     private void butFacultaAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butFacultaAddActionPerformed
         // se adauga facultatea respectiva, iar infoText se seteaza
         //corespunzator
+        controllerAdmin.addFaculty();
+        controllerAdmin.loadFaculties();
         infoText.setVisible(true);
         infoText.setText("OK");
     }//GEN-LAST:event_butFacultaAddActionPerformed
@@ -2150,7 +2155,7 @@ public class FrameAdminMain extends javax.swing.JFrame {
     }//GEN-LAST:event_butTransferaStudentActionPerformed
 
     private void listGrupeItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_listGrupeItemStateChanged
-        // se populeaza listGrupeStudenti.
+        listGrupeStudenti.setModel(controllerAdmin.loadStudentiByGrupa_list((Group) listGrupe.getSelectedItem()));
         listGrupeStudenti.setEnabled(true);
         butAddStudentLaGrupa.setEnabled(true);
         
@@ -2412,5 +2417,23 @@ public class FrameAdminMain extends javax.swing.JFrame {
     }
     public int getInmatriculareStudentAnStudiu(){
         return (Integer) inputInmatAnStudiu.getSelectedItem();
+    }
+    public  String getAddFacultyName(){
+        return facultaAddInputNume.getText();
+    }
+    public String getAddFacultyAdress(){
+        return facultaAddInputAdresa.getText();
+    }
+    public String getAddAdminLastName(){
+        return inputAdminNume.getText();
+    }
+    public String getAddAdminUsername(){
+        return inputAdminUser.getText();
+    }
+    public String getAddAdminPassword(){
+        return inputAdminParola.getText();
+    }
+    public String getAddAdminFirstName(){
+        return inputAdminPrenume.getText();
     }
 }

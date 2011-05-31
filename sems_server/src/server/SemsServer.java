@@ -14,7 +14,7 @@ public class SemsServer {
     public static void main(String args[]) {
         ApplicationContext factory = new ClassPathXmlApplicationContext(
                 "classpath:server/serverContext.xml");
-        Student s = StudentRepository.getInstance().findByName("ovi");
+        /*Student s = StudentRepository.getInstance().findByName("ovi");
         List<Course> lc = new ArrayList<Course>(s.getContract().getCourses());
         for(Course c : CourseRepository.getInstance().getAll()){
             //for(Course cc : lc)
@@ -24,5 +24,6 @@ public class SemsServer {
         }
         System.out.println(s.getContract());
         StudentRepository.getInstance().update(s);
+        */
     }
 }

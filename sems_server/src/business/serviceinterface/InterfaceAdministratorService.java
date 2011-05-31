@@ -24,4 +24,8 @@ public interface InterfaceAdministratorService {
     public List<Administrator> getAdministrators();
     public List<Faculty> getFaculties();
     public void addStudent(Student student);
+    public void addFaculty(Faculty faculty);
+    public void addAdministrator(Administrator administrator);
+    public void addProfesor(Professor professor);
+
 }
