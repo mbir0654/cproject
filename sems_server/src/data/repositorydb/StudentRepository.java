@@ -66,7 +66,6 @@ public class StudentRepository implements Repository<Student>{
                     List<DbObject> data3 = item.toDbObjectListSS();
                     SqlFunctions.insert("students_specializations", data3,dbu);
                     List<DbObject> data4 = item.toDbObjectListContract();
-                    System.out.println(data1);
                     SqlFunctions.insert("contracts", data4,dbu);
                     dbu.close();
 		} catch (MySqlException e) {
@@ -113,41 +112,42 @@ public class StudentRepository implements Repository<Student>{
                     +item.getUserName()+"'");
                 SqlFunctions.update("students", data2, "userName = '"
                     +item.getUserName()+"'");
-                for (Course c : item.getContract().getCourses()){
-                    if(c == null){
-                        ResultSet rs = dbu.getDate("select c.contractId from " +
+                ResultSet rs1 = dbu.getDate("select c.contractId from " +
                                "contracts c inner join students_specializations"
                                +" ss on c.ssId = ss.ssId inner join students s"
                                +" on ss.studentId = s.studentId where " +
                                "s.userName = '"+item.getUserName()+"'");
-                        if(rs.next()){
-                            Integer ctid = rs.getInt(1);
-                            SqlFunctions.delete("contracts_data", "contractId="
-                                    +ctid);
-                            System.out.println("Sters toate cursurile " +
-                                    "din constract");
-                        }
-                    }
+                if(rs1.next()){
+                    Integer ctid = rs1.getInt(1);
+                    SqlFunctions.delete("contracts_data", "contractId="
+                            +ctid);
+                    System.out.println(" Sters toate cursurile " +
+                            "din contract");
+                }
+                rs1 = dbu.getDate("select ssId from students_" +
+                "specializations where studentId in(select studentId from" +
+                " students where userName='"+item.getUserName()+"') limit 1");
+                if(rs1.next()){
+                Integer ssid = rs1.getInt(1);
+                SqlFunctions.delete("solutions","assignmentId = "+ssid);
+                }
+                for (Course c : item.getContract().getCourses()){
                     List<DbObject> data4 = item.toDbObjectListContractCourses(c);
                     try{
-                        SqlFunctions.delete("contracts_data", "csId="+data4.
-                                get(0).getValue()+" and contractId="+data4.
-                                get(1).getValue());
                         SqlFunctions.insert("contracts_data", data4,dbu);
                     }catch(MySqlException e){
                         e.getMessage();
                     }
                     for(Assignment a : c.getAssignments()){
-                        ResultSet rs = dbu.getDate("SELECT assignmentId FROM assignments a where text = '"+a.getText()+"'");
+                        ResultSet rs = dbu.getDate("SELECT assignmentId FROM " +
+                                "assignments where text = '"+a.getText()+"'");
                         if(rs.next()){
                             Integer asid = rs.getInt(1);
-                            System.out.println(asid);
                             for(AssignmentSolution as : item.getSolutions()){
-                                List<DbObject> data5 = item.toDbObjectListSolutions(c,as, asid);
+                                List<DbObject> data5 = item.
+                                        toDbObjectListSolutions(c,as, asid);
                                 try{
                                     SqlFunctions.insert("solutions", data5, dbu);
-                                    SqlFunctions.update("solutions",data5,"assignmentId = "
-                                        +asid+" and ssid = "+data5.get(0).getValue());
                                 }catch (MySqlException e){
                                     System.out.println(e.getMessage());
                                 }

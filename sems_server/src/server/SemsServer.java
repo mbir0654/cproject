@@ -17,12 +17,12 @@ public class SemsServer {
         Student s = StudentRepository.getInstance().findByName("ovi");
         List<Course> lc = new ArrayList<Course>(s.getContract().getCourses());
         for(Course c : CourseRepository.getInstance().getAll()){
-            for(Course cc : lc)
-                if(c.equals(cc)){
-                    //s.getContract().removeCourse(c);
+            //for(Course cc : lc)
+                if(c.getSpecializare().equals(s.getSpecialty())){
+                     s.getContract().addCourse(c);
             }
         }
         System.out.println(s.getContract());
-        //StudentRepository.getInstance().update(s);
+        StudentRepository.getInstance().update(s);
     }
 }
