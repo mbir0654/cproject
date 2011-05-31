@@ -60,6 +60,6 @@ public class Contract implements Serializable {
 
     @Override
     public String toString(){
-        return courses + " " + student;
+        return student + " inscris la: " + courses;
     }
 }

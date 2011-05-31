@@ -88,7 +88,7 @@ public class Faculty implements Serializable {
      */
     @Override
     public String toString() {
-            return name;
+            return "Facultatea de "+name;
     }
 
     public List<DbObject> toDbObjectList(){

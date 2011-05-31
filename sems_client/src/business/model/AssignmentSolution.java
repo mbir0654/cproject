@@ -102,7 +102,6 @@ public class AssignmentSolution implements Serializable {
 	 */
 	@Override
 	public String toString() {
-            return author.getFirstName() + " " + author.getLastName() +
-                    " - " + solution;
+            return author.toString() +" - " + solution;
 	}
 }
