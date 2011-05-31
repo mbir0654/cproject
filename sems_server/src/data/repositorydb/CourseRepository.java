@@ -153,7 +153,7 @@ public class CourseRepository implements Repository<Course>{
      */
     @Override
     public void delete(Course item) {
-            l.remove(item);
+
             try {
                     SqlFunctions.delete("specializations_courses", "courseCode = '"+
                                     item.getCod()+"'");
@@ -161,6 +161,8 @@ public class CourseRepository implements Repository<Course>{
                     // TODO Auto-generated catch block
                     e.printStackTrace();
             }
+
+            l.remove(item);
     }
 
 }

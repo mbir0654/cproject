@@ -11,6 +11,12 @@
 
 package ui;
 
+import business.model.Specialty;
+
+import javax.swing.*;
+
+import static java.lang.Integer.parseInt;
+
 /**
  *
  * @author snoopy
@@ -156,7 +162,7 @@ public class DialogAddCourse extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void butAdaugaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butAdaugaActionPerformed
-        // TODO add your handling code here:
+        this.setVisible(false);
     }//GEN-LAST:event_butAdaugaActionPerformed
 
 
@@ -175,4 +181,26 @@ public class DialogAddCourse extends javax.swing.JDialog {
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 
+    //by bsk
+    public void setSpecializari(DefaultComboBoxModel model){
+        inputSpecializare.setModel(model);
+    }
+    public void setSemestru(DefaultComboBoxModel model){
+        inputSemestru.setModel(model);
+    }
+    public String getDenumire(){
+        return inputDenumire.getText();
+    }
+    public Specialty getSpecializare(){
+        return (Specialty) inputSpecializare.getSelectedItem();
+    }
+    public Integer getSemestru(){
+        return (Integer) inputSemestru.getSelectedItem();
+    }
+    public int getNrCredite(){
+        return parseInt(inputNrCredite.getText());
+    }
+    public String getCod(){
+        return inputCod.getText();
+    }
 }

@@ -136,6 +136,10 @@ public final class AdministratorService implements InterfaceAdministratorService
     public void deleteProfessor(Professor professor){
         profRepo.delete(professor);
     }
+    public void addCourse(Course course){
+        courseRepo.add(course);
+         System.out.println("add_curs :" + course);
+    }
 
     public void updateProfessor(Professor professor) {
         profRepo.update(professor);

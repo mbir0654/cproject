@@ -32,4 +32,5 @@ public interface InterfaceAdministratorService {
     public void deleteProfessor(Professor professor);
     public void updateProfessor(Professor professor);
     public void updateCourse(Course course);
+    public void addCourse(Course course);
 }
