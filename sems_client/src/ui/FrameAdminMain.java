@@ -41,6 +41,7 @@ public class FrameAdminMain extends javax.swing.JFrame {
         
         butAdminDel.setEnabled(false);
         butAdminMod.setEnabled(false);
+        butAdminMod.setVisible(false);
 
         toolTipExporta.setText("");
         toolTipImporta.setText("");
@@ -1915,6 +1916,7 @@ public class FrameAdminMain extends javax.swing.JFrame {
 
     private void butAdminOkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butAdminOkActionPerformed
         // se va adauga administratorul in baza de date
+        controllerAdmin.addAdministrator();
         panouAddAdmin.setVisible(false);
     }//GEN-LAST:event_butAdminOkActionPerformed
 
@@ -2119,6 +2121,9 @@ public class FrameAdminMain extends javax.swing.JFrame {
     private void butAdminDelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butAdminDelActionPerformed
         // se va deschide DialogConfirm cu textul "Sunteti sigur? "
         // iar cand utilizatorul apasa Ok, se sterge administratorul.
+        //TODO dialog confirm la stergere de admin
+        controllerAdmin.deleteAdministrator((Administrator)listAdmin.getSelectedValue());
+
     }//GEN-LAST:event_butAdminDelActionPerformed
 
     private void butAdminModActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butAdminModActionPerformed

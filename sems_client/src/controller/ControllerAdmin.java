@@ -210,6 +210,16 @@ public class ControllerAdmin {
             administrator.setPassword(md5(adminMain.getAddAdminPassword()));
             administratorService.addAdministrator(administrator);
         }
+        //sterge
+        public void deleteAdministrator(Administrator administrator){
+            administratorService.deleteAdministrator(administrator);
+        }
+        public void deleteCourse(Course course){
+
+        }
+        public void deleteProfessor(Professor professor){
+
+        }
 
     //gestiune rapoarte (chestia aia din mijloc)
         //load Combo boxes
