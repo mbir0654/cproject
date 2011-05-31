@@ -2448,4 +2448,8 @@ public class FrameAdminMain extends javax.swing.JFrame {
     public Faculty getSelectedFaculty() {
         return (Faculty) listFacultati.getSelectedValue();
     }
+
+    public void setListProfesori(ListModel model) {
+        listProfesori.setModel(model);
+    }
 }

@@ -423,8 +423,8 @@ public class ControllerAdmin {
         prof.setUserName(dialog.getUser());
         prof.setPassword(dialog.getParola());
         prof.addCourse(dialog.getCurs());
+        dialog.getCurs().addProfessor(prof);
         administratorService.addProfesor(prof);
-        administratorService.manageProfessors();
-        loadProgesoriByFaculta_list(adminMain.getSelectedFaculty());
+        adminMain.setListProfesori(loadProgesoriByFaculta_list(adminMain.getSelectedFaculty()));
     }
 }
