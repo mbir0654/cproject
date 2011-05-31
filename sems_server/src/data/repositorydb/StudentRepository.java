@@ -11,6 +11,7 @@ import java.util.List;
 import business.model.*;
 import data.dbutil.DbObject;
 import data.dbutil.DbUtil;
+import data.dbutil.MySqlException;
 import data.dbutil.SqlFunctions;
 import data.repositoryinterface.*;
 
@@ -59,16 +60,20 @@ public class StudentRepository implements Repository<Student>{
 		try {
                     DbUtil dbu = new DbUtil();
                     List<DbObject> data1 = item.toDbObjectList();
-                    List<DbObject> data2 = item.toDbObjectListStud();
-                    List<DbObject> data3 = item.toDbObjectListSS();
-                    List<DbObject> data4 = item.toDbObjectListContract();
                     SqlFunctions.insert("users", data1,dbu);
-                    //SqlFunctions.insert("students", data2,dbu);
-                    //SqlFunctions.insert("students_specializations", data3,dbu);
-                    //SqlFunctions.insert("contracts", data4,dbu);
+                    List<DbObject> data2 = item.toDbObjectListStud();
+                    SqlFunctions.insert("students", data2,dbu);
+                    List<DbObject> data3 = item.toDbObjectListSS();
+                    SqlFunctions.insert("students_specializations", data3,dbu);
+                    List<DbObject> data4 = item.toDbObjectListContract();
+                    System.out.println(data1);
+                    SqlFunctions.insert("contracts", data4,dbu);
                     dbu.close();
+		} catch (MySqlException e) {
+			System.out.println(e.getMessage());
+			//e.printStackTrace();
 		} catch (SQLException e) {
-			System.err.println(e.getMessage());
+			System.out.println(e.getMessage());
 			e.printStackTrace();
 		}
 	}
@@ -103,11 +108,14 @@ public class StudentRepository implements Repository<Student>{
 		try {
 			List<DbObject> data1 = item.toDbObjectList();
 			List<DbObject> data2 = item.toDbObjectListStud();
-			//List<DbObject> data3 = item.toDbObjectListSS();
-			//List<DbObject> data4 = item.toDbObjectListContract();
-			SqlFunctions.update("users", data1, "userName = '"+item.getUserName()+"'");
-			SqlFunctions.update("students", data2, "userName = '"+item.getUserName()+"'");
-			//SqlFunctions.update("students_specializations", data3, "spId  = "+data3.get(1).getValue());
+			List<DbObject> data3 = item.toDbObjectListSS();
+			List<DbObject> data4 = item.toDbObjectListContract();
+			SqlFunctions.update("users", data1, "userName = '"
+                                +item.getUserName()+"'");
+			SqlFunctions.update("students", data2, "userName = '"
+                                +item.getUserName()+"'");
+			SqlFunctions.update("students_specializations",data3,
+                        "spId  = "+data3.get(1).getValue());
 		} catch (SQLException e) {
 			System.err.println(e.getMessage());
 			e.printStackTrace();
@@ -121,8 +129,11 @@ public class StudentRepository implements Repository<Student>{
 	public void delete(Student item) {
 		l.remove(item);
 		try {
-			SqlFunctions.delete("users", "userName = '"+item.getUserName()+"'");
-		} catch (SQLException e) {
+                    if(!SqlFunctions.delete("users", "userName = '"+
+                            item.getUserName()+"'"))
+                        System.err.println("no students deleted!");
+                    System.out.println(item.getUserName()+" - deleted");
+		} catch (Exception e) {
 			System.err.println(e.getMessage());
 			e.printStackTrace();
 		}

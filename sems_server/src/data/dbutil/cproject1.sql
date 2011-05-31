@@ -91,6 +91,7 @@ CREATE TABLE `contracts` (
   KEY `spId` (`spId`),
   KEY `ssId` (`ssId`),
   KEY `ssId_2` (`ssId`),
+  CONSTRAINT `contracts_uk` UNIQUE (`spId`,`ssId`),
   CONSTRAINT `contracts_ibfk_1` FOREIGN KEY (`spId`) REFERENCES `specializations` (`spId`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `contracts_ibfk_2` FOREIGN KEY (`ssId`) REFERENCES `students_specializations` (`ssId`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8;
@@ -118,6 +119,7 @@ CREATE TABLE `contracts_data` (
   `csId` int(11) NOT NULL,
   KEY `contractId` (`contractId`),
   KEY `csId` (`csId`),
+  CONSTRAINT `course_contract_uk` UNIQUE (`csId`,`contractId`),
   CONSTRAINT `contracts_data_ibfk_1` FOREIGN KEY (`contractId`) REFERENCES `contracts` (`contractId`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `contracts_data_ibfk_2` FOREIGN KEY (`csId`) REFERENCES `specializations_courses` (`csId`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -146,6 +148,7 @@ CREATE TABLE `coursematerials` (
   `fileName` varchar(255) NOT NULL,
   PRIMARY KEY (`cmId`),
   KEY `fk_coursematerials_1` (`csId`),
+  CONSTRAINT `coursematerials_uk1` UNIQUE (`csId`,`fileName`),
   CONSTRAINT `fk_coursematerials_1` FOREIGN KEY (`csId`) REFERENCES `specializations_courses` (`csId`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -170,6 +173,7 @@ DROP TABLE IF EXISTS `courses`;
 CREATE TABLE `courses` (
   `courseId` int(11) NOT NULL AUTO_INCREMENT,
   `courseName` varchar(255) NOT NULL,
+  CONSTRAINT `courses_uk` UNIQUE (`courseName`),
   PRIMARY KEY (`courseId`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -196,6 +200,7 @@ CREATE TABLE `exams` (
   `date` date NOT NULL,
   `csId` int(11) NOT NULL,
   `type` varchar(255) NOT NULL,
+  CONSTRAINT `exams_uk` UNIQUE (`csId`,`type`,`date`),
   PRIMARY KEY (`examId`),
   KEY `new_fk_constraint` (`csId`),
   CONSTRAINT `new_fk_constraint` FOREIGN KEY (`csId`) REFERENCES `specializations_courses` (`csId`) ON DELETE CASCADE ON UPDATE CASCADE
@@ -223,6 +228,7 @@ CREATE TABLE `faculties` (
   `facultyId` int(11) NOT NULL AUTO_INCREMENT,
   `facultyName` varchar(255) DEFAULT NULL,
   `address` varchar(255) NOT NULL,
+  CONSTRAINT `faculties_uk` UNIQUE (`facultyName`),
   PRIMARY KEY (`facultyId`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -308,6 +314,7 @@ CREATE TABLE `groups` (
   `spId` int(11) NOT NULL,
   PRIMARY KEY (`groupId`),
   KEY `fk_gr_sp` (`spId`),
+  CONSTRAINT `groups_uk` UNIQUE (`name`),
   CONSTRAINT `fk_gr_sp` FOREIGN KEY (`spId`) REFERENCES `specializations` (`spId`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -336,6 +343,7 @@ CREATE TABLE `solutions` (
   `completed` date NOT NULL,
   PRIMARY KEY (`assignmentId`,`ssId`),
   KEY `fk_solutions_1` (`ssId`),
+  CONSTRAINT `solutions_uk` UNIQUE (`assignmentId`,`ssId`),
   CONSTRAINT `fk_solutions_2` FOREIGN KEY (`assignmentId`) REFERENCES `assignments` (`assignmentId`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `fk_solutions_1` FOREIGN KEY (`ssId`) REFERENCES `students_specializations` (`ssId`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -362,6 +370,7 @@ CREATE TABLE `specializations` (
   `spId` int(11) NOT NULL AUTO_INCREMENT,
   `spName` varchar(255) NOT NULL,
   `numberOfYears` int(11) NOT NULL,
+  CONSTRAINT `specs_uk` UNIQUE (`spName`),
   PRIMARY KEY (`spId`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -391,6 +400,8 @@ CREATE TABLE `specializations_courses` (
   `courseType` varchar(50) NOT NULL,
   `courseCredits` int(11) NOT NULL,
   `semester` int(11) NOT NULL,
+  CONSTRAINT `specs_courses_uk` UNIQUE (`courseCode`),
+  CONSTRAINT `specs_courses_uk` UNIQUE (`courseId`),
   PRIMARY KEY (`csId`),
   KEY `spId` (`spId`),
   KEY `courseId` (`courseId`),
@@ -422,6 +433,9 @@ CREATE TABLE `students` (
   `personalCode` varchar(255) NOT NULL,
   `year` int(11) NOT NULL,
   `serialNumber` int(11) NOT NULL,
+  CONSTRAINT `students_uk1` UNIQUE (`userName`),
+  CONSTRAINT `students_uk2` UNIQUE (`personalCode`),
+  CONSTRAINT `students_uk3` UNIQUE (`serialNumber`),
   PRIMARY KEY (`studentId`,`serialNumber`,`personalCode`),
   KEY `userName` (`userName`) USING BTREE,
   CONSTRAINT `students_fk1` FOREIGN KEY (`userName`) REFERENCES `users` (`userName`) ON DELETE CASCADE ON UPDATE CASCADE
@@ -450,6 +464,8 @@ CREATE TABLE `students_specializations` (
   `studentId` int(11) NOT NULL,
   `spId` int(11) NOT NULL,
   `groupId` int(11) NOT NULL,
+  CONSTRAINT `s_s_uk1` UNIQUE (`spId`,`groupId`),
+  CONSTRAINT `s_s_uk2` UNIQUE (`studentId`),
   PRIMARY KEY (`ssId`),
   KEY `spId` (`spId`),
   KEY `studentId` (`studentId`),
@@ -481,6 +497,7 @@ CREATE TABLE `teachers` (
   `teacherId` int(11) NOT NULL AUTO_INCREMENT,
   `userName` varchar(255) NOT NULL,
   `teacherTitle` varchar(255) NOT NULL DEFAULT '',
+  CONSTRAINT `teachers_uk` UNIQUE (`userName`),
   PRIMARY KEY (`teacherId`),
   KEY `userName` (`userName`) USING BTREE,
   CONSTRAINT `fk1` FOREIGN KEY (`userName`) REFERENCES `users` (`userName`) ON DELETE CASCADE ON UPDATE CASCADE
@@ -509,6 +526,7 @@ CREATE TABLE `teachers_groups` (
   `groupId` int(11) NOT NULL,
   KEY `fk_teachers_groups_1` (`tsId`),
   KEY `fk_teachers_groups_2` (`groupId`),
+  CONSTRAINT `teachers_groups_uk` UNIQUE (`tsId`,`groupId`),
   CONSTRAINT `fk_teachers_groups_1` FOREIGN KEY (`tsId`) REFERENCES `teachers_spec` (`tsId`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `fk_teachers_groups_2` FOREIGN KEY (`groupId`) REFERENCES `groups` (`groupId`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -538,6 +556,7 @@ CREATE TABLE `teachers_spec` (
   PRIMARY KEY (`tsId`),
   KEY `csId` (`csId`),
   KEY `teacherId` (`teacherId`),
+  CONSTRAINT `teachers_specrs_uk` UNIQUE (`csId`,`teacherId`),
   CONSTRAINT `teachers_spec_ibfk_1` FOREIGN KEY (`teacherId`) REFERENCES `teachers` (`teacherId`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `teachers_spec_ibfk_2` FOREIGN KEY (`csId`) REFERENCES `specializations_courses` (`csId`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -590,4 +609,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2011-05-31  2:34:43
+-- Dump completed on 2011-05-31  2:30:56

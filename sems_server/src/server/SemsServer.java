@@ -4,6 +4,7 @@ import business.model.*;
 import business.service.AppService;
 import data.dbutil.DbUtil;
 import data.repositorydb.*;
+import data.repositoryinterface.Repository;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
@@ -17,6 +18,7 @@ public class SemsServer {
     public static void main(String args[]) throws SQLException {
         ApplicationContext factory = new ClassPathXmlApplicationContext(
                 "classpath:server/serverContext.xml");
+        StudentRepository pr = StudentRepository.getInstance();
         List<Group> l = GroupRepository.getInstance().getAll();
         Student a = new Student();
         a.setFirstName("Otniel");
@@ -32,10 +34,12 @@ public class SemsServer {
         l.get(0).addStudent(a);
         a.setSpecialty(l.get(0).getSpecialty());
         System.out.println(a);
-        //StudentRepository.getInstance().add(a);
-        ResultSet rs = new DbUtil().getDate("select* from users");
-        while(rs.next())
-            System.out.println(rs.getString(1));
-        System.out.println(ProfessorRepository.getInstance().getAll());
+        pr.add(a);
+        //pr.delete(a);
+        //ResultSet rs = new DbUtil().getDate("select* from users");
+        //while(rs.next())
+            //System.out.println(rs.getString(1));
+        //for(Professor p : ProfessorRepository.getInstance().getAll())
+            //System.out.println(p.getCourses());
     }
 }

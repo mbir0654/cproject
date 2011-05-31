@@ -1,10 +1,9 @@
 package data.dbutil;
 
+
+
 import java.sql.SQLException;
-import java.util.Iterator;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -45,10 +44,11 @@ public abstract class SqlFunctions{
             if (dbu.makeUpdate(s) > 0) {
                 return true;
             }
-            
-        } catch (com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException ex) {
+
+            } catch (com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException ex) {
             System.out.println("obiectul exista deja in baza de date");
-        }
+            throw new MySqlException();
+            }
         return false;
     }
 
@@ -96,4 +96,4 @@ public abstract class SqlFunctions{
             return true;
         return false;
     }
-}  
+}
