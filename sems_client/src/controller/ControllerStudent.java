@@ -8,6 +8,7 @@ import business.model.*;
 
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.DefaultListModel;
+import javax.swing.table.DefaultTableModel;
 
 import business.serviceinterface.InterfaceStudentService;
 //import com.sun.xml.internal.ws.api.streaming.XMLStreamWriterFactory;
@@ -34,12 +35,16 @@ public class ControllerStudent {
      * METHODS for opening the student's frames
      */
      public void openStudentFrame() {
-        studentFrame = new FrameStudMain(this);
-        studentFrame.setNameStudent(student.getFirstName() + " " + student.getLastName());
-        studentFrame.setUsernameStudent(student.getUserName());
-        loadAnnouncements();
-        loadTemeCourses();
-        studentFrame.setVisible(true);
+         studentFrame = new FrameStudMain(this);
+         studentFrame.setNameStudent(student.getFirstName() + " " + student.getLastName());
+         studentFrame.setUsernameStudent(student.getUserName());
+         loadAnnouncements();
+         loadTemeCourses();
+         loadNoteListCursuri();
+         loadMaterialeListCursuri();
+         loadTabelExamene();
+         loadTabelCursuriContractate();
+         studentFrame.setVisible(true);
      }
 
 
@@ -54,7 +59,6 @@ public class ControllerStudent {
      }
 
      public  void loadTemeCourses(){
-         System.out.println("Controller");
          List<Course> courses = student.getContract().getCourses();
          DefaultComboBoxModel model = new DefaultComboBoxModel();
          for(Course course:courses){
@@ -62,5 +66,37 @@ public class ControllerStudent {
          }
          studentFrame.setTemeListCursuri(model);
      }
+
+    public void loadNoteListCursuri() {
+        studentFrame.setNoteListCursuri(new DefaultComboBoxModel(student.getContract().getCourses().toArray()));
+    }
+
+    public void loadMaterialeListCursuri() {
+        studentFrame.setMaterialeListCursuri(new DefaultComboBoxModel(student.getContract().getCourses().toArray()));
+    }
+
+    public void loadTabelExamene() {
+        String [] columnNames = {"Data", "Tip examinare", "Nota obtinuta"};
+        DefaultTableModel model = new DefaultTableModel();
+        model.setColumnIdentifiers(columnNames);
+        for (Course c:student.getContract().getCourses()) {
+            for (Exam e:c.getExams()) {
+                Object [] row = {e.getData(), e.getType(), e.getGrades()};
+                model.addRow(row);
+            }
+        }
+        studentFrame.setTabelExamene(model);
+    }
+
+    public void loadTabelCursuriContractate(){
+        String [] columnNames = {"Cod", "Nume", "Nr. credite", "Semestru"};
+        DefaultTableModel model = new DefaultTableModel();
+        model.setColumnIdentifiers(columnNames);
+        for (Course c:student.getContract().getCourses()) {
+            Object [] row = {c.getCod(), c.getName(), c.getNumberOfCredits(), c.getSemestrul()};
+            model.addRow(row);
+        }
+        studentFrame.setTableCursuriContractate(model);
+    }
 
 }
