@@ -2056,7 +2056,6 @@ public class FrameAdminMain extends javax.swing.JFrame {
         tableCatalogDupaStudent.setModel(controllerAdmin.loadTable_genDupaStud((Student) inputGenDupaStudStudent.getSelectedItem()));
 
         tableCatalogDupaStudent.setVisible(true);
-        // TODO add your handling code here:
     }//GEN-LAST:event_inputGenDupaStudStudentItemStateChanged
 
     private void inputRaportProfFacultaItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_inputRaportProfFacultaItemStateChanged
