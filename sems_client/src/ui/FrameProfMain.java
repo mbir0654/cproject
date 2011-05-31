@@ -1491,7 +1491,7 @@ public class FrameProfMain extends javax.swing.JFrame {
     }
     public void setAnnouncementDetail(){
         Announcement announcement = (Announcement) listAnunturi.getSelectedValue();
-        labelAnuntTitlu.setText(announcement.getSubject() + " [ " + announcement.getData().toString() + " ]");
+        labelAnuntTitlu.setText(announcement.getSubject() + " [ " + announcement.getDate().toString() + " ]");
         labelAnuntCurs.setText(announcement.getCourse().getName());
         labelAnuntText.setText(announcement.getAnnouncement());
     }

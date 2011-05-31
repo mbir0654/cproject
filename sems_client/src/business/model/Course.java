@@ -11,11 +11,11 @@ import java.util.*;
 	 */
 public class Course implements Serializable {
 
-	private ArrayList<Exam> exams;
-	private ArrayList<Announcement> announcements;
-	private ArrayList<Assignment> assignments;
-	private ArrayList<CourseMaterial> materialeDeCurs;
-	private List<Professor> profesori;
+	private ArrayList<Exam> exams = new ArrayList<Exam>();
+	private ArrayList<Announcement> announcements = new ArrayList<Announcement>();
+	private ArrayList<Assignment> assignments = new ArrayList<Assignment>();
+	private ArrayList<CourseMaterial> materialeDeCurs = new ArrayList<CourseMaterial>();
+	private List<Professor> profesori = new ArrayList<Professor>();
 	private String name = "";
 	private Integer numberOfCredits = 0;
 	private Specialty specializare;
@@ -31,12 +31,6 @@ public class Course implements Serializable {
 	 * Constructorul implicit
 	 */
 	public Course(){
-		exams = new ArrayList<Exam>();
-		announcements = new ArrayList<Announcement>();
-		assignments = new ArrayList<Assignment>();
-		materialeDeCurs = new ArrayList<CourseMaterial>();
-		profesori = new ArrayList<Professor>();
-		specializare = new Specialty();
 	}
 	/**
 	 * Constructorul de copiere
@@ -62,12 +56,13 @@ public class Course implements Serializable {
 	 * @param n este numele cursului
 	 * @param nC este numarul de credite
 	 */
-	public Course(String n, int nC) {
+	public Course(String n, int nC, Specialty s) {
             name = n;
             exams = new ArrayList<Exam>();
             announcements = new ArrayList<Announcement>();
             assignments = new ArrayList<Assignment>();
             numberOfCredits = nC;
+            specializare = s;
 	}
 
 
@@ -252,8 +247,17 @@ public class Course implements Serializable {
 	 * compus din abrevierea cursului si a
 	 * specializarii
 	 */
-	public void setCod(String cod) {
-		this.cod = cod;
+        public void setCod(String cod){
+            this.cod = cod;
+        }
+
+        /**
+         * genereaza un cod pentru curs
+         */
+	public void generateCod() {
+		cod = name.substring(0, 3).toUpperCase()+"-"
+                        +specializare.getName().substring(0, 4).toUpperCase() +
+                        "-" + new Random(name.length()).nextInt(20);
 	}
 
 	/**
@@ -270,7 +274,7 @@ public class Course implements Serializable {
 	 * obligatoriu, facultativ, optional
 	 */
 	public void setTip(String tip) {
-		this.tip = tip;
+		this.tip = tip.toUpperCase();
 	}
 
 	/**
@@ -308,6 +312,7 @@ public class Course implements Serializable {
 	/**
 	 * creaza un String din nume specializare si numar de credite
 	 */
+    @Override
     public String toString() {
         return name+" "+numberOfCredits+" "+exams;
     }
@@ -317,11 +322,25 @@ public class Course implements Serializable {
     }
 
 
-    public List<DbObject> toDbObjectListCS() throws SQLException{
+    public List<DbObject> toDbObjectListCS() {
+    	return null;
+    }
+
+    public List<DbObject> toDbObjectListTC(Professor p) {
+    	return null;
+    }
+
+    public List<DbObject> toDbObjectListExams(Exam e) {
         return null;
     }
 
-    public List<DbObject> toDbObjectListTC(Professor p) throws SQLException{
+     public List<DbObject> toDbObjectListAssignments(Assignment a) {
+        return null;
+    }
+      public List<DbObject> toDbObjectListAnnouncements(Announcement a) {
+        return null;
+    }
+       public List<DbObject> toDbObjectListMaterials(CourseMaterial cm) {
         return null;
     }
 }
