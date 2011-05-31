@@ -854,9 +854,8 @@ public class FrameStudMain extends javax.swing.JFrame {
     }//GEN-LAST:event_noteListCursuriItemStateChanged
 
     private void temeListCursuriItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_temeListCursuriItemStateChanged
-
+        controllerStudent.loadTeme((Course) temeListCursuri.getSelectedItem());
         panouTeme.setVisible(true);
-        // TODO add your handling code here:
     }//GEN-LAST:event_temeListCursuriItemStateChanged
 
     private void butContracteazaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butContracteazaActionPerformed
@@ -1000,5 +999,9 @@ public class FrameStudMain extends javax.swing.JFrame {
 
     public void setMaterialeList(ListModel model) {
         materialeList.setModel(model);
+    }
+
+    public void setTemeList(ListModel model) {
+        temeList.setModel(model);
     }
 }

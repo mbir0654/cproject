@@ -115,4 +115,12 @@ public class ControllerStudent {
         }
         studentFrame.setMaterialeList(model);
     }
+
+    public void loadTeme(Course course) {
+        DefaultListModel model = new DefaultListModel();
+        for (Assignment a:course.getAssignments()) {
+            model.addElement(a);
+        }
+        studentFrame.setTemeList(model);
+    }
 }
