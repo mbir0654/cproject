@@ -42,8 +42,8 @@ public class ControllerStudent {
          loadTemeCourses();
          loadNoteListCursuri();
          loadMaterialeListCursuri();
-         loadTabelExamene();
          loadTabelCursuriContractate();
+         loadTabelCursuriDisponibile();
          studentFrame.setVisible(true);
      }
 
@@ -75,15 +75,13 @@ public class ControllerStudent {
         studentFrame.setMaterialeListCursuri(new DefaultComboBoxModel(student.getContract().getCourses().toArray()));
     }
 
-    public void loadTabelExamene() {
+    public void loadTabelExamene(Course course) {
         String [] columnNames = {"Data", "Tip examinare", "Nota obtinuta"};
         DefaultTableModel model = new DefaultTableModel();
         model.setColumnIdentifiers(columnNames);
-        for (Course c:student.getContract().getCourses()) {
-            for (Exam e:c.getExams()) {
-                Object [] row = {e.getData(), e.getType(), e.getGrades()};
-                model.addRow(row);
-            }
+        for (Exam e:course.getExams()) {
+            Object [] row = {e.getData(), e.getType(), e.getGrades()};
+            model.addRow(row);
         }
         studentFrame.setTabelExamene(model);
     }
@@ -99,4 +97,22 @@ public class ControllerStudent {
         studentFrame.setTableCursuriContractate(model);
     }
 
+    public void loadTabelCursuriDisponibile() {
+        String [] columnNames = {"Cod", "Nume", "Nr. credite", "Semestru"};
+        DefaultTableModel model = new DefaultTableModel();
+        model.setColumnIdentifiers(columnNames);
+        for (Course c:student.getSpecialty().getCourses()) {
+            Object [] row = {c.getCod(), c.getName(), c.getNumberOfCredits(), c.getSemestrul()};
+            model.addRow(row);
+        }
+        studentFrame.setTabelCursuriDisponibile(model);
+    }
+
+    public void loadListMaterialeCurs(Course course) {
+        DefaultListModel model = new DefaultListModel();
+        for (CourseMaterial m:course.getMaterialeDeCurs()) {
+            model.addElement(m);
+        }
+        studentFrame.setMaterialeList(model);
+    }
 }

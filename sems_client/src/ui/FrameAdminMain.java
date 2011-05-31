@@ -2447,9 +2447,10 @@ public class FrameAdminMain extends javax.swing.JFrame {
         return inputAdminPrenume.getText();
     }
 
-
     public void reloadCursuriList(){
         listCursuri.setModel(controllerAdmin.loadCursuriByFaculta_list((Faculty) listFacultati.getSelectedValue()));
+    }
+
     public Faculty getSelectedFaculty() {
         return (Faculty) listFacultati.getSelectedValue();
     }
