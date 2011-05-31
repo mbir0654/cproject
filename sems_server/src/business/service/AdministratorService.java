@@ -1,9 +1,6 @@
 package business.service;
 
-import data.repositorydb.AdministratorRepository;
-import data.repositorydb.FacultyRepository;
-import data.repositorydb.ProfessorRepository;
-import data.repositorydb.StudentRepository;
+import data.repositorydb.*;
 import business.model.*;
 import business.serviceinterface.InterfaceAdministratorService;
 import data.repositoryinterface.Repository;
@@ -22,6 +19,7 @@ public final class AdministratorService implements InterfaceAdministratorService
 	private Repository<Student> studRepo = StudentRepository.getInstance();
 	private Repository<Faculty> facultyRepo = FacultyRepository.getInstance();
 	private Repository<Administrator> adminRepo = AdministratorRepository.getInstance();
+    private Repository<Course> courseRepo = CourseRepository.getInstance();
 
 	public String hello() {
         return "greetings, from admin";
@@ -131,6 +129,12 @@ public final class AdministratorService implements InterfaceAdministratorService
     public void deleteAdministrator(Administrator administrator){
         System.out.println("Vom sterge adminul:" + administrator);
         adminRepo.delete(administrator);
+    }
+    public void deleteCourse(Course course){
+        courseRepo.delete(course);
+    }
+    public void deleteProfessor(Professor professor){
+        profRepo.delete(professor);
     }
 
 }
