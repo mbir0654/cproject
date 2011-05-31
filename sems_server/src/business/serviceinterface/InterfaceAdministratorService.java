@@ -27,5 +27,6 @@ public interface InterfaceAdministratorService {
     public void addFaculty(Faculty faculty);
     public void addAdministrator(Administrator administrator);
     public void addProfesor(Professor professor);
+   public void deleteAdministrator(Administrator administrator);
 
 }
