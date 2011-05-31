@@ -70,7 +70,6 @@ public class StudentRepository implements Repository<Student>{
                     dbu.close();
 		} catch (MySqlException e) {
 			System.out.println(e.getMessage());
-			//e.printStackTrace();
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());
 			e.printStackTrace();
@@ -121,7 +120,7 @@ public class StudentRepository implements Repository<Student>{
                     Integer ctid = rs1.getInt(1);
                     SqlFunctions.delete("contracts_data", "contractId="
                             +ctid);
-                    System.out.println(" Sters toate cursurile " +
+                    System.out.println("Sters toate cursurile " +
                             "din contract");
                 }
                 rs1 = dbu.getDate("select ssId from students_" +

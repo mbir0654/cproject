@@ -68,7 +68,7 @@ public class ControllerProfesor {
         Announcement announcement = new Announcement();
         announcement.setAnnouncement(profesorFrame.getAnuntAddMesaj());
         announcement.setCourse(profesorFrame.getAnuntAddCurs());
-        announcement.setData(Calendar.getInstance().getTime());
+        announcement.setDate(Calendar.getInstance().getTime());
         announcement.setSubject(profesorFrame.getAnuntAddTitlu());
         professor.addAnnouncement(announcement);
         professorService.addAnnouncement(professor, announcement);

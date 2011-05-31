@@ -34,7 +34,7 @@ CREATE TABLE `announcement` (
   KEY `ann_fk2` (`csId`),
   CONSTRAINT `ann_fk1` FOREIGN KEY (`teacherId`) REFERENCES `teachers` (`teacherId`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `ann_fk2` FOREIGN KEY (`csId`) REFERENCES `specializations_courses` (`csId`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -63,7 +63,7 @@ CREATE TABLE `assignments` (
   PRIMARY KEY (`assignmentId`),
   KEY `fk_assignments_2` (`csId`),
   CONSTRAINT `fk_assignments_2` FOREIGN KEY (`csId`) REFERENCES `specializations_courses` (`csId`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -88,13 +88,13 @@ CREATE TABLE `contracts` (
   `ssId` int(11) NOT NULL,
   `spId` int(11) NOT NULL,
   PRIMARY KEY (`contractId`),
+  UNIQUE KEY `contracts_uk` (`spId`,`ssId`),
   KEY `spId` (`spId`),
   KEY `ssId` (`ssId`),
   KEY `ssId_2` (`ssId`),
-  CONSTRAINT `contracts_uk` UNIQUE (`spId`,`ssId`),
   CONSTRAINT `contracts_ibfk_1` FOREIGN KEY (`spId`) REFERENCES `specializations` (`spId`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `contracts_ibfk_2` FOREIGN KEY (`ssId`) REFERENCES `students_specializations` (`ssId`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -103,7 +103,7 @@ CREATE TABLE `contracts` (
 
 LOCK TABLES `contracts` WRITE;
 /*!40000 ALTER TABLE `contracts` DISABLE KEYS */;
-INSERT INTO `contracts` VALUES (1,2,2),(2,3,2),(3,4,2),(4,5,2),(16,18,2);
+INSERT INTO `contracts` VALUES (1,2,2),(2,3,2),(3,4,2),(4,5,2);
 /*!40000 ALTER TABLE `contracts` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -117,9 +117,9 @@ DROP TABLE IF EXISTS `contracts_data`;
 CREATE TABLE `contracts_data` (
   `contractId` int(11) NOT NULL,
   `csId` int(11) NOT NULL,
+  UNIQUE KEY `course_contract_uk` (`csId`,`contractId`),
   KEY `contractId` (`contractId`),
   KEY `csId` (`csId`),
-  CONSTRAINT `course_contract_uk` UNIQUE (`csId`,`contractId`),
   CONSTRAINT `contracts_data_ibfk_1` FOREIGN KEY (`contractId`) REFERENCES `contracts` (`contractId`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `contracts_data_ibfk_2` FOREIGN KEY (`csId`) REFERENCES `specializations_courses` (`csId`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -147,10 +147,10 @@ CREATE TABLE `coursematerials` (
   `csId` int(11) NOT NULL,
   `fileName` varchar(255) NOT NULL,
   PRIMARY KEY (`cmId`),
+  UNIQUE KEY `coursematerials_uk1` (`csId`,`fileName`),
   KEY `fk_coursematerials_1` (`csId`),
-  CONSTRAINT `coursematerials_uk1` UNIQUE (`csId`,`fileName`),
   CONSTRAINT `fk_coursematerials_1` FOREIGN KEY (`csId`) REFERENCES `specializations_courses` (`csId`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -173,9 +173,9 @@ DROP TABLE IF EXISTS `courses`;
 CREATE TABLE `courses` (
   `courseId` int(11) NOT NULL AUTO_INCREMENT,
   `courseName` varchar(255) NOT NULL,
-  CONSTRAINT `courses_uk` UNIQUE (`courseName`),
-  PRIMARY KEY (`courseId`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+  PRIMARY KEY (`courseId`),
+  UNIQUE KEY `courses_uk` (`courseName`)
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -184,7 +184,7 @@ CREATE TABLE `courses` (
 
 LOCK TABLES `courses` WRITE;
 /*!40000 ALTER TABLE `courses` DISABLE KEYS */;
-INSERT INTO `courses` VALUES (1,'BMC'),(2,'Analiza'),(3,'FP');
+INSERT INTO `courses` VALUES (2,'Analiza'),(1,'BMC'),(3,'FP'),(6,'Ingineria SistemelorSoft');
 /*!40000 ALTER TABLE `courses` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -200,11 +200,11 @@ CREATE TABLE `exams` (
   `date` date NOT NULL,
   `csId` int(11) NOT NULL,
   `type` varchar(255) NOT NULL,
-  CONSTRAINT `exams_uk` UNIQUE (`csId`,`type`,`date`),
   PRIMARY KEY (`examId`),
+  UNIQUE KEY `exams_uk` (`csId`,`type`,`date`),
   KEY `new_fk_constraint` (`csId`),
   CONSTRAINT `new_fk_constraint` FOREIGN KEY (`csId`) REFERENCES `specializations_courses` (`csId`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1 ROW_FORMAT=FIXED;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=latin1 ROW_FORMAT=FIXED;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -213,7 +213,7 @@ CREATE TABLE `exams` (
 
 LOCK TABLES `exams` WRITE;
 /*!40000 ALTER TABLE `exams` DISABLE KEYS */;
-INSERT INTO `exams` VALUES (3,'2011-05-21',10,'final'),(4,'2011-05-24',5,'final'),(5,'2011-05-27',2,'final');
+INSERT INTO `exams` VALUES (5,'2011-05-27',2,'final'),(4,'2011-05-24',5,'final'),(3,'2011-05-21',10,'final');
 /*!40000 ALTER TABLE `exams` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -228,8 +228,8 @@ CREATE TABLE `faculties` (
   `facultyId` int(11) NOT NULL AUTO_INCREMENT,
   `facultyName` varchar(255) DEFAULT NULL,
   `address` varchar(255) NOT NULL,
-  CONSTRAINT `faculties_uk` UNIQUE (`facultyName`),
-  PRIMARY KEY (`facultyId`)
+  PRIMARY KEY (`facultyId`),
+  UNIQUE KEY `faculties_uk` (`facultyName`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -286,8 +286,8 @@ CREATE TABLE `grades` (
   PRIMARY KEY (`gradeId`) USING BTREE,
   KEY `csId` (`csId`),
   KEY `studentId` (`ssId`),
-  CONSTRAINT `grades_ibfk_2` FOREIGN KEY (`ssId`) REFERENCES `students_specializations` (`ssId`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `grades_ibfk_1` FOREIGN KEY (`csId`) REFERENCES `specializations_courses` (`csId`) ON DELETE CASCADE ON UPDATE CASCADE
+  CONSTRAINT `grades_ibfk_1` FOREIGN KEY (`csId`) REFERENCES `specializations_courses` (`csId`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `grades_ibfk_2` FOREIGN KEY (`ssId`) REFERENCES `students_specializations` (`ssId`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -313,8 +313,8 @@ CREATE TABLE `groups` (
   `name` varchar(255) NOT NULL,
   `spId` int(11) NOT NULL,
   PRIMARY KEY (`groupId`),
+  UNIQUE KEY `groups_uk` (`name`),
   KEY `fk_gr_sp` (`spId`),
-  CONSTRAINT `groups_uk` UNIQUE (`name`),
   CONSTRAINT `fk_gr_sp` FOREIGN KEY (`spId`) REFERENCES `specializations` (`spId`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -341,10 +341,11 @@ CREATE TABLE `solutions` (
   `ssId` int(11) NOT NULL,
   `solution` varchar(255) NOT NULL,
   `completed` date NOT NULL,
-  PRIMARY KEY (`assignmentId`,`ssId`,`completed`),
+  PRIMARY KEY (`assignmentId`,`ssId`),
+  UNIQUE KEY `solutions_uk` (`assignmentId`,`ssId`),
   KEY `fk_solutions_1` (`ssId`),
-  CONSTRAINT `fk_solutions_2` FOREIGN KEY (`assignmentId`) REFERENCES `assignments` (`assignmentId`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `fk_solutions_1` FOREIGN KEY (`ssId`) REFERENCES `students_specializations` (`ssId`) ON DELETE CASCADE ON UPDATE CASCADE
+  CONSTRAINT `fk_solutions_1` FOREIGN KEY (`ssId`) REFERENCES `students_specializations` (`ssId`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `fk_solutions_2` FOREIGN KEY (`assignmentId`) REFERENCES `assignments` (`assignmentId`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -369,8 +370,8 @@ CREATE TABLE `specializations` (
   `spId` int(11) NOT NULL AUTO_INCREMENT,
   `spName` varchar(255) NOT NULL,
   `numberOfYears` int(11) NOT NULL,
-  CONSTRAINT `specs_uk` UNIQUE (`spName`),
-  PRIMARY KEY (`spId`)
+  PRIMARY KEY (`spId`),
+  UNIQUE KEY `specs_uk` (`spName`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -399,14 +400,14 @@ CREATE TABLE `specializations_courses` (
   `courseType` varchar(50) NOT NULL,
   `courseCredits` int(11) NOT NULL,
   `semester` int(11) NOT NULL,
-  CONSTRAINT `specs_courses_uk1` UNIQUE (`courseCode`),
-  CONSTRAINT `specs_courses_uk2` UNIQUE (`csId`,`spId`),
   PRIMARY KEY (`csId`),
+  UNIQUE KEY `specs_courses_uk1` (`courseCode`),
+  UNIQUE KEY `specs_courses_uk2` (`csId`,`spId`),
   KEY `spId` (`spId`),
   KEY `courseId` (`courseId`),
   CONSTRAINT `specializations_courses_ibfk_1` FOREIGN KEY (`spId`) REFERENCES `specializations` (`spId`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `specializations_courses_ibfk_2` FOREIGN KEY (`courseId`) REFERENCES `courses` (`courseId`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -432,13 +433,13 @@ CREATE TABLE `students` (
   `personalCode` varchar(255) NOT NULL,
   `year` int(11) NOT NULL,
   `serialNumber` int(11) NOT NULL,
-  CONSTRAINT `students_uk1` UNIQUE (`userName`),
-  CONSTRAINT `students_uk2` UNIQUE (`personalCode`),
-  CONSTRAINT `students_uk3` UNIQUE (`serialNumber`),
   PRIMARY KEY (`studentId`,`serialNumber`,`personalCode`),
+  UNIQUE KEY `students_uk1` (`userName`),
+  UNIQUE KEY `students_uk2` (`personalCode`),
+  UNIQUE KEY `students_uk3` (`serialNumber`),
   KEY `userName` (`userName`) USING BTREE,
   CONSTRAINT `students_fk1` FOREIGN KEY (`userName`) REFERENCES `users` (`userName`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -447,7 +448,7 @@ CREATE TABLE `students` (
 
 LOCK TABLES `students` WRITE;
 /*!40000 ALTER TABLE `students` DISABLE KEYS */;
-INSERT INTO `students` VALUES (2,'alex','1880607123454',1,10680),(3,'andu','1880607123455',1,10681),(4,'mishu','1880607123456',1,10682),(5,'ovi','1880607123457',1,10683),(19,'oti','1234567890',1,10688);
+INSERT INTO `students` VALUES (2,'alex','1880607123454',1,10680),(3,'andu','1880607123455',1,10681),(4,'mishu','1880607123456',1,10682),(5,'ovi','1880607123457',1,10683);
 /*!40000 ALTER TABLE `students` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -463,16 +464,16 @@ CREATE TABLE `students_specializations` (
   `studentId` int(11) NOT NULL,
   `spId` int(11) NOT NULL,
   `groupId` int(11) NOT NULL,
-  CONSTRAINT `s_s_uk1` UNIQUE (`spId`,`groupId`,`studentId`),
-  CONSTRAINT `s_s_uk2` UNIQUE (`studentId`),
   PRIMARY KEY (`ssId`),
+  UNIQUE KEY `s_s_uk1` (`spId`,`groupId`,`studentId`),
+  UNIQUE KEY `s_s_uk2` (`studentId`),
   KEY `spId` (`spId`),
   KEY `studentId` (`studentId`),
   KEY `students_specializations_ibfk_3` (`groupId`),
   CONSTRAINT `students_specializations_ibfk_1` FOREIGN KEY (`studentId`) REFERENCES `students` (`studentId`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `students_specializations_ibfk_2` FOREIGN KEY (`spId`) REFERENCES `specializations` (`spId`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `students_specializations_ibfk_3` FOREIGN KEY (`groupId`) REFERENCES `groups` (`groupId`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -481,7 +482,7 @@ CREATE TABLE `students_specializations` (
 
 LOCK TABLES `students_specializations` WRITE;
 /*!40000 ALTER TABLE `students_specializations` DISABLE KEYS */;
-INSERT INTO `students_specializations` VALUES (2,2,2,1),(3,3,2,1),(4,4,2,1),(5,5,2,1),(18,19,2,1);
+INSERT INTO `students_specializations` VALUES (2,2,2,1),(3,3,2,1),(4,4,2,1),(5,5,2,1);
 /*!40000 ALTER TABLE `students_specializations` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -496,11 +497,11 @@ CREATE TABLE `teachers` (
   `teacherId` int(11) NOT NULL AUTO_INCREMENT,
   `userName` varchar(255) NOT NULL,
   `teacherTitle` varchar(255) NOT NULL DEFAULT '',
-  CONSTRAINT `teachers_uk` UNIQUE (`userName`),
   PRIMARY KEY (`teacherId`),
+  UNIQUE KEY `teachers_uk` (`userName`),
   KEY `userName` (`userName`) USING BTREE,
   CONSTRAINT `fk1` FOREIGN KEY (`userName`) REFERENCES `users` (`userName`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -509,7 +510,7 @@ CREATE TABLE `teachers` (
 
 LOCK TABLES `teachers` WRITE;
 /*!40000 ALTER TABLE `teachers` DISABLE KEYS */;
-INSERT INTO `teachers` VALUES (1,'bobby','Prof.'),(3,'dia','Lector');
+INSERT INTO `teachers` VALUES (1,'bobby','Prof.'),(3,'dia','Lector'),(5,'oti','Prof. Doctor ');
 /*!40000 ALTER TABLE `teachers` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -523,9 +524,9 @@ DROP TABLE IF EXISTS `teachers_groups`;
 CREATE TABLE `teachers_groups` (
   `tsId` int(11) NOT NULL,
   `groupId` int(11) NOT NULL,
+  UNIQUE KEY `teachers_groups_uk` (`tsId`,`groupId`),
   KEY `fk_teachers_groups_1` (`tsId`),
   KEY `fk_teachers_groups_2` (`groupId`),
-  CONSTRAINT `teachers_groups_uk` UNIQUE (`tsId`,`groupId`),
   CONSTRAINT `fk_teachers_groups_1` FOREIGN KEY (`tsId`) REFERENCES `teachers_spec` (`tsId`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `fk_teachers_groups_2` FOREIGN KEY (`groupId`) REFERENCES `groups` (`groupId`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -537,7 +538,7 @@ CREATE TABLE `teachers_groups` (
 
 LOCK TABLES `teachers_groups` WRITE;
 /*!40000 ALTER TABLE `teachers_groups` DISABLE KEYS */;
-INSERT INTO `teachers_groups` VALUES (1,1);
+INSERT INTO `teachers_groups` VALUES (1,1),(6,1);
 /*!40000 ALTER TABLE `teachers_groups` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -549,16 +550,16 @@ DROP TABLE IF EXISTS `teachers_spec`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `teachers_spec` (
-  `tsId` int(11) NOT NULL,
+  `tsId` int(11) NOT NULL AUTO_INCREMENT,
   `teacherId` int(11) NOT NULL,
   `csId` int(11) NOT NULL,
   PRIMARY KEY (`tsId`),
+  UNIQUE KEY `teachers_specrs_uk` (`csId`,`teacherId`),
   KEY `csId` (`csId`),
   KEY `teacherId` (`teacherId`),
-  CONSTRAINT `teachers_specrs_uk` UNIQUE (`csId`,`teacherId`),
   CONSTRAINT `teachers_spec_ibfk_1` FOREIGN KEY (`teacherId`) REFERENCES `teachers` (`teacherId`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `teachers_spec_ibfk_2` FOREIGN KEY (`csId`) REFERENCES `specializations_courses` (`csId`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=34 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -567,7 +568,7 @@ CREATE TABLE `teachers_spec` (
 
 LOCK TABLES `teachers_spec` WRITE;
 /*!40000 ALTER TABLE `teachers_spec` DISABLE KEYS */;
-INSERT INTO `teachers_spec` VALUES (1,1,2),(2,3,2);
+INSERT INTO `teachers_spec` VALUES (1,1,2),(2,3,2),(6,5,2);
 /*!40000 ALTER TABLE `teachers_spec` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -595,7 +596,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES ('Adrian','Bunta','adi','1a1dc91c907325c69271ddf0c944bc72','admin'),('Alexandru','Suciu','alex','1a1dc91c907325c69271ddf0c944bc72','stud'),('Andrei','Suciu','andu','1a1dc91c907325c69271ddf0c944bc72','stud'),('Bot-Rus','Rares','bobby','1a1dc91c907325c69271ddf0c944bc72','prof'),('Daniel','Dudas','dani','1a1dc91c907325c69271ddf0c944bc72','admin'),('Bujorean','Diana','dia','1a1dc91c907325c69271ddf0c944bc72','prof'),('Mihai','Suciu','mishu','1a1dc91c907325c69271ddf0c944bc72','stud'),('Bogdan','Mihut','myh','1a1dc91c907325c69271ddf0c944bc72','admin'),('Otniel','Nicola','oti','1a1dc91c907325c69271ddf0c944bc72','stud'),('Ovidiu','Suciu','ovi','1a1dc91c907325c69271ddf0c944bc72','stud');
+INSERT INTO `users` VALUES ('Adrian','Bunta','adi','1a1dc91c907325c69271ddf0c944bc72','admin'),('Alexandru','Suciu','alex','1a1dc91c907325c69271ddf0c944bc72','stud'),('Andrei','Suciu','andu','1a1dc91c907325c69271ddf0c944bc72','stud'),('Bot-Rus','Rares','bobby','1a1dc91c907325c69271ddf0c944bc72','prof'),('Daniel','Dudas','dani','1a1dc91c907325c69271ddf0c944bc72','admin'),('Bujorean','Diana','dia','1a1dc91c907325c69271ddf0c944bc72','prof'),('Mihai','Suciu','mishu','1a1dc91c907325c69271ddf0c944bc72','stud'),('Bogdan','Mihut','myh','1a1dc91c907325c69271ddf0c944bc72','admin'),('Otniel','Nicola','oti','1a1dc91c907325c69271ddf0c944bc72','prof'),('Ovidiu','Suciu','ovi','1a1dc91c907325c69271ddf0c944bc72','stud');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -608,4 +609,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2011-05-31  2:30:56
+-- Dump completed on 2011-05-31 22:09:54

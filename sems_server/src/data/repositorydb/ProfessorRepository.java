@@ -173,7 +173,7 @@ public class ProfessorRepository implements Repository<Professor> {
                         DbObject db4 = new DbObject("body", ann.
                                 getAnnouncement());
                         DbObject db5 = new DbObject("date", sdf.format
-                                (ann.getData()));
+                                (ann.getDate()));
                         DbObject db6 = new DbObject("subject",ann.getSubject());
                         data5.add(db1); data5.add(db2); data5.add(db3);
                         data5.add(db4); data5.add(db5); data5.add(db6);
