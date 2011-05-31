@@ -221,7 +221,6 @@ public class FacultyRepository implements Repository<Faculty>{
                                 Group g = new Group();
                                 g.setSpecialty(sp);
                                 g.setGroupName(rs1.getString(1));
-                                System.out.println(g);
                                 /*
                                  *extragem lista cu studentii unei grupe
                                  */
@@ -235,7 +234,6 @@ public class FacultyRepository implements Repository<Faculty>{
                                 while(rs10.next()){
                                         int cId = rs10.getInt(1);
                                         Student s = sr.findByName(rs10.getString(6));
-                                        System.out.println(sr.getAll());
                                         s.setGroup(g);
                                         s.setNrMat(rs10.getString(4));
                                         s.setCnp(rs10.getString(5));

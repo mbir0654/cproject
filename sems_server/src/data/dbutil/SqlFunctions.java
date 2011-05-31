@@ -85,6 +85,7 @@ public abstract class SqlFunctions{
             DbUtil dbu = new DbUtil();
             if(dbu.makeUpdate(s) > 0){
                 dbu.close();
+                System.out.println("Update reusit!");
                 return true;
             }dbu.close();
         }catch(MySQLIntegrityConstraintViolationException ex){
@@ -105,9 +106,11 @@ public abstract class SqlFunctions{
     public static boolean delete(String tableName, String where)
                                 throws SQLException{
         DbUtil dbu = new DbUtil();
-        if(dbu.makeUpdate("delete from "+tableName+" where "+where) > 0)
-        {dbu.close();
-            return true;}
+        if(dbu.makeUpdate("delete from "+tableName+" where "+where) > 0){
+            dbu.close();
+            System.out.print("Delete reusit!");
+            return true;
+        }
         dbu.close();
         return false;
     }

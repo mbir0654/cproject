@@ -109,33 +109,48 @@ public class StudentRepository implements Repository<Student>{
                 DbUtil dbu =  new DbUtil();
                 List<DbObject> data1 = item.toDbObjectList();
                 List<DbObject> data2 = item.toDbObjectListStud();
-                //List<DbObject> data3 = item.toDbObjectListSS();
                 SqlFunctions.update("users", data1, "userName = '"
                     +item.getUserName()+"'");
                 SqlFunctions.update("students", data2, "userName = '"
                     +item.getUserName()+"'");
-                //SqlFunctions.update("students_specializations",data3,
-                //"spId  = "+data3.get(1).getValue());
                 for (Course c : item.getContract().getCourses()){
+                    if(c == null){
+                        ResultSet rs = dbu.getDate("select c.contractId from " +
+                               "contracts c inner join students_specializations"
+                               +" ss on c.ssId = ss.ssId inner join students s"
+                               +" on ss.studentId = s.studentId where " +
+                               "s.userName = '"+item.getUserName()+"'");
+                        if(rs.next()){
+                            Integer ctid = rs.getInt(1);
+                            SqlFunctions.delete("contracts_data", "contractId="
+                                    +ctid);
+                            System.out.println("Sters toate cursurile " +
+                                    "din constract");
+                        }
+                    }
                     List<DbObject> data4 = item.toDbObjectListContractCourses(c);
                     try{
-                    SqlFunctions.insert("contracts_data", data4,dbu);
+                        SqlFunctions.delete("contracts_data", "csId="+data4.
+                                get(0).getValue()+" and contractId="+data4.
+                                get(1).getValue());
+                        SqlFunctions.insert("contracts_data", data4,dbu);
                     }catch(MySqlException e){
                         e.getMessage();
                     }
                     for(Assignment a : c.getAssignments()){
                         ResultSet rs = dbu.getDate("SELECT assignmentId FROM assignments a where text = '"+a.getText()+"'");
-                        rs.next();
-                        Integer asid = rs.getInt(1);
-                        System.out.println(asid);
-                        for(AssignmentSolution as : item.getSolutions()){
-                            List<DbObject> data5 = item.toDbObjectListSolutions(c,as, asid);
-                            try{
-                                SqlFunctions.insert("solutions", data5, dbu);
-                                SqlFunctions.update("solutions",data5,"assignmentId = "
-                                    +asid+" and ssid = "+data5.get(0).getValue());
-                            }catch (MySqlException e){
-                                System.out.println(e.getMessage());
+                        if(rs.next()){
+                            Integer asid = rs.getInt(1);
+                            System.out.println(asid);
+                            for(AssignmentSolution as : item.getSolutions()){
+                                List<DbObject> data5 = item.toDbObjectListSolutions(c,as, asid);
+                                try{
+                                    SqlFunctions.insert("solutions", data5, dbu);
+                                    SqlFunctions.update("solutions",data5,"assignmentId = "
+                                        +asid+" and ssid = "+data5.get(0).getValue());
+                                }catch (MySqlException e){
+                                    System.out.println(e.getMessage());
+                                }
                             }
                         }
                     }

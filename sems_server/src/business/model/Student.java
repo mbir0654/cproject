@@ -251,13 +251,15 @@ public class Student extends User {
                 " students where userName='"+userName+"') limit 1");
         rs2 = dbu.getDate("select spId from specializations where " +
                 "spName='"+specialty.getName()+"' limit 1");
-        rs1.next();
-        ssid = rs1.getInt(1);
-        rs2.next();
-        spid = rs2.getInt(1);
-        DbObject db1 = new DbObject("ssId", ssid.toString());
-        DbObject db2 = new DbObject("spId", spid.toString());
-        l.add(db1);l.add(db2);
+        if(rs1.next()){
+            ssid = rs1.getInt(1);
+            if(rs2.next()){
+                spid = rs2.getInt(1);
+                DbObject db1 = new DbObject("ssId", ssid.toString());
+                DbObject db2 = new DbObject("spId", spid.toString());
+                l.add(db1);l.add(db2);
+            }
+        }
         dbu.close();
         return l;
     }
@@ -274,13 +276,15 @@ public class Student extends User {
                 "students_specializations ss on c.ssId = ss.ssId inner join " +
                 "students s on ss.studentId = s.studentId where " +
                 "s.userName = '"+userName+"'");
-        rs1.next();
-        csid = rs1.getInt(1);
-        rs2.next();
-        ctid = rs2.getInt(1);
-        DbObject db1 = new DbObject("csId", csid.toString());
-        DbObject db2 = new DbObject("contractId", ctid.toString());
-        l.add(db1);l.add(db2);
+        if(rs1.next()){
+            csid = rs1.getInt(1);
+            if(rs2.next()){
+                ctid = rs2.getInt(1);
+                DbObject db1 = new DbObject("csId", csid.toString());
+                DbObject db2 = new DbObject("contractId", ctid.toString());
+                l.add(db1);l.add(db2);
+            }
+        }
         dbu.close();
         return l;
     }
@@ -293,19 +297,20 @@ public class Student extends User {
         rs1 = dbu.getDate("select ssId from students_" +
                 "specializations where studentId in(select studentId from" +
                 " students where userName='"+userName+"') limit 1");
-        rs1.next();
-        ssid = rs1.getInt(1);
-        /*rs2 = dbu.getDate("SELECT assignmentId FROM assignments a inner join" +
-        " specializations_courses sc on a.csId = sc.csId where " +
-        "sc.courseCode = '"+c.getCod()+"'");
-        rs2.next();
-        assignid = rs2.getInt(1);*/
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
-        DbObject db1 = new DbObject("ssId", ssid.toString());
-        DbObject db2 = new DbObject("assignmentId", assignid.toString());
-        DbObject db3 = new DbObject("solution", as.getSolution());
-        DbObject db4 = new DbObject("completed", sdf.format(as.getDate()));
-        l.add(db1);l.add(db2);l.add(db3);l.add(db4);
+        if(rs1.next()){
+            ssid = rs1.getInt(1);
+            /*rs2 = dbu.getDate("SELECT assignmentId FROM assignments a inner join" +
+            " specializations_courses sc on a.csId = sc.csId where " +
+            "sc.courseCode = '"+c.getCod()+"'");
+            rs2.next();
+            assignid = rs2.getInt(1);*/
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+            DbObject db1 = new DbObject("ssId", ssid.toString());
+            DbObject db2 = new DbObject("assignmentId", assignid.toString());
+            DbObject db3 = new DbObject("solution", as.getSolution());
+            DbObject db4 = new DbObject("completed", sdf.format(as.getDate()));
+            l.add(db1);l.add(db2);l.add(db3);l.add(db4);
+        }
         dbu.close();
         return l;
     }
