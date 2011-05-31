@@ -126,16 +126,15 @@ public class Specialty implements Serializable {
     public List<DbObject> toDboBjectListSF() throws SQLException{
         List<DbObject> l = new ArrayList<DbObject>();
         DbUtil dbu = new DbUtil();
-        ResultSet rs = dbu.getDate("selct facultyId from faculies where " +
-                "facultyName = '"+faculty.getName()+"'");
-        if(rs.next()){
-            Integer fid = rs.getInt(1);
-            DbObject db1 = new DbObject("facultyId", fid.toString());
+        ResultSet rs;
+            DbObject db1 = new DbObject("facultyId", faculty.getId()+"");
             rs = dbu.getDate("select spId from specializations  " +
                     "where spName = '"+name+"'");
-        }
+            if(rs.next()){
+                Integer spid = rs.getInt(1);
+                DbObject db2 = new DbObject("spId", spid.toString());
+                l.add(db1);l.add(db2);
+            }
         return l;
     }
-
-
 }

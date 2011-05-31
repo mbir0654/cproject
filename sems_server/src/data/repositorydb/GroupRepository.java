@@ -62,6 +62,6 @@ public class GroupRepository implements Repository<Group>{
     }
 
     public void delete(Group item) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        l.remove(item);
     }
 }

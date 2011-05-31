@@ -119,5 +119,4 @@ public class AdministratorRepository implements Repository<Administrator>{
 			e.printStackTrace();
 		}
 	}
-		
 }

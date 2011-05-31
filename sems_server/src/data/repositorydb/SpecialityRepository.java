@@ -44,9 +44,10 @@ public class SpecialityRepository implements Repository<Specialty>{
     @Override
     public void add(Specialty item) {
     try {
-        l.add(item);
         DbUtil dbu = new DbUtil();
-        SqlFunctions.insert("specializations", item.toDboBjectList(), dbu);
+        if(SqlFunctions.insert("specializations", item.toDboBjectList(), dbu))
+            if(SqlFunctions.insert("faculties_specializations", item.toDboBjectListSF(), dbu))
+                l.add(item);
         dbu.close();
     } catch (SQLException ex) {
         Logger.getLogger(SpecialityRepository.class.getName()).log(Level.SEVERE, null, ex);
@@ -80,8 +81,11 @@ public class SpecialityRepository implements Repository<Specialty>{
      */
     @Override
     public void update(Specialty item) {
-            // TODO Auto-generated method stub
-
+        try {
+            SqlFunctions.update("specializations",item.toDboBjectList(), "spName='"+item.getName()+"'");
+        } catch (SQLException ex) {
+            Logger.getLogger(SpecialityRepository.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**
@@ -90,9 +94,10 @@ public class SpecialityRepository implements Repository<Specialty>{
     @Override
     public void delete(Specialty item) {
         try {
-            l.remove(item);
-            SqlFunctions.delete("specializations", "spName = '" + item.getName()
-                    + "' and numberOfYears = '"+item.getNumberOfYears());
+            if(SqlFunctions.delete("specializations", "spName = '" + 
+                    item.getName() + "' and numberOfYears = '" +
+                    item.getNumberOfYears()))
+                l.remove(item);
         } catch (SQLException ex) {
             Logger.getLogger(SpecialityRepository.class.getName()).log(Level.SEVERE, null, ex);
         }

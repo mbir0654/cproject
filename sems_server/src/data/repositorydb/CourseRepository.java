@@ -53,16 +53,18 @@ public class CourseRepository implements Repository<Course>{
      */
     @Override
     public void add(Course item) {
-            l.add(item);
             try {
                 DbUtil dbu = new DbUtil();
                 List<DbObject> data1 = item.toDbObjectList();
-                SqlFunctions.insert("courses", data1, dbu);
-                List<DbObject> data2 = item.toDbObjectListCS();
-                SqlFunctions.insert("specializations_courses", data2, dbu);
-                for(Professor p : item.getProfessors()){
-                    List<DbObject> data3 = item.toDbObjectListTC(p);
-                    SqlFunctions.insert("teachers_spec", data3, dbu);
+                if(SqlFunctions.insert("courses", data1, dbu)){
+                    List<DbObject> data2 = item.toDbObjectListCS();
+                    if(SqlFunctions.insert("specializations_courses", data2, dbu))
+                        for(Professor p : item.getProfessors()){
+                            List<DbObject> data3 = item.toDbObjectListTC(p);
+                            if(SqlFunctions.insert("teachers_spec", data3, dbu)){
+                             l.add(item);
+                            }
+                        }
                 }
             } catch(MySqlException e){
                 System.out.println(e.getMessage());
@@ -153,10 +155,10 @@ public class CourseRepository implements Repository<Course>{
      */
     @Override
     public void delete(Course item) {
-            l.remove(item);
             try {
-                    SqlFunctions.delete("specializations_courses", "courseCode = '"+
-                                    item.getCod()+"'");
+                    if(SqlFunctions.delete("specializations_courses",
+                            "courseCode = '" + item.getCod()+"'"))
+                        l.remove(item);
             } catch (SQLException e) {
                     // TODO Auto-generated catch block
                     e.printStackTrace();
