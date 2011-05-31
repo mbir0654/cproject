@@ -136,6 +136,6 @@ public class Assignment implements Serializable {
 	 */
 	 @Override
 	public String toString() {
-		return course.getName()+" "+name+" "+deadline;
+		return name+" pana la: "+deadline;
 	}
 }

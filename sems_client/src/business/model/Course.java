@@ -314,7 +314,7 @@ public class Course implements Serializable {
 	 */
     @Override
     public String toString() {
-        return name+" "+numberOfCredits+" "+exams;
+        return name+" "+specializare.getName();
     }
 
     public List<DbObject> toDbObjectList(){

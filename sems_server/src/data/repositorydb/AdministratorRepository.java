@@ -59,11 +59,11 @@ public class AdministratorRepository implements Repository<Administrator>{
 	 */
 	@Override
 	public void add(Administrator item) {
-		l.add(item);
 		List<DbObject> data = item.toDbObjectList();
 		try {
                     DbUtil dbu= new DbUtil();
-                    SqlFunctions.insert("users", data,dbu);
+                    if(SqlFunctions.insert("users", data,dbu))
+                        l.add(item);
                     dbu.close();
 		} catch (SQLException e) {
 			System.err.println(e.getMessage());
@@ -111,9 +111,9 @@ public class AdministratorRepository implements Repository<Administrator>{
 	 */
 	@Override
 	public void delete(Administrator item) {
-		l.remove(item);
 		try {
-			SqlFunctions.delete("users", "userName = '"+item.getUserName()+"'");
+			if(SqlFunctions.delete("users", "userName = '"+item.getUserName()+"'"))
+                            l.remove(item);
 		} catch (SQLException e) {
 			System.err.println(e.getMessage());
 			e.printStackTrace();

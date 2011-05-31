@@ -34,8 +34,6 @@ public class AppService implements InterfaceAppService {
     private Repository<Group> groupRepo;
     @SuppressWarnings("unused")
     private Repository<Course> courseRepo;
-    @SuppressWarnings("unused")
-    private Repository<Announcement> announcementRepo;
 	
     /**
      *  constuctor privat pentru singleton
@@ -47,7 +45,6 @@ public class AppService implements InterfaceAppService {
         facultyReposiitory = FacultyRepository.getInstance();
         groupRepo = GroupRepository.getInstance();
         courseRepo = CourseRepository.getInstance();
-        announcementRepo = AnnouncementRepository.getInstance();
     }
 	
     /**

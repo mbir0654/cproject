@@ -185,7 +185,7 @@ public class Student extends User {
      */
     @Override
     public String toString() {
-        return super.toString()+" "+group;
+        return super.toString()+", grupa: "+group.getGroupName();
     }
 
     @Override

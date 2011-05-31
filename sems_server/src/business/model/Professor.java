@@ -142,11 +142,13 @@ public class Professor extends User{
     public List<DbObject>toDbObjectListTeachCourse(Course c) throws SQLException{
         List<DbObject> l = new ArrayList<DbObject>();
         DbUtil dbu = new DbUtil();
-        ResultSet rs1 = dbu.getDate("select teacherId from teachers where userName='"+userName+"'");
+        ResultSet rs1 = dbu.getDate("select teacherId from teachers where " +
+                "userName='"+userName+"'");
         rs1.next();
         Integer tcid = rs1.getInt(1);
         DbObject db1 = new DbObject("teacherId", tcid.toString());
-        ResultSet rs2 = dbu.getDate("select csId from specializations_courses where courseCode = '"+c.getCod()+"'");
+        ResultSet rs2 = dbu.getDate("select csId from specializations_courses" +
+                " where courseCode = '"+c.getCod()+"'");
         rs2.next();
         Integer csid = rs2.getInt(1);
         DbObject db2 = new DbObject("csId", csid.toString());
@@ -154,8 +156,5 @@ public class Professor extends User{
         dbu.close();
         return l;
     }
-
-    
-    
 } 
 
