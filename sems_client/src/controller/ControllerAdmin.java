@@ -10,6 +10,7 @@ import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 
 import business.serviceinterface.InterfaceAdministratorService;
+import org.springframework.ui.Model;
 import ui.*;
 
 import java.math.BigInteger;
@@ -406,6 +407,13 @@ public class ControllerAdmin {
 
     public void addProfessor() {
         DialogAddProf dialog = new DialogAddProf(adminMain, true);
+        DefaultComboBoxModel model = new DefaultComboBoxModel();
+        for (Specialty s:adminMain.getSelectedFaculty().getSpecialties()) {
+            for (Course c:s.getCourses()) {
+                model.addElement(c);
+            }
+        }
+        dialog.setInputCurs(model);
         dialog.pack();
         dialog.setVisible(true);
         Professor prof = new Professor();
@@ -414,6 +422,9 @@ public class ControllerAdmin {
         prof.setLastName(dialog.getNume());
         prof.setUserName(dialog.getUser());
         prof.setPassword(dialog.getParola());
+        prof.addCourse(dialog.getCurs());
         administratorService.addProfesor(prof);
+        administratorService.manageProfessors();
+        loadProgesoriByFaculta_list(adminMain.getSelectedFaculty());
     }
 }

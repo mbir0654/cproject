@@ -2444,4 +2444,8 @@ public class FrameAdminMain extends javax.swing.JFrame {
     public String getAddAdminFirstName(){
         return inputAdminPrenume.getText();
     }
+
+    public Faculty getSelectedFaculty() {
+        return (Faculty) listFacultati.getSelectedValue();
+    }
 }
