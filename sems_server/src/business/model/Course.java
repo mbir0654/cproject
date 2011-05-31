@@ -5,6 +5,7 @@ import java.io.Serializable;
 import java.sql.*;
 import java.util.*;
 import data.dbutil.*;
+import java.text.SimpleDateFormat;
 
 	/**
 	 * 
@@ -375,5 +376,85 @@ public class Course implements Serializable {
         }
         dbu.close();
     	return l;
+    }
+    
+    public List<DbObject> toDbObjectListExams(Exam e) throws SQLException{
+        List<DbObject> l = new ArrayList<DbObject>();
+        DbUtil dbu = new DbUtil();
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        ResultSet rs = new DbUtil().getDate("select csId from " +
+                    "specializations_courses where courseId in (select " +
+                    "courseId from courses where courseName ='" + name
+                    +"') limit 1");
+        if(rs.next()){
+            Integer csid = rs.getInt(1);
+            DbObject db1 = new DbObject("csId", csid.toString());
+            DbObject db2 = new DbObject("date", sdf.format(e.getData()));
+            DbObject db3 = new DbObject("type", e.getType());
+            l.add(db1); l.add(db2); l.add(db3);
+        }
+        dbu.close();
+        return l;
+    }
+
+     public List<DbObject> toDbObjectListAssignments(Assignment a) throws SQLException{
+        List<DbObject> l = new ArrayList<DbObject>();
+        DbUtil dbu = new DbUtil();
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        ResultSet rs = new DbUtil().getDate("select csId from " +
+                    "specializations_courses where courseId in (select " +
+                    "courseId from courses where courseName ='" + name
+                    +"') limit 1");
+        if(rs.next()){
+            Integer csid = rs.getInt(1);
+            DbObject db1 = new DbObject("csId", csid.toString());
+            DbObject db2 = new DbObject("text", a.getText());
+            DbObject db3 = new DbObject("deadline", sdf.format(a.getDeadline()));
+            DbObject db4 = new DbObject("subject", a.getName());
+            l.add(db1); l.add(db2); l.add(db3); l.add(db4);
+        }
+        dbu.close();
+        return l;
+    }
+      public List<DbObject> toDbObjectListAnnouncements(Announcement a) throws SQLException{
+        List<DbObject> l = new ArrayList<DbObject>();
+        DbUtil dbu = new DbUtil();
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        ResultSet rs = new DbUtil().getDate("select csId from " +
+                    "specializations_courses where courseId in (select " +
+                    "courseId from courses where courseName ='" + name
+                    +"') limit 1");
+        if(rs.next()){
+            Integer csid = rs.getInt(1);
+            DbObject db1 = new DbObject("csId", csid.toString());
+            DbObject db2 = new DbObject("body", a.getAnnouncement());
+            DbObject db3 = new DbObject("date", sdf.format(a.getDate()));
+            DbObject db4 = new DbObject("subject", a.getSubject());
+            ResultSet rs1 = dbu.getDate("select teacherId from teachers where " +
+                    "userName ='"+a.getProf().getUserName()+"'");
+            if(rs1.next()){
+                Integer tcid = rs1.getInt(1);
+                DbObject db5 = new DbObject("teacherId", tcid.toString());
+                l.add(db1); l.add(db2); l.add(db3); l.add(db4); l.add(db5);
+            }
+        }
+        dbu.close();
+        return l;
+    }
+       public List<DbObject> toDbObjectListMaterials(CourseMaterial cm) throws SQLException{
+        List<DbObject> l = new ArrayList<DbObject>();
+        DbUtil dbu = new DbUtil();
+        ResultSet rs = new DbUtil().getDate("select csId from " +
+                    "specializations_courses where courseId in (select " +
+                    "courseId from courses where courseName ='" + name
+                    +"') limit 1");
+        if(rs.next()){
+            Integer csid = rs.getInt(1);
+            DbObject db1 = new DbObject("csId", csid.toString());
+            DbObject db2 = new DbObject("fileName", cm.getPath());
+            l.add(db1);l.add(db2);
+        }
+        dbu.close();
+        return l;
     }
 }

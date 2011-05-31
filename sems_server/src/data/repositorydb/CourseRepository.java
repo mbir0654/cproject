@@ -103,8 +103,8 @@ public class CourseRepository implements Repository<Course>{
         try {
             DbUtil dbu = new DbUtil();
             List<DbObject> data2 = item.toDbObjectListCS();
-            SqlFunctions.update("courses", data1, "courseCode = '"+
-                            item.getCod()+"'");
+            SqlFunctions.update("courses", data1, "courseName = '"+
+                            item.getName()+"'");
             Integer csid = 0;
             ResultSet rs;
             rs = new DbUtil().getDate("select csId from " +
@@ -113,20 +113,35 @@ public class CourseRepository implements Repository<Course>{
                     +"') limit 1");
             if(rs.next()){
                 csid = rs.getInt(1);
-                SqlFunctions.update("specializations_courses", data2, "csId = " 
-                        + csid.toString());
-            }
-            for(Professor p : item.getProfessors()){
-                Integer tsid = 0;
-                rs = dbu.getDate("select tsId from teachers_" +
-                       "spec where teacherId in(select teacherId from teachers" +
-                       " where userName = '" + p.getUserName() + "')limit 1");
-                if(rs.next()){
-                    tsid = rs.getInt(1);
+                SqlFunctions.update("specializations_courses", data2, "csId = "
+                            + csid.toString());
+                SqlFunctions.delete("exams", "csId=" + csid);
+                SqlFunctions.delete("teachers_spec", "csId=" + csid);
+                SqlFunctions.delete("announcement", "csId=" + csid);
+                SqlFunctions.delete("assignments", "csId=" + csid);
+                SqlFunctions.delete("coursematerials", "csId=" + csid);
+                for(Professor p : item.getProfessors()){
                     List<DbObject> data3 = item.toDbObjectListTC(p);
-                    SqlFunctions.update("teachers_spec",data3,"where tsId="+tsid);
+                    SqlFunctions.insert("teachers_spec", data3, dbu);
+                }
+                for(Exam e : item.getExams()){
+                    List<DbObject> data3 = item.toDbObjectListExams(e);
+                    SqlFunctions.insert("exams", data3, dbu);
+                }
+                for(Assignment a : item.getAssignments()){
+                    List<DbObject> data3 = item.toDbObjectListAssignments(a);
+                    SqlFunctions.insert("assignments", data3, dbu);
+                }
+                for(Announcement a: item.getAnnouncements()){
+                    List<DbObject> data3 = item.toDbObjectListAnnouncements(a);
+                    SqlFunctions.insert("announcement", data3, dbu);
+                }
+                for(CourseMaterial cm : item.getMaterialeDeCurs()){
+                    List<DbObject> data3 = item.toDbObjectListMaterials(cm);
+                    SqlFunctions.insert("coursematerials", data3, dbu);
                 }
             }
+            dbu.close();
         } catch (SQLException e) {
                 // TODO Auto-generated catch block
                 e.printStackTrace();

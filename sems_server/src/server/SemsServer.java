@@ -39,7 +39,9 @@ public class SemsServer {
             c.addProfessor(p);
         }
         SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
-        c.addAnnouncement(new Announcement("text anunt", "titlu anunt nou", new Date(), c));
+        Announcement announce = new Announcement("text anunt", "titlu anunt nou", new Date(), c);
+        announce.setProf(ProfessorRepository.getInstance().findByName("bobby"));
+        c.addAnnouncement(announce);
         try {
             c.addAssignment(new Assignment("titlu tema noua", "cerinta temei", sdf.parse("08-06-2011"), c));
             c.addExam(new Exam(sdf.parse("08-06-2011"), "partial", c));
@@ -51,6 +53,6 @@ public class SemsServer {
         c.addMaterialCurs(nmc);
         System.out.println(c.getName());
         c.setTip("OPTIONAL");
-        CourseRepository.getInstance().add(c);
+        CourseRepository.getInstance().delete(c);
     }
 }

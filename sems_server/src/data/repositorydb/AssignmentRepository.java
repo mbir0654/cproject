@@ -25,12 +25,12 @@ public class AssignmentRepository implements Repository<Assignment>{
     }
     private AssignmentRepository(){
         for(Course course:courses.getAll())
-            for(Assignment assignment:course.getAssignments())
-                l.add((assignment));
+            l.addAll(course.getAssignments());
     }
 
     public void add(Assignment item) {
-        //To change body of implemented methods use File | Settings | File Templates.
+        l.add(item);
+        courses.update(courses.findByName(item.getCourse().getCod()));
     }
 
     public List<Assignment> getAll() {

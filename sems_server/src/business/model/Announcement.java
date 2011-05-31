@@ -22,10 +22,10 @@ public class Announcement implements Serializable {
      * @param c este cursul pentru care s-a facut anuntul
      */
     public Announcement(String msg, String subj, Date d, Course c) {
-            this.announcement = msg;
-    this.subject=subj;
-    this.date = d;
-    this.course = c;
+        this.announcement = msg;
+        this.subject=subj;
+        this.date = d;
+        this.course = c;
     }
 
     /**
@@ -36,10 +36,10 @@ public class Announcement implements Serializable {
     }
 
     public Announcement(Announcement a){
-            this.announcement = a.announcement;
-    this.subject = a.subject;
-    this.date = a.date;
-    this.course = a.course;
+        this.announcement = a.announcement;
+        this.subject = a.subject;
+        this.date = a.date;
+        this.course = a.course;
     }
 
     /**
@@ -51,80 +51,65 @@ public class Announcement implements Serializable {
      * 		   dat ca parametru
      */
     public boolean equals(Announcement a){
-            if(announcement.equalsIgnoreCase(a.getAnnouncement()))
-                    return true;
-            return false;
+        if(announcement.equalsIgnoreCase(a.getAnnouncement()))
+                return true;
+        return false;
     }
 
     /**
      * @param announcement va fi textul anuntului
      */
     public void setAnnouncement(String announcement) {
-            this.announcement = announcement;
+        this.announcement = announcement;
     }
 
     public Date getDate() {
-            return date;
+        return date;
     }
 
 
     public void setDate(Date date) {
-            this.date = date;
+        this.date = date;
     }
 
 
     public String getSubject() {
-            return subject;
+        return subject;
     }
 
     /**
      * @return the textul anuntului
      */
     public String getAnnouncement() {
-            return announcement;
+        return announcement;
     }
 
     /**
      * @param prof va fi profesorul care a facut anuntul
      */
     public void setProf(Professor prof) {
-            this.prof = prof;
+        this.prof = prof;
     }
 
     /**
      * @return profesorul care a facut anuntul
      */
     public Professor getProf() {
-            return prof;
+        return prof;
     }
 
     /**
      * @param course va fi cursul pentru care se face acnuntul
      */
     public void setCourse(Course course) {
-            this.course = course;
+        this.course = course;
     }
 
     /**
      * @return cursul pentru care se face acnuntul curent
      */
     public Course getCourse() {
-            return course;
-    }
-
-    /**
-     * @return data la care a fost facut anuntul
-     */
-	public Date getData() {
-        return date;
-    }
-
-    /**
-	 * 
-	 * @param d este noua data a anuntului
-	 */
-    public void setData(Date d) {
-        this.date=d;
+        return course;
     }
 
     /**
