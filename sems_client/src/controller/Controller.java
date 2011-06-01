@@ -31,6 +31,7 @@ import javax.swing.*;
  *
  */
 public class Controller {
+    public static List<Image> icons = new ArrayList<Image>();
 	private User u;
 	private FrameLogin loginFrame;
 	private InterfaceAppService apps;
@@ -44,11 +45,6 @@ public class Controller {
      */
 
 	public Controller(InterfaceAppService service){
-        apps = service;
-	}
-
-    public void openLoginFrame() {
-        List<Image> icons = new ArrayList<Image>();
         try {
             if (getClass().getResource("/icons/appico.png") != null) {
                 icons.add(ImageIO.read(getClass().getResource("/icons/appico.png")));
@@ -75,6 +71,11 @@ public class Controller {
             System.out.println("Cannot load image");
             System.out.println(e.getMessage());
         }
+
+        apps = service;
+	}
+
+    public void openLoginFrame() {
         loginFrame = new FrameLogin(this);
         loginFrame.setIconImages(icons);
         loginFrame.setTitle("Login - SEMS");

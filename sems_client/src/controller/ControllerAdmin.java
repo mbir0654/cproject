@@ -38,6 +38,7 @@ public class ControllerAdmin {
         adminMain = new FrameAdminMain(this);
         loadFaculties();
         loadAdministrators();
+        adminMain.setIconImages(Controller.icons);
         adminMain.setLabelNumeAdmin(administrator);
         adminMain.setLabelUserAdmin(administrator);
         adminMain.setVisible(true);

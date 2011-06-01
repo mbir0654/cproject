@@ -34,6 +34,7 @@ public class ControllerProfesor {
         profesorFrame.setFullName(professor.getFirstName() + " " + professor.getLastName());
         loadAnnouncements();
         loadAddAnnouncements();
+        profesorFrame.setIconImages(Controller.icons);
         profesorFrame.setVisible(true);
     }
 
