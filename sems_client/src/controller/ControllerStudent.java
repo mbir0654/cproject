@@ -51,6 +51,7 @@ public class ControllerStudent {
      public void loadAnnouncements(){
         List<Announcement> announcements = studentService.getAnnouncements(student);
         DefaultListModel model = new DefaultListModel();
+        model.addElement(null);
         for (Announcement announcement:announcements) {
             model.addElement(announcement);
             System.out.println(announcement);
@@ -61,6 +62,7 @@ public class ControllerStudent {
      public  void loadTemeCourses(){
          List<Course> courses = student.getContract().getCourses();
          DefaultComboBoxModel model = new DefaultComboBoxModel();
+         model.addElement(null);
          for(Course course:courses){
              model.addElement(course);
          }
@@ -68,11 +70,25 @@ public class ControllerStudent {
      }
 
     public void loadNoteListCursuri() {
-        studentFrame.setNoteListCursuri(new DefaultComboBoxModel(student.getContract().getCourses().toArray()));
+        DefaultComboBoxModel model = new DefaultComboBoxModel();
+        model.addElement(null);
+        for (Course c : student.getContract().getCourses())
+            model.addElement(c);
+        studentFrame.setNoteListCursuri(model);
+    }
+    public void displayAnnouncementDetails(Announcement a){
+        studentFrame.getLabelAnuntCurs().setText(a.getCourse().toString());
+        studentFrame.getLabelAnuntProf().setText(a.getProf().toString());
+        studentFrame.getLabelAnuntText().setText(a.getAnnouncement());
+        studentFrame.getLabelAnuntTitlu().setText(a.getSubject());
     }
 
     public void loadMaterialeListCursuri() {
-        studentFrame.setMaterialeListCursuri(new DefaultComboBoxModel(student.getContract().getCourses().toArray()));
+        DefaultComboBoxModel model = new DefaultComboBoxModel();
+        model.addElement(null);
+        for (Course c : student.getContract().getCourses())
+            model.addElement(c);
+        studentFrame.setMaterialeListCursuri(model);
     }
 
     public void loadTabelExamene(Course course) {
@@ -80,8 +96,11 @@ public class ControllerStudent {
         DefaultTableModel model = new DefaultTableModel();
         model.setColumnIdentifiers(columnNames);
         for (Exam e:course.getExams()) {
-            Object [] row = {e.getData(), e.getType(), e.getGrades()};
-            model.addRow(row);
+            for(Grade g : e.getGrades())
+                if(g.getStud().equals(student)){
+                    Object [] row = {e.getData(), e.getType(), g};
+                    model.addRow(row);
+            }
         }
         studentFrame.setTabelExamene(model);
     }
@@ -101,9 +120,10 @@ public class ControllerStudent {
         String [] columnNames = {"Cod", "Nume", "Nr. credite", "Semestru"};
         DefaultTableModel model = new DefaultTableModel();
         model.setColumnIdentifiers(columnNames);
-        for (Course c:student.getSpecialty().getCourses()) {
-            Object [] row = {c.getCod(), c.getName(), c.getNumberOfCredits(), c.getSemestrul()};
-            model.addRow(row);
+        for (Course c:student.getSpecialty().getCourses()) 
+            if(!student.getContract().getCourses().contains(c)){
+                Object [] row = {c.getCod(), c.getName(), c.getNumberOfCredits(), c.getSemestrul()};
+                model.addRow(row);
         }
         studentFrame.setTabelCursuriDisponibile(model);
     }

@@ -12,6 +12,7 @@
 package ui;
 
 import business.model.Course;
+import controller.ControllerAdmin;
 
 import javax.swing.*;
 
@@ -20,10 +21,11 @@ import javax.swing.*;
  * @author snoopy
  */
 public class DialogAddProf extends javax.swing.JDialog {
-
+    ControllerAdmin controllerAdmin;
     /** Creates new form DialogAddProf */
-    public DialogAddProf(java.awt.Frame parent, boolean modal) {
+    public DialogAddProf(java.awt.Frame parent, boolean modal, ControllerAdmin ca) {
         super(parent, modal);
+        controllerAdmin = ca;
         initComponents();
     }
 
@@ -101,11 +103,9 @@ public class DialogAddProf extends javax.swing.JDialog {
         jLabel7.setText("Curs");
 
         inputCurs.setForeground(new java.awt.Color(0, 102, 153));
-<<<<<<< HEAD
         inputCurs.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-=======
+
         inputCurs.setModel(new javax.swing.DefaultComboBoxModel(new String[]{"Item 1", "Item 2", "Item 3", "Item 4"}));
->>>>>>> 1541458d217db4c3a3e0f4e9cf9a635734d41e35
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -115,7 +115,6 @@ public class DialogAddProf extends javax.swing.JDialog {
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-<<<<<<< HEAD
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(butAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -132,7 +131,6 @@ public class DialogAddProf extends javax.swing.JDialog {
                             .addComponent(jLabel2)
                             .addComponent(jLabel6)
                             .addComponent(jLabel7))
-=======
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(butAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -149,7 +147,6 @@ public class DialogAddProf extends javax.swing.JDialog {
                                 .addComponent(jLabel2)
                                 .addComponent(jLabel6)
                                 .addComponent(jLabel7))
->>>>>>> 1541458d217db4c3a3e0f4e9cf9a635734d41e35
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(inputCurs, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -209,7 +206,7 @@ public class DialogAddProf extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void butAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butAddActionPerformed
-        this.setVisible(false);
+        controllerAdmin.addProfessor(this);
     }//GEN-LAST:event_butAddActionPerformed
 
 

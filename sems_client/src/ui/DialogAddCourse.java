@@ -12,6 +12,7 @@
 package ui;
 
 import business.model.Specialty;
+import controller.ControllerAdmin;
 
 import javax.swing.*;
 
@@ -22,10 +23,11 @@ import static java.lang.Integer.parseInt;
  * @author snoopy
  */
 public class DialogAddCourse extends javax.swing.JDialog {
-
+    ControllerAdmin controllerAdmin;
     /** Creates new form DialogAddCourse */
-    public DialogAddCourse(java.awt.Frame parent, boolean modal) {
+    public DialogAddCourse(java.awt.Frame parent, boolean modal, ControllerAdmin ca) {
         super(parent, modal);
+        controllerAdmin = ca;
         initComponents();
     }
 
@@ -163,7 +165,7 @@ public class DialogAddCourse extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void butAdaugaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butAdaugaActionPerformed
-        this.setVisible(false);
+        controllerAdmin.addCourse(this);
     }//GEN-LAST:event_butAdaugaActionPerformed
 
 

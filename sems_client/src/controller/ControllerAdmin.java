@@ -413,8 +413,8 @@ public class ControllerAdmin {
         return var_return;
     }
 
-    public void addProfessor() {
-        DialogAddProf dialog = new DialogAddProf(adminMain, true);
+    public void openAddProfessor() {
+        DialogAddProf dialog = new DialogAddProf(adminMain, true,this);
         DefaultComboBoxModel model = new DefaultComboBoxModel();
         for (Specialty s:adminMain.getSelectedFaculty().getSpecialties()) {
             for (Course c:s.getCourses()) {
@@ -424,6 +424,9 @@ public class ControllerAdmin {
         dialog.setInputCurs(model);
         dialog.pack();
         dialog.setVisible(true);
+    }
+
+    public void addProfessor(DialogAddProf dialog){
         Professor prof = new Professor();
         prof.setTitle(dialog.getTitlu());
         prof.setFirstName(dialog.getPrenume());
@@ -438,12 +441,15 @@ public class ControllerAdmin {
         adminMain.setListProfesori(loadProgesoriByFaculta_list(adminMain.getSelectedFaculty()));
     }
 
-    public void addCourse(Faculty faculty) {
-        DialogAddCourse dialog = new DialogAddCourse(adminMain, true);
+    public void openAddCourse(Faculty faculty) {
+        DialogAddCourse dialog = new DialogAddCourse(adminMain, true, this);
         dialog.pack();
         dialog.setSpecializari(loadSpecialties_combo(faculty));
         dialog.setSemestru(new javax.swing.DefaultComboBoxModel(new String[] { "1", "2" }));
         dialog.setVisible(true);
+    }
+
+    public void addCourse(DialogAddCourse dialog){
         Course course = new Course();
         course.setCod(dialog.getCod());
         course.setName(dialog.getDenumire());

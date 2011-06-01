@@ -46,6 +46,18 @@ public class ControllerProfesor {
         profesorFrame.setAnnouncements(model);
     }
 
+    public void loadComboListGrupe(Course c){
+        DefaultComboBoxModel model = new DefaultComboBoxModel();
+        for(Group g : professorService.getGroups(professor)){
+            /*if(g.getStudents().get(0) != null){
+                for(Course cc : g.getStudents().get(0).getContract().getCourses())
+                    if(cc.getCod().equals(cc.getCod()))*/
+                    model.addElement(g);
+            //}
+        }
+        profesorFrame.setCatalogListGrupa(model);
+    }
+
     public  void loadComboListCursuri(){
         List<Course> courses = professorService.getCourses(professor);
         DefaultComboBoxModel model = new DefaultComboBoxModel();

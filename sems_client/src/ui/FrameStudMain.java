@@ -10,6 +10,7 @@
  */
 
 package ui;
+import business.model.Announcement;
 import javax.swing.*;
 import javax.swing.table.TableModel;
 
@@ -803,7 +804,7 @@ public class FrameStudMain extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void listAnunturiValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_listAnunturiValueChanged
-
+        controllerStudent.displayAnnouncementDetails((Announcement)listAnunturi.getSelectedValue());
         panouAnunt.setVisible(true);
         // TODO add your handling code here:
 }//GEN-LAST:event_listAnunturiValueChanged
@@ -1005,4 +1006,21 @@ public class FrameStudMain extends javax.swing.JFrame {
     public void setTemeList(ListModel model) {
         temeList.setModel(model);
     }
+
+    public JLabel getLabelAnuntCurs() {
+        return labelAnuntCurs;
+    }
+
+    public JLabel getLabelAnuntProf() {
+        return labelAnuntProf;
+    }
+
+    public JTextArea getLabelAnuntText() {
+        return labelAnuntText;
+    }
+
+    public JLabel getLabelAnuntTitlu() {
+        return labelAnuntTitlu;
+    }
+    
 }

@@ -628,10 +628,15 @@ public class FrameAdminMain extends javax.swing.JFrame {
         jPanel15.add(jLabel7);
 
         listGrupe.setForeground(new java.awt.Color(0, 51, 102));
-        listGrupe.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Grupa 69", "Grupa 666" }));
+        listGrupe.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Grupa 1", "Grupa 2" }));
         listGrupe.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 listGrupeItemStateChanged(evt);
+            }
+        });
+        listGrupe.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                listGrupeActionPerformed(evt);
             }
         });
         jPanel15.add(listGrupe);
@@ -642,6 +647,10 @@ public class FrameAdminMain extends javax.swing.JFrame {
 
         listGrupeStudenti.setForeground(new java.awt.Color(0, 51, 102));
         listGrupeStudenti.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        listGrupeStudenti.setFixedCellHeight(13);
+        listGrupeStudenti.setFixedCellWidth(300);
+        listGrupeStudenti.setMinimumSize(new java.awt.Dimension(100, 100));
+        listGrupeStudenti.setPreferredSize(new java.awt.Dimension(100, 100));
         listGrupeStudenti.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
             public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
                 listGrupeStudentiValueChanged(evt);
@@ -2053,7 +2062,7 @@ public class FrameAdminMain extends javax.swing.JFrame {
     }//GEN-LAST:event_butFacultaAddActionPerformed
 
     private void butCursuriAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butCursuriAddActionPerformed
-        controllerAdmin.addCourse((Faculty) listFacultati.getSelectedValue());
+        controllerAdmin.openAddCourse((Faculty) listFacultati.getSelectedValue());
         // se deschide DialogAddCourse
     }//GEN-LAST:event_butCursuriAddActionPerformed
 
@@ -2074,7 +2083,7 @@ public class FrameAdminMain extends javax.swing.JFrame {
 
     private void butProfAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butProfAddActionPerformed
         // se deschide DialogAddProf
-        controllerAdmin.addProfessor();
+        controllerAdmin.openAddProfessor();
     }//GEN-LAST:event_butProfAddActionPerformed
 
     private void butProfDelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butProfDelActionPerformed
@@ -2194,6 +2203,10 @@ public class FrameAdminMain extends javax.swing.JFrame {
     private void inputGenDupaStudSpecializareActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputGenDupaStudSpecializareActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_inputGenDupaStudSpecializareActionPerformed
+
+    private void listGrupeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listGrupeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_listGrupeActionPerformed
 
 
 

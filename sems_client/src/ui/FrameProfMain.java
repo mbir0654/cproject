@@ -1253,10 +1253,10 @@ public class FrameProfMain extends javax.swing.JFrame {
 }//GEN-LAST:event_catalogListCursuriCursItemStateChanged
 
     private void catalogListCursuriGrupaItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_catalogListCursuriGrupaItemStateChanged
-
         catalogListGrupa.setVisible(true);
+        controllerProfesor.loadComboListGrupe((Course)catalogListCursuriGrupa.getSelectedItem());
         jLabel8.setVisible(true);
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_catalogListCursuriGrupaItemStateChanged
 
     private void catalogListGrupaItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_catalogListGrupaItemStateChanged
@@ -1514,6 +1514,12 @@ public class FrameProfMain extends javax.swing.JFrame {
         materialeListCursuri.setModel(model);
         materialeListCursuri.setSelectedItem(null);
     }
+
+    public void setCatalogListGrupa(DefaultComboBoxModel model) {
+        catalogListGrupa.setModel(model);
+    }
+
+
     /*
     public  void setAnuntAddCurs(DefaultComboBoxModel model){
         anuntAddCurs.setModel(model);
