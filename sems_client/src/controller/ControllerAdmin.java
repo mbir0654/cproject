@@ -10,6 +10,7 @@ import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 
 import business.serviceinterface.InterfaceAdministratorService;
+import org.springframework.ui.Model;
 import ui.*;
 
 import java.math.BigInteger;
@@ -149,12 +150,14 @@ public class ControllerAdmin {
                 List<Professor> professors = new ArrayList<Professor>();
                 for(Specialty specialty:faculty.getSpecialties()){
                     for(Course course:specialty.getCourses()){
+                        System.out.println(course.getProfessors());
                         for(Professor professor:course.getProfessors()){
                             if(!professors.contains(professor))
                                 professors.add(professor);
                         }
                     }
                 }
+
                 for(Professor professor:professors){
                     model.addElement(professor);
                 }
@@ -215,10 +218,16 @@ public class ControllerAdmin {
             administratorService.deleteAdministrator(administrator);
         }
         public void deleteCourse(Course course){
+            DialogConfirm dialogConfirm = new DialogConfirm(adminMain,true);
+            dialogConfirm.pack();
 
+            administratorService.deleteCourse(course);
+            loadFaculties();
+            adminMain.reloadCursuriList();
         }
         public void deleteProfessor(Professor professor){
-
+            administratorService.deleteProfessor(professor);
+            loadFaculties();
         }
 
     //gestiune rapoarte (chestia aia din mijloc)
@@ -406,6 +415,13 @@ public class ControllerAdmin {
 
     public void addProfessor() {
         DialogAddProf dialog = new DialogAddProf(adminMain, true);
+        DefaultComboBoxModel model = new DefaultComboBoxModel();
+        for (Specialty s:adminMain.getSelectedFaculty().getSpecialties()) {
+            for (Course c:s.getCourses()) {
+                model.addElement(c);
+            }
+        }
+        dialog.setInputCurs(model);
         dialog.pack();
         dialog.setVisible(true);
         Professor prof = new Professor();
@@ -413,7 +429,29 @@ public class ControllerAdmin {
         prof.setFirstName(dialog.getPrenume());
         prof.setLastName(dialog.getNume());
         prof.setUserName(dialog.getUser());
-        prof.setPassword(dialog.getParola());
+        prof.setPassword(md5(dialog.getParola()));
+        prof.addCourse(dialog.getCurs());
+        dialog.getCurs().addProfessor(prof);
         administratorService.addProfesor(prof);
+        adminMain.setListProfesori(loadProgesoriByFaculta_list(adminMain.getSelectedFaculty()));
     }
+
+    public void addCourse(Faculty faculty) {
+        DialogAddCourse dialog = new DialogAddCourse(adminMain, true);
+        dialog.pack();
+        dialog.setSpecializari(loadSpecialties_combo(faculty));
+        dialog.setSemestru(new javax.swing.DefaultComboBoxModel(new String[] { "1", "2" }));
+        dialog.setVisible(true);
+        Course course = new Course();
+        course.setCod(dialog.getCod());
+        course.setName(dialog.getDenumire());
+        //course.setSemestrul(dialog.getSemestru());
+        course.setSpecializare(dialog.getSpecializare());
+        course.setNumberOfCredits(dialog.getNrCredite());
+        administratorService.addCourse(course);
+        loadFaculties();
+        adminMain.reloadCursuriList();
+    }
+
+
 }

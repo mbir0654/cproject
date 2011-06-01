@@ -26,8 +26,7 @@ public class Faculty implements Serializable {
      * 	 	   cu dea data ca parametru
      */
     public boolean equals(Faculty f){
-        if(this.name == f.getName() &&
-           this.address == f.getAddress())
+        if(this.id == f.getId())
                 return true;
         return false;
     }

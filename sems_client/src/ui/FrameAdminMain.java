@@ -2054,11 +2054,12 @@ public class FrameAdminMain extends javax.swing.JFrame {
     }//GEN-LAST:event_butFacultaAddActionPerformed
 
     private void butCursuriAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butCursuriAddActionPerformed
-
+        controllerAdmin.addCourse((Faculty) listFacultati.getSelectedValue());
         // se deschide DialogAddCourse
     }//GEN-LAST:event_butCursuriAddActionPerformed
 
     private void butCursuriDelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butCursuriDelActionPerformed
+        controllerAdmin.deleteCourse((Course) listCursuri.getSelectedValue());
         // se va deschide DialogConfirm cu textul "Sunteti sigur? "
         // iar cand utilizatorul apasa Ok, se sterge cursul.
     }//GEN-LAST:event_butCursuriDelActionPerformed
@@ -2078,6 +2079,7 @@ public class FrameAdminMain extends javax.swing.JFrame {
     }//GEN-LAST:event_butProfAddActionPerformed
 
     private void butProfDelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butProfDelActionPerformed
+        controllerAdmin.deleteProfessor((Professor) listProfesori.getSelectedValue());
         // se deschide un DialogConfirm, si se sterge profu selectat
         // daca e ok
     }//GEN-LAST:event_butProfDelActionPerformed
@@ -2443,5 +2445,20 @@ public class FrameAdminMain extends javax.swing.JFrame {
     }
     public String getAddAdminFirstName(){
         return inputAdminPrenume.getText();
+    }
+
+
+    public void reloadCursuriList(){
+        listCursuri.setModel(controllerAdmin.loadCursuriByFaculta_list((Faculty)
+        listFacultati.getSelectedValue()));
+    }
+
+
+    public Faculty getSelectedFaculty() {
+        return (Faculty) listFacultati.getSelectedValue();
+    }
+
+    public void setListProfesori(ListModel model) {
+        listProfesori.setModel(model);
     }
 }

@@ -266,7 +266,7 @@ CREATE TABLE `faculties_specializations` (
 
 LOCK TABLES `faculties_specializations` WRITE;
 /*!40000 ALTER TABLE `faculties_specializations` DISABLE KEYS */;
-INSERT INTO `faculties_specializations` VALUES (1,2),(1,3),(1,4);
+INSERT INTO `faculties_specializations` VALUES (1,2),(1,3),(1,4),(6,7),(6,8),(6,9),(6,10),(2,11),(2,12),(2,13),(3,14),(3,15),(3,16),(4,17),(4,18),(4,19),(5,20),(5,21),(5,22),(7,23),(7,24),(7,25),(7,26);
 /*!40000 ALTER TABLE `faculties_specializations` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -316,7 +316,7 @@ CREATE TABLE `groups` (
   UNIQUE KEY `groups_uk` (`name`),
   KEY `fk_gr_sp` (`spId`),
   CONSTRAINT `fk_gr_sp` FOREIGN KEY (`spId`) REFERENCES `specializations` (`spId`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=58 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -325,7 +325,7 @@ CREATE TABLE `groups` (
 
 LOCK TABLES `groups` WRITE;
 /*!40000 ALTER TABLE `groups` DISABLE KEYS */;
-INSERT INTO `groups` VALUES (1,'221',2);
+INSERT INTO `groups` VALUES (1,'221',2),(2,'222',2),(3,'223',2),(4,'231',4),(5,'232',4),(6,'233',4),(7,'211',3),(9,'213',3),(10,'212',3),(11,'111',7),(12,'112',7),(13,'113',7),(14,'121',8),(15,'122',8),(16,'123',8),(17,'131',9),(18,'133',9),(19,'141',10),(20,'142',10),(21,'143',10),(22,'311',11),(23,'312',11),(24,'321',12),(25,'322',12),(26,'323',12),(27,'331',13),(28,'332',13),(29,'333',13),(30,'411',14),(31,'412',14),(32,'413',14),(33,'421',15),(34,'422',15),(35,'423',15),(36,'431',16),(37,'432',16),(38,'433',16),(39,'511',17),(40,'512',17),(41,'521',18),(42,'522',18),(43,'523',18),(44,'611',20),(45,'612',20),(46,'613',20),(47,'621',21),(48,'622',21),(49,'623',21),(50,'631',22),(51,'711',23),(52,'712',23),(53,'713',23),(54,'721',24),(55,'722',24),(56,'723',24),(57,'731',25);
 /*!40000 ALTER TABLE `groups` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -372,7 +372,7 @@ CREATE TABLE `specializations` (
   `numberOfYears` int(11) NOT NULL,
   PRIMARY KEY (`spId`),
   UNIQUE KEY `specs_uk` (`spName`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -381,7 +381,7 @@ CREATE TABLE `specializations` (
 
 LOCK TABLES `specializations` WRITE;
 /*!40000 ALTER TABLE `specializations` DISABLE KEYS */;
-INSERT INTO `specializations` VALUES (2,'informatica',3),(3,'matematica',3),(4,'ingineria informatiei',4);
+INSERT INTO `specializations` VALUES (2,'Informatica',3),(3,'Matematica',3),(4,'Ingineria informatiei',4),(7,'Istorie',3),(8,'Istoria Artei',3),(9,'Arheologie',3),(10,'Filosofie',3),(11,'Fizica',3),(12,'Stiinte Ingineresti',3),(13,'Stiinta mediului',3),(14,'Chimie',3),(15,'Chimia mediului',3),(16,'Inginerie Chimica',3),(17,'Biologie',3),(18,'Geologie',3),(19,'Inginerie Geologica',3),(20,'Geografie',3),(21,'Geografia Turismului',3),(22,'Hidrologie Si Meteorologie',3),(23,'Limba si literatura romana',3),(24,'Literatura universala si comparata',3),(25,'Limbi clasice',3),(26,'Limbi moderne aplicate ',3);
 /*!40000 ALTER TABLE `specializations` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -501,7 +501,7 @@ CREATE TABLE `teachers` (
   UNIQUE KEY `teachers_uk` (`userName`),
   KEY `userName` (`userName`) USING BTREE,
   CONSTRAINT `fk1` FOREIGN KEY (`userName`) REFERENCES `users` (`userName`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -559,7 +559,7 @@ CREATE TABLE `teachers_spec` (
   KEY `teacherId` (`teacherId`),
   CONSTRAINT `teachers_spec_ibfk_1` FOREIGN KEY (`teacherId`) REFERENCES `teachers` (`teacherId`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `teachers_spec_ibfk_2` FOREIGN KEY (`csId`) REFERENCES `specializations_courses` (`csId`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=34 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=55 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -764,9 +764,9 @@ DELIMITER ;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
-/*!50003 SET character_set_client  = latin1 */ ;
-/*!50003 SET character_set_results = latin1 */ ;
-/*!50003 SET collation_connection  = latin1_swedish_ci */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = '' */ ;
 DELIMITER ;;
@@ -774,7 +774,7 @@ DELIMITER ;;
 BEGIN
 	select * from specializations 
 	where spId in (
-	select spId from faculties specializations 
+	select spId from faculties_specializations 
 	where facultyId = param5); 
 END */;;
 DELIMITER ;
@@ -839,4 +839,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2011-06-01  0:25:28
+-- Dump completed on 2011-06-01  3:44:44

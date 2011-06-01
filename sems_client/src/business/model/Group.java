@@ -89,4 +89,8 @@ public class Group implements Serializable {
 		return group+" - "+specialty;
 	}
 
+        public List<DbObject> toDbObjectList() {return null;}
+
+        public List<DbObject> toDbObjectListStudents() {return null;}
+
 }

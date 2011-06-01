@@ -59,12 +59,12 @@ public class CourseRepository implements Repository<Course>{
                 if(SqlFunctions.insert("courses", data1, dbu)){
                     List<DbObject> data2 = item.toDbObjectListCS();
                     if(SqlFunctions.insert("specializations_courses", data2, dbu))
-                        for(Professor p : item.getProfessors()){
-                            List<DbObject> data3 = item.toDbObjectListTC(p);
-                            if(SqlFunctions.insert("teachers_spec", data3, dbu)){
-                             l.add(item);
-                            }
+                        l.add(item);
+                    for(Professor p : item.getProfessors()){
+                        List<DbObject> data3 = item.toDbObjectListTC(p);
+                        if(SqlFunctions.insert("teachers_spec", data3, dbu)){
                         }
+                    }
                 }
             } catch(MySqlException e){
                 System.out.println(e.getMessage());
@@ -163,6 +163,8 @@ public class CourseRepository implements Repository<Course>{
                     // TODO Auto-generated catch block
                     e.printStackTrace();
             }
+
+            l.remove(item);
     }
 
 }

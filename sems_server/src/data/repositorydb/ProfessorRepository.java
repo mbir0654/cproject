@@ -88,11 +88,11 @@ public class ProfessorRepository implements Repository<Professor> {
             DbUtil dbu = new DbUtil();
             if(SqlFunctions.insert("users", data1,dbu))
                 if(SqlFunctions.insert("teachers", data2, dbu)){
+                    l.add(item);
                     for(Course c : item.getCourses()){
                         List<DbObject> data3 = item.toDbObjectListTeachCourse(c);
                         SqlFunctions.insert("teachers_spec", data3, dbu);
                     }
-                    l.add(item);
                 }
             dbu.close();
         } catch (SQLException e) {

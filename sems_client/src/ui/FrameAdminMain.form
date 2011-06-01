@@ -128,6 +128,8 @@
                   </JTabbedPaneConstraints>
                 </Constraint>
               </Constraints>
+
+              <Layout class="org.netbeans.modules.form.compat2.layouts.DesignFlowLayout"/>
               <SubComponents>
                 <Container class="javax.swing.JTabbedPane" name="panouResurse">
                   <Properties>
@@ -790,6 +792,8 @@
                                   </JTabbedPaneConstraints>
                                 </Constraint>
                               </Constraints>
+
+                              <Layout class="org.netbeans.modules.form.compat2.layouts.DesignFlowLayout"/>
                               <SubComponents>
                                 <Component class="javax.swing.JLabel" name="jLabel7">
                                   <Properties>
@@ -1669,6 +1673,8 @@
                                   </JTabbedPaneConstraints>
                                 </Constraint>
                               </Constraints>
+
+                              <Layout class="org.netbeans.modules.form.compat2.layouts.DesignFlowLayout"/>
                               <SubComponents>
                                 <Container class="javax.swing.JPanel" name="panouGenDupaStudent">
                                   <Properties>

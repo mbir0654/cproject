@@ -1501,11 +1501,17 @@ public class FrameProfMain extends javax.swing.JFrame {
     }
     public void setComboListCurs(DefaultComboBoxModel model){
         anuntAddCurs.setModel(model);
+        anuntAddCurs.setSelectedItem(null);
         catalogListCursuriCurs.setModel(model);
+        catalogListCursuriCurs.setSelectedItem(null);
         catalogListCursuriGrupa.setModel(model);
+        catalogListCursuriGrupa.setSelectedItem(null);
         evaluariListCursuri.setModel(model);
+        evaluariListCursuri.setSelectedItem(null);
         temeListCursuri.setModel(model);
+        temeListCursuri.setSelectedItem(null);
         materialeListCursuri.setModel(model);
+        materialeListCursuri.setSelectedItem(null);
     }
     /*
     public  void setAnuntAddCurs(DefaultComboBoxModel model){
