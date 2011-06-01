@@ -39,16 +39,17 @@ public class DialogConfirm extends javax.swing.JDialog {
         butNu = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Confirmare");
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
         ico.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/warning.png"))); // NOI18N
 
-        text.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        text.setFont(new java.awt.Font("Tahoma", 1, 12));
         text.setForeground(new java.awt.Color(153, 0, 0));
         text.setText("Sunteti sigur ca ");
 
-        butDa.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        butDa.setFont(new java.awt.Font("Tahoma", 1, 11));
         butDa.setForeground(new java.awt.Color(102, 0, 0));
         butDa.setText("Da");
         butDa.addActionListener(new java.awt.event.ActionListener() {
@@ -57,7 +58,7 @@ public class DialogConfirm extends javax.swing.JDialog {
             }
         });
 
-        butNu.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        butNu.setFont(new java.awt.Font("Tahoma", 1, 11));
         butNu.setForeground(new java.awt.Color(0, 102, 0));
         butNu.setText("Nu");
         butNu.addActionListener(new java.awt.event.ActionListener() {
