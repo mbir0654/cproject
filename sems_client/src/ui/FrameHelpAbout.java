@@ -10,15 +10,14 @@
  */
 package ui;
 
-import java.awt.FlowLayout;
-import javax.swing.JPanel;
-
 /**
  *
  * @author MariaSiBogdan
  */
 public class FrameHelpAbout extends javax.swing.JFrame {
-    final String TEAM_MEMBERSHIP = "Adrian Nicolae Bunta, Bogdan Adrian Mihut.";
+    final String TEAM_MEMBERSHIP = "Adrian Nicolae Bunta, Bogdan Adrian Mihut, " +
+       "Daniel Dudas, Otniel Nicola, Simona Diana Bujorean, Bogdan Bot-Rus, " +
+       "Varvescu Andrei Ciprian.";
 
     /** Creates new form FrameHelpAbout */
     public FrameHelpAbout() {
