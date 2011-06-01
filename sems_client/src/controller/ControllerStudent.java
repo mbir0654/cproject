@@ -12,7 +12,7 @@ import javax.swing.table.DefaultTableModel;
 
 import business.serviceinterface.InterfaceStudentService;
 //import com.sun.xml.internal.ws.api.streaming.XMLStreamWriterFactory;
-import org.apache.commons.daemon.support.DaemonLoader;
+//import org.apache.commons.daemon.support.DaemonLoader;
 import ui.*;
 
 import java.util.List;
@@ -144,5 +144,9 @@ public class ControllerStudent {
             model.addElement(a);
         }
         studentFrame.setTemeList(model);
+    }
+
+    public void createContract(){
+
     }
 }

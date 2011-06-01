@@ -11,6 +11,7 @@ import java.util.List;
 public interface InterfaceStudentService {
     public List<Announcement> getAnnouncements(Student student);
     public String hello();
+
     public boolean setContract(Student student, Contract contract);
 
     public List<Course> getAvailableCourses(Student student);

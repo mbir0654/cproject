@@ -17,6 +17,8 @@ import javax.swing.table.TableModel;
 import business.model.Course;
 import controller.*;
 import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
 
 
 /**
@@ -172,7 +174,7 @@ public class FrameStudMain extends javax.swing.JFrame {
                         .addComponent(labelAnuntTitlu))
                     .addGroup(panouAnuntLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 347, Short.MAX_VALUE)))
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 333, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         panouAnuntLayout.setVerticalGroup(
@@ -196,7 +198,7 @@ public class FrameStudMain extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(panouAnunt, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 379, Short.MAX_VALUE))
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 365, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel4Layout.setVerticalGroup(
@@ -209,7 +211,7 @@ public class FrameStudMain extends javax.swing.JFrame {
                 .addContainerGap(31, Short.MAX_VALUE))
         );
 
-        tabGlobal.addTab("Anunturi                ", new javax.swing.ImageIcon(getClass().getResource("/icons/buton.png")), jPanel4); // NOI18N
+        tabGlobal.addTab("Anunturi                ", new javax.swing.ImageIcon(getClass().getResource("/icons/buton.PNG")), jPanel4); // NOI18N
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -288,7 +290,7 @@ public class FrameStudMain extends javax.swing.JFrame {
             .addGroup(panouInfoTemaLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(panouInfoTemaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 347, Short.MAX_VALUE)
+                    .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 333, Short.MAX_VALUE)
                     .addGroup(panouInfoTemaLayout.createSequentialGroup()
                         .addGroup(panouInfoTemaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(panouInfoTemaLayout.createSequentialGroup()
@@ -299,7 +301,7 @@ public class FrameStudMain extends javax.swing.JFrame {
                                 .addGroup(panouInfoTemaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(temaDeadline)
                                     .addComponent(temaDataIncarcare))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE)
                                 .addComponent(butIncarcaTema))
                             .addComponent(temaTitlu))
                         .addContainerGap())))
@@ -333,7 +335,7 @@ public class FrameStudMain extends javax.swing.JFrame {
                     .addComponent(panouInfoTema, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(panouTemeLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 347, Short.MAX_VALUE)))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 333, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         panouTemeLayout.setVerticalGroup(
@@ -370,7 +372,7 @@ public class FrameStudMain extends javax.swing.JFrame {
                 .addContainerGap(52, Short.MAX_VALUE))
         );
 
-        tabGlobal.addTab("Teme                     ", new javax.swing.ImageIcon(getClass().getResource("/icons/buton.png")), jPanel1); // NOI18N
+        tabGlobal.addTab("Teme                     ", new javax.swing.ImageIcon(getClass().getResource("/icons/buton.PNG")), jPanel1); // NOI18N
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -428,7 +430,7 @@ public class FrameStudMain extends javax.swing.JFrame {
                         .addComponent(jLabel7)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(noteListCursuri, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane12, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 379, Short.MAX_VALUE))
+                    .addComponent(jScrollPane12, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 365, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
@@ -443,7 +445,7 @@ public class FrameStudMain extends javax.swing.JFrame {
                 .addGap(175, 175, 175))
         );
 
-        tabGlobal.addTab("Note si examene ", new javax.swing.ImageIcon(getClass().getResource("/icons/buton.png")), jPanel3); // NOI18N
+        tabGlobal.addTab("Note si examene ", new javax.swing.ImageIcon(getClass().getResource("/icons/buton.PNG")), jPanel3); // NOI18N
 
         jPanel7.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -513,7 +515,7 @@ public class FrameStudMain extends javax.swing.JFrame {
                         .addComponent(jLabel8)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(materialeListCursuri, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(41, Short.MAX_VALUE))
+                .addContainerGap(27, Short.MAX_VALUE))
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -527,7 +529,7 @@ public class FrameStudMain extends javax.swing.JFrame {
                 .addContainerGap(143, Short.MAX_VALUE))
         );
 
-        tabGlobal.addTab("Materiale de curs", new javax.swing.ImageIcon(getClass().getResource("/icons/buton.png")), jPanel7); // NOI18N
+        tabGlobal.addTab("Materiale de curs", new javax.swing.ImageIcon(getClass().getResource("/icons/buton.PNG")), jPanel7); // NOI18N
 
         jPanel6.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -604,6 +606,11 @@ public class FrameStudMain extends javax.swing.JFrame {
         });
         tabelCursuriDisponibile.setGridColor(new java.awt.Color(0, 102, 153));
         tabelCursuriDisponibile.setSelectionBackground(new java.awt.Color(0, 102, 153));
+        tabelCursuriDisponibile.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tabelCursuriDisponibileMouseClicked(evt);
+            }
+        });
         jScrollPane7.setViewportView(tabelCursuriDisponibile);
         tabelCursuriDisponibile.getColumnModel().getColumn(0).setMinWidth(50);
         tabelCursuriDisponibile.getColumnModel().getColumn(0).setPreferredWidth(50);
@@ -627,7 +634,7 @@ public class FrameStudMain extends javax.swing.JFrame {
         butRenunta.setText("Renunta");
 
         butAdaugaCursLaContract.setForeground(new java.awt.Color(0, 51, 102));
-        butAdaugaCursLaContract.setText("Adauga");
+        butAdaugaCursLaContract.setText("Salveaza");
         butAdaugaCursLaContract.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 butAdaugaCursLaContractActionPerformed(evt);
@@ -645,20 +652,20 @@ public class FrameStudMain extends javax.swing.JFrame {
                         .addComponent(jLabel9)
                         .addGap(247, 247, 247))
                     .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 379, Short.MAX_VALUE)
+                        .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 365, Short.MAX_VALUE)
                         .addContainerGap())
                     .addGroup(jPanel6Layout.createSequentialGroup()
                         .addComponent(jLabel10)
-                        .addContainerGap(277, Short.MAX_VALUE))
+                        .addContainerGap(263, Short.MAX_VALUE))
                     .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addComponent(jScrollPane7, javax.swing.GroupLayout.DEFAULT_SIZE, 379, Short.MAX_VALUE)
+                        .addComponent(jScrollPane7, javax.swing.GroupLayout.DEFAULT_SIZE, 365, Short.MAX_VALUE)
                         .addContainerGap())
                     .addGroup(jPanel6Layout.createSequentialGroup()
                         .addComponent(butContracteaza, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(butRenunta, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(butAdaugaCursLaContract, javax.swing.GroupLayout.DEFAULT_SIZE, 134, Short.MAX_VALUE)
+                        .addComponent(butAdaugaCursLaContract, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
                         .addContainerGap())))
         );
         jPanel6Layout.setVerticalGroup(
@@ -680,7 +687,7 @@ public class FrameStudMain extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        tabGlobal.addTab("Contracte              ", new javax.swing.ImageIcon(getClass().getResource("/icons/buton.png")), jPanel6); // NOI18N
+        tabGlobal.addTab("Contracte              ", new javax.swing.ImageIcon(getClass().getResource("/icons/buton.PNG")), jPanel6); // NOI18N
 
         labelStud.setFont(new java.awt.Font("Tahoma", 3, 12));
         labelStud.setForeground(new java.awt.Color(0, 102, 153));
@@ -861,10 +868,13 @@ public class FrameStudMain extends javax.swing.JFrame {
     }//GEN-LAST:event_temeListCursuriItemStateChanged
 
     private void butContracteazaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butContracteazaActionPerformed
-        // Se salveaza modificarile, si se lanseaza un
-        // DialogMsg cu mesaj corespunzator.
-        butContracteaza.setEnabled(false);
-        butRenunta.setEnabled(false);
+        //List<Course> l = new ArrayList<Course>();
+        //Course c = new Course(tabelCursuriDisponibile.getValueAt(tabelCursuriDisponibile.getSelectedRow(), 1),
+          //      tabelCursuriDisponibile.getValueAt(tabelCursuriDisponibile.getSelectedRow(), 2), null)
+        controllerStudent.createContract();
+        butAdaugaCursLaContract.setEnabled(false);
+        butRenunta.setEnabled(true);
+        butContracteaza.setEnabled(true);
 
     }//GEN-LAST:event_butContracteazaActionPerformed
 
@@ -883,9 +893,7 @@ public class FrameStudMain extends javax.swing.JFrame {
         // Adaugam cursul selectat din tableCursuriContractate, in cursuri
         // disponibile (tabelCursuriDisponibile) , stergem din tableCursuriContractate cursu
         // selectat
-        butAdaugaCursLaContract.setEnabled(false);
-        butRenunta.setEnabled(true);
-        butContracteaza.setEnabled(true);
+        
     }//GEN-LAST:event_butAdaugaCursLaContractActionPerformed
 
     private void tableCursuriContractateMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableCursuriContractateMouseClicked
@@ -897,6 +905,13 @@ public class FrameStudMain extends javax.swing.JFrame {
         FrameHelpAbout helpAboutDialog = new FrameHelpAbout();
         helpAboutDialog.show();
 }//GEN-LAST:event_showHelpAboutButtonActionPerformed
+
+    private void tabelCursuriDisponibileMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelCursuriDisponibileMouseClicked
+
+        butContracteaza.setEnabled(true);
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tabelCursuriDisponibileMouseClicked
 
 
 
