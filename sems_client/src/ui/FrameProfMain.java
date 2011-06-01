@@ -160,6 +160,7 @@ public class FrameProfMain extends javax.swing.JFrame {
         showHelpAboutButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Profesor - SEMS");
 
         jPanel5.setBackground(new java.awt.Color(242, 241, 241));
         jPanel5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 102, 153)));
@@ -228,7 +229,7 @@ public class FrameProfMain extends javax.swing.JFrame {
                         .addComponent(labelAnuntCurs)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(labelAnuntTitlu))
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 319, Short.MAX_VALUE)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 326, Short.MAX_VALUE)
                     .addComponent(butAnuntDel, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addContainerGap())
         );
@@ -254,7 +255,7 @@ public class FrameProfMain extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(panouAnunt, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 351, Short.MAX_VALUE))
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 358, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel8Layout.setVerticalGroup(
@@ -328,9 +329,9 @@ public class FrameProfMain extends javax.swing.JFrame {
                         .addGap(25, 25, 25)
                         .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(anuntAddData, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(anuntAddCurs, 0, 194, Short.MAX_VALUE)
-                            .addComponent(anuntAddTitlu, javax.swing.GroupLayout.DEFAULT_SIZE, 194, Short.MAX_VALUE)
-                            .addComponent(jScrollPane8, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 194, Short.MAX_VALUE))))
+                            .addComponent(anuntAddCurs, 0, 201, Short.MAX_VALUE)
+                            .addComponent(anuntAddTitlu, javax.swing.GroupLayout.DEFAULT_SIZE, 201, Short.MAX_VALUE)
+                            .addComponent(jScrollPane8, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 201, Short.MAX_VALUE))))
                 .addGap(82, 82, 82))
         );
         jPanel9Layout.setVerticalGroup(
@@ -367,15 +368,15 @@ public class FrameProfMain extends javax.swing.JFrame {
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addComponent(PanouAnunturi, javax.swing.GroupLayout.DEFAULT_SIZE, 376, Short.MAX_VALUE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(PanouAnunturi, javax.swing.GroupLayout.DEFAULT_SIZE, 383, Short.MAX_VALUE)
+                .addContainerGap(17, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(PanouAnunturi, javax.swing.GroupLayout.DEFAULT_SIZE, 404, Short.MAX_VALUE)
         );
 
-        PanouGrupeStud.addTab("Anunturi                ", new javax.swing.ImageIcon(getClass().getResource("/icons/buton.png")), jPanel4); // NOI18N
+        PanouGrupeStud.addTab("Anunturi                ", new javax.swing.ImageIcon(getClass().getResource("/icons/buton.PNG")), jPanel4); // NOI18N
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -427,8 +428,8 @@ public class FrameProfMain extends javax.swing.JFrame {
                 .addComponent(jLabel3)
                 .addGap(31, 31, 31)
                 .addComponent(catalogListCursuriCurs, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(51, Short.MAX_VALUE))
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 381, Short.MAX_VALUE)
+                .addContainerGap(65, Short.MAX_VALUE))
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 395, Short.MAX_VALUE)
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -511,8 +512,8 @@ public class FrameProfMain extends javax.swing.JFrame {
                         .addComponent(jLabel9)
                         .addGap(31, 31, 31)
                         .addComponent(catalogListCursuriGrupa, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(51, Short.MAX_VALUE))
-            .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 381, Short.MAX_VALUE)
+                .addContainerGap(65, Short.MAX_VALUE))
+            .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 395, Short.MAX_VALUE)
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -536,7 +537,7 @@ public class FrameProfMain extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(PanouCatalog, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 386, Short.MAX_VALUE)
+            .addComponent(PanouCatalog, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -546,7 +547,7 @@ public class FrameProfMain extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        PanouGrupeStud.addTab("Catalog                 ", new javax.swing.ImageIcon(getClass().getResource("/icons/buton.png")), jPanel1); // NOI18N
+        PanouGrupeStud.addTab("Catalog                 ", new javax.swing.ImageIcon(getClass().getResource("/icons/buton.PNG")), jPanel1); // NOI18N
 
         jPanel7.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -680,14 +681,14 @@ public class FrameProfMain extends javax.swing.JFrame {
                         .addContainerGap())
                     .addGroup(jPanel7Layout.createSequentialGroup()
                         .addGap(199, 199, 199)
-                        .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 23, Short.MAX_VALUE)
+                        .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 37, Short.MAX_VALUE)
                         .addGap(154, 154, 154))))
             .addGroup(jPanel7Layout.createSequentialGroup()
                 .addGap(20, 20, 20)
-                .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 356, Short.MAX_VALUE)
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 370, Short.MAX_VALUE)
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
-                .addContainerGap(11, Short.MAX_VALUE)
+                .addContainerGap(25, Short.MAX_VALUE)
                 .addComponent(panouEvaluare, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -707,7 +708,7 @@ public class FrameProfMain extends javax.swing.JFrame {
                 .addGap(12, 12, 12))
         );
 
-        PanouGrupeStud.addTab("Evaluari                ", new javax.swing.ImageIcon(getClass().getResource("/icons/buton.png")), jPanel7); // NOI18N
+        PanouGrupeStud.addTab("Evaluari                ", new javax.swing.ImageIcon(getClass().getResource("/icons/buton.PNG")), jPanel7); // NOI18N
 
         jPanel10.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -802,7 +803,7 @@ public class FrameProfMain extends javax.swing.JFrame {
                     .addComponent(jLabel15)
                     .addComponent(jLabel16)
                     .addComponent(jLabel17))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
                 .addGroup(panouAddTemaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(butAddTema)
                     .addGroup(panouAddTemaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -879,8 +880,8 @@ public class FrameProfMain extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(panouAlocaTemaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(butAlocaTema, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane11, javax.swing.GroupLayout.DEFAULT_SIZE, 222, Short.MAX_VALUE)
-                    .addComponent(alocaTemaListGrupe, 0, 222, Short.MAX_VALUE))
+                    .addComponent(jScrollPane11, javax.swing.GroupLayout.DEFAULT_SIZE, 236, Short.MAX_VALUE)
+                    .addComponent(alocaTemaListGrupe, 0, 236, Short.MAX_VALUE))
                 .addContainerGap())
         );
         panouAlocaTemaLayout.setVerticalGroup(
@@ -929,7 +930,7 @@ public class FrameProfMain extends javax.swing.JFrame {
                     .addGroup(panouRezolvariLayout.createSequentialGroup()
                         .addComponent(jLabel20)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(temaRezolvariListStud, 0, 222, Short.MAX_VALUE)))
+                        .addComponent(temaRezolvariListStud, 0, 236, Short.MAX_VALUE)))
                 .addGap(50, 50, 50))
         );
         panouRezolvariLayout.setVerticalGroup(
@@ -957,10 +958,10 @@ public class FrameProfMain extends javax.swing.JFrame {
                         .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(panouInfoTemeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(butDelTeme, javax.swing.GroupLayout.DEFAULT_SIZE, 105, Short.MAX_VALUE)
-                            .addComponent(butModTeme, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 105, Short.MAX_VALUE)))
+                            .addComponent(butDelTeme, javax.swing.GroupLayout.DEFAULT_SIZE, 119, Short.MAX_VALUE)
+                            .addComponent(butModTeme, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 119, Short.MAX_VALUE)))
                     .addComponent(jLabel14)
-                    .addComponent(panouTeme))
+                    .addComponent(panouTeme, javax.swing.GroupLayout.DEFAULT_SIZE, 360, Short.MAX_VALUE))
                 .addContainerGap())
         );
         panouInfoTemeLayout.setVerticalGroup(
@@ -1005,7 +1006,7 @@ public class FrameProfMain extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        PanouGrupeStud.addTab("Teme                    ", new javax.swing.ImageIcon(getClass().getResource("/icons/buton.png")), jPanel10); // NOI18N
+        PanouGrupeStud.addTab("Teme                    ", new javax.swing.ImageIcon(getClass().getResource("/icons/buton.PNG")), jPanel10); // NOI18N
 
         jPanel14.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -1068,8 +1069,8 @@ public class FrameProfMain extends javax.swing.JFrame {
                         .addComponent(jScrollPane12, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(panouMaterialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(materialeButAdd, javax.swing.GroupLayout.DEFAULT_SIZE, 105, Short.MAX_VALUE)
-                            .addComponent(materialeButDel, javax.swing.GroupLayout.DEFAULT_SIZE, 105, Short.MAX_VALUE))))
+                            .addComponent(materialeButAdd, javax.swing.GroupLayout.DEFAULT_SIZE, 119, Short.MAX_VALUE)
+                            .addComponent(materialeButDel, javax.swing.GroupLayout.DEFAULT_SIZE, 119, Short.MAX_VALUE))))
                 .addContainerGap())
         );
         panouMaterialLayout.setVerticalGroup(
@@ -1113,7 +1114,7 @@ public class FrameProfMain extends javax.swing.JFrame {
                 .addContainerGap(222, Short.MAX_VALUE))
         );
 
-        PanouGrupeStud.addTab("Materiale curs    ", new javax.swing.ImageIcon(getClass().getResource("/icons/buton.png")), jPanel14); // NOI18N
+        PanouGrupeStud.addTab("Materiale curs    ", new javax.swing.ImageIcon(getClass().getResource("/icons/buton.PNG")), jPanel14); // NOI18N
 
         labelStud.setFont(new java.awt.Font("Tahoma", 3, 12));
         labelStud.setForeground(new java.awt.Color(0, 102, 153));

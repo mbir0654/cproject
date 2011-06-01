@@ -3,6 +3,7 @@
 <Form version="1.5" maxVersion="1.7" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
+    <Property name="title" type="java.lang.String" value="Student - SEMS"/>
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
@@ -133,7 +134,7 @@
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="1" attributes="0">
                               <Component id="panouAnunt" alignment="0" max="32767" attributes="1"/>
-                              <Component id="jScrollPane2" alignment="0" pref="365" max="32767" attributes="1"/>
+                              <Component id="jScrollPane2" alignment="0" pref="379" max="32767" attributes="1"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
@@ -207,7 +208,7 @@
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jScrollPane3" pref="333" max="32767" attributes="0"/>
+                                      <Component id="jScrollPane3" pref="347" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
@@ -393,7 +394,7 @@
                                   <Component id="panouInfoTema" alignment="1" max="32767" attributes="0"/>
                                   <Group type="102" alignment="1" attributes="0">
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jScrollPane1" pref="333" max="32767" attributes="1"/>
+                                      <Component id="jScrollPane1" pref="347" max="32767" attributes="1"/>
                                   </Group>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
@@ -452,7 +453,7 @@
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jScrollPane4" alignment="0" pref="333" max="32767" attributes="0"/>
+                                      <Component id="jScrollPane4" alignment="0" pref="347" max="32767" attributes="0"/>
                                       <Group type="102" alignment="0" attributes="0">
                                           <Group type="103" groupAlignment="0" attributes="0">
                                               <Group type="102" alignment="0" attributes="0">
@@ -465,7 +466,7 @@
                                                       <Component id="temaDeadline" min="-2" max="-2" attributes="0"/>
                                                       <Component id="temaDataIncarcare" min="-2" max="-2" attributes="0"/>
                                                   </Group>
-                                                  <EmptySpace pref="8" max="32767" attributes="0"/>
+                                                  <EmptySpace pref="22" max="32767" attributes="0"/>
                                                   <Component id="butIncarcaTema" min="-2" max="-2" attributes="0"/>
                                               </Group>
                                               <Component id="temaTitlu" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -626,7 +627,7 @@
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                   <Component id="noteListCursuri" min="-2" pref="242" max="-2" attributes="0"/>
                               </Group>
-                              <Component id="jScrollPane12" alignment="1" pref="365" max="32767" attributes="0"/>
+                              <Component id="jScrollPane12" alignment="1" pref="379" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
@@ -751,7 +752,7 @@
                                   <Component id="materialeListCursuri" min="-2" pref="242" max="-2" attributes="0"/>
                               </Group>
                           </Group>
-                          <EmptySpace pref="27" max="32767" attributes="0"/>
+                          <EmptySpace pref="41" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -912,15 +913,15 @@
                                   <EmptySpace min="-2" pref="247" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
-                                  <Component id="jScrollPane6" pref="365" max="32767" attributes="0"/>
+                                  <Component id="jScrollPane6" pref="379" max="32767" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <Component id="jLabel10" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace pref="263" max="32767" attributes="0"/>
+                                  <EmptySpace pref="277" max="32767" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
-                                  <Component id="jScrollPane7" pref="365" max="32767" attributes="0"/>
+                                  <Component id="jScrollPane7" pref="379" max="32767" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
@@ -928,7 +929,7 @@
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Component id="butRenunta" min="-2" pref="114" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="butAdaugaCursLaContract" pref="120" max="32767" attributes="0"/>
+                                  <Component id="butAdaugaCursLaContract" pref="134" max="32767" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
                               </Group>
                           </Group>
