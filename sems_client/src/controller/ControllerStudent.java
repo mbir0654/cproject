@@ -12,6 +12,7 @@ import javax.swing.table.DefaultTableModel;
 
 import business.serviceinterface.InterfaceStudentService;
 //import com.sun.xml.internal.ws.api.streaming.XMLStreamWriterFactory;
+import org.apache.commons.daemon.support.DaemonLoader;
 import ui.*;
 
 import java.util.List;
@@ -44,6 +45,7 @@ public class ControllerStudent {
          loadMaterialeListCursuri();
          loadTabelCursuriContractate();
          loadTabelCursuriDisponibile();
+         studentFrame.setIconImages(Controller.icons);
          studentFrame.setVisible(true);
      }
 

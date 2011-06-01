@@ -376,7 +376,7 @@ public class FrameProfMain extends javax.swing.JFrame {
             .addComponent(PanouAnunturi, javax.swing.GroupLayout.DEFAULT_SIZE, 404, Short.MAX_VALUE)
         );
 
-        PanouGrupeStud.addTab("Anunturi                ", new javax.swing.ImageIcon(getClass().getResource("/icons/buton.PNG")), jPanel4); // NOI18N
+        PanouGrupeStud.addTab("Anunturi                ", new javax.swing.ImageIcon(getClass().getResource("/icons/buton.png")), jPanel4); // NOI18N
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -547,7 +547,7 @@ public class FrameProfMain extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        PanouGrupeStud.addTab("Catalog                 ", new javax.swing.ImageIcon(getClass().getResource("/icons/buton.PNG")), jPanel1); // NOI18N
+        PanouGrupeStud.addTab("Catalog                 ", new javax.swing.ImageIcon(getClass().getResource("/icons/buton.png")), jPanel1); // NOI18N
 
         jPanel7.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -708,7 +708,7 @@ public class FrameProfMain extends javax.swing.JFrame {
                 .addGap(12, 12, 12))
         );
 
-        PanouGrupeStud.addTab("Evaluari                ", new javax.swing.ImageIcon(getClass().getResource("/icons/buton.PNG")), jPanel7); // NOI18N
+        PanouGrupeStud.addTab("Evaluari                ", new javax.swing.ImageIcon(getClass().getResource("/icons/buton.png")), jPanel7); // NOI18N
 
         jPanel10.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -1006,7 +1006,7 @@ public class FrameProfMain extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        PanouGrupeStud.addTab("Teme                    ", new javax.swing.ImageIcon(getClass().getResource("/icons/buton.PNG")), jPanel10); // NOI18N
+        PanouGrupeStud.addTab("Teme                    ", new javax.swing.ImageIcon(getClass().getResource("/icons/buton.png")), jPanel10); // NOI18N
 
         jPanel14.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -1114,7 +1114,7 @@ public class FrameProfMain extends javax.swing.JFrame {
                 .addContainerGap(222, Short.MAX_VALUE))
         );
 
-        PanouGrupeStud.addTab("Materiale curs    ", new javax.swing.ImageIcon(getClass().getResource("/icons/buton.PNG")), jPanel14); // NOI18N
+        PanouGrupeStud.addTab("Materiale curs    ", new javax.swing.ImageIcon(getClass().getResource("/icons/buton.png")), jPanel14); // NOI18N
 
         labelStud.setFont(new java.awt.Font("Tahoma", 3, 12));
         labelStud.setForeground(new java.awt.Color(0, 102, 153));

@@ -3,9 +3,15 @@
  */
 package controller;
 
+import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.*;
+import java.util.List;
 
 import ui.FrameLogin;
 import business.model.Administrator;
@@ -15,6 +21,9 @@ import business.model.User;
 import business.serviceinterface.InterfaceAppService;
 import client.RMIUtil;
 
+import javax.imageio.ImageIO;
+import javax.swing.*;
+
 /**
  * Aceasta clasa se va ocupa exclusiv de contolul ferestrelor si va face parte
  * din client in versiunea finala a aplicatiei
@@ -22,6 +31,7 @@ import client.RMIUtil;
  *
  */
 public class Controller {
+    public static List<Image> icons = new ArrayList<Image>();
 	private User u;
 	private FrameLogin loginFrame;
 	private InterfaceAppService apps;
@@ -35,11 +45,39 @@ public class Controller {
      */
 
 	public Controller(InterfaceAppService service){
+        try {
+            if (getClass().getResource("/icons/appico.png") != null) {
+                icons.add(ImageIO.read(getClass().getResource("/icons/appico.png")));
+            }
+            if (getClass().getResource("/icons/appico1.png") != null) {
+                icons.add(ImageIO.read(getClass().getResource("/icons/appico1.png")));
+            }
+            if (getClass().getResource("/icons/appico2.png") != null) {
+                icons.add(ImageIO.read(getClass().getResource("/icons/appico2.png")));
+            }
+            if (getClass().getResource("/icons/appico3.png") != null) {
+                icons.add(ImageIO.read(getClass().getResource("/icons/appico3.png")));
+            }
+            if (getClass().getResource("/icons/appico4.png") != null) {
+                icons.add(ImageIO.read(getClass().getResource("/icons/appico4.png")));
+            }
+            if (getClass().getResource("/icons/appico5.png") != null) {
+                icons.add(ImageIO.read(getClass().getResource("/icons/appico5.png")));
+            }
+            if (getClass().getResource("/icons/appico6.png") != null) {
+                icons.add(ImageIO.read(getClass().getResource("/icons/appico6.png")));
+            }
+        } catch (IOException e) {
+            System.out.println("Cannot load image");
+            System.out.println(e.getMessage());
+        }
+
         apps = service;
 	}
 
     public void openLoginFrame() {
         loginFrame = new FrameLogin(this);
+        loginFrame.setIconImages(icons);
         loginFrame.setTitle("Login - SEMS");
         loginFrame.setName("Login");
         loginFrame.setResizable(false);

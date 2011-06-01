@@ -1,7 +1,12 @@
 package client;
 
 import controller.Controller;
+
+import javax.imageio.ImageIO;
 import javax.swing.UIManager;
+import java.awt.*;
+import java.io.File;
+import java.io.IOException;
 
 /**
  * Created by IntelliJ IDEA.
