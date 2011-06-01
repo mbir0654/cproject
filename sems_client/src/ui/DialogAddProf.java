@@ -78,7 +78,7 @@ public class DialogAddProf extends javax.swing.JDialog {
         jLabel6.setText("Titlu");
 
         inputTitlu.setForeground(new java.awt.Color(0, 102, 153));
-        inputTitlu.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Lect.", "Doct.", "Prof." }));
+        inputTitlu.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "prof.", "conf.", "lect.", "asist.", " " }));
 
         inputUser.setForeground(new java.awt.Color(0, 102, 153));
 

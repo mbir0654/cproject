@@ -13,6 +13,7 @@ package ui;
 import javax.swing.*;
 import javax.swing.table.TableModel;
 
+import business.model.Course;
 import controller.*;
 import java.io.File;
 
@@ -843,21 +844,18 @@ public class FrameStudMain extends javax.swing.JFrame {
     }//GEN-LAST:event_butDescarcaMaterialActionPerformed
 
     private void materialeListCursuriItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_materialeListCursuriItemStateChanged
-
+        controllerStudent.loadListMaterialeCurs((Course)materialeListCursuri.getSelectedItem());
         panouMaterial.setVisible(true);
-        // TODO add your handling code here:
     }//GEN-LAST:event_materialeListCursuriItemStateChanged
 
     private void noteListCursuriItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_noteListCursuriItemStateChanged
-
+        controllerStudent.loadTabelExamene((Course)noteListCursuri.getSelectedItem());
         tabelExamene.setVisible(true);
-        // TODO add your handling code here:
     }//GEN-LAST:event_noteListCursuriItemStateChanged
 
     private void temeListCursuriItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_temeListCursuriItemStateChanged
-
+        controllerStudent.loadTeme((Course) temeListCursuri.getSelectedItem());
         panouTeme.setVisible(true);
-        // TODO add your handling code here:
     }//GEN-LAST:event_temeListCursuriItemStateChanged
 
     private void butContracteazaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butContracteazaActionPerformed
@@ -993,5 +991,17 @@ public class FrameStudMain extends javax.swing.JFrame {
 
     public void setTableCursuriContractate(TableModel model) {
         tableCursuriContractate.setModel(model);
+    }
+
+    public void setTabelCursuriDisponibile(TableModel model) {
+        tabelCursuriDisponibile.setModel(model);
+    }
+
+    public void setMaterialeList(ListModel model) {
+        materialeList.setModel(model);
+    }
+
+    public void setTemeList(ListModel model) {
+        temeList.setModel(model);
     }
 }

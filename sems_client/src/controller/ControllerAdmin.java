@@ -433,6 +433,8 @@ public class ControllerAdmin {
         prof.addCourse(dialog.getCurs());
         dialog.getCurs().addProfessor(prof);
         administratorService.addProfesor(prof);
+        administratorService.updateProfessor(prof);
+        administratorService.updateCourse(dialog.getCurs());
         adminMain.setListProfesori(loadProgesoriByFaculta_list(adminMain.getSelectedFaculty()));
     }
 

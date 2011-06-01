@@ -141,4 +141,12 @@ public final class AdministratorService implements InterfaceAdministratorService
          System.out.println("add_curs :" + course);
     }
 
+    public void updateProfessor(Professor professor) {
+        profRepo.update(professor);
+    }
+
+    public void updateCourse(Course course) {
+        courseRepo.update(course);
+    }
+
 }
