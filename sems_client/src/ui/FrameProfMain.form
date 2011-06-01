@@ -3,6 +3,7 @@
 <Form version="1.5" maxVersion="1.7" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
+    <Property name="title" type="java.lang.String" value="Profesor - SEMS"/>
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
@@ -133,8 +134,8 @@
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
-                          <Component id="PanouAnunturi" pref="376" max="32767" attributes="0"/>
-                          <EmptySpace max="32767" attributes="0"/>
+                          <Component id="PanouAnunturi" pref="383" max="32767" attributes="0"/>
+                          <EmptySpace pref="17" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -178,7 +179,7 @@
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="1" attributes="0">
                                       <Component id="panouAnunt" alignment="0" max="32767" attributes="1"/>
-                                      <Component id="jScrollPane2" alignment="0" pref="351" max="32767" attributes="1"/>
+                                      <Component id="jScrollPane2" alignment="0" pref="358" max="32767" attributes="1"/>
                                   </Group>
                                   <EmptySpace max="-2" attributes="0"/>
                               </Group>
@@ -248,7 +249,7 @@
                                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                               <Component id="labelAnuntTitlu" min="-2" max="-2" attributes="0"/>
                                           </Group>
-                                          <Component id="jScrollPane3" alignment="0" pref="319" max="32767" attributes="0"/>
+                                          <Component id="jScrollPane3" alignment="0" pref="326" max="32767" attributes="0"/>
                                           <Component id="butAnuntDel" alignment="1" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
@@ -371,9 +372,9 @@
                                           <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="0" attributes="0">
                                               <Component id="anuntAddData" min="-2" pref="151" max="-2" attributes="0"/>
-                                              <Component id="anuntAddCurs" alignment="0" pref="194" max="32767" attributes="1"/>
-                                              <Component id="anuntAddTitlu" alignment="0" pref="194" max="32767" attributes="1"/>
-                                              <Component id="jScrollPane8" alignment="1" pref="194" max="32767" attributes="1"/>
+                                              <Component id="anuntAddCurs" alignment="0" pref="201" max="32767" attributes="1"/>
+                                              <Component id="anuntAddTitlu" alignment="0" pref="201" max="32767" attributes="1"/>
+                                              <Component id="jScrollPane8" alignment="1" pref="201" max="32767" attributes="1"/>
                                           </Group>
                                       </Group>
                                   </Group>
@@ -547,7 +548,7 @@
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="PanouCatalog" alignment="1" pref="386" max="32767" attributes="0"/>
+                      <Component id="PanouCatalog" alignment="1" pref="400" max="32767" attributes="0"/>
                   </Group>
                 </DimensionLayout>
                 <DimensionLayout dim="1">
@@ -587,9 +588,9 @@
                                   <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
                                   <Component id="catalogListCursuriCurs" min="-2" pref="207" max="-2" attributes="0"/>
-                                  <EmptySpace pref="51" max="32767" attributes="0"/>
+                                  <EmptySpace pref="65" max="32767" attributes="0"/>
                               </Group>
-                              <Component id="jScrollPane1" alignment="0" pref="381" max="32767" attributes="0"/>
+                              <Component id="jScrollPane1" alignment="0" pref="395" max="32767" attributes="0"/>
                           </Group>
                         </DimensionLayout>
                         <DimensionLayout dim="1">
@@ -710,9 +711,9 @@
                                           <Component id="catalogListCursuriGrupa" min="-2" pref="207" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
-                                  <EmptySpace pref="51" max="32767" attributes="0"/>
+                                  <EmptySpace pref="65" max="32767" attributes="0"/>
                               </Group>
-                              <Component id="jScrollPane4" alignment="0" pref="381" max="32767" attributes="0"/>
+                              <Component id="jScrollPane4" alignment="0" pref="395" max="32767" attributes="0"/>
                           </Group>
                         </DimensionLayout>
                         <DimensionLayout dim="1">
@@ -872,18 +873,18 @@
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace min="-2" pref="199" max="-2" attributes="0"/>
-                                  <Component id="jScrollPane6" pref="23" max="32767" attributes="0"/>
+                                  <Component id="jScrollPane6" pref="37" max="32767" attributes="0"/>
                                   <EmptySpace min="-2" pref="154" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
-                          <Component id="jScrollPane5" pref="356" max="32767" attributes="1"/>
+                          <Component id="jScrollPane5" pref="370" max="32767" attributes="1"/>
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="1" attributes="0">
-                          <EmptySpace pref="11" max="32767" attributes="0"/>
+                          <EmptySpace pref="25" max="32767" attributes="0"/>
                           <Component id="panouEvaluare" min="-2" max="-2" attributes="1"/>
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
@@ -1225,12 +1226,12 @@
                                       <Component id="jScrollPane9" min="-2" pref="235" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="1" attributes="0">
-                                          <Component id="butDelTeme" pref="105" max="32767" attributes="1"/>
-                                          <Component id="butModTeme" alignment="0" pref="105" max="32767" attributes="1"/>
+                                          <Component id="butDelTeme" pref="119" max="32767" attributes="1"/>
+                                          <Component id="butModTeme" alignment="0" pref="119" max="32767" attributes="1"/>
                                       </Group>
                                   </Group>
                                   <Component id="jLabel14" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="panouTeme" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="panouTeme" alignment="0" pref="360" max="32767" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                           </Group>
@@ -1352,7 +1353,7 @@
                                           <Component id="jLabel16" alignment="0" min="-2" max="-2" attributes="0"/>
                                           <Component id="jLabel17" alignment="0" min="-2" max="-2" attributes="0"/>
                                       </Group>
-                                      <EmptySpace pref="13" max="32767" attributes="0"/>
+                                      <EmptySpace pref="27" max="32767" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Component id="butAddTema" alignment="0" min="-2" max="-2" attributes="0"/>
                                           <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
@@ -1491,8 +1492,8 @@
                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Component id="butAlocaTema" alignment="0" min="-2" pref="111" max="-2" attributes="0"/>
-                                          <Component id="jScrollPane11" pref="222" max="32767" attributes="1"/>
-                                          <Component id="alocaTemaListGrupe" alignment="0" pref="222" max="32767" attributes="1"/>
+                                          <Component id="jScrollPane11" pref="236" max="32767" attributes="1"/>
+                                          <Component id="alocaTemaListGrupe" alignment="0" pref="236" max="32767" attributes="1"/>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
                                   </Group>
@@ -1617,7 +1618,7 @@
                                           <Group type="102" alignment="1" attributes="0">
                                               <Component id="jLabel20" min="-2" max="-2" attributes="0"/>
                                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                              <Component id="temaRezolvariListStud" pref="222" max="32767" attributes="1"/>
+                                              <Component id="temaRezolvariListStud" pref="236" max="32767" attributes="1"/>
                                           </Group>
                                       </Group>
                                       <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
@@ -1779,8 +1780,8 @@
                                       <Component id="jScrollPane12" min="-2" pref="231" max="-2" attributes="0"/>
                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="materialeButAdd" alignment="0" pref="105" max="32767" attributes="1"/>
-                                          <Component id="materialeButDel" alignment="0" pref="105" max="32767" attributes="1"/>
+                                          <Component id="materialeButAdd" alignment="0" pref="119" max="32767" attributes="1"/>
+                                          <Component id="materialeButDel" alignment="0" pref="119" max="32767" attributes="1"/>
                                       </Group>
                                   </Group>
                               </Group>
@@ -1910,7 +1911,7 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
+                  <Group type="102" alignment="1" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="1" attributes="0">
                           <Group type="102" alignment="1" attributes="0">
@@ -1922,8 +1923,8 @@
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="jLabel23" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="44" max="32767" attributes="0"/>
-                      <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace pref="40" max="32767" attributes="0"/>
+                      <Component id="showHelpAboutButton" min="-2" pref="40" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -1933,7 +1934,6 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -1945,6 +1945,7 @@
                                   <Component id="jLabel23" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
+                          <Component id="showHelpAboutButton" alignment="0" min="-2" max="-2" attributes="1"/>
                       </Group>
                       <EmptySpace max="32767" attributes="0"/>
                   </Group>
@@ -1958,13 +1959,6 @@
                   <Color blue="99" green="66" red="0" type="rgb"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="welcome,"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JLabel" name="jLabel2">
-              <Properties>
-                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/icons/windows-info.png"/>
-                </Property>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="labelNumeProf">
@@ -1998,6 +1992,20 @@
               </Properties>
               <Events>
                 <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jLabel23MouseClicked"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JButton" name="showHelpAboutButton">
+              <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/icons/windows-info.png"/>
+                </Property>
+                <Property name="contentAreaFilled" type="boolean" value="false"/>
+                <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+                  <Color id="Hand Cursor"/>
+                </Property>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="showHelpAboutButtonActionPerformed"/>
               </Events>
             </Component>
           </SubComponents>

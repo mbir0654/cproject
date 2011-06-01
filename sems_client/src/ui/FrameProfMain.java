@@ -154,12 +154,13 @@ public class FrameProfMain extends javax.swing.JFrame {
         semsIco = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
         labelNumeProf = new javax.swing.JLabel();
         labelUserProf = new javax.swing.JLabel();
         jLabel23 = new javax.swing.JLabel();
+        showHelpAboutButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Profesor - SEMS");
 
         jPanel5.setBackground(new java.awt.Color(242, 241, 241));
         jPanel5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 102, 153)));
@@ -228,7 +229,7 @@ public class FrameProfMain extends javax.swing.JFrame {
                         .addComponent(labelAnuntCurs)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(labelAnuntTitlu))
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 319, Short.MAX_VALUE)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 326, Short.MAX_VALUE)
                     .addComponent(butAnuntDel, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addContainerGap())
         );
@@ -254,7 +255,7 @@ public class FrameProfMain extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(panouAnunt, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 351, Short.MAX_VALUE))
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 358, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel8Layout.setVerticalGroup(
@@ -328,9 +329,9 @@ public class FrameProfMain extends javax.swing.JFrame {
                         .addGap(25, 25, 25)
                         .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(anuntAddData, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(anuntAddCurs, 0, 194, Short.MAX_VALUE)
-                            .addComponent(anuntAddTitlu, javax.swing.GroupLayout.DEFAULT_SIZE, 194, Short.MAX_VALUE)
-                            .addComponent(jScrollPane8, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 194, Short.MAX_VALUE))))
+                            .addComponent(anuntAddCurs, 0, 201, Short.MAX_VALUE)
+                            .addComponent(anuntAddTitlu, javax.swing.GroupLayout.DEFAULT_SIZE, 201, Short.MAX_VALUE)
+                            .addComponent(jScrollPane8, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 201, Short.MAX_VALUE))))
                 .addGap(82, 82, 82))
         );
         jPanel9Layout.setVerticalGroup(
@@ -367,8 +368,8 @@ public class FrameProfMain extends javax.swing.JFrame {
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addComponent(PanouAnunturi, javax.swing.GroupLayout.DEFAULT_SIZE, 376, Short.MAX_VALUE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(PanouAnunturi, javax.swing.GroupLayout.DEFAULT_SIZE, 383, Short.MAX_VALUE)
+                .addContainerGap(17, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -427,8 +428,8 @@ public class FrameProfMain extends javax.swing.JFrame {
                 .addComponent(jLabel3)
                 .addGap(31, 31, 31)
                 .addComponent(catalogListCursuriCurs, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(51, Short.MAX_VALUE))
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 381, Short.MAX_VALUE)
+                .addContainerGap(65, Short.MAX_VALUE))
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 395, Short.MAX_VALUE)
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -511,8 +512,8 @@ public class FrameProfMain extends javax.swing.JFrame {
                         .addComponent(jLabel9)
                         .addGap(31, 31, 31)
                         .addComponent(catalogListCursuriGrupa, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(51, Short.MAX_VALUE))
-            .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 381, Short.MAX_VALUE)
+                .addContainerGap(65, Short.MAX_VALUE))
+            .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 395, Short.MAX_VALUE)
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -536,7 +537,7 @@ public class FrameProfMain extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(PanouCatalog, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 386, Short.MAX_VALUE)
+            .addComponent(PanouCatalog, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -680,14 +681,14 @@ public class FrameProfMain extends javax.swing.JFrame {
                         .addContainerGap())
                     .addGroup(jPanel7Layout.createSequentialGroup()
                         .addGap(199, 199, 199)
-                        .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 23, Short.MAX_VALUE)
+                        .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 37, Short.MAX_VALUE)
                         .addGap(154, 154, 154))))
             .addGroup(jPanel7Layout.createSequentialGroup()
                 .addGap(20, 20, 20)
-                .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 356, Short.MAX_VALUE)
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 370, Short.MAX_VALUE)
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
-                .addContainerGap(11, Short.MAX_VALUE)
+                .addContainerGap(25, Short.MAX_VALUE)
                 .addComponent(panouEvaluare, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -802,7 +803,7 @@ public class FrameProfMain extends javax.swing.JFrame {
                     .addComponent(jLabel15)
                     .addComponent(jLabel16)
                     .addComponent(jLabel17))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
                 .addGroup(panouAddTemaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(butAddTema)
                     .addGroup(panouAddTemaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -879,8 +880,8 @@ public class FrameProfMain extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(panouAlocaTemaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(butAlocaTema, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane11, javax.swing.GroupLayout.DEFAULT_SIZE, 222, Short.MAX_VALUE)
-                    .addComponent(alocaTemaListGrupe, 0, 222, Short.MAX_VALUE))
+                    .addComponent(jScrollPane11, javax.swing.GroupLayout.DEFAULT_SIZE, 236, Short.MAX_VALUE)
+                    .addComponent(alocaTemaListGrupe, 0, 236, Short.MAX_VALUE))
                 .addContainerGap())
         );
         panouAlocaTemaLayout.setVerticalGroup(
@@ -929,7 +930,7 @@ public class FrameProfMain extends javax.swing.JFrame {
                     .addGroup(panouRezolvariLayout.createSequentialGroup()
                         .addComponent(jLabel20)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(temaRezolvariListStud, 0, 222, Short.MAX_VALUE)))
+                        .addComponent(temaRezolvariListStud, 0, 236, Short.MAX_VALUE)))
                 .addGap(50, 50, 50))
         );
         panouRezolvariLayout.setVerticalGroup(
@@ -957,10 +958,10 @@ public class FrameProfMain extends javax.swing.JFrame {
                         .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(panouInfoTemeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(butDelTeme, javax.swing.GroupLayout.DEFAULT_SIZE, 105, Short.MAX_VALUE)
-                            .addComponent(butModTeme, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 105, Short.MAX_VALUE)))
+                            .addComponent(butDelTeme, javax.swing.GroupLayout.DEFAULT_SIZE, 119, Short.MAX_VALUE)
+                            .addComponent(butModTeme, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 119, Short.MAX_VALUE)))
                     .addComponent(jLabel14)
-                    .addComponent(panouTeme))
+                    .addComponent(panouTeme, javax.swing.GroupLayout.DEFAULT_SIZE, 360, Short.MAX_VALUE))
                 .addContainerGap())
         );
         panouInfoTemeLayout.setVerticalGroup(
@@ -1068,8 +1069,8 @@ public class FrameProfMain extends javax.swing.JFrame {
                         .addComponent(jScrollPane12, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(panouMaterialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(materialeButAdd, javax.swing.GroupLayout.DEFAULT_SIZE, 105, Short.MAX_VALUE)
-                            .addComponent(materialeButDel, javax.swing.GroupLayout.DEFAULT_SIZE, 105, Short.MAX_VALUE))))
+                            .addComponent(materialeButAdd, javax.swing.GroupLayout.DEFAULT_SIZE, 119, Short.MAX_VALUE)
+                            .addComponent(materialeButDel, javax.swing.GroupLayout.DEFAULT_SIZE, 119, Short.MAX_VALUE))))
                 .addContainerGap())
         );
         panouMaterialLayout.setVerticalGroup(
@@ -1128,8 +1129,6 @@ public class FrameProfMain extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(0, 102, 153));
         jLabel1.setText("welcome,");
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/windows-info.png"))); // NOI18N
-
         labelNumeProf.setForeground(new java.awt.Color(0, 102, 153));
         labelNumeProf.setText("numeProf");
 
@@ -1146,11 +1145,20 @@ public class FrameProfMain extends javax.swing.JFrame {
             }
         });
 
+        showHelpAboutButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/windows-info.png"))); // NOI18N
+        showHelpAboutButton.setContentAreaFilled(false);
+        showHelpAboutButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        showHelpAboutButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                showHelpAboutButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
@@ -1160,8 +1168,8 @@ public class FrameProfMain extends javax.swing.JFrame {
                     .addComponent(labelUserProf))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel23)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
-                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
+                .addComponent(showHelpAboutButton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
@@ -1169,7 +1177,6 @@ public class FrameProfMain extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel1)
@@ -1177,7 +1184,8 @@ public class FrameProfMain extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(labelUserProf)
-                            .addComponent(jLabel23))))
+                            .addComponent(jLabel23)))
+                    .addComponent(showHelpAboutButton))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -1360,6 +1368,11 @@ public class FrameProfMain extends javax.swing.JFrame {
         // Se deschide dialogul DialogChangePassword
 }//GEN-LAST:event_jLabel23MouseClicked
 
+    private void showHelpAboutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showHelpAboutButtonActionPerformed
+        FrameHelpAbout helpAboutDialog = new FrameHelpAbout();
+        helpAboutDialog.show();
+}//GEN-LAST:event_showHelpAboutButtonActionPerformed
+
     /**
     * @param args the command line arguments
     */
@@ -1403,7 +1416,6 @@ public class FrameProfMain extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
@@ -1459,6 +1471,7 @@ public class FrameProfMain extends javax.swing.JFrame {
     private javax.swing.JPanel panouRezolvari;
     private javax.swing.JTabbedPane panouTeme;
     private javax.swing.JLabel semsIco;
+    private javax.swing.JButton showHelpAboutButton;
     private javax.swing.JTable tabelEvaluari;
     private javax.swing.JTable tableCatalogByCurs;
     private javax.swing.JTable tableCatalogByGrupa;
@@ -1479,7 +1492,7 @@ public class FrameProfMain extends javax.swing.JFrame {
     }
     public void setAnnouncementDetail(){
         Announcement announcement = (Announcement) listAnunturi.getSelectedValue();
-        labelAnuntTitlu.setText(announcement.getSubiect() + " [ " + announcement.getData().toString() + " ]");
+        labelAnuntTitlu.setText(announcement.getSubject() + " [ " + announcement.getDate().toString() + " ]");
         labelAnuntCurs.setText(announcement.getCourse().getName());
         labelAnuntText.setText(announcement.getAnnouncement());
     }
@@ -1487,13 +1500,19 @@ public class FrameProfMain extends javax.swing.JFrame {
         Announcement announcement = (Announcement) listAnunturi.getSelectedValue();
         controllerProfesor.deleteAnnouncement(announcement);
     }
-    public  void setComboListCurs(DefaultComboBoxModel model){
+    public void setComboListCurs(DefaultComboBoxModel model){
         anuntAddCurs.setModel(model);
+        anuntAddCurs.setSelectedItem(null);
         catalogListCursuriCurs.setModel(model);
+        catalogListCursuriCurs.setSelectedItem(null);
         catalogListCursuriGrupa.setModel(model);
+        catalogListCursuriGrupa.setSelectedItem(null);
         evaluariListCursuri.setModel(model);
+        evaluariListCursuri.setSelectedItem(null);
         temeListCursuri.setModel(model);
+        temeListCursuri.setSelectedItem(null);
         materialeListCursuri.setModel(model);
+        materialeListCursuri.setSelectedItem(null);
     }
     /*
     public  void setAnuntAddCurs(DefaultComboBoxModel model){

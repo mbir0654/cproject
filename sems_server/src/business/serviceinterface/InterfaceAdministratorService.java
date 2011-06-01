@@ -23,4 +23,14 @@ public interface InterfaceAdministratorService {
 	public void generateReports();
     public List<Administrator> getAdministrators();
     public List<Faculty> getFaculties();
+    public void addStudent(Student student);
+    public void addFaculty(Faculty faculty);
+    public void addAdministrator(Administrator administrator);
+    public void addProfesor(Professor professor);
+    public void deleteAdministrator(Administrator administrator);
+    public void deleteCourse(Course course);
+    public void deleteProfessor(Professor professor);
+    public void updateProfessor(Professor professor);
+    public void updateCourse(Course course);
+    public void addCourse(Course course);
 }

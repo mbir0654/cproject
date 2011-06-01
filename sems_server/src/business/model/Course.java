@@ -5,6 +5,7 @@ import java.io.Serializable;
 import java.sql.*;
 import java.util.*;
 import data.dbutil.*;
+import java.text.SimpleDateFormat;
 
 	/**
 	 * 
@@ -13,11 +14,11 @@ import data.dbutil.*;
 	 */
 public class Course implements Serializable {
 	
-	private ArrayList<Exam> exams;
-	private ArrayList<Announcement> announcements;
-	private ArrayList<Assignment> assignments;
-	private ArrayList<CourseMaterial> materialeDeCurs;
-	private List<Professor> profesori;
+	private ArrayList<Exam> exams = new ArrayList<Exam>();
+	private ArrayList<Announcement> announcements = new ArrayList<Announcement>();
+	private ArrayList<Assignment> assignments = new ArrayList<Assignment>();
+	private ArrayList<CourseMaterial> materialeDeCurs = new ArrayList<CourseMaterial>();
+	private List<Professor> profesori = new ArrayList<Professor>();
 	private String name = "";
 	private Integer numberOfCredits = 0;
 	private Specialty specializare;
@@ -33,12 +34,6 @@ public class Course implements Serializable {
 	 * Constructorul implicit
 	 */
 	public Course(){
-		exams = new ArrayList<Exam>();
-		announcements = new ArrayList<Announcement>();
-		assignments = new ArrayList<Assignment>();
-		materialeDeCurs = new ArrayList<CourseMaterial>();
-		profesori = new ArrayList<Professor>();
-		specializare = new Specialty();
 	}
 	/**
 	 * Constructorul de copiere
@@ -64,12 +59,13 @@ public class Course implements Serializable {
 	 * @param n este numele cursului
 	 * @param nC este numarul de credite
 	 */
-	public Course(String n, int nC) {
+	public Course(String n, int nC, Specialty s) {
             name = n;
             exams = new ArrayList<Exam>();
             announcements = new ArrayList<Announcement>();
             assignments = new ArrayList<Assignment>();
             numberOfCredits = nC;
+            specializare = s;
 	}
 
 
@@ -254,8 +250,17 @@ public class Course implements Serializable {
 	 * compus din abrevierea cursului si a
 	 * specializarii 
 	 */
-	public void setCod(String cod) {
-		this.cod = cod;
+        public void setCod(String cod){
+            this.cod = cod;
+        }
+
+        /**
+         * genereaza un cod pentru curs
+         */
+	public void generateCod() {
+		cod = name.substring(0, 3).toUpperCase()+"-"
+                        +specializare.getName().substring(0, 4).toUpperCase() +
+                        "-" + new Random(name.length()).nextInt(20);
 	}
 	
 	/**
@@ -272,7 +277,7 @@ public class Course implements Serializable {
 	 * obligatoriu, facultativ, optional
 	 */
 	public void setTip(String tip) {
-		this.tip = tip;
+		this.tip = tip.toUpperCase();
 	}
 	
 	/**
@@ -310,6 +315,7 @@ public class Course implements Serializable {
 	/**
 	 * creaza un String din nume specializare si numar de credite
 	 */
+    @Override
     public String toString() {
         return name+" "+numberOfCredits+" "+exams;
     }
@@ -322,36 +328,133 @@ public class Course implements Serializable {
     }
     
     
-    public List<DbObject> toDbObjectListCS() throws SQLException{
+    public List<DbObject> toDbObjectListCS() throws SQLException {
     	List<DbObject> l = new ArrayList<DbObject>();
     	Integer spid = 0;
     	ResultSet rs;
+        DbUtil dbu = new DbUtil();
     	DbObject db1 = new DbObject("courseCode", cod);
     	DbObject db2 = new DbObject("courseType", tip);
     	DbObject db3 = new DbObject("courseCredits", 
     			numberOfCredits.toString());
     	DbObject db4 = new DbObject("semester", semestrul.toString());
-    	while((rs = new DbUtil().getDate("select spId from specializations" +
-    			" where spName='"+specializare.getName()+"' limit 1")).next())
-    		spid = rs.getInt(1);
-    	DbObject db5 = new DbObject("spId", spid.toString());
-    	l.add(db1);l.add(db2);l.add(db3);l.add(db4);l.add(db5);
+        rs = dbu.getDate("select spId from specializations" +
+    			" where spName='"+specializare.getName()+"' limit 1");
+    	if(rs.next()){
+            spid = rs.getInt(1);
+            DbObject db5 = new DbObject("spId", spid.toString());
+            rs = dbu.getDate("select courseId from courses where courseName='"+
+                    name+"'");
+            if(rs.next()){
+                Integer cid = rs.getInt(1);
+                DbObject db6 = new DbObject("courseId", cid.toString());
+                l.add(db1); l.add(db2); l.add(db3);
+                l.add(db4); l.add(db5); l.add(db6);
+            }
+        }
+        System.out.println(l);
     	return l;
     }
     
     public List<DbObject> toDbObjectListTC(Professor p) throws SQLException{
-		List<DbObject> l = new ArrayList<DbObject>();
-		Integer tcid = 0,csid = 0;
-		ResultSet rs;
-		while((rs = new DbUtil().getDate("select teacherId from teachers " +
-				"where userName = '"+p.getUserName()+"' limit 1")).next())
-			tcid = rs.getInt(1);
-		DbObject db1 = new DbObject("teacherId", tcid.toString());
-		while((rs = new DbUtil().getDate("select csId from specializations_" +
-				"courses where courseCode = '"+cod+"' limit 1")).next())
-			csid = rs.getInt(1);
-		DbObject db2 = new DbObject("csId", csid.toString());
-		l.add(db1); l.add(db2);
+        List<DbObject> l = new ArrayList<DbObject>();
+        Integer tcid = 0,csid = 0;
+        ResultSet rs;
+        DbUtil dbu = new DbUtil();
+        rs = dbu.getDate("select teacherId from teachers where userName = '"
+                +p.getUserName()+"' limit 1");
+        if(rs.next()){
+            tcid = rs.getInt(1);
+            DbObject db1 = new DbObject("teacherId", tcid.toString());
+            rs = dbu.getDate("select csId from specializations_" +
+                        "courses where courseCode = '"+cod+"' limit 1");
+            if(rs.next()){
+                csid = rs.getInt(1);
+                DbObject db2 = new DbObject("csId", csid.toString());
+                l.add(db1); l.add(db2);
+            }
+        }
+        dbu.close();
     	return l;
+    }
+    
+    public List<DbObject> toDbObjectListExams(Exam e) throws SQLException{
+        List<DbObject> l = new ArrayList<DbObject>();
+        DbUtil dbu = new DbUtil();
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        ResultSet rs = new DbUtil().getDate("select csId from " +
+                    "specializations_courses where courseId in (select " +
+                    "courseId from courses where courseName ='" + name
+                    +"') limit 1");
+        if(rs.next()){
+            Integer csid = rs.getInt(1);
+            DbObject db1 = new DbObject("csId", csid.toString());
+            DbObject db2 = new DbObject("date", sdf.format(e.getData()));
+            DbObject db3 = new DbObject("type", e.getType());
+            l.add(db1); l.add(db2); l.add(db3);
+        }
+        dbu.close();
+        return l;
+    }
+
+     public List<DbObject> toDbObjectListAssignments(Assignment a) throws SQLException{
+        List<DbObject> l = new ArrayList<DbObject>();
+        DbUtil dbu = new DbUtil();
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        ResultSet rs = new DbUtil().getDate("select csId from " +
+                    "specializations_courses where courseId in (select " +
+                    "courseId from courses where courseName ='" + name
+                    +"') limit 1");
+        if(rs.next()){
+            Integer csid = rs.getInt(1);
+            DbObject db1 = new DbObject("csId", csid.toString());
+            DbObject db2 = new DbObject("text", a.getText());
+            DbObject db3 = new DbObject("deadline", sdf.format(a.getDeadline()));
+            DbObject db4 = new DbObject("subject", a.getName());
+            l.add(db1); l.add(db2); l.add(db3); l.add(db4);
+        }
+        dbu.close();
+        return l;
+    }
+      public List<DbObject> toDbObjectListAnnouncements(Announcement a) throws SQLException{
+        List<DbObject> l = new ArrayList<DbObject>();
+        DbUtil dbu = new DbUtil();
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        ResultSet rs = new DbUtil().getDate("select csId from " +
+                    "specializations_courses where courseId in (select " +
+                    "courseId from courses where courseName ='" + name
+                    +"') limit 1");
+        if(rs.next()){
+            Integer csid = rs.getInt(1);
+            DbObject db1 = new DbObject("csId", csid.toString());
+            DbObject db2 = new DbObject("body", a.getAnnouncement());
+            DbObject db3 = new DbObject("date", sdf.format(a.getDate()));
+            DbObject db4 = new DbObject("subject", a.getSubject());
+            ResultSet rs1 = dbu.getDate("select teacherId from teachers where " +
+                    "userName ='"+a.getProf().getUserName()+"'");
+            if(rs1.next()){
+                Integer tcid = rs1.getInt(1);
+                DbObject db5 = new DbObject("teacherId", tcid.toString());
+                l.add(db1); l.add(db2); l.add(db3); l.add(db4); l.add(db5);
+            }
+        }
+        dbu.close();
+        return l;
+    }
+       public List<DbObject> toDbObjectListMaterials(CourseMaterial cm) throws SQLException{
+        List<DbObject> l = new ArrayList<DbObject>();
+        DbUtil dbu = new DbUtil();
+        ResultSet rs = new DbUtil().getDate("select csId from " +
+                    "specializations_courses where courseId in (select " +
+                    "courseId from courses where courseName ='" + name
+                    +"') limit 1");
+        if(rs.next()){
+            Integer csid = rs.getInt(1);
+            DbObject db1 = new DbObject("csId", csid.toString());
+            DbObject db2 = new DbObject("fileName", cm.getPath());
+            l.add(db1);l.add(db2);
+        }
+        dbu.close();
+        return l;
     }
 }

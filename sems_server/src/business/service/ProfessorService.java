@@ -2,8 +2,6 @@ package business.service;
 
 import business.model.*;
 import business.serviceinterface.InterfaceProfessorService;
-import data.repositorydb.AnnouncementRepository;
-import data.repositorydb.FacultyRepository;
 import data.repositorydb.ProfessorRepository;
 import data.repositorydb.StudentRepository;
 import data.repositoryinterface.Repository;

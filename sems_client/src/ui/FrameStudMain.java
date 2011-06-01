@@ -11,6 +11,9 @@
 
 package ui;
 import javax.swing.*;
+import javax.swing.table.TableModel;
+
+import business.model.Course;
 import controller.*;
 import java.io.File;
 
@@ -101,12 +104,13 @@ public class FrameStudMain extends javax.swing.JFrame {
         semsIco = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
         labelNumeStudent = new javax.swing.JLabel();
         labelUserStudent = new javax.swing.JLabel();
         jLabel23 = new javax.swing.JLabel();
+        showHelpAboutButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Student - SEMS");
 
         jPanel5.setBackground(new java.awt.Color(242, 241, 241));
         jPanel5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 102, 153)));
@@ -143,7 +147,7 @@ public class FrameStudMain extends javax.swing.JFrame {
         labelAnuntTitlu.setText("Anunt test 1");
 
         labelAnuntText.setColumns(20);
-        labelAnuntText.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        labelAnuntText.setFont(new java.awt.Font("Arial", 0, 11));
         labelAnuntText.setForeground(new java.awt.Color(0, 102, 153));
         labelAnuntText.setRows(5);
         labelAnuntText.setCaretColor(new java.awt.Color(0, 102, 153));
@@ -167,7 +171,7 @@ public class FrameStudMain extends javax.swing.JFrame {
                         .addComponent(labelAnuntTitlu))
                     .addGroup(panouAnuntLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 333, Short.MAX_VALUE)))
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 347, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         panouAnuntLayout.setVerticalGroup(
@@ -191,7 +195,7 @@ public class FrameStudMain extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(panouAnunt, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 365, Short.MAX_VALUE))
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 379, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel4Layout.setVerticalGroup(
@@ -241,7 +245,7 @@ public class FrameStudMain extends javax.swing.JFrame {
         panouInfoTema.setForeground(new java.awt.Color(255, 255, 255));
 
         temaInfo.setColumns(20);
-        temaInfo.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        temaInfo.setFont(new java.awt.Font("Arial", 0, 11));
         temaInfo.setForeground(new java.awt.Color(0, 102, 153));
         temaInfo.setRows(5);
         temaInfo.setText("Informatiile despre o tema");
@@ -250,7 +254,7 @@ public class FrameStudMain extends javax.swing.JFrame {
         temaInfo.setEnabled(false);
         jScrollPane4.setViewportView(temaInfo);
 
-        temaTitlu.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        temaTitlu.setFont(new java.awt.Font("Tahoma", 1, 11));
         temaTitlu.setForeground(new java.awt.Color(0, 51, 102));
         temaTitlu.setText("Nume [deadline]");
 
@@ -283,7 +287,7 @@ public class FrameStudMain extends javax.swing.JFrame {
             .addGroup(panouInfoTemaLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(panouInfoTemaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 333, Short.MAX_VALUE)
+                    .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 347, Short.MAX_VALUE)
                     .addGroup(panouInfoTemaLayout.createSequentialGroup()
                         .addGroup(panouInfoTemaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(panouInfoTemaLayout.createSequentialGroup()
@@ -294,7 +298,7 @@ public class FrameStudMain extends javax.swing.JFrame {
                                 .addGroup(panouInfoTemaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(temaDeadline)
                                     .addComponent(temaDataIncarcare))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
                                 .addComponent(butIncarcaTema))
                             .addComponent(temaTitlu))
                         .addContainerGap())))
@@ -328,7 +332,7 @@ public class FrameStudMain extends javax.swing.JFrame {
                     .addComponent(panouInfoTema, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(panouTemeLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 333, Short.MAX_VALUE)))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 347, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         panouTemeLayout.setVerticalGroup(
@@ -423,7 +427,7 @@ public class FrameStudMain extends javax.swing.JFrame {
                         .addComponent(jLabel7)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(noteListCursuri, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane12, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 365, Short.MAX_VALUE))
+                    .addComponent(jScrollPane12, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 379, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
@@ -508,7 +512,7 @@ public class FrameStudMain extends javax.swing.JFrame {
                         .addComponent(jLabel8)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(materialeListCursuri, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(27, Short.MAX_VALUE))
+                .addContainerGap(41, Short.MAX_VALUE))
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -640,20 +644,20 @@ public class FrameStudMain extends javax.swing.JFrame {
                         .addComponent(jLabel9)
                         .addGap(247, 247, 247))
                     .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 365, Short.MAX_VALUE)
+                        .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 379, Short.MAX_VALUE)
                         .addContainerGap())
                     .addGroup(jPanel6Layout.createSequentialGroup()
                         .addComponent(jLabel10)
-                        .addContainerGap(263, Short.MAX_VALUE))
+                        .addContainerGap(277, Short.MAX_VALUE))
                     .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addComponent(jScrollPane7, javax.swing.GroupLayout.DEFAULT_SIZE, 365, Short.MAX_VALUE)
+                        .addComponent(jScrollPane7, javax.swing.GroupLayout.DEFAULT_SIZE, 379, Short.MAX_VALUE)
                         .addContainerGap())
                     .addGroup(jPanel6Layout.createSequentialGroup()
                         .addComponent(butContracteaza, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(butRenunta, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(butAdaugaCursLaContract, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
+                        .addComponent(butAdaugaCursLaContract, javax.swing.GroupLayout.DEFAULT_SIZE, 134, Short.MAX_VALUE)
                         .addContainerGap())))
         );
         jPanel6Layout.setVerticalGroup(
@@ -690,8 +694,6 @@ public class FrameStudMain extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(0, 102, 153));
         jLabel1.setText("welcome,");
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/windows-info.png"))); // NOI18N
-
         labelNumeStudent.setForeground(new java.awt.Color(0, 102, 153));
         labelNumeStudent.setText("numeStudent");
 
@@ -705,6 +707,15 @@ public class FrameStudMain extends javax.swing.JFrame {
         jLabel23.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel23MouseClicked(evt);
+            }
+        });
+
+        showHelpAboutButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/windows-info.png"))); // NOI18N
+        showHelpAboutButton.setContentAreaFilled(false);
+        showHelpAboutButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        showHelpAboutButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                showHelpAboutButtonActionPerformed(evt);
             }
         });
 
@@ -722,16 +733,15 @@ public class FrameStudMain extends javax.swing.JFrame {
                     .addComponent(labelUserStudent))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel23)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
-                .addComponent(jLabel2)
-                .addContainerGap())
+                .addGap(18, 18, 18)
+                .addComponent(showHelpAboutButton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel1)
@@ -739,7 +749,8 @@ public class FrameStudMain extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(labelUserStudent)
-                            .addComponent(jLabel23))))
+                            .addComponent(jLabel23)))
+                    .addComponent(showHelpAboutButton))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -834,21 +845,18 @@ public class FrameStudMain extends javax.swing.JFrame {
     }//GEN-LAST:event_butDescarcaMaterialActionPerformed
 
     private void materialeListCursuriItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_materialeListCursuriItemStateChanged
-
+        controllerStudent.loadListMaterialeCurs((Course)materialeListCursuri.getSelectedItem());
         panouMaterial.setVisible(true);
-        // TODO add your handling code here:
     }//GEN-LAST:event_materialeListCursuriItemStateChanged
 
     private void noteListCursuriItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_noteListCursuriItemStateChanged
-
+        controllerStudent.loadTabelExamene((Course)noteListCursuri.getSelectedItem());
         tabelExamene.setVisible(true);
-        // TODO add your handling code here:
     }//GEN-LAST:event_noteListCursuriItemStateChanged
 
     private void temeListCursuriItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_temeListCursuriItemStateChanged
-
+        controllerStudent.loadTeme((Course) temeListCursuri.getSelectedItem());
         panouTeme.setVisible(true);
-        // TODO add your handling code here:
     }//GEN-LAST:event_temeListCursuriItemStateChanged
 
     private void butContracteazaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butContracteazaActionPerformed
@@ -884,6 +892,11 @@ public class FrameStudMain extends javax.swing.JFrame {
         butAdaugaCursLaContract.setEnabled(true);
     }//GEN-LAST:event_tableCursuriContractateMouseClicked
 
+    private void showHelpAboutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showHelpAboutButtonActionPerformed
+        FrameHelpAbout helpAboutDialog = new FrameHelpAbout();
+        helpAboutDialog.show();
+}//GEN-LAST:event_showHelpAboutButtonActionPerformed
+
 
 
 
@@ -899,7 +912,6 @@ public class FrameStudMain extends javax.swing.JFrame {
     private javax.swing.JButton butRenunta;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel7;
@@ -938,6 +950,7 @@ public class FrameStudMain extends javax.swing.JFrame {
     private javax.swing.JPanel panouMaterial;
     private javax.swing.JPanel panouTeme;
     private javax.swing.JLabel semsIco;
+    private javax.swing.JButton showHelpAboutButton;
     private javax.swing.JTabbedPane tabGlobal;
     private javax.swing.JTable tabelCursuriDisponibile;
     private javax.swing.JTable tabelExamene;
@@ -954,16 +967,42 @@ public class FrameStudMain extends javax.swing.JFrame {
     public void setAnnouncement(ListModel model) {
         listAnunturi.setModel(model);
     }
-    public  void  setTemeListCursuri(ComboBoxModel model){
+    public void setTemeListCursuri(ComboBoxModel model){
         temeListCursuri.setModel(model);
     }
 
-    public  void setNameStudent(String fullname){
+    public void setNameStudent(String fullname){
         labelNumeStudent.setText(fullname);
     }
-    public  void setUsernameStudent(String username){
+    public void setUsernameStudent(String username){
         labelUserStudent.setText(username);
     }
 
+    public void setNoteListCursuri(ComboBoxModel model) {
+        noteListCursuri.setModel(model);
+    }
 
+    public void setMaterialeListCursuri(ComboBoxModel model) {
+        materialeListCursuri.setModel(model);
+    }
+
+    public void setTabelExamene(TableModel model) {
+        tabelExamene.setModel(model);
+    }
+
+    public void setTableCursuriContractate(TableModel model) {
+        tableCursuriContractate.setModel(model);
+    }
+
+    public void setTabelCursuriDisponibile(TableModel model) {
+        tabelCursuriDisponibile.setModel(model);
+    }
+
+    public void setMaterialeList(ListModel model) {
+        materialeList.setModel(model);
+    }
+
+    public void setTemeList(ListModel model) {
+        temeList.setModel(model);
+    }
 }

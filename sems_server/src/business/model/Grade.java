@@ -84,6 +84,6 @@ public class Grade implements Serializable {
      */
     @Override
     public String toString() {
-    	return stud+" "+grade;
+    	return ""+grade;
     }
 }

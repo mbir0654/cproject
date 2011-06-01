@@ -1,9 +1,12 @@
 package business.model;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
 import data.dbutil.DbObject;
+import data.dbutil.DbUtil;
+import java.sql.ResultSet;
 
 
 public class Professor extends User{
@@ -121,13 +124,37 @@ public class Professor extends User{
     
     @Override
     public List<DbObject> toDbObjectList() {
-    	DbObject db1 = new DbObject("userName",userName);
-    	DbObject db2 = new DbObject("teacherTitle",title);
     	List<DbObject> l = new ArrayList<DbObject>();
-    	l.add(db1); l.add(db2);
+        l.addAll(super.toDbObjectList());
+    	DbObject db1 = new DbObject("role","prof");
+    	l.add(db1);
     	return l;
     }
-    
-    
+
+    public List<DbObject> toDbObjectListTeachers(){
+        List<DbObject> l = new ArrayList<DbObject>();
+        DbObject db1 = new DbObject("userName", userName);
+        DbObject db2 = new DbObject("teacherTitle", title);
+        l.add(db1);l.add(db2);
+        return l;
+    }
+
+    public List<DbObject>toDbObjectListTeachCourse(Course c) throws SQLException{
+        List<DbObject> l = new ArrayList<DbObject>();
+        DbUtil dbu = new DbUtil();
+        ResultSet rs1 = dbu.getDate("select teacherId from teachers where " +
+                "userName='"+userName+"'");
+        rs1.next();
+        Integer tcid = rs1.getInt(1);
+        DbObject db1 = new DbObject("teacherId", tcid.toString());
+        ResultSet rs2 = dbu.getDate("select csId from specializations_courses" +
+                " where courseCode = '"+c.getCod()+"'");
+        rs2.next();
+        Integer csid = rs2.getInt(1);
+        DbObject db2 = new DbObject("csId", csid.toString());
+        l.add(db1);l.add(db2);
+        dbu.close();
+        return l;
+    }
 } 
 

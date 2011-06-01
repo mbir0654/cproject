@@ -8,9 +8,15 @@ package data.repositorydb;
 import business.model.Group;
 import business.model.Professor;
 import business.model.Specialty;
+import data.dbutil.DbUtil;
+import data.dbutil.SqlFunctions;
 import data.repositoryinterface.Repository;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import org.springframework.jdbc.object.SqlFunction;
 
 /**
  *
@@ -30,12 +36,12 @@ public class GroupRepository implements Repository<Group>{
     private GroupRepository() {
         for(Specialty s : specRepo.getAll()){
             l.addAll(s.getGroups());
-        for(Professor p : pr.getAll())
-            for(Group grp : p.getGroups()){
-                for(Group grr : s.getGroups())
-                    if(grp.getGroupName().equals(grr.getGroupName())){
-                        grp.setSpecialty(grr.getSpecialty());
-                    }
+            for(Professor p : pr.getAll())
+                for(Group grp : p.getGroups()){
+                    for(Group grr : s.getGroups())
+                        if(grp.getGroupName().equals(grr.getGroupName())){
+                            grp.setSpecialty(grr.getSpecialty());
+                        }
             }
         }
     }
@@ -43,7 +49,15 @@ public class GroupRepository implements Repository<Group>{
 
 
     public void add(Group item) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        try {
+            DbUtil dbu = new DbUtil();
+            if (SqlFunctions.insert("groups", item.toDbObjectList(), dbu)) {
+                l.add(item);
+            }
+            dbu.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(GroupRepository.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     public List<Group> getAll() {
@@ -58,10 +72,27 @@ public class GroupRepository implements Repository<Group>{
     }
 
     public void update(Group item) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        try {
+            DbUtil dbu = new DbUtil();
+            SqlFunctions.update("groups", item.toDbObjectList(), "");
+            SqlFunctions.delete("students_specializations", "groupId = "+
+                    item.toDbObjectListStudents().get(0).getValue());
+            SqlFunctions.insert("students_specializations",
+                    item.toDbObjectListStudents(), dbu);
+            dbu.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(GroupRepository.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     public void delete(Group item) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        try {
+            if (SqlFunctions.delete("groups", "groupId = " +
+                    item.toDbObjectListStudents().get(0).getValue())) {
+                l.remove(item);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(GroupRepository.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 }

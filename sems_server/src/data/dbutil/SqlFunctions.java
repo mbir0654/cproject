@@ -1,10 +1,10 @@
 package data.dbutil;
 
+
+
+import com.mysql.jdbc.exceptions.MySQLIntegrityConstraintViolationException;
 import java.sql.SQLException;
-import java.util.Iterator;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -21,7 +21,7 @@ public abstract class SqlFunctions{
      * contrar
      * @throws SQLException
      */
-    public static boolean insert(String tableName, List<DbObject> data) throws SQLException{
+    public static boolean insert(String tableName, List<DbObject> data, DbUtil dbu) throws SQLException{
         try {
             String f = "";
             String v = "";
@@ -40,13 +40,20 @@ public abstract class SqlFunctions{
             f += ff;
             v += vv;
             String s = "insert into " + tableName + "(" + f + ") values(" + v + ")";
-            DbUtil dbu = new DbUtil();
+            System.out.println(s);
             if (dbu.makeUpdate(s) > 0) {
+                System.out.println("inserare cu succes!");
                 return true;
             }
-            
-        } catch (com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException ex) {
-            System.out.println("obiectul exista deja in baza de date");
+
+        }
+        catch(MySQLIntegrityConstraintViolationException ex){
+            System.out.println(ex.getMessage());
+            throw new MySqlException();
+        }
+        catch (com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException ex) {
+        System.out.println("obiectul exista deja in baza de date");
+        throw new MySqlException();
         }
         return false;
     }
@@ -63,18 +70,28 @@ public abstract class SqlFunctions{
      * contrar
      * @throws SQLException
      */
-    public static boolean update(String tableName, List<DbObject> data, String where) throws SQLException {
-            String f = "";
+    public static boolean update(String tableName, List<DbObject> data,
+                             String where) throws SQLException {
+        try{
+            //String f = "";
             String ff = "";
             for (DbObject dbo : data) {
                 if (!ff.equals("")) {
                     ff += ", ";
                 }
+                ff += dbo.getField()+" = '"+dbo.getValue()+"'";
             }
-            String s = "update " + tableName + f + "where" + where;
+            String s = "update " + tableName +" set "+ ff + " where " + where;
             DbUtil dbu = new DbUtil();
-            //if(dbu.makeUpdate(s) > 0)
-            //  return true;
+            if(dbu.makeUpdate(s) > 0){
+                dbu.close();
+                System.out.println("Update reusit!");
+                return true;
+            }dbu.close();
+        }catch(MySQLIntegrityConstraintViolationException ex){
+            System.out.println(ex.getMessage());
+            throw new MySqlException();
+        }
         return false;
     }
 
@@ -89,8 +106,12 @@ public abstract class SqlFunctions{
     public static boolean delete(String tableName, String where)
                                 throws SQLException{
         DbUtil dbu = new DbUtil();
-        if(dbu.makeUpdate("delete from "+tableName+" where "+where) > 0)
+        if(dbu.makeUpdate("delete from "+tableName+" where "+where) > 0){
+            dbu.close();
+            System.out.print("Delete reusit!");
             return true;
+        }
+        dbu.close();
         return false;
     }
-}  
+}

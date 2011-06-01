@@ -11,6 +11,7 @@ import java.util.List;
 import business.model.*;
 import data.dbutil.DbObject;
 import data.dbutil.DbUtil;
+import data.dbutil.MySqlException;
 import data.dbutil.SqlFunctions;
 import data.repositoryinterface.*;
 
@@ -39,6 +40,7 @@ public class StudentRepository implements Repository<Student>{
 				s.setPassword(rs.getString("password"));
 				l.add(s);
 			}
+                        dbu.close();
 		} catch (SQLException e) {
 			System.err.println(e.getMessage());
 			e.printStackTrace();
@@ -56,16 +58,20 @@ public class StudentRepository implements Repository<Student>{
 	public void add(Student item) {
 		l.add(item);
 		try {
-			List<DbObject> data1 = item.toDbObjectList();
-			List<DbObject> data2 = item.toDbObjectListStud();
-			List<DbObject> data3 = item.toDbObjectListSS();
-			List<DbObject> data4 = item.toDbObjectListContract();
-			SqlFunctions.insert("users", data1);
-			SqlFunctions.insert("students", data2);
-			SqlFunctions.insert("students_specializations", data3);
-			SqlFunctions.insert("contracts", data4);
+                    DbUtil dbu = new DbUtil();
+                    List<DbObject> data1 = item.toDbObjectList();
+                    SqlFunctions.insert("users", data1,dbu);
+                    List<DbObject> data2 = item.toDbObjectListStud();
+                    SqlFunctions.insert("students", data2,dbu);
+                    List<DbObject> data3 = item.toDbObjectListSS();
+                    SqlFunctions.insert("students_specializations", data3,dbu);
+                    List<DbObject> data4 = item.toDbObjectListContract();
+                    SqlFunctions.insert("contracts", data4,dbu);
+                    dbu.close();
+		} catch (MySqlException e) {
+			System.out.println(e.getMessage());
 		} catch (SQLException e) {
-			System.err.println(e.getMessage());
+			System.out.println(e.getMessage());
 			e.printStackTrace();
 		}
 	}
@@ -97,18 +103,62 @@ public class StudentRepository implements Repository<Student>{
 	 */
 	@Override
 	public void update(Student item) {
-		try {
-			List<DbObject> data1 = item.toDbObjectList();
-			List<DbObject> data2 = item.toDbObjectListStud();
-			//List<DbObject> data3 = item.toDbObjectListSS();
-			//List<DbObject> data4 = item.toDbObjectListContract();
-			SqlFunctions.update("users", data1, "userName = '"+item.getUserName()+"'");
-			SqlFunctions.update("students", data2, "userName = '"+item.getUserName()+"'");
-			//SqlFunctions.update("students_specializations", data3, "spId  = "+data3.get(1).getValue());
-		} catch (SQLException e) {
-			System.err.println(e.getMessage());
-			e.printStackTrace();
-		}
+            try     {
+                DbUtil dbu =  new DbUtil();
+                List<DbObject> data1 = item.toDbObjectList();
+                List<DbObject> data2 = item.toDbObjectListStud();
+                SqlFunctions.update("users", data1, "userName = '"
+                    +item.getUserName()+"'");
+                SqlFunctions.update("students", data2, "userName = '"
+                    +item.getUserName()+"'");
+                ResultSet rs1 = dbu.getDate("select c.contractId from " +
+                               "contracts c inner join students_specializations"
+                               +" ss on c.ssId = ss.ssId inner join students s"
+                               +" on ss.studentId = s.studentId where " +
+                               "s.userName = '"+item.getUserName()+"'");
+                if(rs1.next()){
+                    Integer ctid = rs1.getInt(1);
+                    SqlFunctions.delete("contracts_data", "contractId="
+                            +ctid);
+                    System.out.println("Sters toate cursurile " +
+                            "din contract");
+                }
+                rs1 = dbu.getDate("select ssId from students_" +
+                "specializations where studentId in(select studentId from" +
+                " students where userName='"+item.getUserName()+"') limit 1");
+                if(rs1.next()){
+                Integer ssid = rs1.getInt(1);
+                SqlFunctions.delete("solutions","assignmentId = "+ssid);
+                }
+                for (Course c : item.getContract().getCourses()){
+                    List<DbObject> data4 = item.toDbObjectListContractCourses(c);
+                    try{
+                        SqlFunctions.insert("contracts_data", data4,dbu);
+                    }catch(MySqlException e){
+                        e.getMessage();
+                    }
+                    for(Assignment a : c.getAssignments()){
+                        ResultSet rs = dbu.getDate("SELECT assignmentId FROM " +
+                                "assignments where text = '"+a.getText()+"'");
+                        if(rs.next()){
+                            Integer asid = rs.getInt(1);
+                            for(AssignmentSolution as : item.getSolutions()){
+                                List<DbObject> data5 = item.
+                                        toDbObjectListSolutions(c,as, asid);
+                                try{
+                                    SqlFunctions.insert("solutions", data5, dbu);
+                                }catch (MySqlException e){
+                                    System.out.println(e.getMessage());
+                                }
+                            }
+                        }
+                    }
+                }
+                dbu.close();
+            } catch (SQLException e) {
+                System.err.println(e.getMessage());
+                e.printStackTrace();
+            }
 	}
 
 	/**
@@ -118,8 +168,11 @@ public class StudentRepository implements Repository<Student>{
 	public void delete(Student item) {
 		l.remove(item);
 		try {
-			SqlFunctions.delete("users", "userName = '"+item.getUserName()+"'");
-		} catch (SQLException e) {
+                    if(!SqlFunctions.delete("users", "userName = '"+
+                            item.getUserName()+"'"))
+                        System.err.println("no students deleted!");
+                    System.out.println(item.getUserName()+" - deleted");
+		} catch (Exception e) {
 			System.err.println(e.getMessage());
 			e.printStackTrace();
 		}

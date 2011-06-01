@@ -4,6 +4,7 @@ package business.model;
 import java.util.List;
 
 import data.dbutil.DbObject;
+import java.util.ArrayList;
 
 /**
  * 
@@ -38,7 +39,11 @@ public class Administrator extends User {
 	
 	@Override
 	public List<DbObject> toDbObjectList(){
-            return super.toDbObjectList();
+            List<DbObject> l = new ArrayList<DbObject>();
+            l.addAll(super.toDbObjectList());
+            DbObject db1 = new DbObject("role", "admin");
+            l.add(db1);
+            return l;
 	}
 
 } 
